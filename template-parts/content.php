@@ -2,8 +2,6 @@
 /**
  * The default template for displaying content
  *
- * Used for both single and index/archive/search. -- Currently page.php and index.php
- *
  * @package WordPress
  * @subpackage emdotbike
  * @since emdotbike 0.1.0
@@ -11,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php emdotbike_theme_post_thumbnail(); ?>
+    <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
     <header class="entry-header">
         <?php
         if ( is_single() ) :

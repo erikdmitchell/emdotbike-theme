@@ -160,3 +160,9 @@
 		max-width: 1200px;
 	}   
 }
+
+.single-post .post-thumbnail {
+    text-align: center;
+    max-height: 480px;
+    overflow: hidden;
+}

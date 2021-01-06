@@ -71,6 +71,7 @@ function emdotbike_theme_setup() {
      * add our image size(s)
      */
     add_image_size( 'navbar-logo', 163, 100, true );
+    add_image_size( 'single', 9999, 480, true );
 
     /**
      * include theme meta page

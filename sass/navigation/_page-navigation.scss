@@ -1,0 +1,30 @@
+.paging-navigation,
+.post-navigation {
+    display: flex;
+    justify-content: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 1rem 1.5rem;
+	max-width: calc(100% - 2rem);
+	
+	@media only screen and (min-width: 768px) {
+		margin: 0 10% 1.5rem;
+		max-width: 80%;
+	}
+	
+	@media only screen and (min-width: 1500px) {
+		margin: 0 auto 1.5rem;
+		max-width: 1200px;
+	}
+	
+    a,
+    a:hover,
+    a:visited {
+        text-decoration: none;
+        color: #777;
+    }
+}
+
+.post-navigation {
+    display: block;
+}

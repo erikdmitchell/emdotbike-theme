@@ -1,0 +1,80 @@
+$breakpoints: (
+    mobile: 0px,
+    tablet-s: 576px,
+    tablet: 768px,
+    notablet: 768px,
+    nodesktop: 991px,
+    desktop: 992px,
+    desktop-m: 1200px,
+    desktop-w: 1350px,
+    desktop-w2: 1400px,
+    desktop-l: 1500px,
+    desktop-uw: 1690px
+);
+
+@mixin bp($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  }
+
+  @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+//reverse Breakpoints with max width
+@mixin rbp($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  }
+
+  @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+/*
+How to use:
+.class {
+  @include bp(mobile) {
+    width: 5%;
+  }
+  @include bp(tablet) {
+    width: 10%;
+  }
+  @include bp(desktop) {
+    width: 20%;
+  }
+  @include bp(desktop-m) {
+    width: 30%;
+  }
+    @include bp(desktop-w) {
+    width: 40%;
+  }
+  @include bp(desktop-l) {
+    width: 50%;
+  }
+}
+*/

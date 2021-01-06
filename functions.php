@@ -201,7 +201,8 @@ function emdotbike_theme_post_thumbnail( $size = 'full' ) {
  *
  * @return void
  */
-function emdotbike_theme_posted_on() {
+
+function emdotbike_theme_posted_on($show_author = false) {
     if ( is_sticky() && is_home() && ! is_paged() ) {
         echo '<span class="featured-post"><span class="glyphicon glyphicon-pushpin"></span>' . __( 'Sticky', 'emdotbike' ) . '</span>';
     }
@@ -210,7 +211,10 @@ function emdotbike_theme_posted_on() {
     if ( ! is_sticky() ) :
         echo '<span class="entry-date"><span class="glyphicon glyphicon-time"></span><a href="' . get_permalink() . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '">' . get_the_date() . '</time></a></span>';
     endif;
-    echo '<span class="byline"><span class="glyphicon glyphicon-user"></span><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author">' . get_the_author() . '</a></span></span>';
+    
+    if ($show_author) :
+        echo '<span class="byline"><span class="glyphicon glyphicon-user"></span><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author">' . get_the_author() . '</a></span></span>';
+    endif;
 }
 
 /**
@@ -438,7 +442,7 @@ function get_terms_list( $term = false ) {
  * @param - $tags - string - the allowed HTML tags. These will not be stripped out
  * @param - $extra - string - text to append to the end of the excerpt
  */
-function get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
+function emdotnet_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
 
     if ( is_int( $post ) ) {
         // get the post object of the passed ID
@@ -463,6 +467,10 @@ function get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>',
     return apply_filters( 'the_content', $the_excerpt );
 }
 
+function emdotnet_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
+    echo emdotnet_get_post_excerpt_by_id( $post, $length, $tags, $extra );
+}
+
 function emdotbike_has_categories( $excl = '' ) {
     global $post;
 
@@ -473,7 +481,7 @@ function emdotbike_has_categories( $excl = '' ) {
         $exclude = explode( ',', $exclude );
 
         foreach ( $categories as $key => $cat ) :
-            if ( in_array( $cat->cat_ID, $exclude ) ) :
+            if ( in_array( $cat->name, $exclude ) ) :
                 unset( $categories[ $key ] );
             endif;
         endforeach;

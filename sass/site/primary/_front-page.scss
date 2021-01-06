@@ -1,0 +1,25 @@
+.front-page-posts {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+
+	@media only screen and (max-width: 991px) {
+		flex-direction: column;
+	}    
+   
+    article {
+        flex: 1 1 33.333333%;
+        padding: 15px 15px 0 15px;
+        max-width: 33.333333%;
+	        
+        &:nth-child(odd) {
+            background: #f1f1f1;
+        }
+        
+        a,
+        a:hover,
+        a:visited {
+            color: #404040;
+        }
+    }
+}

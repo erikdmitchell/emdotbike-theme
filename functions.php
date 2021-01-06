@@ -131,7 +131,7 @@ add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
 function emdotbike_theme_scripts() {
     global $wp_scripts;
 
-    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/js/emdotbike-theme.min.js', array( 'jquery' ), '1.2.0', true );
+    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/js/emdotbike.min.js', array( 'jquery' ), '0.1.0', true );
 
     if ( is_singular() ) :
         wp_enqueue_script( 'comment-reply' );

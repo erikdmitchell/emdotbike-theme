@@ -128,9 +128,35 @@
         text-decoration: none;
         color: #777;
     }
+    
+    .author,
+    .edit-link {
+        margin-left: 10px;
+    }
 }
 
 .post-thumbnail {
     display: flex;
     justify-content: center;  
+}
+
+.posts-wrapper {
+	padding-left: 15px;
+	padding-right: 15px;
+    padding-top: 30px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    
+	margin: 0 1rem;
+	max-width: calc(100% - 2rem);
+	
+	@media only screen and (min-width: 768px) {
+		margin: 0 10%;
+		max-width: 80%;
+	}
+	
+	@media only screen and (min-width: 1500px) {
+		margin: 0 auto;
+		max-width: 1200px;
+	}   
 }

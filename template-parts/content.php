@@ -27,12 +27,6 @@
                 emdotbike_theme_posted_on();
             }
 
-            if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
-                ?>
-                    <span class="comments-link"></span><?php comments_popup_link( __( 'Leave a comment', 'emdotbike' ), __( '1 Comment', 'emdotbike' ), __( '% Comments', 'emdotbike' ) ); ?></span>
-                <?php
-                endif;
-
                 edit_post_link( __( 'Edit', 'emdotbike' ), '<span class="edit-link">', '</span>' );
             ?>
         </div><!-- .entry-meta -->
@@ -66,7 +60,7 @@
                 <?php the_tags( '<div class="tag-links">', ' ', '</div>' ); ?>
             </div>
         <?php endif; ?>
-        <?php if ( emdotbike_has_categories() ) : ?>
+        <?php if ( emdotbike_has_categories('Uncategorized') ) : ?>
             <div class="categories-list">
                 <div class="categories-title">Categories</div>
             

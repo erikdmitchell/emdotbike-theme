@@ -10,7 +10,7 @@
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: #ccc url(images/cd-top-arrow.svg) no-repeat center 50%;
+  background: $color__background-back-to-top url(images/cd-top-arrow.svg) no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
@@ -34,7 +34,7 @@
   opacity: .5; }
 
 .no-touch .emdotnet-back-to-top:hover {
-  background-color: #ccc;
+  background-color: $color__background-back-to-top;
   opacity: 1; }
 
 @media only screen and (min-width: 768px) {

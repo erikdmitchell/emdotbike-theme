@@ -10,20 +10,19 @@
 
     li {
         position: relative;
-        //line-height: 1.7;
         float: left;
         margin-left: 15px;
         
         &.current-menu-item,
         &.current-menu-parent {
             > a {
-                color: #777;                
+                //color: #777;                
             }
         }
     }
 
     a {
-        color: #000;
+        color: $color__link-navigation;
         text-decoration: none;
         display: block;
     }
@@ -36,9 +35,7 @@
         padding: 10px 10px;
     }
     
-    & > ul > li:hover > a{
-        //background: #333;
-    }
+    & > ul > li:hover > a{}
     
     /* Sub/Children Menu */
     .sub-menu,
@@ -47,7 +44,6 @@
         left: 0;
         top: 100%;
         z-index: 1;
-        //background: #333;
         min-width: 200px;
         display: none;
     }
@@ -63,17 +59,12 @@
     }
     
     .sub-menu li:hover a,
-    .children li:hover a {
-       // background: #444;
-    }
+    .children li:hover a {}
     
     /* Grandchildren Menu */
     .sub-menu .sub-menu,
     .children .children {
         position: relative;
-        //left: 0;
-        //top: 100%;
-        //background: #444;
     }
 
 }

@@ -13,13 +13,7 @@
         max-width: 33.333333%;
 	        
         &:nth-child(odd) {
-            background: #f1f1f1;
-        }
-        
-        a,
-        a:hover,
-        a:visited {
-            color: #404040;
+            background: $color__background-article-list;
         }
         
         &.featured-post {

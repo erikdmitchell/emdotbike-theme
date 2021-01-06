@@ -1,7 +1,7 @@
 footer {
     border-top: none; 
-    background: #3b3b3b;
-    color: #fff;
+    background: $color__background-footer;
+    color: $color__text-footer;
 
     .footer-widgets {
         padding: 10px 0 20px 0;
@@ -12,7 +12,7 @@ footer {
                 font-size: 16px;
                 margin-bottom: 10px;
                 padding: 10px 0px;
-                color: #fff;
+                color: $color__text-footer;
                 text-transform: uppercase;            
             }
             
@@ -24,12 +24,12 @@ footer {
             
             a,
             a:visited {
-                color: #fff;        
+                color: $color__link-footer;        
             }
             
             a:focus,
             a:hover {
-                color: #ccc;
+                color: $color__link-footer-hover;
             }
             
             .social-media {
@@ -41,7 +41,7 @@ footer {
                     padding-right: 10px;
             
                     a:hover {
-                        color: #ccc;
+                        color: $color__link-footer-hover;
                     }
                 }         
             }
@@ -52,6 +52,6 @@ footer {
         padding: 10px 0;
         text-align: center;
         margin: 20px 0 0 0;
-        color: #fff; 
+        color: $color__text-footer; 
     }    
 }

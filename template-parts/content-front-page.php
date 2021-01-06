@@ -1,8 +1,6 @@
 <?php
 /**
- * The default template for displaying content
- *
- * Used for both single and index/archive/search. -- Currently page.php and index.php
+ * The template for displaying content on the front page
  *
  * @package WordPress
  * @subpackage emdotbike
@@ -10,25 +8,43 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php emdotbike_theme_post_thumbnail(); ?>
-    <header class="entry-header">
-        <?php the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' ); ?>
-    </header><!-- .entry-header -->
+<?php
+$featured_blog_query = new WP_Query(
+    array(
+        'posts_per_page' => 1,
+    )
+);
 
-    <div class="entry-content">
-        <?php
-            $link = '...<a href="' . get_permalink( get_the_ID() ) . '">read more</a>';
-            emdotnet_post_excerpt( get_the_ID(), 25, '<a><em><strong>', $link );
-            wp_link_pages(
-                array(
-                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'emdotbike' ) . '</span>',
-                    'after'       => '</div>',
-                    'link_before' => '<span>',
-                    'link_after'  => '</span>',
-                )
-            );
-        ?>
-    </div><!-- .entry-content -->
+$blog_query = new WP_Query(
+    array(
+        'posts_per_page' => 6,
+        'offset' => 1,
+    )
+);
+?>
+
+
+<?php if ( $featured_blog_query->have_posts() ) : ?>
+    <?php
+        while ( $featured_blog_query->have_posts() ) :
+            $featured_blog_query->the_post();
+
+            get_template_part( 'template-parts/content', 'front-page-featured' );
+        
+        endwhile; 
+    ?>
+<?php endif; ?>
+
+<?php if ( $blog_query->have_posts() ) : ?>
+    <?php
+        while ( $blog_query->have_posts() ) :
+            $blog_query->the_post();
+            
+            get_template_part( 'template-parts/content', 'front-page-post' );
                         
-</article><!-- #post-## -->
+        endwhile; 
+    ?>
+<?php endif; ?>
+
+<!--         <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts', $blog_query->max_num_pages ); ?></div> -->
+

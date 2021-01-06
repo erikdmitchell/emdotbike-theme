@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying content
+ * The template for displaying single posts
  *
  * @package WordPress
  * @subpackage emdotbike
@@ -9,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php emdotbike_theme_post_thumbnail(); ?>
+    <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
     <header class="entry-header">
         <?php
         if ( is_single() ) :

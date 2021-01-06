@@ -4,7 +4,7 @@
         // Start the Loop.
     while ( have_posts() ) :
         the_post();
-        get_template_part( 'template-parts/content' );
+        get_template_part( 'template-parts/content', 'single' );
 
         // Previous/next post navigation.
         emdotbike_theme_post_nav();

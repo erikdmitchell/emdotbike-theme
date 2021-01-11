@@ -6,7 +6,7 @@
  * toggles the mobile nav
  */ 
 jQuery(document).ready(function() {
-    jQuery('.toggle-nav').click(function(e) {      
+    jQuery('.toggle-nav').on('click', function(e) {      
         jQuery('.main-navigation ul').slideToggle(500);
 
         e.preventDefault();
@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
 		$back_to_top = $('.emdotbike-back-to-top');
 
 	//hide or show the "back to top" link
-	$(window).scroll(function(){
+	$(window).on('scroll', function(){
 		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('btt-is-visible') : $back_to_top.removeClass('btt-is-visible btt-fade-out');
 		if( $(this).scrollTop() > offset_opacity ) {
 			$back_to_top.addClass('btt-fade-out');

@@ -12,7 +12,7 @@
 
     <header id="masthead" class="site-header clearfix">
         <div class="site-branding">
-            <?php emdotbike_theme_navbar_brand(); ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/em-bike-logo.png" width="100" alt="logo" />
         </div><!-- .site-branding -->
 
         <nav id="site-navigation" class="main-navigation">

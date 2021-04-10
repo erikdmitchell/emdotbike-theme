@@ -2,14 +2,19 @@
 
     <?php while ( have_posts() ) : the_post(); ?>
         <?php get_template_part( 'template-parts/content', 'single' ); ?>
-        <?php emdotbike_theme_post_nav(); ?>
+        
+        <div class="container">
+            <?php emdotbike_theme_post_nav(); ?>
+        </div>
 
-        <?php
-        // If comments are open or we have at least one comment, load up the comment template.
-        if ( comments_open() || get_comments_number() ) {
-            comments_template();
-        }
-        ?>
+        <div class="container">
+            <?php
+            // If comments are open or we have at least one comment, load up the comment template.
+            if ( comments_open() || get_comments_number() ) {
+                comments_template();
+            }
+            ?>
+        </div>
     <?php endwhile; ?>
 
 <?php

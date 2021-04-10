@@ -26,19 +26,21 @@ class EM_Social extends WP_Widget {
         $html = '';
         
         $html .= '<h3>Connect with Me</h3>';
-        $html .= '<ul class="social-media">';
-            $html .= '<li id="social-media-facebook"><a href="https://www.facebook.com/erikdmitchell"><i class="fab fa-facebook"></i></a></li>';
-            $html .= '<li id="social-media-twitter"><a href="https://twitter.com/erikdmitchell"><i class="fab fa-twitter"></i></a></li>';
-            $html .= '<li id="social-media-instagram"><a href="https://instagram.com/erikdmitchell"><i class="fab fa-instagram"></i></a></li>';
-        $html .= '</ul>';
+        $html .= '<div class="em-social-media-wrap">';
+            $html .= '<ul class="social-media">';
+                $html .= '<li id="social-media-facebook"><a href="https://www.facebook.com/erikdmitchell"><i class="fab fa-facebook"></i></a></li>';
+                $html .= '<li id="social-media-twitter"><a href="https://twitter.com/erikdmitchell"><i class="fab fa-twitter"></i></a></li>';
+                $html .= '<li id="social-media-instagram"><a href="https://instagram.com/erikdmitchell"><i class="fab fa-instagram"></i></a></li>';
+            $html .= '</ul>';
+        $html .= '</div>';
         
         echo $args['before_widget'];
  
-        //echo '<div class="textwidget">'; 
+        echo '<div class="em-social-widget">'; 
                     
             echo $html;                    
  
-        //echo '</div>';
+        echo '</div>';
  
         echo $args['after_widget'];
  

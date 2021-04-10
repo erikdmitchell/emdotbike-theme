@@ -36,7 +36,7 @@ $blog_query = new WP_Query(
 <?php if ( $blog_query->have_posts() ) : ?>
     <div class="row">
         <?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <?php get_template_part( 'template-parts/content', 'front-page-post' ); ?>
             </div>          
         <?php endwhile; ?>

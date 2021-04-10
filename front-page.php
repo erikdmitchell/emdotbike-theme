@@ -4,14 +4,8 @@
  **/
 ?>
 <?php get_header(); ?>
-    <div class="front-page-posts posts-wrapper">
-        <?php
-        while ( have_posts() ) :
-            the_post();
-            ?>
-            <?php get_template_part( 'template-parts/content', 'front-page' ); ?>
-    
-        <?php endwhile; ?>
+    <div class="container front-page-posts posts-wrapper">
+        <?php get_template_part( 'template-parts/content', 'front-page' ); ?>
     </div>
 <?php
 get_footer();

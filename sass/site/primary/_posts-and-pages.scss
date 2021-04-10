@@ -16,6 +16,7 @@
 .entry-summary,
 .entry-meta,
 .footer-content {
+/*
 	padding-left: 15px;
 	padding-right: 15px;
 	margin: 0 1rem;
@@ -30,6 +31,7 @@
 		margin: 0 auto;
 		max-width: 1200px;
 	}
+*/
 	
     a,
     a:hover,
@@ -53,6 +55,7 @@
 .entry-header,
 .archive-header {
     color: $color__text-header;
+/*
 	padding-left: 15px;
 	padding-right: 15px;
 	margin: 0 1rem;
@@ -67,6 +70,7 @@
 		margin: 0 auto;
 		max-width: 1200px;
 	}
+*/
     
     a,
     a:hover,
@@ -78,6 +82,7 @@
 
 .page-header .entry-header {
     color: $color__text-header;
+/*
 	padding-left: 0;
 	padding-right: 0;
 	margin: 0;
@@ -92,6 +97,7 @@
 		margin: 0;
 		max-width: 100%;
 	}
+*/
     
     a,
     a:hover,
@@ -101,6 +107,7 @@
     }
 }
 
+/*
 .entry-header .entry-meta {
 	padding-left: 0;
 	padding-right: 0;
@@ -117,6 +124,7 @@
 		max-width: 100%;
 	}
 }
+*/
 
 .entry-meta {
     color: $color__text-entry-meta;
@@ -133,11 +141,14 @@
     }
 }
 
+/*
 .post-thumbnail {
     display: flex;
     justify-content: center;  
 }
+*/
 
+/*
 .posts-wrapper {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -158,6 +169,7 @@
 		max-width: 1200px;
 	}   
 }
+*/
 
 .single-post .post-thumbnail {
     text-align: center;

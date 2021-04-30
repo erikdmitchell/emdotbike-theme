@@ -16,7 +16,7 @@
         &.current-menu-item,
         &.current-menu-parent {
             > a {
-                //color: #777;                
+                color: $color__link-navigation-current-item;                
             }
         }
     }
@@ -78,7 +78,7 @@
 .toggle-nav:visited,
 .toggle-nav:active {
     text-decoration: none;
-    color: #000;
+    color: $color__text-toggle-nav;
     display: none;
     margin-right: 5px;
     font-size: 1.5em;
@@ -114,6 +114,6 @@
 	
 	a {
     	text-decoration: none;
-    	color: #000;
+    	color: $color__link-navigation;
 	}
 }

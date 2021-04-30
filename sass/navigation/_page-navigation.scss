@@ -4,5 +4,10 @@
     a:hover,
     a:visited {
         text-decoration: none;
+        color: $color__link;
     }
+}
+
+.post-navigation {
+    display: block;
 }

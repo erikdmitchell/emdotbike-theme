@@ -1,3 +1,13 @@
+<?php
+/**
+ * The default file to dislpay posts, pages, etc.
+ *
+ * @package WordPress
+ * @subpackage emwptheme
+ * @since emwptheme 0.1.0
+ */
+
+?>
 <?php get_header(); ?>
 
     <?php

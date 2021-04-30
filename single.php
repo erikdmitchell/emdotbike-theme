@@ -1,3 +1,14 @@
+<?php
+/**
+ * The template for displaying single pages
+ *
+ * @package WordPress
+ * @subpackage emwptheme
+ * @since emwptheme 0.1.0
+ */
+
+?>
+
 <?php get_header(); ?>
 
     <?php while ( have_posts() ) : the_post(); ?>

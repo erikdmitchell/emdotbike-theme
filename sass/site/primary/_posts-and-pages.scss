@@ -24,6 +24,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
+        color: $color__link;
     }	
 }
 
@@ -47,7 +48,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        color: #000;
+        color: $color__link;
     }
 }
 
@@ -58,7 +59,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        color: $color__text-header-link;
+        color: $color__link;
     }
 }
 
@@ -69,11 +70,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-    }
-    
-    .author,
-    .edit-link {
-        margin-left: 10px;
+        color: $color__link;
     }
 }
 

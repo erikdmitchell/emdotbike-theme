@@ -66,15 +66,12 @@
     .children .children {
         position: relative;
     }
+    
+	@media only screen and (max-width: 580px) {
+        display: none;
+    }    
 
 }
-
-
-
-
-
-
-
 
 .toggle-nav,
 .toggle-nav:hover,

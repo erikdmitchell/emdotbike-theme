@@ -502,10 +502,27 @@ function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em>
     return apply_filters( 'the_content', $the_excerpt );
 }
 
+/**
+ * Display post excerpt.
+ * 
+ * @access public
+ * @param mixed $post
+ * @param int $length (default: 10)
+ * @param string $tags (default: '<a><em><strong>')
+ * @param string $extra (default: ' . . .')
+ * @return void
+ */
 function emdotbike_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
     echo emdotbike_get_post_excerpt_by_id( $post, $length, $tags, $extra );
 }
 
+/**
+ * Has categories.
+ * 
+ * @access public
+ * @param string $excl (default: '')
+ * @return bool
+ */
 function emdotbike_has_categories( $excl = '' ) {
     global $post;
 

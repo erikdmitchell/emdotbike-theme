@@ -852,36 +852,6 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Page Nav
 --------------------------------------------------------------*/
-.paging-navigation,
-.post-navigation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 1rem 1.5rem;
-  max-width: calc(100% - 2rem);
-}
-
-@media only screen and (min-width: 768px) {
-  .paging-navigation,
-  .post-navigation {
-    margin: 0 10% 1.5rem;
-    max-width: 80%;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .paging-navigation,
-  .post-navigation {
-    margin: 0 auto 1.5rem;
-    max-width: 1200px;
-  }
-}
-
 .paging-navigation a,
 .paging-navigation a:hover,
 .paging-navigation a:visited,
@@ -889,10 +859,6 @@ a:hover, a:active {
 .post-navigation a:hover,
 .post-navigation a:visited {
   text-decoration: none;
-}
-
-.post-navigation {
-  display: block;
 }
 
 /*--------------------------------------------------------------
@@ -963,6 +929,10 @@ a:hover, a:active {
   margin-bottom: 1.5em;
 }
 
+.align-text-center {
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
@@ -972,6 +942,24 @@ a:hover, a:active {
 
 .widget select {
   max-width: 100%;
+}
+
+.em-social-media-wrap {
+  float: right;
+  position: relative;
+  left: -50%;
+  text-align: left;
+}
+
+.em-social-media-wrap ul {
+  list-style: none;
+  position: relative;
+  left: 50%;
+}
+
+.em-social-media-wrap ul li {
+  float: left;
+  position: relative;
 }
 
 /*--------------------------------------------------------------
@@ -1113,52 +1101,6 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Front page
 --------------------------------------------------------------*/
-.front-page-posts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding-bottom: 30px;
-}
-
-@media only screen and (max-width: 991px) {
-  .front-page-posts {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-.front-page-posts article {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 33.333333%;
-          flex: 1 1 33.333333%;
-  padding: 15px 15px 0 15px;
-  max-width: 33.333333%;
-}
-
-.front-page-posts article:nth-child(odd) {
-  background: #f1f1f1;
-}
-
-.front-page-posts article.featured-post {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  max-width: 100%;
-  background: transparent;
-  padding: 0;
-}
-
-.front-page-posts article.featured-post .entry-header,
-.front-page-posts article.featured-post .entry-content {
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
-}
-
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -1171,41 +1113,12 @@ a:hover, a:active {
   word-wrap: break-word;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 .updated:not(.published) {
   display: none;
-}
-
-.page-content,
-.entry-content,
-.entry-summary,
-.entry-meta,
-.footer-content {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 1rem;
-  max-width: calc(100% - 2rem);
-}
-
-@media only screen and (min-width: 768px) {
-  .page-content,
-  .entry-content,
-  .entry-summary,
-  .entry-meta,
-  .footer-content {
-    margin: 0 10%;
-    max-width: 80%;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .page-content,
-  .entry-content,
-  .entry-summary,
-  .entry-meta,
-  .footer-content {
-    margin: 0 auto;
-    max-width: 1200px;
-  }
 }
 
 .page-content a,
@@ -1241,28 +1154,6 @@ a:hover, a:active {
 .entry-header,
 .archive-header {
   color: #000;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 1rem;
-  max-width: calc(100% - 2rem);
-}
-
-@media only screen and (min-width: 768px) {
-  .page-header,
-  .entry-header,
-  .archive-header {
-    margin: 0 10%;
-    max-width: 80%;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .page-header,
-  .entry-header,
-  .archive-header {
-    margin: 0 auto;
-    max-width: 1200px;
-  }
 }
 
 .page-header a,
@@ -1280,24 +1171,6 @@ a:hover, a:active {
 
 .page-header .entry-header {
   color: #000;
-  padding-left: 0;
-  padding-right: 0;
-  margin: 0;
-  max-width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  .page-header .entry-header {
-    margin: 0;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .page-header .entry-header {
-    margin: 0;
-    max-width: 100%;
-  }
 }
 
 .page-header .entry-header a,
@@ -1305,27 +1178,6 @@ a:hover, a:active {
 .page-header .entry-header a:visited {
   text-decoration: none;
   color: #000;
-}
-
-.entry-header .entry-meta {
-  padding-left: 0;
-  padding-right: 0;
-  margin: 0;
-  max-width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  .entry-header .entry-meta {
-    margin: 0;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .entry-header .entry-meta {
-    margin: 0;
-    max-width: 100%;
-  }
 }
 
 .entry-meta {
@@ -1343,39 +1195,6 @@ a:hover, a:active {
   margin-left: 10px;
 }
 
-.post-thumbnail {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.posts-wrapper {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 30px;
-  margin-top: 0;
-  margin-bottom: 30px;
-  margin: 0 1rem;
-  max-width: calc(100% - 2rem);
-}
-
-@media only screen and (min-width: 768px) {
-  .posts-wrapper {
-    margin: 0 10%;
-    max-width: 80%;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .posts-wrapper {
-    margin: 0 auto;
-    max-width: 1200px;
-  }
-}
-
 .single-post .post-thumbnail {
   text-align: center;
   max-height: 480px;
@@ -1385,27 +1204,6 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-.comments-area {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 1rem 1.5rem;
-  max-width: calc(100% - 2rem);
-}
-
-@media only screen and (min-width: 768px) {
-  .comments-area {
-    margin: 0 10% 1.5rem;
-    max-width: 80%;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .comments-area {
-    margin: 0 auto 1.5rem;
-    max-width: 1200px;
-  }
-}
-
 .comments-area a,
 .comments-area a:hover,
 .comments-area a:visited {

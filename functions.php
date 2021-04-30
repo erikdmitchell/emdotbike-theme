@@ -83,6 +83,9 @@ function emdotbike_theme_setup() {
      * Allows users to hook and filter into the default meta tags in the header
      */
     include_once( get_template_directory() . '/inc/theme-meta.php' );
+    
+    // dashboard widgets.
+    include_once( get_template_directory() . '/widgets/social-media.php' );
 
     // register our navigation area
     register_nav_menus(
@@ -126,6 +129,17 @@ function emdotbike_theme_widgets_init() {
             'after_title' => '</h3>',
         )
     );
+
+    register_sidebar(
+        array(
+            'name' => 'Footer 3',
+            'id' => 'footer-3',
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+        )
+    );
 }
 add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
 
@@ -156,6 +170,7 @@ function emdotbike_theme_scripts() {
     $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
 
     // enqueue font awesome and our main stylesheet.
+    wp_enqueue_style( 'bootstrap-grid-style', get_template_directory_uri() . '/css/bootstrap-grid.min.css', array(), '5.0.0-beta3' );
     wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/fontawesome.min.css', array(), '5.15.1' );
     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri() );
 }

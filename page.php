@@ -1,3 +1,14 @@
+<?php
+/**
+ * The template for a page
+ *
+ * @package WordPress
+ * @subpackage emwptheme
+ * @since emwptheme 0.1.0
+ */
+
+?>
+
 <?php get_header(); ?>
 
 <div class="page-header">

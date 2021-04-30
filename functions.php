@@ -103,13 +103,13 @@ function emdotbike_theme_setup() {
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 
-function setup_new_image_size() {
-    if ( function_exists( 'add_image_size' ) ) {
-        add_image_size( 'new-image', 550, 0, false );
-    }
-}
-add_action( 'after_setup_theme', 'setup_new_image_size' );
-
+/**
+ * Add image sizes to media.
+ * 
+ * @access public
+ * @param mixed $sizes
+ * @return array
+ */
 function emdotbike_add_image_size_to_media( $sizes ) {
     $custom_sizes = array(
         'home-grid' => 'Home Grid',
@@ -477,7 +477,7 @@ function get_terms_list( $term = false ) {
  * @param - $tags - string - the allowed HTML tags. These will not be stripped out.
  * @param - $extra - string - text to append to the end of the excerpt.
  */
-function emdotnet_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
+function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
 
     if ( is_int( $post ) ) {
         // get the post object of the passed ID.
@@ -502,8 +502,8 @@ function emdotnet_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><
     return apply_filters( 'the_content', $the_excerpt );
 }
 
-function emdotnet_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
-    echo emdotnet_get_post_excerpt_by_id( $post, $length, $tags, $extra );
+function emdotbike_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
+    echo emdotbike_get_post_excerpt_by_id( $post, $length, $tags, $extra );
 }
 
 function emdotbike_has_categories( $excl = '' ) {
@@ -528,6 +528,21 @@ function emdotbike_has_categories( $excl = '' ) {
 
     return false;
 }
+
+/**
+ * Custom read more excerpt.
+ * 
+ * @access public
+ * @param mixed $more
+ * @return string
+ */
+function emdotbike_custom_excerpt_more( $more ) {
+    return sprintf( '... <a href="%1$s" class="more-link">%2$s</a>',
+          esc_url( get_permalink( get_the_ID() ) ),
+          sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
+    );
+}
+add_filter( 'excerpt_more', 'emdotbike_custom_excerpt_more' );
 
 /**
  * Post categories.

@@ -3,7 +3,7 @@
  * Template Name: Coming Soon
  **/
 ?>
-<?php get_header('coming-soon'); ?>
+<?php get_header( 'coming-soon' ); ?>
     <div class="cs-wrap">
         <div class="cs-inner-wrap">
             <div class="cs-logo">
@@ -20,4 +20,4 @@
         </div>
     </div>
 <?php
-get_footer('coming-soon');
+get_footer( 'coming-soon' );

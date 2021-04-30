@@ -18,7 +18,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('coming-soon-body'); ?>>
+<body <?php body_class( 'coming-soon-body' ); ?>>
 
     <header id="masthead" class="site-header clearfix">
     </header><!-- #masthead -->

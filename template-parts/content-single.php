@@ -28,7 +28,7 @@
                 if ( 'post' == get_post_type() ) {
                     emdotbike_theme_posted_on();
                 }
-    
+
                     edit_post_link( __( 'Edit', 'emdotbike' ), '<span class="edit-link">', '</span>' );
                 ?>
             </div><!-- .entry-meta -->
@@ -62,7 +62,7 @@
                     <?php the_tags( '<div class="tag-links">', ' ', '</div>' ); ?>
                 </div>
             <?php endif; ?>
-            <?php if ( emdotbike_has_categories('Uncategorized') ) : ?>
+            <?php if ( emdotbike_has_categories( 'Uncategorized' ) ) : ?>
                 <div class="categories-list">
                     <div class="categories-title">Categories</div>
                 

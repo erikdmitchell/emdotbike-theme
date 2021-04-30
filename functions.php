@@ -76,14 +76,15 @@ function emdotbike_theme_setup() {
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'landing', 1200, 400, true );
+    // add_image_size( 'landing', 1200, 400, true );
+    add_image_size( 'home-grid', 600, 300, true );
 
     /**
      * Include theme meta page
      * Allows users to hook and filter into the default meta tags in the header
      */
     include_once( get_template_directory() . '/inc/theme-meta.php' );
-    
+
     // dashboard widgets.
     include_once( get_template_directory() . '/widgets/social-media.php' );
 
@@ -101,6 +102,21 @@ function emdotbike_theme_setup() {
 
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
+
+function setup_new_image_size() {
+    if ( function_exists( 'add_image_size' ) ) {
+        add_image_size( 'new-image', 550, 0, false );
+    }
+}
+add_action( 'after_setup_theme', 'setup_new_image_size' );
+
+function emdotbike_add_image_size_to_media( $sizes ) {
+    $custom_sizes = array(
+        'home-grid' => 'Home Grid',
+    );
+    return array_merge( $sizes, $custom_sizes );
+}
+add_filter( 'image_size_names_choose', 'emdotbike_add_image_size_to_media' );
 
 /**
  * Register widget area.
@@ -223,7 +239,7 @@ function emdotbike_theme_post_thumbnail( $size = 'full' ) {
  * @return void
  */
 
-function emdotbike_theme_posted_on($show_author = false) {
+function emdotbike_theme_posted_on( $show_author = false ) {
     if ( is_sticky() && is_home() && ! is_paged() ) {
         echo '<span class="featured-post"><span class="glyphicon glyphicon-pushpin"></span>' . __( 'Sticky', 'emdotbike' ) . '</span>';
     }

@@ -105,7 +105,7 @@ add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 
 /**
  * Add image sizes to media.
- * 
+ *
  * @access public
  * @param mixed $sizes
  * @return array
@@ -504,10 +504,10 @@ function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em>
 
 /**
  * Display post excerpt.
- * 
+ *
  * @access public
- * @param mixed $post
- * @param int $length (default: 10)
+ * @param mixed  $post
+ * @param int    $length (default: 10)
  * @param string $tags (default: '<a><em><strong>')
  * @param string $extra (default: ' . . .')
  * @return void
@@ -518,7 +518,7 @@ function emdotbike_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>',
 
 /**
  * Has categories.
- * 
+ *
  * @access public
  * @param string $excl (default: '')
  * @return bool
@@ -548,15 +548,16 @@ function emdotbike_has_categories( $excl = '' ) {
 
 /**
  * Custom read more excerpt.
- * 
+ *
  * @access public
  * @param mixed $more
  * @return string
  */
 function emdotbike_custom_excerpt_more( $more ) {
-    return sprintf( '... <a href="%1$s" class="more-link">%2$s</a>',
-          esc_url( get_permalink( get_the_ID() ) ),
-          sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
+    return sprintf(
+        '... <a href="%1$s" class="more-link">%2$s</a>',
+        esc_url( get_permalink( get_the_ID() ) ),
+        sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
     );
 }
 add_filter( 'excerpt_more', 'emdotbike_custom_excerpt_more' );
@@ -597,3 +598,15 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
         endforeach;
     endif;
 }
+
+
+/**
+ * * Gutenberg scripts and styles.
+ *
+ * @access public
+ * @return void
+ */
+function emdotbike_gutenberg_scripts() {
+    wp_enqueue_script( 'emdotbike-editor', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), EMDOTBIKE_VERSION, true );
+}
+add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );

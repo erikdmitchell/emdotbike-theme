@@ -17,3 +17,31 @@
         }
     }
 }
+
+.front-page-tagline {
+    margin-bottom: 3rem;
+    background: $blue-jeans;
+    color: #fff;
+    text-align: center;
+    
+    .wrapper {
+        padding: 1.5rem;
+    }
+    
+    .image-wrap {
+        margin-bottom: 1rem;
+    }
+    
+    img {
+        width: 150px;
+    }
+    
+    h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 300;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-transform: uppercase;       
+    }
+}

@@ -45,3 +45,29 @@
         text-transform: uppercase;       
     }
 }
+
+.front-page-about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;   
+    margin-bottom: 30px;
+    height: 300px; 
+    overflow: hidden;
+    
+    .image-wrapper {
+        width: 66.666666%;
+        
+        img {
+            //height: 250px;
+        }
+    }
+    
+    .text-wrapper {
+        width: 33.333333%;
+        
+        .text-inner {
+            margin-left: 3rem;
+        }
+    }
+}

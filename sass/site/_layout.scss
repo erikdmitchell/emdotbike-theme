@@ -1,4 +1,6 @@
-article,
+/**
+ * Basic grid
+ */
 .grid-wrapper {
     width: 100%;
     padding-right: 1.5rem;
@@ -27,7 +29,11 @@ article,
     } 
 }
 
-.entry-content,
+.grid-row {
+    margin-right: calc(1.5rem / -2);
+    margin-left: calc(1.5rem / -2);    
+}
+
 .grid-cols {
     display: flex;
     flex-wrap: wrap;
@@ -99,6 +105,9 @@ article,
   width: 100%;
 }
 
+/**
+ * Specific tweaks
+ */
 
 
 /*

@@ -42,7 +42,7 @@
 
     <div class="emdotbike-home-grid grid-wrapper">
         <div class="first-col">
-            <div class="post-item post-<?php echo $first_post->ID; ?>" style="background: url(<?php echo get_the_post_thumbnail_url( $first_post ); ?>) no-repeat center center fixed;;">
+            <div class="post-item post-<?php echo $first_post->ID; ?>" style="background: url(<?php echo get_the_post_thumbnail_url( $first_post ); ?>) no-repeat center center;">
                 <div class="excerpt"><?php emdotbike_post_excerpt( $first_post, 55, '', ' <a href="'. get_permalink( $first_post->ID ) . '">read more...</a>' ); ?></div>
             </div>
         </div>

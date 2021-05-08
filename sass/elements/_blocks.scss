@@ -34,3 +34,9 @@
         }        
     }
 }
+
+.wp-block-latest-posts {
+    &.is-grid {
+        margin: 0;
+    }
+}

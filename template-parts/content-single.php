@@ -9,12 +9,10 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <div class="container-fluid">
-        <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
-    </div>
+    <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
     
-    <div class="container">
-        <div class="row">
+    <div class="grid-wrapper">
+        <div class="grid-row">
             <header class="entry-header">
                 <?php
                 if ( is_single() ) :
@@ -36,7 +34,7 @@
             </header><!-- .entry-header -->
         </div>
     
-        <div class="row">
+        <div class="grid-row">
             <div class="entry-content">
                 <?php
                     the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'emdotbike' ) );
@@ -52,7 +50,7 @@
             </div><!-- .entry-content -->
         </div>
         
-        <div class="row">
+        <div class="grid-row">
             <div class="entry-meta">
                 <?php if ( has_tag() ) : ?>
                     <div class="tags-list">

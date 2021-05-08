@@ -11,10 +11,10 @@
 
 <?php get_header(); ?>
 
-<div class="page-header">
+<div class="page-header grid-wrapper">
     <?php emdotbike_theme_post_thumbnail(); ?>
 
-    <header class="entry-header">
+    <header class="entry-header grid-row">
         <?php
         if ( is_single() ) :
             the_title( '<h1 class="entry-title">', '</h1>' );
@@ -31,13 +31,13 @@ if ( have_posts() ) :
     while ( have_posts() ) :
         the_post();
         ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('grid-wrapper'); ?>>
         <?php if ( is_search() ) : ?>
-        <div class="entry-summary">
+        <div class="entry-summary grid-row">
             <?php the_excerpt(); ?>
         </div><!-- .entry-summary -->
         <?php else : ?>
-        <div class="entry-content">
+        <div class="entry-content grid-row">
             <?php
                 the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'wpbootstrap' ) );
                 wp_link_pages(

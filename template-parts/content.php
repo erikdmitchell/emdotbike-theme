@@ -25,7 +25,7 @@
                 if ( 'post' == get_post_type() ) {
                     emdotbike_theme_posted_on();
                 }
-    
+
                     edit_post_link( __( 'Edit', 'emdotbike' ), '<span class="edit-link">', '</span>' );
                 ?>
             </div><!-- .entry-meta -->

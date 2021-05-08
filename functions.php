@@ -76,8 +76,9 @@ function emdotbike_theme_setup() {
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    // add_image_size( 'landing', 1200, 400, true );
-    add_image_size( 'home-grid', 600, 300, true );
+    add_image_size( 'home-grid', 375, 225, true );
+    add_image_size( 'home-grid-large', 650, 600, true );
+    add_image_size( 'home-grid-tall', 375, 325, true );
 
     /**
      * Include theme meta page
@@ -477,7 +478,6 @@ function get_terms_list( $term = false ) {
  * @param - $extra - string - text to append to the end of the excerpt.
  */
 function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
-
     if ( is_int( $post ) ) {
         // get the post object of the passed ID.
         $post = get_post( $post );
@@ -608,3 +608,44 @@ function emdotbike_gutenberg_scripts() {
     wp_enqueue_script( 'emdotbike-editor', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), EMDOTBIKE_VERSION, true );
 }
 add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
+
+/**
+ * Custom post thumbnail.
+ *
+ * @access public
+ * @param string $post (default: '')
+ * @param string $size (default: 'full')
+ * @param bool   $link (default: true)
+ * @return void
+ */
+function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
+    if ( is_int( $post ) ) {
+        // get the post object of the passed ID.
+        $post = get_post( $post );
+    } elseif ( ! is_object( $post ) ) {
+        return false;
+    }
+
+    $html = null;
+    $attr = array(
+        'class' => 'img-responsive',
+    );
+
+    if ( post_password_required( $post ) || ! has_post_thumbnail( $post ) ) {
+        return;
+    }
+
+    if ( $link ) :
+        $html .= '<a class="post-thumbnail" href="' . get_permalink( $post->ID ) . '">';
+            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+        $html .= '</a>';
+    else :
+        $html .= '<div class="post-thumbnail">';
+            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+        $html .= '</div>';
+    endif;
+
+    $image = apply_filters( 'emdotbike_theme_post_thumbnail_custom', $html, $size, $attr );
+
+    echo wp_kses_post( $image );
+}

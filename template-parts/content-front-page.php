@@ -8,9 +8,9 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'front-page' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'front-page grid-wrapper' ); ?>>
 
-    <div class="entry-content">
+    <div class="entry-content grid-row">
         <?php
             the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'emdotbike' ) );
             wp_link_pages(

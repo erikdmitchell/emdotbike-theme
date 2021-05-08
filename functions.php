@@ -599,7 +599,6 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
     endif;
 }
 
-
 /**
  * * Gutenberg scripts and styles.
  *

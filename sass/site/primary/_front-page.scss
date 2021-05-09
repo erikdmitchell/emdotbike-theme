@@ -36,9 +36,15 @@
         width: 46%;
         padding-right: 0.5rem;
         
+        &.total-cols-1 {
+            width: 100%;
+            padding: 0;
+        }
+        
         .post-item {
             position: relative;
             height: 100%;
+            min-height: 400px;
             
             .title {
                 position: absolute;

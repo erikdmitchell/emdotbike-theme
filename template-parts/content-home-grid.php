@@ -69,8 +69,12 @@ if ( ! $has_first_post ) {
                     $classes = '';
                     $image_size = 'home-grid';
                 }
-                
+
                 $image_size = count( $second_set_posts ) == 1 ? 'home-grid-large' : $image_size;
+
+                if ( 2 == count( $second_set_posts ) && 2 == $total_cols ) {
+                    $image_size = 'home-grid-wide';
+                }
                 ?>
                 <div class="post-item post-<?php echo $post->ID . $classes; ?>">
                     <?php emdotbike_theme_post_thumbnail_custom( $post, $image_size ); ?>

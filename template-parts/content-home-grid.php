@@ -58,7 +58,7 @@ if ( ! $has_first_post ) {
     </div>
     
     <?php if ( $has_second_posts_set ) : ?>
-        <div class="second-col total-cols-<?php echo $total_cols; ?>">
+        <div class="second-col total-cols-<?php echo $total_cols; ?> post-count-<?php echo count( $second_set_posts ); ?>">
             <?php $post_counter = 1; ?>
             <?php foreach ( $second_set_posts as $post ) : ?>
                 <?php
@@ -69,6 +69,8 @@ if ( ! $has_first_post ) {
                     $classes = '';
                     $image_size = 'home-grid';
                 }
+                
+                $image_size = count( $second_set_posts ) == 1 ? 'home-grid-large' : $image_size;
                 ?>
                 <div class="post-item post-<?php echo $post->ID . $classes; ?>">
                     <?php emdotbike_theme_post_thumbnail_custom( $post, $image_size ); ?>
@@ -82,7 +84,7 @@ if ( ! $has_first_post ) {
     <?php endif; ?>
     
     <?php if ( $has_third_posts_set ) : ?>
-        <div class="third-col total-cols-<?php echo $total_cols; ?>">
+        <div class="third-col total-cols-<?php echo $total_cols; ?> post-count-<?php echo count( $third_set_posts ); ?>">
             <?php $post_counter = 1; ?>
             <?php foreach ( $third_set_posts as $post ) : ?>
                 <?php

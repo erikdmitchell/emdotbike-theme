@@ -114,11 +114,11 @@ add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
  */
 function emdotbike_add_image_size_to_media( $sizes ) {
     $custom_sizes = array(
-        'home-grid' => 'Home Grid',
+        'single' => 'Single',
     );
     return array_merge( $sizes, $custom_sizes );
 }
-add_filter( 'image_size_names_choose', 'emdotbike_add_image_size_to_media' );
+// add_filter( 'image_size_names_choose', 'emdotbike_add_image_size_to_media' );
 
 /**
  * Register widget area.

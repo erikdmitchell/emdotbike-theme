@@ -102,3 +102,28 @@
         padding-right: 0;
     }
 }
+
+.front-page-about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 3rem 2rem;
+    height: 400px;
+    
+    .image-wrap {
+        flex: 0 0 auto;
+        width: 60%;
+        margin-left: -3rem;
+        background: url('./images/em-cx-action-shot.jpeg');
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .about-text-wrap {
+        flex: 0 0 auto;
+        width: 40%;
+        padding-left: 2rem;
+    }
+}

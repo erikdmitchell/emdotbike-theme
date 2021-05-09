@@ -111,3 +111,5 @@ if ( ! $has_first_post ) {
         </div>
     <?php endif; ?>
 </div>
+
+<?php wp_reset_postdata(); ?>

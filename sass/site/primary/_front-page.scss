@@ -59,6 +59,12 @@
                     margin: 0;
                     font-size: 2.5rem;
                 }
+                
+                a,
+                a:visited {
+                    color: $white;
+                    text-decoration: none;
+                }
             }
 
             .excerpt {

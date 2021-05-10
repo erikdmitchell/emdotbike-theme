@@ -52,7 +52,7 @@ if ( ! $has_first_post ) {
 <div class="emdotbike-home-grid grid-wrapper">
     <div class="first-col total-cols-<?php echo $total_cols; ?>">
         <div class="post-item post-<?php echo $first_post->ID; ?>" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(<?php echo get_the_post_thumbnail_url( $first_post ); ?>) no-repeat center center;">
-            <div class="title"><h3><?php echo get_the_title( $first_post ); ?></h3> </div>
+            <div class="title"><h3><a href="<?php echo get_permalink( $first_post->ID ); ?>"><?php echo get_the_title( $first_post ); ?></a></h3></div>
             <div class="excerpt"><?php emdotbike_post_excerpt( $first_post, 55, '', ' <a href="' . get_permalink( $first_post->ID ) . '">read more...</a>' ); ?></div>
         </div>
     </div>

@@ -1,0 +1,167 @@
+.front-page-tagline {
+    margin-bottom: 3rem;
+    background: $blue-jeans;
+    color: #fff;
+    text-align: center;
+    
+    .wrapper {
+        padding: 1.5rem;
+    }
+    
+    .image-wrap {
+        margin-bottom: 1rem;
+    }
+    
+    img {
+        width: 150px;
+    }
+    
+    h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 300;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-transform: uppercase;       
+    }
+}
+
+.emdotbike-home-grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    
+    .first-col {
+        flex: 0 0 auto;
+        width: 50%;
+        padding-right: 0.5rem;
+        
+        @include rbp(tablet) {
+            width: 100%;
+        }        
+        
+        &.total-cols-1 {
+            width: 100%;
+            padding: 0;
+        }
+        
+        .post-item {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            
+            .title {
+                position: absolute;
+                padding: 2.5rem 2rem;
+                color: $white;
+                
+                h3 {
+                    margin: 0;
+                    font-size: 2.5rem;
+                }
+            }
+
+            .excerpt {
+                position: absolute;
+                bottom: 0;
+                background: $white;
+                padding: 1rem 0 0 0;
+                
+                @include rbp(tablet) {
+                    padding-bottom: 1.5rem;
+                }                
+            }               
+        }
+    }
+    
+    .second-col,
+    .third-col {
+        flex: 0 0 auto;
+        width: 25%; 
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;        
+        
+        .post-item { 
+            h3 {
+                margin: 0;
+            }           
+            .excerpt {
+                margin-bottom: 1.5rem;    
+            }
+            &:nth-child(even) {
+                .excerpt {
+                    margin-bottom: 0;
+                }
+            }
+        }           
+    }
+    
+    .second-col {
+        @include rbp(desktop) {
+            width: 50%;
+            padding-right: 0;
+        } 
+        
+        @include rbp(tablet) {
+            width: 100%;
+            padding: 0;
+        }        
+                
+        &.total-cols-2 {
+            &.post-count-1,
+            &.post-count-2 {
+                width: 50%;
+                padding-left: 0.5rem;
+            }
+        }
+    }
+    
+    .third-col {
+        padding-right: 0;
+        
+        @include rbp(desktop) {
+            width: 100%;
+            padding-left: 0;
+        }        
+    }
+}
+
+.front-page-about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 3rem 2rem;
+    height: 400px;
+    
+    @include rbp(tablet) {
+        margin: 1.5rem 0 3rem 0;
+    }
+    
+    .image-wrap {
+        flex: 0 0 auto;
+        width: 60%;
+        margin-left: -3rem;
+        height: 100%;
+        
+        @include rbp(tablet) {
+            width: 100%;
+            margin-left: 0;
+        }        
+    }
+    
+    .about-text-wrap {
+        flex: 0 0 auto;
+        width: 40%;
+        padding-left: 2rem;
+        
+        @include rbp(tablet) {
+            width: 100%;
+            padding: 0;
+            flex: none;
+            position: absolute;
+            padding: 3rem 2rem;
+            background-color: rgba(255, 255, 255, 0.6);
+            color: $black;
+        }        
+    }
+}

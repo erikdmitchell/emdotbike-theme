@@ -76,14 +76,17 @@ function emdotbike_theme_setup() {
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'landing', 1200, 400, true );
+    add_image_size( 'home-grid', 375, 225, true );
+    add_image_size( 'home-grid-wide', 650, 225, true );
+    add_image_size( 'home-grid-large', 650, 600, true );
+    add_image_size( 'home-grid-tall', 375, 325, true );
 
     /**
      * Include theme meta page
      * Allows users to hook and filter into the default meta tags in the header
      */
     include_once( get_template_directory() . '/inc/theme-meta.php' );
-    
+
     // dashboard widgets.
     include_once( get_template_directory() . '/widgets/social-media.php' );
 
@@ -101,6 +104,21 @@ function emdotbike_theme_setup() {
 
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
+
+/**
+ * Add image sizes to media.
+ *
+ * @access public
+ * @param mixed $sizes
+ * @return array
+ */
+function emdotbike_add_image_size_to_media( $sizes ) {
+    $custom_sizes = array(
+        'single' => 'Single',
+    );
+    return array_merge( $sizes, $custom_sizes );
+}
+// add_filter( 'image_size_names_choose', 'emdotbike_add_image_size_to_media' );
 
 /**
  * Register widget area.
@@ -170,7 +188,6 @@ function emdotbike_theme_scripts() {
     $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
 
     // enqueue font awesome and our main stylesheet.
-    wp_enqueue_style( 'bootstrap-grid-style', get_template_directory_uri() . '/css/bootstrap-grid.min.css', array(), '5.0.0-beta3' );
     wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/fontawesome.min.css', array(), '5.15.1' );
     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri() );
 }
@@ -223,7 +240,7 @@ function emdotbike_theme_post_thumbnail( $size = 'full' ) {
  * @return void
  */
 
-function emdotbike_theme_posted_on($show_author = false) {
+function emdotbike_theme_posted_on( $show_author = false ) {
     if ( is_sticky() && is_home() && ! is_paged() ) {
         echo '<span class="featured-post"><span class="glyphicon glyphicon-pushpin"></span>' . __( 'Sticky', 'emdotbike' ) . '</span>';
     }
@@ -461,8 +478,7 @@ function get_terms_list( $term = false ) {
  * @param - $tags - string - the allowed HTML tags. These will not be stripped out.
  * @param - $extra - string - text to append to the end of the excerpt.
  */
-function emdotnet_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
-
+function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
     if ( is_int( $post ) ) {
         // get the post object of the passed ID.
         $post = get_post( $post );
@@ -477,19 +493,36 @@ function emdotnet_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em><
         $the_excerpt = $post->post_content;
     }
 
-    $the_excerpt = strip_shortcodes( strip_tags( $the_excerpt ), $tags );
+    $the_excerpt = strip_shortcodes( strip_tags( $the_excerpt ) );
     $the_excerpt = preg_split( '/\b/', $the_excerpt, $length * 2 + 1 );
     $excerpt_waste = array_pop( $the_excerpt );
     $the_excerpt = implode( $the_excerpt );
     $the_excerpt .= $extra;
 
-    return apply_filters( 'the_content', $the_excerpt );
+    return apply_filters( 'emdotbike_get_post_excerpt_by_id', $the_excerpt );
 }
 
-function emdotnet_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
-    echo emdotnet_get_post_excerpt_by_id( $post, $length, $tags, $extra );
+/**
+ * Display post excerpt.
+ *
+ * @access public
+ * @param mixed  $post
+ * @param int    $length (default: 10)
+ * @param string $tags (default: '<a><em><strong>')
+ * @param string $extra (default: ' . . .')
+ * @return void
+ */
+function emdotbike_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
+    echo emdotbike_get_post_excerpt_by_id( $post, $length, $tags, $extra );
 }
 
+/**
+ * Has categories.
+ *
+ * @access public
+ * @param string $excl (default: '')
+ * @return bool
+ */
 function emdotbike_has_categories( $excl = '' ) {
     global $post;
 
@@ -512,6 +545,22 @@ function emdotbike_has_categories( $excl = '' ) {
 
     return false;
 }
+
+/**
+ * Custom read more excerpt.
+ *
+ * @access public
+ * @param mixed $more
+ * @return string
+ */
+function emdotbike_custom_excerpt_more( $more ) {
+    return sprintf(
+        '... <a href="%1$s" class="more-link">%2$s</a>',
+        esc_url( get_permalink( get_the_ID() ) ),
+        sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
+    );
+}
+add_filter( 'excerpt_more', 'emdotbike_custom_excerpt_more' );
 
 /**
  * Post categories.
@@ -548,4 +597,56 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
             }
         endforeach;
     endif;
+}
+
+/**
+ * * Gutenberg scripts and styles.
+ *
+ * @access public
+ * @return void
+ */
+function emdotbike_gutenberg_scripts() {
+    wp_enqueue_script( 'emdotbike-editor', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), EMDOTBIKE_VERSION, true );
+}
+add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
+
+/**
+ * Custom post thumbnail.
+ *
+ * @access public
+ * @param string $post (default: '')
+ * @param string $size (default: 'full')
+ * @param bool   $link (default: true)
+ * @return void
+ */
+function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
+    if ( is_int( $post ) ) {
+        // get the post object of the passed ID.
+        $post = get_post( $post );
+    } elseif ( ! is_object( $post ) ) {
+        return false;
+    }
+
+    $html = null;
+    $attr = array(
+        'class' => 'img-responsive',
+    );
+
+    if ( post_password_required( $post ) || ! has_post_thumbnail( $post ) ) {
+        return;
+    }
+
+    if ( $link ) :
+        $html .= '<a class="post-thumbnail" href="' . get_permalink( $post->ID ) . '">';
+            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+        $html .= '</a>';
+    else :
+        $html .= '<div class="post-thumbnail">';
+            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+        $html .= '</div>';
+    endif;
+
+    $image = apply_filters( 'emdotbike_theme_post_thumbnail_custom', $html, $size, $attr );
+
+    echo wp_kses_post( $image );
 }

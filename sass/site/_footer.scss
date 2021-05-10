@@ -55,5 +55,13 @@ footer {
         text-align: center;
         margin: 20px 0 0 0;
         color: $color__text-footer; 
+    }
+    
+    @include rbp(tablet) {
+        .grid-col-4 {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 100%;
+        }
     }    
 }

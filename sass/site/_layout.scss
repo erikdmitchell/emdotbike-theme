@@ -7,9 +7,13 @@
     padding-left: 1.5rem;
     margin-right: auto;
     margin-left: auto; 
+
+    @include bp(mobile) {
+        max-width: 96%;
+    } 
     
     @include bp(tablet-s) {
-        max-width: 540px;
+        max-width: 570px;
     }   
 
     @include bp(tablet) {

@@ -38,11 +38,31 @@
     margin-left: calc(1.5rem / -2);    
 }
 
+.grid-row > * {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(1.5rem / 2);
+  padding-left: calc(1.5rem / 2);
+  margin-top: 1.5rem;
+}
+
 .grid-cols {
     display: flex;
     flex-wrap: wrap;
     margin-right: calc(1.5rem / -2);
     margin-left: calc(1.5rem / -2);    
+}
+
+.grid-cols > * {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(1.5rem / 2);
+  padding-left: calc(1.5rem / 2);
+  margin-top: 1.5rem;
 }
 
 .grid-col {

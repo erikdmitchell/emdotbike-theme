@@ -9,7 +9,10 @@
 <?php if ( have_posts() ) : ?>
     <div class="blog-page-posts grid-wrapper">
         <div class="grid-cols">
-        <?php while ( have_posts() ) : the_post(); ?>
+        <?php
+        while ( have_posts() ) :
+            the_post();
+            ?>
             <div class="grid-col-6">
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <div class="entry-thumb">

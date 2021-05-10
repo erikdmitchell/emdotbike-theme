@@ -28,7 +28,7 @@
                         emdotbike_theme_posted_on();
                     }
 
-                        edit_post_link( __( 'Edit', 'emdotbike' ), '<span class="edit-link">', '</span>' );
+                        //edit_post_link( __( 'Edit', 'emdotbike' ), '<span class="edit-link">', '</span>' );
                     ?>
                 </div><!-- .entry-meta -->
             </header><!-- .entry-header -->

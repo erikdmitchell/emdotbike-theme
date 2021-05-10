@@ -299,15 +299,15 @@ function emdotbike_get_post_thumbnail( $post_id = 0, $classes = 'img-responsive'
 
 function emdotbike_theme_posted_on( $show_author = false ) {
     if ( is_sticky() && is_home() && ! is_paged() ) {
-        echo '<span class="featured-post"><span class="glyphicon glyphicon-pushpin"></span>' . __( 'Sticky', 'emdotbike' ) . '</span>';
+        echo '<span class="featured-post">' . __( 'Sticky', 'emdotbike' ) . '</span>';
     }
 
     // Set up and print post meta information. -- hide date if sticky.
     if ( ! is_sticky() ) :
-        echo wp_kses_post( '<span class="entry-date"><span class="glyphicon glyphicon-time"></span><a href="' . get_permalink() . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '">' . get_the_date() . '</time></a></span>' );
+        echo wp_kses_post( '<div class="entry-date"><a href="' . get_permalink() . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '">' . get_the_date() . '</time></a></div>' );
     endif;
 
-    echo wp_kses_post( '<span class="byline"><span class="glyphicon glyphicon-user"></span><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author">' . get_the_author() . '</a></span></span>' );
+    echo wp_kses_post( '<div class="byline"><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author">' . get_the_author() . '</a></div></span>' );
 }
 
 /**

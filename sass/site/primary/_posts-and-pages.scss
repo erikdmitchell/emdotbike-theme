@@ -74,8 +74,27 @@
     }
 }
 
-.single-post .post-thumbnail {
-    text-align: center;
-    max-height: 480px;
-    overflow: hidden;
+.single-post {
+    .post-thumbnail {
+        text-align: center;
+        max-height: 480px;
+        overflow: hidden;
+    }
+    
+    .entry-meta {
+        color: $black;
+        
+        a,
+        a:visited {
+            color: $black;
+        }
+        
+        .entry-date {
+            font-size: 1rem;
+        }
+        
+        .byline {
+            font-size: 0.90rem;
+        }
+    }
 }

@@ -1,7 +1,34 @@
 footer {
+    position: relative;
+    z-index: 1;
     border-top: none; 
     background: $color__background-footer;
     color: $color__text-footer;
+    
+    // the below 3 styles create our diagonal top
+    &:before,
+    &:after {
+        background: inherit;
+        content: '';
+        display: block;
+        height: 75%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+    }
+    
+    &:before {
+        top: 0;
+        transform: skewY(-4deg);
+        transform-origin: 0% 0;
+    }
+    
+    &:after {
+        bottom: 0;
+        transform: skewY(0deg);
+        transform-origin: 100%;
+    }    
 
     .footer-widgets {
         padding: 10px 0 20px 0;

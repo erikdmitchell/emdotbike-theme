@@ -4,6 +4,7 @@ footer {
     border-top: none; 
     background: $color__background-footer;
     color: $color__text-footer;
+    margin-top: 3rem;
     
     // the below 3 styles create our diagonal top
     &:before,

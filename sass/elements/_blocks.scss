@@ -17,3 +17,26 @@
 		width: 920px;
 	}
 }
+
+.wp-block-quote {
+    &.is-style-heading {
+        margin: 0;
+        margin-bottom: 1em;
+        font-size: 1em;
+        font-weight: 200;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-align: center;
+        text-transform: uppercase;         
+        
+        p {
+            margin: 0;
+        }        
+    }
+}
+
+.wp-block-latest-posts {
+    &.is-grid {
+        margin: 0;
+    }
+}

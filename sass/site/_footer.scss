@@ -1,7 +1,35 @@
 footer {
+    position: relative;
+    z-index: 1;
     border-top: none; 
-    background: #3b3b3b;
-    color: #fff;
+    background: $color__background-footer;
+    color: $color__text-footer;
+    margin-top: 3rem;
+    
+    // the below 3 styles create our diagonal top
+    &:before,
+    &:after {
+        background: inherit;
+        content: '';
+        display: block;
+        height: 75%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+    }
+    
+    &:before {
+        top: 0;
+        transform: skewY(-4deg);
+        transform-origin: 0% 0;
+    }
+    
+    &:after {
+        bottom: 0;
+        transform: skewY(0deg);
+        transform-origin: 100%;
+    }    
 
     .footer-widgets {
         padding: 10px 0 20px 0;
@@ -12,7 +40,7 @@ footer {
                 font-size: 16px;
                 margin-bottom: 10px;
                 padding: 10px 0px;
-                color: #fff;
+                color: $color__text-footer;
                 text-transform: uppercase;            
             }
             
@@ -24,12 +52,14 @@ footer {
             
             a,
             a:visited {
-                color: #fff;        
+                color: $color__link-footer;
+                text-decoration: none;        
             }
             
             a:focus,
             a:hover {
-                color: #ccc;
+                color: $color__link-footer-hover;
+                text-decoration: none;                
             }
             
             .social-media {
@@ -41,7 +71,7 @@ footer {
                     padding-right: 10px;
             
                     a:hover {
-                        color: #ccc;
+                        color: $color__link-footer-hover;
                     }
                 }         
             }
@@ -52,6 +82,14 @@ footer {
         padding: 10px 0;
         text-align: center;
         margin: 20px 0 0 0;
-        color: #fff; 
+        color: $color__text-footer; 
+    }
+    
+    @include rbp(tablet) {
+        .grid-col-4 {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 100%;
+        }
     }    
 }

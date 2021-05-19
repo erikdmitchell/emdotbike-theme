@@ -1,9 +1,17 @@
 <?php
 /**
- * emdotbike_theme_meta function.
+ * Theme meta functions.
  *
- * adds default theme meta to header
- * hooks directly after meta robots
+ * @package WordPress
+ * @subpackage emwptheme
+ * @since emwptheme 0.1.0
+ */
+
+/**
+ * Theme meta function.
+ *
+ * Adds default theme meta to header
+ * Hooks directly after meta robots
  *
  * @access public
  * @return void
@@ -20,10 +28,10 @@ function emdotbike_theme_meta() {
 add_action( 'wp_head', 'emdotbike_theme_meta', 1 );
 
 /**
- * emdotbike_disable_seo_meta function.
+ * Disable Yoast SEO meta.
  *
- * checks for Yoast SEO and removes description meta
- * fires on 0 so that's it's before our meta
+ * Checks for Yoast SEO and removes description meta
+ * Fires on 0 so that's it's before our meta
  *
  * @access public
  * @return void

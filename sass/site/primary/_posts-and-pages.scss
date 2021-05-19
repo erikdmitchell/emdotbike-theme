@@ -7,6 +7,10 @@
 	word-wrap: break-word;
 }
 
+.container-fluid {
+    padding: 0;
+}
+
 .updated:not(.published) {
 	display: none;
 }
@@ -16,26 +20,11 @@
 .entry-summary,
 .entry-meta,
 .footer-content {
-	padding-left: 15px;
-	padding-right: 15px;
-	margin: 0 1rem;
-	max-width: calc(100% - 2rem);
-	
-	@media only screen and (min-width: 768px) {
-		margin: 0 10%;
-		max-width: 80%;
-	}
-	
-	@media only screen and (min-width: 1500px) {
-		margin: 0 auto;
-		max-width: 1200px;
-	}
-	
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        color: #777;
+        color: $color__link;
     }	
 }
 
@@ -53,84 +42,59 @@
 .page-header,
 .entry-header,
 .archive-header {
-    color: #000;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin: 0 1rem;
-	max-width: calc(100% - 2rem);
-	
-	@media only screen and (min-width: 768px) {
-		margin: 0 10%;
-		max-width: 80%;
-	}
-	
-	@media only screen and (min-width: 1500px) {
-		margin: 0 auto;
-		max-width: 1200px;
-	}
-    
+    color: $color__text-header;
+
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        color: #000;
+        color: $color__link;
     }
 }
 
 .page-header .entry-header {
-    color: #000;
-	padding-left: 0;
-	padding-right: 0;
-	margin: 0;
-	max-width: 100%;
-	
-	@media only screen and (min-width: 768px) {
-		margin: 0;
-		max-width: 100%;
-	}
-	
-	@media only screen and (min-width: 1500px) {
-		margin: 0;
-		max-width: 100%;
-	}
+    color: $color__text-header;
     
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        color: #000;
+        color: $color__link;
     }
-}
-
-.entry-header .entry-meta {
-	padding-left: 0;
-	padding-right: 0;
-	margin: 0;
-	max-width: 100%;
-	
-	@media only screen and (min-width: 768px) {
-		margin: 0;
-		max-width: 100%;
-	}
-	
-	@media only screen and (min-width: 1500px) {
-		margin: 0;
-		max-width: 100%;
-	}
 }
 
 .entry-meta {
-    color: #000;
+    color: $color__text-entry-meta;
     
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        color: #777;
+        color: $color__link;
     }
 }
 
-.post-thumbnail {
-    display: flex;
-    justify-content: center;  
+.single-post {
+    .post-thumbnail {
+        text-align: center;
+        max-height: 480px;
+        overflow: hidden;
+    }
+    
+    .entry-meta {
+        color: $black;
+        
+        a,
+        a:visited {
+            color: $black;
+        }
+        
+        .entry-date {
+            font-size: 1rem;
+        }
+        
+        .byline {
+            font-size: 0.90rem;
+        }
+    }
 }

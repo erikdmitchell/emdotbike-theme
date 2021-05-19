@@ -6,3 +6,18 @@
 		max-width: 100%;
 	}
 }
+
+.em-social-media-wrap {
+    float:right;
+    position:relative;
+    left:-50%;
+    text-align:left;
+
+    ul {
+        list-style:none;
+        position:relative;
+        left:50%;
+    
+        li{float:left;position:relative;}
+    }
+}

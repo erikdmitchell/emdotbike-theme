@@ -22,7 +22,7 @@ $gradient-bottom-left: linear-gradient(315deg, #37b6ffff, #f9e7e7ff, #ada0a6ff, 
 $gradient-radial: radial-gradient(#37b6ffff, #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff);
 
 $color__background-body: #fff;
-$color__background-navigation: #fff;
+$color__background-navigation: $indigo-dye;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
@@ -49,6 +49,8 @@ $color__text-navbar-brand: #777;
 $color__text-entry-meta: #000;
 $color__link-navigation: #000;
 $color__link-navigation-current-item: #000;
+$color__link-navigation-mobile: #fff;
+$color__link-navigation-mobile-current-item: $blue-jeans;
 $color__text-toggle-nav: #000;
 
 $color__border-button: #ccc #ccc #bbb;

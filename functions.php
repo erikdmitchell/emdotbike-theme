@@ -231,6 +231,43 @@ function emdotbike_theme_post_thumbnail( $size = 'full' ) {
     echo wp_kses_post( $image );
 }
 
+function emdotbike_theme_post_thumbnail_parallax( $size = 'full' ) {
+    global $post;
+
+    $html = null;
+    $attr = array(
+        'class' => 'img-responsive',
+    );
+
+    if ( post_password_required() || ! has_post_thumbnail() ) {
+        return;
+    }
+
+    $html .= '<div class="post-thumbnail">';
+        //$thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
+        $thumb = get_the_post_thumbnail_url( $post->ID, $size );
+        $html .= '<div class="image-wrap" style="background: url('.$thumb.') no-repeat center center fixed;background-size: cover !important; width: 100%; height: 400px;"></div>';
+    $html .= '</div>';
+
+
+
+/*
+    if ( is_singular() ) :
+        $html .= '<div class="post-thumbnail">';
+            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+        $html .= '</div>';
+    else :
+        $html .= '<a class="post-thumbnail" href="' . get_permalink( $post->ID ) . '">';
+            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+        $html .= '</a>';
+    endif;
+*/
+
+    $image = apply_filters( 'emdotbike_theme_post_thumbnail', $html, $size, $attr );
+
+    echo wp_kses_post( $image );
+}
+
 /**
  * Custom post thumbnail.
  *

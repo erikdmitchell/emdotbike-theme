@@ -9,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
+    <?php emdotbike_theme_post_thumbnail_parallax( 'single' ); ?>
     
     <div class="grid-wrapper">
         <div class="grid-row">

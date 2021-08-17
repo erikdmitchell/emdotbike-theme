@@ -196,39 +196,71 @@ add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
 /**
  * Display an optional post thumbnail.
  *
- * Wraps the post thumbnail in an anchor element on index
- * views, or a div element when on single views.
+ * Wraps the post thumbnail in an anchor element on index views, or a div element when on single views.
  *
  * @since emdotbike 1.0
  * @based on twentyfourteen
  *
  * @return void
  */
-function emdotbike_theme_post_thumbnail( $size = 'full' ) {
+function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
     global $post;
 
     $html = null;
     $attr = array(
         'class' => 'img-responsive',
     );
-
+    $thumb_id = get_post_thumbnail_id( $post->ID );
+    $thumb_url = get_the_post_thumbnail_url( $post->ID, $size ); 
+    $thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
+    
     if ( post_password_required() || ! has_post_thumbnail() ) {
         return;
+    }
+    
+    // for parallax images.
+    if ($parallax) {
+        $meta = wp_get_attachment_metadata( $thumb_id );
+        $attr = array(
+            'height' => $meta['sizes'][$size]['height'] . 'px',
+        );
+        $thumb = emdotbike_get_parallax_image( $thumb_url, $attr );
     }
 
     if ( is_singular() ) :
         $html .= '<div class="post-thumbnail">';
-            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+            $html .= $thumb;
         $html .= '</div>';
     else :
         $html .= '<a class="post-thumbnail" href="' . get_permalink( $post->ID ) . '">';
-            $html .= get_the_post_thumbnail( $post->ID, $size, $attr );
+            $html .= $thumb;
         $html .= '</a>';
     endif;
 
     $image = apply_filters( 'emdotbike_theme_post_thumbnail', $html, $size, $attr );
 
     echo wp_kses_post( $image );
+}
+
+function emdotbike_get_parallax_image($image_url = '', $styles = array()) {
+    if (empty($image_url))
+        return;
+        
+    $default_styles = array(
+        //'background' => 'url('.$image_url.') no-repeat center center fixed',
+        'background-image' => 'url('.$image_url.')',
+        'height' => '400px',
+    );
+    $styles = wp_parse_args( $styles, $default_styles );
+    $styles_arr = array();
+    
+    // setup styles.
+    foreach ($styles as $name => $style) {
+        $styles_arr[] = "$name: $style";
+    }
+    $styles = implode(';', $styles_arr);
+        
+    return '<div class="parallax-image" style="'.$styles.'"></div>';
 }
 
 /**

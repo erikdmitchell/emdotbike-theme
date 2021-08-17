@@ -80,7 +80,7 @@
         max-height: 480px;
         overflow: hidden;
     }
-    
+        
     .entry-meta {
         color: $black;
         
@@ -97,4 +97,11 @@
             font-size: 0.90rem;
         }
     }
+}
+
+.parallax-image {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;        
 }

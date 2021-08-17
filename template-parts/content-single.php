@@ -10,7 +10,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
-    
+        
     <div class="grid-wrapper">
         <div class="grid-row">
             <header class="entry-header">

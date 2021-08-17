@@ -162,32 +162,28 @@
 }
 
 //////
-.flex-grid-fp {
+.flex-grid {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     
-    .post-item {
-        width: 50%;
+    .flex-col {
+        display: flex;
+        flex-wrap: wrap;
+        
+        &:first-child {
+            width: 60%;
+        }
+        
+        &:nth-child(2) {
+            width: 40%;
+        }
     }
 }
 
-.post-item {
-    //width: 100%;
+.flex-item {
+    width: 100%;
     
     background: salmon;
     padding: 20px;
 }
-
-/*
-@media (max-width: 400px) {
-  .flex-grid,
-  .flex-grid-two {
-    display: block;
-    .col {
-      width: 100%;
-      margin: 0 0 10px 0;
-    }
-  }
-}
-*/

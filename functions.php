@@ -670,22 +670,12 @@ add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
 /**
  * Login page
  */
+function emdotbike_login_scripts_styles() {
+    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.css', array(), EMDOTBIKE_VERSION );    
+}
+add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' ); 
 
-function my_login_logo() { ?>
-    <style type="text/css">
-        #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/em-bike-logo.png);
-		height:65px;
-		width:320px;
-		background-size: 320px 65px;
-		background-repeat: no-repeat;
-        	padding-bottom: 30px;
-        }
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' ); 
-
-function my_login_logo_url() {
+function emdotbike_login_headerurl() {
     return home_url();
 }
-add_filter( 'login_headerurl', 'my_login_logo_url' );
+add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );

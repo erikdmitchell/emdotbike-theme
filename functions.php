@@ -698,3 +698,16 @@ function emdotbike_gutenberg_scripts() {
     wp_enqueue_script( 'emdotbike-editor', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), EMDOTBIKE_VERSION, true );
 }
 add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
+
+/**
+ * Login page
+ */
+function emdotbike_login_scripts_styles() {
+    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.css', array(), EMDOTBIKE_VERSION );    
+}
+add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' ); 
+
+function emdotbike_login_headerurl() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );

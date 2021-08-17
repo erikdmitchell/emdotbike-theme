@@ -160,3 +160,42 @@
         }        
     }
 }
+
+//////
+.flex-grid-fp {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+    &.total-posts-3 {
+        .post-item {
+            width: 49%;
+        }
+        
+        .post-item-2 {
+            margin-left: auto;
+        }
+    }
+    
+/*
+    .col {
+        width: 49%;
+    }
+*/
+}
+
+.post-item {
+    background: salmon;
+    padding: 20px;
+}
+
+@media (max-width: 400px) {
+  .flex-grid,
+  .flex-grid-two {
+    display: block;
+    .col {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
+}

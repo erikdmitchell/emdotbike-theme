@@ -166,6 +166,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 1rem;
     
     .flex-col {
         display: flex;
@@ -173,17 +174,36 @@
         
         &:first-child {
             width: 60%;
+            padding-right: 1.5rem;
+            
+            .post-thumbnail img {
+                height: 475px;
+            }
         }
         
         &:nth-child(2) {
             width: 40%;
+            
+            .post-thumbnail {
+                height: 125px;
+                overflow: hidden;                
+            }
+            
+            .title h3 {
+                margin-bottom: 0;
+            }
+            
+            .excerpt {
+                padding: 1rem 0;
+            }
         }
     }
-}
-
-.flex-item {
-    width: 100%;
     
-    background: salmon;
-    padding: 20px;
+    .flex-item {
+        margin-bottom: 1rem;
+    }
+    
+    .post-thumbnail {
+        display: inline-block;
+    }
 }

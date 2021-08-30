@@ -1,18 +1,68 @@
 <?php
 global $emdb_home_posts;
 
+/**
+ * EMDB_Home_Posts class.
+ */
 class EMDB_Home_Posts {
 
+    /**
+     * has_posts
+     * 
+     * (default value: false)
+     * 
+     * @var bool
+     * @access protected
+     */
     protected $has_posts = false;
 
+    /**
+     * posts
+     * 
+     * (default value: array())
+     * 
+     * @var array
+     * @access protected
+     */
     protected $posts = array();
 
+    /**
+     * current_post
+     * 
+     * (default value: 0)
+     * 
+     * @var int
+     * @access protected
+     */
     protected $current_post = 0;
 
+    /**
+     * post_count
+     * 
+     * (default value: 0)
+     * 
+     * @var int
+     * @access protected
+     */
     protected $post_count = 0;
 
+    /**
+     * post_type
+     * 
+     * (default value: 'post')
+     * 
+     * @var string
+     * @access protected
+     */
     protected $post_type = 'post';
 
+    /**
+     * __construct function.
+     * 
+     * @access public
+     * @param string $opts (default: '')
+     * @return void
+     */
     public function __construct( $opts = '' ) {
         $ppp = 3;
 
@@ -23,10 +73,22 @@ class EMDB_Home_Posts {
         }
     }
 
+    /**
+     * Has posts.
+     * 
+     * @access public
+     * @return void
+     */
     public function has_posts() {
         return $this->has_posts;
     }
 
+    /**
+     * Loads post.
+     * 
+     * @access public
+     * @return void
+     */
     public function posts() {
         if ( $this->current_post < $this->post_count ) {
             return true;
@@ -38,6 +100,12 @@ class EMDB_Home_Posts {
 
     }
 
+    /**
+     * Single post.
+     * 
+     * @access public
+     * @return void
+     */
     public function post() {
         $post = $this->posts[ $this->current_post ];
         $post->post_num = $this->current_post;

@@ -89,6 +89,9 @@ function emdotbike_theme_setup() {
 
     // dashboard widgets.
     include_once( get_template_directory() . '/widgets/social-media.php' );
+    
+    // custom posts class for home page.
+    include_once( get_template_directory() . '/inc/class-emdb-home-posts.php' );    
 
     // register our navigation area
     register_nav_menus(
@@ -700,14 +703,41 @@ function emdotbike_gutenberg_scripts() {
 add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
 
 /**
- * Login page
+ * Login page scripts and styles.
+ * 
+ * @access public
+ * @return void
  */
 function emdotbike_login_scripts_styles() {
     wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.css', array(), EMDOTBIKE_VERSION );    
 }
 add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' ); 
 
+/**
+ * Login header URL.
+ * 
+ * @access public
+ * @return void
+ */
 function emdotbike_login_headerurl() {
     return home_url();
 }
 add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
+
+function emdotbike_has_posts( $type = 'post' ) {
+    global $emdb_home_posts;
+    
+print_r($emdb_home_posts);    
+    //global $emdb_posts;
+    //$fb = new PDO();
+//print_r($fb);    
+    if( wp_count_posts( $type )->publish > 1 ) {
+        return true;
+    }
+    
+    return false;
+}
+
+
+
+

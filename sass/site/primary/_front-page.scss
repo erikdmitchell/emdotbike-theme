@@ -90,6 +90,23 @@
             display: inline-block;
         }
     }
+    
+    .more-articles {
+        width: 100%;
+        text-align: right;
+        
+        a {
+            background-color: $lavender-blush;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            padding: 7px 15px;
+            border-radius: 13px;
+            border: none;            
+        }
+    }
 }
 
 /**

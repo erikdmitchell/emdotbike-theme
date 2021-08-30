@@ -761,3 +761,14 @@ function emdb_home_post() {
     return $emdb_home_posts->post();
 }
 
+/**
+ * Do we have more posts.
+ * 
+ * @access public
+ * @return void
+ */
+function emdb_home_has_more_posts() {
+    global $emdb_home_posts;
+
+    return $emdb_home_posts->more_posts();
+}

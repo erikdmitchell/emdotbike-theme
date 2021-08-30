@@ -17,6 +17,9 @@
                 <?php endwhile; ?>
             </div>
         </div>
+        <?php if ( emdb_home_has_more_posts() ) : ?>
+            <div class="more-articles"><a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">More Articles</a></div>        
+        <?php endif; ?>
     <?php endif; ?>
 
 </div>

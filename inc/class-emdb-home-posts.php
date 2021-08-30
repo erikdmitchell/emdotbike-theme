@@ -8,9 +8,9 @@ class EMDB_Home_Posts {
 
     /**
      * has_posts
-     * 
+     *
      * (default value: false)
-     * 
+     *
      * @var bool
      * @access protected
      */
@@ -18,9 +18,9 @@ class EMDB_Home_Posts {
 
     /**
      * posts
-     * 
+     *
      * (default value: array())
-     * 
+     *
      * @var array
      * @access protected
      */
@@ -28,9 +28,9 @@ class EMDB_Home_Posts {
 
     /**
      * current_post
-     * 
+     *
      * (default value: 0)
-     * 
+     *
      * @var int
      * @access protected
      */
@@ -38,9 +38,9 @@ class EMDB_Home_Posts {
 
     /**
      * post_count
-     * 
+     *
      * (default value: 0)
-     * 
+     *
      * @var int
      * @access protected
      */
@@ -48,9 +48,9 @@ class EMDB_Home_Posts {
 
     /**
      * post_type
-     * 
+     *
      * (default value: 'post')
-     * 
+     *
      * @var string
      * @access protected
      */
@@ -58,7 +58,7 @@ class EMDB_Home_Posts {
 
     /**
      * __construct function.
-     * 
+     *
      * @access public
      * @param string $opts (default: '')
      * @return void
@@ -68,6 +68,7 @@ class EMDB_Home_Posts {
 
         if ( wp_count_posts( $this->post_type )->publish > 1 ) {
             $this->has_posts = true;
+            $this->total_posts = wp_count_posts( $this->post_type )->publish;
             $this->posts = get_posts( array( 'posts_per_page' => $ppp ) );
             $this->post_count = count( $this->posts );
         }
@@ -75,9 +76,9 @@ class EMDB_Home_Posts {
 
     /**
      * Has posts.
-     * 
+     *
      * @access public
-     * @return void
+     * @return bool
      */
     public function has_posts() {
         return $this->has_posts;
@@ -85,9 +86,9 @@ class EMDB_Home_Posts {
 
     /**
      * Loads post.
-     * 
+     *
      * @access public
-     * @return void
+     * @return bool
      */
     public function posts() {
         if ( $this->current_post < $this->post_count ) {
@@ -102,9 +103,9 @@ class EMDB_Home_Posts {
 
     /**
      * Single post.
-     * 
+     *
      * @access public
-     * @return void
+     * @return array (single post)
      */
     public function post() {
         $post = $this->posts[ $this->current_post ];
@@ -113,6 +114,22 @@ class EMDB_Home_Posts {
         $this->current_post++;
 
         return $post;
+    }
+
+    /**
+     * Checks for more posts than displayed on page.
+     *
+     * @access public
+     * @return bool
+     */
+    public function more_posts() {
+        $ppp = 3;
+
+        if ( $this->total_posts > $ppp ) {
+            return true;
+        }
+
+        return false;
     }
 
 }

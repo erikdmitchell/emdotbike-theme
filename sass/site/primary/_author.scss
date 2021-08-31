@@ -1,0 +1,36 @@
+.author {
+    .author-header {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    
+        .author-column {
+            flex-basis: 0;
+            flex-grow: 1;
+            min-width: 0;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            
+            &:first-child {
+                flex: 0 1 auto;
+                margin-right: 1.25rem;
+            }
+            
+            &:last-child {}
+        }
+        
+        h1 {
+            margin: 0;
+            line-height: 1;
+        }
+        
+        .author-image img {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+        .author-name {
+            margin-bottom: 1rem;
+        }
+    }
+}

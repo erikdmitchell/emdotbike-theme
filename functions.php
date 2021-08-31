@@ -76,10 +76,10 @@ function emdotbike_theme_setup() {
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'home-grid', 375, 225, true );
-    add_image_size( 'home-grid-wide', 650, 225, true );
+    add_image_size( 'home-grid', 375, 225, true ); // not used.
+    add_image_size( 'home-grid-wide', 650, 225, true ); // not used.
     add_image_size( 'home-grid-large', 650, 600, true );
-    add_image_size( 'home-grid-tall', 375, 325, true );
+    add_image_size( 'home-grid-tall', 375, 325, true ); // not used.
 
     /**
      * Include theme meta page
@@ -89,6 +89,9 @@ function emdotbike_theme_setup() {
 
     // dashboard widgets.
     include_once( get_template_directory() . '/widgets/social-media.php' );
+
+    // custom posts class for home page.
+    include_once( get_template_directory() . '/inc/class-emdb-home-posts.php' );
 
     // register our navigation area
     register_nav_menus(
@@ -211,18 +214,18 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
         'class' => 'img-responsive',
     );
     $thumb_id = get_post_thumbnail_id( $post->ID );
-    $thumb_url = get_the_post_thumbnail_url( $post->ID, $size ); 
+    $thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
     $thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
-    
+
     if ( post_password_required() || ! has_post_thumbnail() ) {
         return;
     }
-    
+
     // for parallax images.
-    if ($parallax) {
+    if ( $parallax ) {
         $meta = wp_get_attachment_metadata( $thumb_id );
         $attr = array(
-            'height' => $meta['sizes'][$size]['height'] . 'px',
+            'height' => $meta['sizes'][ $size ]['height'] . 'px',
         );
         $thumb = emdotbike_get_parallax_image( $thumb_url, $attr );
     }
@@ -242,25 +245,26 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
     echo wp_kses_post( $image );
 }
 
-function emdotbike_get_parallax_image($image_url = '', $styles = array()) {
-    if (empty($image_url))
+function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
+    if ( empty( $image_url ) ) {
         return;
-        
+    }
+
     $default_styles = array(
-        //'background' => 'url('.$image_url.') no-repeat center center fixed',
-        'background-image' => 'url('.$image_url.')',
+        // 'background' => 'url('.$image_url.') no-repeat center center fixed',
+        'background-image' => 'url(' . $image_url . ')',
         'height' => '400px',
     );
     $styles = wp_parse_args( $styles, $default_styles );
     $styles_arr = array();
-    
+
     // setup styles.
-    foreach ($styles as $name => $style) {
+    foreach ( $styles as $name => $style ) {
         $styles_arr[] = "$name: $style";
     }
-    $styles = implode(';', $styles_arr);
-        
-    return '<div class="parallax-image" style="'.$styles.'"></div>';
+    $styles = implode( ';', $styles_arr );
+
+    return '<div class="parallax-image" style="' . $styles . '"></div>';
 }
 
 /**
@@ -700,14 +704,71 @@ function emdotbike_gutenberg_scripts() {
 add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
 
 /**
- * Login page
+ * Login page scripts and styles.
+ *
+ * @access public
+ * @return void
  */
 function emdotbike_login_scripts_styles() {
-    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.css', array(), EMDOTBIKE_VERSION );    
+    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.css', array(), EMDOTBIKE_VERSION );
 }
-add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' ); 
+add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' );
 
+/**
+ * Login header URL.
+ *
+ * @access public
+ * @return void
+ */
 function emdotbike_login_headerurl() {
     return home_url();
 }
 add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
+
+/**
+ * Checks for home page posts.
+ *
+ * @access public
+ * @return void
+ */
+function emdb_home_has_posts() {
+    global $emdb_home_posts;
+
+    return $emdb_home_posts->has_posts();
+}
+
+/**
+ * Loads home page posts.
+ *
+ * @access public
+ * @return void
+ */
+function emdb_home_posts() {
+    global $emdb_home_posts;
+
+    return $emdb_home_posts->posts();
+}
+
+/**
+ * Loads single home page post.
+ *
+ * @access public
+ * @return void
+ */
+function emdb_home_post() {
+    global $emdb_home_posts;
+
+    return $emdb_home_posts->post();
+}
+
+/**
+ * Do we have more posts.
+ * 
+ * @access public
+ * @return void
+ */
+function emdb_home_has_more_posts() {
+    global $emdb_home_posts;
+
+    return $emdb_home_posts->more_posts();
+}

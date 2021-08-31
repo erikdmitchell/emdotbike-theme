@@ -18,8 +18,6 @@
     
     <?php get_template_part( 'template-parts/content', 'home-grid' ); ?>
     
-    <?php // get_template_part( 'template-parts/content', 'front-page' ); ?>
-    
     <div class="front-page-about">
         <div class="image-wrap" style="background: url(<?php the_field( 'about_image' ); ?>) no-repeat center center fixed;"></div>
         <div class="about-text-wrap"><div class="text-inner"><?php the_field( 'about_text' ); ?></div></div>

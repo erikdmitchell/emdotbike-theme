@@ -9,7 +9,19 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
+    
+<header>  
+    <div class="featured-columns">
+        <div class="featured-column">  
+            <div class="title">
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>    
+            </div>
+        </div>
+        <div class="featured-column">
+            <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
+        </div>
+    </div>
+</header>
         
     <div class="grid-wrapper">
         <div class="grid-row">

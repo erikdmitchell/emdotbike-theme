@@ -10,42 +10,35 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-<header>  
-    <div class="featured-columns">
-        <div class="featured-column">  
-            <div class="title">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>    
+    <header class="entry-header">  
+        <div class="featured-columns">
+            <div class="featured-column"> 
+                <div class="header-content"> 
+                    <div class="title">
+                        <?php
+                        if ( is_single() ) :
+                            the_title( '<h1 class="entry-title">', '</h1>' );
+                        else :
+                            the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+                        endif;
+                        ?>    
+                    </div>
+                    <div class="meta">
+                        <?php
+                        if ( 'post' == get_post_type() ) {
+                            emdotbike_theme_posted_on();
+                        }
+                        ?>
+                    </div>
+                </div>              
+            </div>
+            <div class="featured-column">
+                <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
             </div>
         </div>
-        <div class="featured-column">
-            <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
-        </div>
-    </div>
-</header>
+    </header>
         
     <div class="grid-wrapper">
-        <div class="grid-row">
-            <header class="entry-header">
-                <?php
-                if ( is_single() ) :
-                    the_title( '<h1 class="entry-title">', '</h1>' );
-                else :
-                    the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
-                endif;
-                ?>
-        
-                <div class="entry-meta">
-                    <?php
-                    if ( 'post' == get_post_type() ) {
-                        emdotbike_theme_posted_on();
-                    }
-
-                        // edit_post_link( __( 'Edit', 'emdotbike' ), '<span class="edit-link">', '</span>' );
-                    ?>
-                </div><!-- .entry-meta -->
-            </header><!-- .entry-header -->
-        </div>
-    
         <div class="grid-row">
             <div class="entry-content">
                 <?php

@@ -76,6 +76,8 @@
     
 .single-post { 
     header {    
+        margin-bottom: 2rem;
+        
         .featured-columns {
             display: flex;
             flex-direction: row;
@@ -100,7 +102,7 @@
                 
         }
     
-        .title {
+        .header-content {
             background: red;
             color: #fff;
             padding: 2rem 0 0 5rem;        
@@ -108,7 +110,14 @@
             
             h1 {
                 margin: 0;
-            }              
+            }  
+            
+            a,
+            a:hover,
+            a:visited {
+                text-decoration: none;
+                color: #fff;
+            }                       
         }
         
         .post-thumbnail {

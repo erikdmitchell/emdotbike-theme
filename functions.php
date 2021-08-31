@@ -763,7 +763,7 @@ function emdb_home_post() {
 
 /**
  * Do we have more posts.
- * 
+ *
  * @access public
  * @return void
  */
@@ -771,4 +771,25 @@ function emdb_home_has_more_posts() {
     global $emdb_home_posts;
 
     return $emdb_home_posts->more_posts();
+}
+
+/**
+ * Author information on author page.
+ *
+ * @access public
+ * @return void
+ */
+function emdb_author_header() {
+    $html = '';
+    $name = get_the_author_meta( 'display_name' );
+    $image = get_avatar( get_the_author_meta( 'ID' ), 200 );
+    $bio = get_the_author_meta( 'description' );
+
+    $html .= '<div class="author-column"><div class="author-image">' . $image . '</div></div>';
+    $html .= '<div class="author-column">';
+        $html .= '<div class="author-name"><h1>' . $name . '</h1></div>';
+        $html .= '<div class="author-bio">' . $bio . '</div>';
+    $html .= '</div>';
+
+    echo wp_kses_post( $html );
 }

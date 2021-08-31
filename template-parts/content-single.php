@@ -21,7 +21,8 @@
                         else :
                             the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
                         endif;
-                        ?>    
+                        ?>
+                            
                     </div>
                     <div class="meta">
                         <?php

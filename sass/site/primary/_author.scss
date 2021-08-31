@@ -12,12 +12,11 @@
             overflow-wrap: break-word;
             
             &:first-child {
-                flex-basis: 25%;
+                flex: 0 1 auto;
+                margin-right: 1.25rem;
             }
             
-            &:last-child {
-                flex-basis: 75%;
-            }
+            &:last-child {}
         }
         
         h1 {

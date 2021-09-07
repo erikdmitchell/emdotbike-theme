@@ -1,15 +1,3 @@
-  <div class="main">
-    <div>
-      <p>1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    </div>
-    <div>
-      <p>2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    </div>
-    <div>
-      <p>3 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    </div>
-  </div>
-
 <div class="emdotbike-home-grid grid-wrapper">
 
     <?php if ( emdb_home_has_posts() ) : ?>
@@ -35,9 +23,5 @@
     <?php endif; ?>
 
 </div>
-
-
-
-
 
 <?php wp_reset_postdata(); ?>

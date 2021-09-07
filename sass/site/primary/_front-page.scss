@@ -25,7 +25,45 @@
         text-transform: uppercase;       
     }
 }
+/**/
 
+
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.main > div {
+  background: LightSalmon;
+  flex: 40%;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+/* actual css for revealing content */
+
+/*
+.button:hover,
+,
+.button.toggled {
+  background: beige;
+  color: #222;
+}
+
+.content {
+  display: none;
+}
+
+.content.open {
+  display: block;
+}
+*/
+
+
+/**/
 .emdotbike-home-grid {
     display: flex;
     flex-wrap: wrap;

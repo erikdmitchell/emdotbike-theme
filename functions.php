@@ -701,7 +701,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
 function emdotbike_gutenberg_scripts() {
     wp_enqueue_script( 'emdotbike-editor', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), EMDOTBIKE_VERSION, true );
 }
-add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
+//add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
 
 /**
  * Login page scripts and styles.

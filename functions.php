@@ -292,7 +292,12 @@ function emdotbike_theme_get_post_thumbnail_custom( $post = '', $size = 'full', 
     }
 
     $html = null;
-    $image = emdotbike_get_post_thumbnail( $post->ID );
+
+    $image_id = get_post_thumbnail_id( $post->ID );
+    $image_src = wp_get_attachment_image_url( $image_id, $size );
+    $image_meta = wp_get_attachment_metadata( $image_id );
+    $image_base = '<img src="' . $image_src . '" class="img-responsive" />';
+    $image = wp_image_add_srcset_and_sizes( $image_base, $image_meta, $image_id );
 
     if ( post_password_required( $post ) || ! has_post_thumbnail( $post ) ) {
         return;

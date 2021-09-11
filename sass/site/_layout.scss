@@ -1,7 +1,8 @@
 /**
  * Basic layout
  */
-.grid-wrapper {
+.page-content,
+.entry-content {
     width: 100%;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
@@ -32,6 +33,15 @@
         max-width: 1320px;
     } 
 }
+ 
+/*
+.page-content,
+.entry-content {
+    margin-right: calc(1.5rem / -2);
+    margin-left: calc(1.5rem / -2);     
+} 
+
+
 
 .grid-row {
     margin-right: calc(1.5rem / -2);
@@ -48,3 +58,4 @@
 .grid-col {
   flex: 1 0 0%;
 }
+*/

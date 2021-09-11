@@ -76,10 +76,7 @@ function emdotbike_theme_setup() {
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'home-grid', 375, 225, true ); // not used.
-    add_image_size( 'home-grid-wide', 650, 225, true ); // not used.
-    add_image_size( 'home-grid-large', 650, 600, true );
-    add_image_size( 'home-grid-tall', 375, 325, true ); // not used.
+    add_image_size( 'home-grid-large', 650, 600, true ); // in dwb plugin as home-grid
 
     /**
      * Include theme meta page
@@ -89,9 +86,6 @@ function emdotbike_theme_setup() {
 
     // dashboard widgets.
     include_once( get_template_directory() . '/widgets/social-media.php' );
-
-    // custom posts class for home page.
-    include_once( get_template_directory() . '/inc/class-emdb-home-posts.php' );
 
     // register our navigation area
     register_nav_menus(

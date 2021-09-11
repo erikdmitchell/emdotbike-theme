@@ -4,24 +4,24 @@
  **/
 ?>
 <?php get_header(); ?>
-<?php the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'emdotbike' ) ); ?>
-    <div class="front-page-tagline">
-        <div class="wrapper">
-            <div class="image-wrap">
-                <img src="<?php the_field( 'tagline_image' ); ?>" alt="emdotbike logo white" />
-            </div>
-            <div class="title-wrap">
-                <h1><?php the_field( 'tagline_text' ); ?></h1>
-            </div>
-        </div>
-    </div>
-    
-    <?php get_template_part( 'template-parts/content', 'front-page' ); ?>
-    
-    <div class="front-page-about">
-        <div class="image-wrap" style="background: url(<?php the_field( 'about_image' ); ?>) no-repeat center center fixed;"></div>
-        <div class="about-text-wrap"><div class="text-inner"><?php the_field( 'about_text' ); ?></div></div>
-    </div>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+    <div class="entry-content">
+        <?php
+            the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'emdotbike' ) );
+            wp_link_pages(
+                array(
+                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'emdotbike' ) . '</span>',
+                    'after'       => '</div>',
+                    'link_before' => '<span>',
+                    'link_after'  => '</span>',
+                )
+            );
+            ?>
+    </div><!-- .entry-content -->
+
+</article>
 
 <?php
 get_footer();

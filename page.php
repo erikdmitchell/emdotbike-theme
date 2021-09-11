@@ -11,10 +11,10 @@
 
 <?php get_header(); ?>
 
-<div class="page-header grid-wrapper">
+<div class="page-header">
     <?php emdotbike_theme_post_thumbnail(); ?>
 
-    <header class="entry-header grid-row">
+    <header class="entry-header">
         <?php
         if ( is_single() ) :
             the_title( '<h1 class="entry-title">', '</h1>' );
@@ -33,7 +33,7 @@ if ( have_posts() ) :
         ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <?php if ( is_search() ) : ?>
-        <div class="entry-summary grid-row">
+        <div class="entry-summary">
             <?php the_excerpt(); ?>
         </div><!-- .entry-summary -->
         <?php else : ?>

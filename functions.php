@@ -271,6 +271,19 @@ function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
  * @return void
  */
 function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
+    echo emdotbike_theme_get_post_thumbnail_custom( $post, $size, $link);
+}
+
+/**
+ * Custom post thumbnail.
+ *
+ * @access public
+ * @param string $post (default: '')
+ * @param string $size (default: 'full')
+ * @param bool   $link (default: true)
+ * @return void
+ */
+function emdotbike_theme_get_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
     if ( is_int( $post ) ) {
         // get the post object of the passed ID.
         $post = get_post( $post );
@@ -297,7 +310,7 @@ function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $lin
 
     $image = apply_filters( 'emdotbike_theme_post_thumbnail_custom', $html, $size, $image );
 
-    echo $image;
+    return $image;
 }
 
 /**

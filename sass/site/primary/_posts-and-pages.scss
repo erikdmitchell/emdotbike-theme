@@ -179,8 +179,41 @@
         .byline {
             font-size: 0.90rem;
         }
+                
+        .tags-title,
+        .categories-title {
+            font-size: 0.9rem;
+        }
+        
+        .tag-links a,
+        .categories-link a {
+            display: inline-block;
+            margin-right: 0.25rem;
+            margin-top: 0.5rem;
+        	border: 1px solid;
+        	border-color: $color__border-button;
+        	border-radius: 3px;
+        	background: $color__background-button;
+        	color: rgba(0, 0, 0, 0.8);
+        	font-size: 0.75rem;
+        	line-height: 1;
+        	padding: 5px 10px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 5px;	                
+        }
+    
+        .categories-list {
+            margin-top: 1.5rem;
+            
+            .categories-title {}
+        
+            .categories-link {}
+        }
     }
-}
+} 
 
 .parallax-image {
     background-attachment: fixed;

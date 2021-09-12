@@ -1,9 +1,38 @@
 .author {
-    .author-header {
+        .author-header {
+        width: 100%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        margin-right: auto;
+        margin-left: auto; 
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;        
     
+        @include bp(mobile) {
+            max-width: 96%;
+        } 
+        
+        @include bp(tablet-s) {
+            max-width: 570px;
+        }   
+    
+        @include bp(tablet) {
+            max-width: 720px;
+        }
+        
+        @include bp(desktop) {
+            max-width: 960px;
+        }
+        
+        @include bp(desktop-m) {
+            max-width: 1140px;
+        }        
+    
+        @include bp(desktop-w2) {
+            max-width: 1320px;
+        }         
+
         .author-column {
             flex-basis: 0;
             flex-grow: 1;

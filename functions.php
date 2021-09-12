@@ -207,9 +207,9 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
 
     $thumb_id = get_post_thumbnail_id( $post->ID );
     $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
-    //$thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
+    // $thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
     $thumb_meta = wp_get_attachment_metadata( $thumb_id );
-    //$thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
+    // $thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
     $thumb_base = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
     $thumb = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
 
@@ -272,7 +272,7 @@ function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
  * @return void
  */
 function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
-    echo emdotbike_theme_get_post_thumbnail_custom( $post, $size, $link);
+    echo emdotbike_theme_get_post_thumbnail_custom( $post, $size, $link );
 }
 
 /**
@@ -714,7 +714,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
 function emdotbike_gutenberg_scripts() {
     wp_enqueue_script( 'emdotbike-editor', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), EMDOTBIKE_VERSION, true );
 }
-//add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
+// add_action( 'enqueue_block_editor_assets', 'emdotbike_gutenberg_scripts' );
 
 /**
  * Login page scripts and styles.

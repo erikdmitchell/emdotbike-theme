@@ -11,10 +11,11 @@
         <?php
         while ( have_posts() ) :
             the_post();
-            ?>            
+            ?>
+                        
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="entry-thumb">
-                <?php emdotbike_theme_post_thumbnail('home-grid-large'); ?>
+                <?php emdotbike_theme_post_thumbnail( 'home-grid-large' ); ?>
                 </div>
                 
                 <header class="entry-header">

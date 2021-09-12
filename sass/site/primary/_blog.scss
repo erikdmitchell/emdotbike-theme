@@ -1,5 +1,15 @@
-.blog {
-    .post {
+/**
+ * Main blog page (home.php)
+ */
+.blog-page-posts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-between;     
 
+    .post {  
+        width: 48%;
+        margin: 0 0 25px;
+        position: relative; 
     }
 }

@@ -74,8 +74,8 @@
  * Single post
  */
 .single-post { 
-    header {    
-        margin-bottom: 2rem;
+    .entry-header {    
+        margin-bottom: 3rem;
         
         .featured-columns {
             display: flex;

@@ -1,12 +1,29 @@
 <?php
+/**
+ * Social media widget
+ *
+ * @package WordPress
+ * @subpackage emdotbike
+ * @since emdotbike 0.1.0
+ */
 
+/**
+ * EM_Social class.
+ *
+ * @extends WP_Widget
+ */
 class EM_Social extends WP_Widget {
 
+    /**
+     * __construct function.
+     *
+     * @access public
+     * @return void
+     */
     function __construct() {
-
         parent::__construct(
-            'em-social',  // Base ID
-            'Social Media'   // Name
+            'em-social',  // Base ID.
+            'Social Media'   // Name.
         );
 
         add_action(
@@ -18,6 +35,12 @@ class EM_Social extends WP_Widget {
 
     }
 
+    /**
+     * Args
+     *
+     * @var mixed
+     * @access public
+     */
     public $args = array(
         'before_title'  => '<h4 class="widgettitle">',
         'after_title'   => '</h4>',
@@ -25,6 +48,14 @@ class EM_Social extends WP_Widget {
         'after_widget'  => '</div></div>',
     );
 
+    /**
+     * Widget.
+     *
+     * @access public
+     * @param mixed $args array.
+     * @param mixed $instance array.
+     * @return void
+     */
     public function widget( $args, $instance ) {
         $html = '';
 
@@ -49,31 +80,16 @@ class EM_Social extends WP_Widget {
 
     }
 
-    /*
-    public function form( $instance ) {
-
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'text_domain' );
-        $text = ! empty( $instance['text'] ) ? $instance['text'] : esc_html__( '', 'text_domain' );
-        ?>
-        <p>
-        <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php echo esc_html__( 'Title:', 'text_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-        </p>
-        <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'Text' ) ); ?>"><?php echo esc_html__( 'Text:', 'text_domain' ); ?></label>
-            <textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" type="text" cols="30" rows="10"><?php echo esc_attr( $text ); ?></textarea>
-        </p>
-        <?php
-
-    }
-    */
-
+    /**
+     * Update.
+     *
+     * @access public
+     * @param mixed $new_instance array.
+     * @param mixed $old_instance array.
+     * @return array.
+     */
     public function update( $new_instance, $old_instance ) {
-
         $instance = array();
-
-        // $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-        // $instance['text'] = ( !empty( $new_instance['text'] ) ) ? $new_instance['text'] : '';
 
         return $instance;
     }

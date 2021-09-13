@@ -264,7 +264,7 @@ function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
  * @return void
  */
 function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
-    echo emdotbike_theme_get_post_thumbnail_custom( $post, $size, $link );
+    echo wp_kses_post( emdotbike_theme_get_post_thumbnail_custom( $post, $size, $link ) );
 }
 
 /**
@@ -338,7 +338,7 @@ function emdotbike_get_post_thumbnail( $post_id = 0, $classes = 'img-responsive'
  */
 function emdotbike_theme_posted_on( $show_author = false ) {
     if ( is_sticky() && is_home() && ! is_paged() ) {
-        echo '<span class="featured-post">' . __( 'Sticky', 'emdotbike' ) . '</span>';
+        echo '<span class="featured-post">' . _e( 'Sticky', 'emdotbike' ) . '</span>';
     }
 
     // Set up and print post meta information. -- hide date if sticky.
@@ -463,7 +463,7 @@ function display_meta_description() {
 }
 
 /**
- * mdw_theme_navbar_brand function.
+ * Navbar brand function.
  *
  * Adds our logo or text based on theme options
  *
@@ -475,7 +475,7 @@ function emdotbike_theme_navbar_brand() {
 
     $text = get_bloginfo( 'name' );
 
-    if ( isset( $emdotbike_theme_options['default']['logo']['text'] ) && $emdotbike_theme_options['default']['logo']['text'] != '' ) {
+    if ( isset( $emdotbike_theme_options['default']['logo']['text'] ) && '' != $emdotbike_theme_options['default']['logo']['text'] ) {
         $text = $emdotbike_theme_options['default']['logo']['text'];
     }
 
@@ -498,7 +498,7 @@ function emdotbike_back_to_top() {
 
     $html .= '<a href="#0" class="emdotbike-back-to-top"></a>';
 
-    echo $html;
+    echo wp_kses_post( $html );
 }
 add_action( 'wp_footer', 'emdotbike_back_to_top' );
 
@@ -508,7 +508,7 @@ add_action( 'wp_footer', 'emdotbike_back_to_top' );
  * Similar to wp_parse_args() just a bit extended to work with multidimensional arrays
  *
  * @access public
- * @param mixed &$a (array).
+ * @param mixed $a (array).
  * @param mixed $b (array).
  * @return array
  */
@@ -570,7 +570,7 @@ function get_terms_list( $term = false ) {
  * Gets the excerpt of a specific post ID or object.
  *
  * @access public
- * @param mixed  $post.
+ * @param mixed  $post object.
  * @param int    $length (default: 10).
  * @param string $tags (default: '<a><em><strong>').
  * @param string $extra (default: ' . . .').
@@ -712,7 +712,7 @@ add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' );
  * Login header URL.
  *
  * @access public
- * @return void
+ * @return url
  */
 function emdotbike_login_headerurl() {
     return home_url();

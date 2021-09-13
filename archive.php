@@ -18,11 +18,11 @@
         <h1 class="archive-title page-title">
             <?php
             if ( is_day() ) :
-                printf( _esc_html_e( 'Daily Archives: %s', 'emdotbike' ), get_the_date() );
+                printf( esc_html_e( 'Daily Archives: %s', 'emdotbike' ), get_the_date() );
                 elseif ( is_month() ) :
-                    printf( _esc_html_e( 'Monthly Archives: %s', 'emdotbike' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'emdotbike' ) ) );
+                    printf( esc_html_e( 'Monthly Archives: %s', 'emdotbike' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'emdotbike' ) ) );
                 elseif ( is_year() ) :
-                    printf( _esc_html_e( 'Yearly Archives: %s', 'emdotbike' ), get_the_date( _x( 'Y', 'yearly archives date format', 'emdotbike' ) ) );
+                    printf( esc_html_e( 'Yearly Archives: %s', 'emdotbike' ), get_the_date( _x( 'Y', 'yearly archives date format', 'emdotbike' ) ) );
                 else :
                     _esc_html_e( 'Archives', 'emdotbike' );
                 endif;

@@ -72,22 +72,22 @@ function emdotbike_theme_setup() {
     add_theme_support( 'align-wide' );
 
     /**
-     * add our image size(s)
+     * add our image size(s).
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'home-grid-large', 650, 375, true ); // in dwb plugin as home-grid
+    add_image_size( 'home-grid-large', 650, 375, true ); // in dwb plugin as home-grid.
 
     /**
-     * Include theme meta page
-     * Allows users to hook and filter into the default meta tags in the header
+     * Include theme meta page.
+     * Allows users to hook and filter into the default meta tags in the header.
      */
     include_once( get_template_directory() . '/inc/theme-meta.php' );
 
     // dashboard widgets.
     include_once( get_template_directory() . '/widgets/social-media.php' );
 
-    // register our navigation area
+    // register our navigation area.
     register_nav_menus(
         array(
             'primary' => __( 'Primary Menu', 'emdotbike' ),
@@ -101,21 +101,6 @@ function emdotbike_theme_setup() {
 
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
-
-/**
- * Add image sizes to media.
- *
- * @access public
- * @param mixed $sizes
- * @return array
- */
-function emdotbike_add_image_size_to_media( $sizes ) {
-    $custom_sizes = array(
-        'single' => 'Single',
-    );
-    return array_merge( $sizes, $custom_sizes );
-}
-// add_filter( 'image_size_names_choose', 'emdotbike_add_image_size_to_media' );
 
 /**
  * Register widget area.

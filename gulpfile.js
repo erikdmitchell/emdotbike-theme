@@ -148,6 +148,7 @@ function mincss(done) {
 }
 
 // css linting with Stylelint.
+/*
 function lintcss(done) {
   return (
     gulp.src(cssInclude)
@@ -159,8 +160,10 @@ function lintcss(done) {
   );
   done();
 }
+*/
 
 // make pretty
+/*
 function beautifycss(done) {
   return (
     gulp.src(cssInclude)
@@ -169,6 +172,7 @@ function beautifycss(done) {
   );
   done();
 }
+*/
 
 /**
  * Scripts

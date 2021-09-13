@@ -270,8 +270,8 @@ const watch = gulp.parallel(styles, scripts, watchFiles); // Watch Task
 // export tasks
 exports.sass = sass;
 exports.mincss = mincss;
-exports.lintcss = lintcss;
-exports.beautifycss = beautifycss;
+// exports.lintcss = lintcss;
+// exports.beautifycss = beautifycss;
 exports.styles = styles;
 exports.js = js;
 exports.lintjs = lintjs;

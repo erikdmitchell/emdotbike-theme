@@ -20,7 +20,7 @@ class EM_Social extends WP_Widget {
      * @access public
      * @return void
      */
-    function __construct() {
+    public function __construct() {
         parent::__construct(
             'em-social',  // Base ID.
             'Social Media'   // Name.
@@ -57,6 +57,7 @@ class EM_Social extends WP_Widget {
      * @return void
      */
     public function widget( $args, $instance ) {
+        $widget = '';
         $html = '';
 
         $html .= '<h3>Connect with Me</h3>';
@@ -68,16 +69,17 @@ class EM_Social extends WP_Widget {
             $html .= '</ul>';
         $html .= '</div>';
 
-        echo $args['before_widget'];
+        $widget .= $args['before_widget'];
 
-        echo '<div class="em-social-widget">';
+        $widget .= '<div class="em-social-widget">';
 
-            echo $html;
+            $widget .= $html;
 
-        echo '</div>';
+        $widget .= '</div>';
 
-        echo $args['after_widget'];
+        $widget .= $args['after_widget'];
 
+        echo wp_kses_post( $widget );
     }
 
     /**

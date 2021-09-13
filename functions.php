@@ -85,7 +85,7 @@ function emdotbike_theme_setup() {
     include_once( get_template_directory() . '/inc/theme-meta.php' );
 
     // dashboard widgets.
-    include_once( get_template_directory() . '/widgets/social-media.php' );
+    include_once( get_template_directory() . '/widgets/class-em-social.php' );
 
     // register our navigation area.
     register_nav_menus(

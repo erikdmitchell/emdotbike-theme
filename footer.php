@@ -6,8 +6,8 @@
  * @subpackage emdotbike
  * @since emdotbike 0.1.0
  */
- 
- ?>
+
+?>
         <footer>
             <div class="footer-widgets">
                 <div class="footer-widget footer-widget-1"><?php dynamic_sidebar( 'footer-1' ); ?></div>

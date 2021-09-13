@@ -6,7 +6,7 @@
  * @subpackage emdotbike
  * @since emdotbike 0.1.0
  */
- 
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>

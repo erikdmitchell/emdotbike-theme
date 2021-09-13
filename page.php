@@ -56,7 +56,7 @@ if ( have_posts() ) :
     </article><!-- #post-## -->
     <!-- // Previous/next post navigation. NEEDS TO BE ADDED -->
                 <?php endwhile; else : ?>
-    <p><?php _e( 'Sorry, this page does not exist.', 'emdotbike' ); ?></p>
+    <p><?php esc_html_e( 'Sorry, this page does not exist.', 'emdotbike' ); ?></p>
 <?php endif; ?>
         
 

@@ -1,7 +1,12 @@
 <?php
 /**
  * Author posts page
+ *
+ * @package WordPress
+ * @subpackage emdotbike
+ * @since emdotbike 0.1.0
  **/
+
 ?>
 
 <?php get_header(); ?>

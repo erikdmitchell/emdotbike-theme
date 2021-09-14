@@ -1,15 +1,19 @@
 <?php
 /**
- * Blog posts page
+ * Author posts page
  *
  * @package WordPress
  * @subpackage emdotbike
  * @since emdotbike 0.1.0
- */
+ **/
 
 ?>
 
 <?php get_header(); ?>
+
+<div class="author-header">
+    <?php emdb_author_header(); ?>
+</div>
 
 <?php if ( have_posts() ) : ?>
     <div class="blog-page-posts">
@@ -34,8 +38,7 @@
         <?php endwhile; ?>
     </div>
     
-    <!-- // Previous/next post navigation. NEEDS TO BE ADDED -->
-    
+    <!-- // Previous/next post navigation. NEEDS TO BE ADDED --> 
 <?php endif; ?>
 
 <?php

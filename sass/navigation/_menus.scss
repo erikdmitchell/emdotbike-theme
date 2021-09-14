@@ -13,7 +13,9 @@
         z-index: 999;
         background: $color__background-navigation;
         padding: 10px;
-        margin-top: 48px;       
+        margin-top: 48px; 
+        min-width: 150px; 
+        padding-bottom: 3rem;
         
         li {
             float: none;
@@ -22,17 +24,17 @@
             
             a {
                 text-decoration: none;
-                color: $color__link-navigation;
+                color: $color__link-navigation-mobile;
                 
                 &:hover,
                 &:active {
-                    color: $color__link-navigation-current-item;;
+                    color: $color__link-navigation-mobile-current-item;
                 }
             }
             
             &.current_page_item {
                 a {
-                    color: $color__link-navigation-current-item;;
+                    color: $color__link-navigation-mobile-current-item;
                 }
             }
 
@@ -50,11 +52,27 @@
             margin-top: 0;
             padding: 0;        
             background: transparent;
+            min-width: inherit;
             
             li {
                 float: left;
                 background: transparent;
                 margin-left: 30px;
+                
+                a {
+                    color: $color__link-navigation;
+                    
+                    &:hover,
+                    &:active {
+                        color: $color__link-navigation-current-item;
+                    }
+                }
+                
+                &.current_page_item {
+                    a {
+                        color: $color__link-navigation-current-item;
+                    }
+                }                
             }    
         } 
 

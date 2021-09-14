@@ -1,7 +1,8 @@
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.button {
 	border: 1px solid;
 	border-color: $color__border-button;
 	border-radius: 3px;
@@ -9,7 +10,12 @@ input[type="submit"] {
 	color: rgba(0, 0, 0, 0.8);
 	font-size: 0.75rem;
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 7px 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 5px;	
 
 	&:hover {
 		border-color: $color__border-button-hover;
@@ -18,5 +24,5 @@ input[type="submit"] {
 	&:active,
 	&:focus {
 		border-color: $color__border-button-focus;
-	}
+	}	
 }

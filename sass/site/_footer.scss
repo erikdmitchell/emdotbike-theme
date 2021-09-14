@@ -4,7 +4,7 @@ footer {
     border-top: none; 
     background: $color__background-footer;
     color: $color__text-footer;
-    margin-top: 3rem;
+    margin-top: 8rem;
     
     // the below 3 styles create our diagonal top
     &:before,
@@ -32,10 +32,16 @@ footer {
     }    
 
     .footer-widgets {
-        padding: 10px 0 20px 0;
-        overflow: hidden;
-        
-        .footer-widget {                        
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        justify-content: space-between;    
+
+        .footer-widget {  
+            width: 32%;
+            margin: 0 0 25px;
+            position: relative;            
+                                  
             h3 {
                 font-size: 16px;
                 margin-bottom: 10px;
@@ -76,6 +82,10 @@ footer {
                 }         
             }
         }
+        
+        .footer-widget-3 {
+            text-align: center;
+        }
     }
     
     .copyright {
@@ -83,13 +93,5 @@ footer {
         text-align: center;
         margin: 20px 0 0 0;
         color: $color__text-footer; 
-    }
-    
-    @include rbp(tablet) {
-        .grid-col-4 {
-            flex: 0 0 auto;
-            width: 100%;
-            max-width: 100%;
-        }
-    }    
+    }   
 }

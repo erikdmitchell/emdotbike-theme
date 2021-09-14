@@ -1,5 +1,5 @@
 .alignfull {
-	margin: 32px calc(50% - 50vw);
+	margin: 0 calc(50% - 50vw);
 	max-width: 100vw;
 	width: 100vw;
 }
@@ -18,6 +18,7 @@
 	}
 }
 
+/*
 .wp-block-quote {
     &.is-style-heading {
         margin: 0;
@@ -39,4 +40,10 @@
     &.is-grid {
         margin: 0;
     }
+}
+*/
+
+.wp-block-dwb-home-grid-block {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }

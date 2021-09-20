@@ -1,51 +1,82 @@
 /**
  * Primary Navigation
  */
+ 
 .main-navigation {
-    margin-right: 2rem;
-    
-    ul {
+    .menu {
         list-style-type: none;
-        margin: 0;
-        display: none;
-        position: absolute;
-        right: 0px;
-        z-index: 999;
-        background: $color__background-navigation;
-        padding: 10px;
-        margin-top: 48px; 
-        min-width: 150px; 
-        padding-bottom: 3rem;
+        //background: $color__background-navigation;
+        display: flex;
         
-        li {
-            float: none;
-            display: block;
-            background: $color__background-navigation;
+        .menu-item {
+            padding: 5px 10px;
             
-            a {
-                text-decoration: none;
-                color: $color__link-navigation-mobile;
-                
-                &:hover,
-                &:active {
+            &.current_page_item,
+            &.current-menu-ancestor {
+                > a {
                     color: $color__link-navigation-mobile-current-item;
                 }
             }
+        }
+        
+        > .menu-item {
+            position: relative;
+            //margin-left: 15px;
+            //background: $color__background-navigation;
+            //padding: 5px 10px;
             
-            &.current_page_item {
-                a {
-                    color: $color__link-navigation-mobile-current-item;
+            &:hover {
+                > .sub-menu {
+                    display: block;
+                }    
+            }
+        }
+        
+        .sub-menu {
+            display: none;
+            left: 0;
+            margin: 0 0 0 5px;
+            padding: 0;
+            min-width: max-content;
+            position: absolute;
+            top: 100%;
+            padding-top: 3px;
+            transition: all 0.5s ease;
+            z-index: 88888; 
+            list-style-type: none; 
+            
+            border: 1px solid #000; 
+            background: grey; 
+            
+            .menu-item {
+                &.menu-item-has-children {
+                    .sub-menu {
+                        display: block;
+                    }
                 }
-            }
-
-            &:after {
-                content: none;
-            }
-            
+            }        
         }
 
+        a {
+            text-decoration: none;
+            //color: $color__link-navigation-mobile;
+            color: #000;
+            
+            &:hover,
+            &:active {
+                color: $color__link-navigation-mobile-current-item;
+            }
+        }        
+    }
+}
+ 
+/*
+ 
+.main-navigation {
+
+
     	@media only screen and (min-width: 580px) {
-            display: inline-block !important;
+//             display: inline-block !important;
             position: relative;
             right: auto;
             z-index: 0;
@@ -78,6 +109,7 @@
 
     } 
 }
+*/
 
 .toggle-nav,
 .toggle-nav:hover,

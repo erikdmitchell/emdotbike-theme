@@ -92,11 +92,11 @@
             overflow-wrap: break-word;
         
             &:last-child {
-                flex-basis: 60%;
+                flex-basis: 55%;
             }
         
             &:first-child {
-                flex-basis: 40%;
+                flex-basis: 45%;
             }
                 
         }
@@ -104,7 +104,7 @@
         .header-content {
             background: $color__background-post-header;
             color: $color__text-post-header;
-            padding: 2rem 0 0 5rem;        
+            padding: 2rem 2rem 0 4rem;        
             height: 100%;            
             
             h1 {

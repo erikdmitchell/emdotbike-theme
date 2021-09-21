@@ -90,6 +90,7 @@
             min-width: 0;
             word-break: break-word;
             overflow-wrap: break-word;
+            min-height: 400px;
         
             &:last-child {
                 flex-basis: 55%;
@@ -97,6 +98,10 @@
         
             &:first-child {
                 flex-basis: 45%;
+            }
+            
+            &.no-thumb {
+                background: $color__background-post-header;
             }
                 
         }
@@ -120,11 +125,10 @@
             
             .title {
                 margin: 2rem 0 1rem 0;
-            }                      
+            }                    
         }
         
         .post-thumbnail {
-            height: 100%;
             height: 400px;
             
             img {

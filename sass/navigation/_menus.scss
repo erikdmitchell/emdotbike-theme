@@ -1,15 +1,68 @@
 /**
  * Primary Navigation
+ *
+ * mmobile first design
+ *
  */
  
 .main-navigation {
     .menu {
+        display: none;
+        position: absolute;
+        right: 0px;
+        z-index: 999;
+        background: $color__background-navigation-mobile;
+        padding: 10px;
+        margin-top: 48px; 
+        list-style-type: none; 
+        
+        .menu-item {
+            display: block;
+            background: $color__background-navigation-mobile;
+            
+            .sub-menu {
+                padding: 0;
+                margin: 0;               
+            }
+            
+            a {
+                text-decoration: none;
+                color: $color__link-navigation-mobile;
+                
+                &:hover,
+                &:active {
+                    color: $color__link-navigation-mobile-current-item;
+                }
+            }
+            
+            &.current-menu-item {
+                a {
+                    color: $color__link-navigation-mobile-current-item;
+                }
+            }   
+        } 
+        
+        > .menu-item {
+            border-bottom: 1px solid $color__navigation-menu-item-border;
+            padding-bottom: 7px;
+            margin-top: 7px;    
+            
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+                     
+/*
         list-style-type: none;
         background: $color__background-navigation;
         display: flex;
         margin: 0;
         padding: 0;
+*/
+                
         
+/*
         .menu-item {
             padding: 5px 10px;
             
@@ -68,31 +121,28 @@
             &:active {
                 color: $color__link-navigation-current-item;
             }
-        }        
-    }
-}
- 
+        }
+*/        
+    
 /*
- 
-.main-navigation {
-
-
     	@media only screen and (min-width: 580px) {
-//             display: inline-block !important;
-            position: relative;
+            display: inline-block; // important?
+            //position: relative;
+            position: absolute;
             right: auto;
-            z-index: 0;
+            z-index: 99;
             margin-top: 0;
             padding: 0;        
             background: transparent;
-            min-width: inherit;
+            min-width: inherit; //
+            width: 100%;
             
             li {
                 float: left;
                 background: transparent;
                 margin-left: 30px;
                 
-                a {
+                a { //
                     color: $color__link-navigation;
                     
                     &:hover,
@@ -101,18 +151,16 @@
                     }
                 }
                 
-                &.current_page_item {
+                &.current_page_item { //
                     a {
                         color: $color__link-navigation-current-item;
                     }
                 }                
             }    
         } 
-
-    } 
+*/ 
+    }   
 }
-*/
-
 .toggle-nav,
 .toggle-nav:hover,
 .toggle-nav:visited,

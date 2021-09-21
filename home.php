@@ -34,7 +34,7 @@
         <?php endwhile; ?>
     </div>
     
-    <!-- // Previous/next post navigation. NEEDS TO BE ADDED -->
+    <?php emdotbike_theme_paging_nav(); // Previous/next post navigation. ?>
     
 <?php endif; ?>
 

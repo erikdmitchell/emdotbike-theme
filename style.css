@@ -884,6 +884,9 @@ a:hover, a:active {
   }
 }
 
+/*--------------------------------------------------------------
+## Page Nav
+--------------------------------------------------------------*/
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
@@ -923,32 +926,37 @@ a:hover, a:active {
 }
 
 .comment-navigation a,
+.comment-navigation a:hover,
+.comment-navigation a:visited,
 .posts-navigation a,
-.post-navigation a {
-  text-decoration: none;
-  color: #000;
-}
-
-/*--------------------------------------------------------------
-## Page Nav
---------------------------------------------------------------*/
-.paging-navigation,
-.post-navigation {
-  margin-top: 2rem;
-}
-
-.paging-navigation a,
-.paging-navigation a:hover,
-.paging-navigation a:visited,
+.posts-navigation a:hover,
+.posts-navigation a:visited,
 .post-navigation a,
 .post-navigation a:hover,
 .post-navigation a:visited {
   text-decoration: none;
-  color: #777;
+  color: #000;
 }
 
-.post-navigation {
-  display: block;
+.paging-navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.paging-navigation .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.paging-navigation .page-numbers {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -1067,7 +1075,12 @@ a:hover, a:active {
 .blog-page-posts,
 .post-navigation,
 .comments-area,
-.page-header {
+.page-header,
+.archive-header,
+.archive > article,
+.posts-navigation,
+.paging-navigation,
+.error404 article {
   width: 100%;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
@@ -1082,7 +1095,12 @@ a:hover, a:active {
   .blog-page-posts,
   .post-navigation,
   .comments-area,
-  .page-header {
+  .page-header,
+  .archive-header,
+  .archive > article,
+  .posts-navigation,
+  .paging-navigation,
+  .error404 article {
     max-width: 96%;
   }
 }
@@ -1094,7 +1112,12 @@ a:hover, a:active {
   .blog-page-posts,
   .post-navigation,
   .comments-area,
-  .page-header {
+  .page-header,
+  .archive-header,
+  .archive > article,
+  .posts-navigation,
+  .paging-navigation,
+  .error404 article {
     max-width: 570px;
   }
 }
@@ -1106,7 +1129,12 @@ a:hover, a:active {
   .blog-page-posts,
   .post-navigation,
   .comments-area,
-  .page-header {
+  .page-header,
+  .archive-header,
+  .archive > article,
+  .posts-navigation,
+  .paging-navigation,
+  .error404 article {
     max-width: 720px;
   }
 }
@@ -1118,7 +1146,12 @@ a:hover, a:active {
   .blog-page-posts,
   .post-navigation,
   .comments-area,
-  .page-header {
+  .page-header,
+  .archive-header,
+  .archive > article,
+  .posts-navigation,
+  .paging-navigation,
+  .error404 article {
     max-width: 960px;
   }
 }
@@ -1130,7 +1163,12 @@ a:hover, a:active {
   .blog-page-posts,
   .post-navigation,
   .comments-area,
-  .page-header {
+  .page-header,
+  .archive-header,
+  .archive > article,
+  .posts-navigation,
+  .paging-navigation,
+  .error404 article {
     max-width: 1140px;
   }
 }
@@ -1142,7 +1180,12 @@ a:hover, a:active {
   .blog-page-posts,
   .post-navigation,
   .comments-area,
-  .page-header {
+  .page-header,
+  .archive-header,
+  .archive > article,
+  .posts-navigation,
+  .paging-navigation,
+  .error404 article {
     max-width: 1320px;
   }
 }
@@ -1286,22 +1329,27 @@ a:hover, a:active {
   min-width: 0;
   word-break: break-word;
   overflow-wrap: break-word;
+  min-height: 400px;
 }
 
 .single-post .entry-header .featured-column:last-child {
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
+  -ms-flex-preferred-size: 55%;
+      flex-basis: 55%;
 }
 
 .single-post .entry-header .featured-column:first-child {
-  -ms-flex-preferred-size: 40%;
-      flex-basis: 40%;
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
+}
+
+.single-post .entry-header .featured-column.no-thumb {
+  background: #5CC3FF;
 }
 
 .single-post .entry-header .header-content {
   background: #5CC3FF;
   color: #fff;
-  padding: 2rem 0 0 5rem;
+  padding: 2rem 2rem 0 4rem;
   height: 100%;
 }
 
@@ -1321,7 +1369,6 @@ a:hover, a:active {
 }
 
 .single-post .entry-header .post-thumbnail {
-  height: 100%;
   height: 400px;
 }
 

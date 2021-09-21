@@ -127,33 +127,3 @@
         display: inline-block;
     }
 }
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
-
-	.nav-links {
-		display: flex;
-		margin-top: 15px;
-	}
-
-	.nav-previous,
-	.prev-post {
-		flex: 1 0 50%;
-	}
-
-	.nav-next,
-	.next-post {
-		text-align: end;
-		flex: 1 0 50%;
-	}
-	
-	a {
-    	text-decoration: none;
-    	color: $color__link-navigation;
-	}
-}

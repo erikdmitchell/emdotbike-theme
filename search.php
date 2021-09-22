@@ -15,12 +15,14 @@
             <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'emdotbike' ), get_search_query() ); ?></h1>
         </header><!-- .page-header -->
 
-        <?php
-        while ( have_posts() ) :
-            the_post();
-            ?>
-            <?php get_template_part( 'template-parts/content', 'search' ); ?>
-        <?php endwhile; ?>
+        <div class="search-results-posts">
+            <?php
+            while ( have_posts() ) :
+                the_post();
+                ?>
+                <?php get_template_part( 'template-parts/content', 'search' ); ?>
+            <?php endwhile; ?>
+        </div>
 
         <?php emdotbike_theme_paging_nav(); // Previous/next post navigation. ?>
 

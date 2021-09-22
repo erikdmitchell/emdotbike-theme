@@ -1,0 +1,23 @@
+/**
+ * Search page
+ */
+.search-results-posts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-between;     
+
+    .post {  
+        width: 100%;
+        margin: 0 0 25px;
+        position: relative; 
+        
+        @include bp(tablet) {
+            width: 48%;
+        }        
+        
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -22,7 +22,9 @@ $gradient-bottom-left: linear-gradient(315deg, #37b6ffff, #f9e7e7ff, #ada0a6ff, 
 $gradient-radial: radial-gradient(#37b6ffff, #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff);
 
 $color__background-body: #fff;
-$color__background-navigation: $indigo-dye;
+$color__background-navigation: $white;
+$color__background-navigation-sub-menu: $blue-jeans;
+$color__background-navigation-mobile: $indigo-dye;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
@@ -49,9 +51,10 @@ $color__text-header-link: #000;
 $color__text-navbar-brand: #777;
 $color__text-entry-meta: #000;
 $color__link-navigation: #000;
-$color__link-navigation-current-item: #000;
+$color__link-navigation-current-item: $blue-jeans;
 $color__link-navigation-mobile: #fff;
 $color__link-navigation-mobile-current-item: $blue-jeans;
+$color__link-navigation-sub-menu: $white;
 $color__text-toggle-nav: #000;
 $color__text-post-header: #fff;
 
@@ -60,6 +63,8 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+$color__navigation-sub-menu-border: $blue-jeans;
+$color__navigation-menu-item-border: $white;
 
 
 

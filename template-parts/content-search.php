@@ -20,17 +20,4 @@
         <?php the_excerpt(); ?>
     </div><!-- .entry-summary -->
 
-    <?php if ( 'post' == get_post_type() ) : ?>
-
-        <footer class="entry-footer">
-            <?php emdotbike_theme_meta(); ?>
-            <?php edit_post_link( __( 'Edit', 'emdotbike' ), '<span class="edit-link">', '</span>' ); ?>
-        </footer><!-- .entry-footer -->
-
-    <?php else : ?>
-
-        <?php edit_post_link( __( 'Edit', 'emdotbike' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
-
-    <?php endif; ?>
-
 </article><!-- #post-## -->

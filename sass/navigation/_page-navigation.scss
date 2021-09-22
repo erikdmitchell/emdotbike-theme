@@ -1,15 +1,47 @@
-.paging-navigation,
+.comment-navigation,
+.posts-navigation,
 .post-navigation {
-    margin-top: 2rem;
-    
-    a,
+
+	.site-main & {
+		margin: 0 0 1.5em;
+	}
+
+	.nav-links {
+		display: flex;
+		margin-top: 15px;
+	}
+
+	.nav-previous,
+	.prev-post {
+		flex: 1 0 50%;
+	}
+
+	.nav-next,
+	.next-post {
+		text-align: end;
+		flex: 1 0 50%;
+	}
+	
+	a,
     a:hover,
     a:visited {
-        text-decoration: none;
-        color: $color__link;
-    }
+    	text-decoration: none;
+    	color: $color__link-navigation;
+	}
 }
 
-.post-navigation {
-    display: block;
+
+.paging-navigation {
+    display: flex;
+    justify-content: center;
+    
+    .pagination {
+        display: flex;
+    }
+
+    .page-numbers {
+        margin-left: 5px;
+        margin-right: 5px;
+        text-decoration: none;
+    }
 }

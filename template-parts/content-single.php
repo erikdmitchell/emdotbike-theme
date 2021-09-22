@@ -34,8 +34,13 @@
                     </div>
                 </div>              
             </div>
-            <div class="featured-column">
-                <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
+            <?php if (has_post_thumbnail()) : ?>
+                <div class="featured-column">
+                    <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
+            <?php else : ?>
+                <div class="featured-column no-thumb">
+            <?php endif; ?>
+                
             </div>
         </div>
     </header>

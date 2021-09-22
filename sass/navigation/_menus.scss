@@ -1,26 +1,29 @@
 /**
  * Primary Navigation
+ *
+ * mmobile first design
+ *
  */
+ 
 .main-navigation {
-    margin-right: 2rem;
-    
-    ul {
-        list-style-type: none;
-        margin: 0;
+    .menu {
         display: none;
         position: absolute;
         right: 0px;
         z-index: 999;
-        background: $color__background-navigation;
+        background: $color__background-navigation-mobile;
         padding: 10px;
         margin-top: 48px; 
-        min-width: 150px; 
-        padding-bottom: 3rem;
+        list-style-type: none; 
         
-        li {
-            float: none;
+        .menu-item {
             display: block;
-            background: $color__background-navigation;
+            background: $color__background-navigation-mobile;
+            
+            .sub-menu {
+                padding: 0;
+                margin: 0;               
+            }
             
             a {
                 text-decoration: none;
@@ -32,34 +35,118 @@
                 }
             }
             
-            &.current_page_item {
+            &.current-menu-item {
                 a {
                     color: $color__link-navigation-mobile-current-item;
                 }
+            }   
+        } 
+        
+        > .menu-item {
+            border-bottom: 1px solid $color__navigation-menu-item-border;
+            padding-bottom: 7px;
+            margin-top: 7px;    
+            
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
             }
-
-            &:after {
-                content: none;
+        }
+                     
+    	@media only screen and (min-width: 580px) {
+            list-style-type: none;
+            background: $color__background-navigation;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            right: inherit;
+    
+            .menu-item {
+                padding: 5px 10px;
+                margin-bottom: 0;
+                
+                &.current-page-item,
+                &.current-menu-ancestor {
+                    > a {
+                        color: $color__link-navigation-current-item;
+                    }
+                }
+                
+                a {
+                    color: $color__link-navigation;
+                }
             }
             
+            > .menu-item {
+                background: $color__background-navigation;
+                
+                &:hover {
+                    > .sub-menu {
+                        display: block;
+                    }    
+                }
+            }
+            
+            .sub-menu {
+                display: none;
+                //left: 0;
+                margin: 0 0 0 5px;
+                padding: 0;
+                min-width: max-content;
+                position: absolute;
+                top: 100%;
+                padding-top: 3px;
+                transition: all 0.5s ease;
+                z-index: 88888; 
+                list-style-type: none; 
+                border: 1px solid $color__navigation-sub-menu-border;
+                background: $color__background-navigation-sub-menu; 
+                
+                .menu-item {
+                    &.menu-item-has-children {
+                        .sub-menu {
+                            display: block;
+                        }
+                    }
+                    
+                    a {
+                        color: $color__link-navigation-sub-menu;
+                    }
+                }        
+            }
+    
+            a {
+                text-decoration: none;
+                color: $color__link-navigation;
+                
+                &:hover,
+                &:active {
+                    color: $color__link-navigation-current-item;
+                }
+            }
         }
-
+                
+    
+/*
     	@media only screen and (min-width: 580px) {
-            display: inline-block !important;
-            position: relative;
+            display: inline-block; // important?
+            //position: relative;
+            position: absolute;
             right: auto;
-            z-index: 0;
+            z-index: 99;
             margin-top: 0;
             padding: 0;        
             background: transparent;
-            min-width: inherit;
+            min-width: inherit; //
+            width: 100%;
             
             li {
                 float: left;
                 background: transparent;
                 margin-left: 30px;
                 
-                a {
+                a { //
                     color: $color__link-navigation;
                     
                     &:hover,
@@ -68,17 +155,16 @@
                     }
                 }
                 
-                &.current_page_item {
+                &.current_page_item { //
                     a {
                         color: $color__link-navigation-current-item;
                     }
                 }                
             }    
         } 
-
-    } 
+*/ 
+    }   
 }
-
 .toggle-nav,
 .toggle-nav:hover,
 .toggle-nav:visited,
@@ -92,34 +178,4 @@
 	@media only screen and (max-width: 580px) {
         display: inline-block;
     }
-}
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
-
-	.nav-links {
-		display: flex;
-		margin-top: 15px;
-	}
-
-	.nav-previous,
-	.prev-post {
-		flex: 1 0 50%;
-	}
-
-	.nav-next,
-	.next-post {
-		text-align: end;
-		flex: 1 0 50%;
-	}
-	
-	a {
-    	text-decoration: none;
-    	color: $color__link-navigation;
-	}
 }

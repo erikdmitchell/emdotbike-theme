@@ -151,7 +151,7 @@ add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
 function emdotbike_theme_scripts() {
     global $wp_scripts;
 
-    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/js/emdotbike.min.js', array( 'jquery' ), '0.1.0', true );
+    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/js/emdotbike.min.js', array( 'jquery' ), EMDOTBIKE_VERSION, true );
 
     if ( is_singular() ) :
         wp_enqueue_script( 'comment-reply' );
@@ -189,16 +189,20 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
 
     $html = null;
 
-    $thumb_id = get_post_thumbnail_id( $post->ID );
-    $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
-    // $thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
-    $thumb_meta = wp_get_attachment_metadata( $thumb_id );
-    // $thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
-    $thumb_base = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
-    $thumb = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
-
-    if ( post_password_required() || ! has_post_thumbnail() ) {
+    if ( post_password_required() ) {
         return;
+    }
+
+    if (has_post_thumbnail( $post )) {
+        $thumb_id = get_post_thumbnail_id( $post->ID );
+        $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
+        // $thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
+        $thumb_meta = wp_get_attachment_metadata( $thumb_id );
+        // $thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
+        $thumb_base = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
+        $thumb = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
+    } else {
+        $thumb = '<img src="' . get_template_directory_uri() . '/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';        
     }
 
     // for parallax images.

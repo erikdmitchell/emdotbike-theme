@@ -6,8 +6,8 @@
  * toggles the mobile nav
  */
 jQuery(document).ready(function() {
-    jQuery('.toggle-nav').on('click', function(e) {
-        jQuery('.main-navigation ul').slideToggle(500);
+    jQuery('.toggle-nav').click(function(e) {      
+        jQuery('.main-navigation .menu').toggle(500);
 
         e.preventDefault();
     });

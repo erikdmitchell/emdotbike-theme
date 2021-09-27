@@ -18,6 +18,12 @@
     }
 }
 
-.main-content {
+.main-content,
+.blog .blog-page-posts,
+.author-header,
+.archive-header,
+.error404 article,
+.search .page-header,
+.single .post {
     padding-top: 135px;
 }

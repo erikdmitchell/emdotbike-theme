@@ -24,14 +24,12 @@
             &:active {
                 color: $color__link-navigation-mobile-current-item;
             }
-        }        
+        }    
         
-        .widget_block {
-            h3 {
-                margin-top: 20px;
-                margin-bottom: 0;
-            }
-        }
+        .widget_block,
+        .widget_nav_menu {
+            margin-top: 20px;
+        }    
         
         // search widget
         .widget_search {
@@ -62,36 +60,38 @@
      
         // pages (nav menu)
         .widget_nav_menu {
-            margin-top: 20px;
-            
             ul {
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
-                
-                li {}
             }
         }
         
         // social widget
-        .wp-block-social-links {
-            margin-bottom: 0;
+        .connect-social {
+            h3 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
             
-            li {}
-        }
+            .wp-block-social-links {
+                margin-bottom: 0;
+            }
+        }        
         
         // latest posts widget
-        .widget_recent_entries {
-            margin-top: 10px;
-            
+        .latest-posts {
+            h3 {
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+               
             ul {
                 list-style-type: none;
                 padding: 0;
                 margin: 0;
-                
-                li {}
-            }
-        }
+            }            
+        }         
                      
     	@media only screen and (min-width: 580px) {
 

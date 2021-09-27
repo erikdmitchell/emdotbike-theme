@@ -152,7 +152,7 @@ function emdotbike_theme_widgets_init() {
         array(
             'name' => 'Nav Section',
             'id' => 'emdb-nav-sidebar',
-            'class' => 'emdb-nav-sidebar',
+            'class' => 'emdb-nav',
             'before_widget' => '<div class="%2$s">',
             'after_widget' => '</div>',
             'before_sidebar' => '<div id="%1$s" class="%2$s">',

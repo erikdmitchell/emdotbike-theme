@@ -1,8 +1,17 @@
 .site-header {
+    .inner-header {
     padding: 30px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: yellow;
+    z-index: 99;
+    
+  overflow: hidden;
+//   background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */    
      
     .site-branding {
         .navbar-brand {
@@ -11,5 +20,6 @@
             line-height: 20px;
             text-decoration: none;
         }
+    }
     }
 }

@@ -1,12 +1,10 @@
 /**
  * Primary Navigation
  *
- * mmobile first design
- *
  */
 .main-navigation {
     .emdb-nav {
-        display: none;
+//         display: none;
         position: fixed;
         right: 0px;
         top: 135px;
@@ -96,13 +94,7 @@
         }
                      
     	@media only screen and (min-width: 580px) {
-            //list-style-type: none;
-            //background: $color__background-navigation;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            right: inherit;
-            top: 0;
+
         }
     }   
 }

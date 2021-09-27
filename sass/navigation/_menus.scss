@@ -6,7 +6,7 @@
  */
 .main-navigation {
     .emdb-nav {
-//         display: none;
+        display: none;
         position: fixed;
         right: 0px;
         top: 135px;
@@ -94,54 +94,11 @@
                 li {}
             }
         }
-        
-
-        
-/*
-        .menu-item {
-            display: block;
-            background: $color__background-navigation-mobile;
-            
-            .sub-menu {
-                padding: 0;
-                margin: 0;               
-            }
-            
-            a {
-                text-decoration: none;
-                color: $color__link-navigation-mobile;
-                
-                &:hover,
-                &:active {
-                    color: $color__link-navigation-mobile-current-item;
-                }
-            }
-            
-            &.current-menu-item {
-                a {
-                    color: $color__link-navigation-mobile-current-item;
-                }
-            }   
-        } 
-*/
-        
-/*
-        > .menu-item {
-            border-bottom: 1px solid $color__navigation-menu-item-border;
-            padding-bottom: 7px;
-            margin-top: 7px;    
-            
-            &:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-        }
-*/
                      
     	@media only screen and (min-width: 580px) {
             list-style-type: none;
             background: $color__background-navigation;
-            display: flex;
+            //display: flex;
             margin: 0;
             padding: 0;
             position: relative;
@@ -221,11 +178,7 @@
 .toggle-nav:active {
     text-decoration: none;
     color: $color__text-toggle-nav;
-    display: none;
+    display: inline-block;
     margin-right: 5px;
     font-size: 1.5em;
-    
-	@media only screen and (max-width: 580px) {
-        display: inline-block;
-    }
 }

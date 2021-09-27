@@ -4,7 +4,6 @@
  * mmobile first design
  *
  */
- 
 .main-navigation {
     .menu {
         display: none;
@@ -126,45 +125,9 @@
                 }
             }
         }
-                
-    
-/*
-    	@media only screen and (min-width: 580px) {
-            display: inline-block; // important?
-            //position: relative;
-            position: absolute;
-            right: auto;
-            z-index: 99;
-            margin-top: 0;
-            padding: 0;        
-            background: transparent;
-            min-width: inherit; //
-            width: 100%;
-            
-            li {
-                float: left;
-                background: transparent;
-                margin-left: 30px;
-                
-                a { //
-                    color: $color__link-navigation;
-                    
-                    &:hover,
-                    &:active {
-                        color: $color__link-navigation-current-item;
-                    }
-                }
-                
-                &.current_page_item { //
-                    a {
-                        color: $color__link-navigation-current-item;
-                    }
-                }                
-            }    
-        } 
-*/ 
     }   
 }
+
 .toggle-nav,
 .toggle-nav:hover,
 .toggle-nav:visited,

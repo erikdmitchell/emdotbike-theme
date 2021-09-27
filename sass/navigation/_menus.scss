@@ -96,78 +96,13 @@
         }
                      
     	@media only screen and (min-width: 580px) {
-            list-style-type: none;
-            background: $color__background-navigation;
-            //display: flex;
+            //list-style-type: none;
+            //background: $color__background-navigation;
             margin: 0;
             padding: 0;
             position: relative;
             right: inherit;
             top: 0;
-    
-            .menu-item {
-                padding: 5px 10px;
-                margin-bottom: 0;
-                
-                &.current-page-item,
-                &.current-menu-ancestor {
-                    > a {
-                        color: $color__link-navigation-current-item;
-                    }
-                }
-                
-                a {
-                    color: $color__link-navigation;
-                }
-            }
-            
-            > .menu-item {
-                background: $color__background-navigation;
-                
-                &:hover {
-                    > .sub-menu {
-                        display: block;
-                    }    
-                }
-            }
-            
-            .sub-menu {
-                display: none;
-                //left: 0;
-                margin: 0 0 0 5px;
-                padding: 0;
-                min-width: max-content;
-                position: absolute;
-                top: 100%;
-                padding-top: 3px;
-                transition: all 0.5s ease;
-                z-index: 88888; 
-                list-style-type: none; 
-                border: 1px solid $color__navigation-sub-menu-border;
-                background: $color__background-navigation-sub-menu; 
-                
-                .menu-item {
-                    &.menu-item-has-children {
-                        .sub-menu {
-                            display: block;
-                        }
-                    }
-                    
-                    a {
-                        color: $color__link-navigation-sub-menu;
-                    }
-                }        
-            }
-    
-            a {
-                text-decoration: none;
-                color: $color__link-navigation;
-                
-                &:hover,
-                &:active {
-                    color: $color__link-navigation-current-item;
-                }
-            }
         }
     }   
 }

@@ -1,17 +1,12 @@
 .site-header {
-    .inner-header {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
     padding: 30px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: yellow;
-    z-index: 99;
-    
-  overflow: hidden;
-//   background-color: #333;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */    
+    background: $color__background-header;
      
     .site-branding {
         .navbar-brand {
@@ -21,5 +16,34 @@
             text-decoration: none;
         }
     }
-    }
 }
+
+.main-content {
+    padding-top: 135px;
+}
+
+/*
+    @include bp(mobile) {
+        max-width: 96%;
+    } 
+    
+    @include bp(tablet-s) {
+        max-width: 570px;
+    }   
+
+    @include bp(tablet) {
+        max-width: 720px;
+    }
+    
+    @include bp(desktop) {
+        max-width: 960px;
+    }
+    
+    @include bp(desktop-m) {
+        max-width: 1140px;
+    }        
+
+    @include bp(desktop-w2) {
+        max-width: 1320px;
+    }     
+*/

@@ -9,6 +9,8 @@ jQuery(document).ready(function() {
     jQuery('.toggle-nav').click(function(e) {      
         jQuery('.main-navigation .menu').toggle(500);
 
+        jQuery('i', this).toggleClass('fa-times');
+
         e.preventDefault();
     });
 });

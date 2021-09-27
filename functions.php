@@ -147,6 +147,20 @@ function emdotbike_theme_widgets_init() {
             'after_title' => '</h3>',
         )
     );
+
+    register_sidebar(
+        array(
+            'name' => 'Nav Section',
+            'id' => 'emdb-nav-sidebar',
+            'class' => 'emdb-nav-sidebar',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="%2$s">',
+            'after_sidebar' => '</div>',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+        )
+    );
 }
 add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
 

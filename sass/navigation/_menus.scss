@@ -133,5 +133,9 @@
     color: $color__text-toggle-nav;
     display: inline-block;
     margin-right: 5px;
-    font-size: 1.5em;
+    
+    .dashicons {
+        font-weight: 900;
+        font-size: 1.5em;
+    }
 }

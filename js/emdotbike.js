@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
     jQuery('.toggle-nav').click(function(e) {      
         jQuery('.main-navigation .emdb-nav').toggle(500);
 
-        jQuery('i', this).toggleClass('fa-times');
+        jQuery('i', this).toggleClass('dashicons-no-alt');
 
         e.preventDefault();
     });

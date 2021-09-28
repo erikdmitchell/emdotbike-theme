@@ -95,7 +95,7 @@ function emdotbike_theme_setup() {
     /**
      * This theme styles the visual editor to resemble the theme style
      */
-    add_editor_style( 'css/editor-style.css' );
+    add_editor_style( 'css/editor-style.min.css' );
 
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
@@ -190,8 +190,6 @@ function emdotbike_theme_scripts() {
     $wp_scripts->add_data( 'html5shiv-script', 'conditional', 'lt IE 9' );
     $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
 
-    // enqueue font awesome and our main stylesheet.
-    wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/fontawesome.min.css', array(), '5.15.1' );
     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
@@ -729,7 +727,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
  * @return void
  */
 function emdotbike_login_scripts_styles() {
-    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.css', array(), EMDOTBIKE_VERSION );
+    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.min.css', array(), EMDOTBIKE_VERSION );
 }
 add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' );
 

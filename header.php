@@ -38,7 +38,7 @@
         <nav id="site-navigation" class="main-navigation">
             <?php dynamic_sidebar( 'emdb-nav-sidebar' ); ?>
         </nav><!-- #site-navigation -->
-        <a class="toggle-nav" href="#"><i class="fas fa-bars"></i></a>
+        <a class="toggle-nav" href="#"><i class="dashicons dashicons-menu-alt"></i></a>
     </header><!-- #masthead -->
     
     

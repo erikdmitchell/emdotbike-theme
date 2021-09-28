@@ -31,7 +31,9 @@
             margin-top: 20px;
         }    
         
-        // search widget
+        /**
+         * search widget
+         */
         .widget_search {
             padding-bottom: 10px;
             border-bottom: 1px solid #fff;
@@ -55,10 +57,27 @@
                 border: none;
                 background: transparent;
                 color: #fff;
+                padding: 0.5em 0.25em 0.125em 0.25em;
+                
+                &.has-icon {
+                    svg {
+                        display: none;
+                    }
+                    
+                    &::after {
+                        font-family: "dashicons";
+                        content: "\f179";
+                        width: 1.5em;
+                        height: 1.5em;
+                        font-size: 1.5em;
+                    }
+                }
             }
         }
      
-        // pages (nav menu)
+        /**
+         * pages nav menu widget
+         */
         .widget_nav_menu {
             ul {
                 list-style-type: none;
@@ -67,7 +86,9 @@
             }
         }
         
-        // social widget
+        /**
+         * social widget
+         */
         .connect-social {
             h3 {
                 margin-top: 0;
@@ -79,7 +100,9 @@
             }
         }        
         
-        // latest posts widget
+        /**
+         * latest posts widget
+         */
         .latest-posts {
             h3 {
                 margin-top: 0;

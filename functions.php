@@ -155,8 +155,8 @@ function emdotbike_theme_widgets_init() {
             'class' => 'emdb-nav',
             'before_widget' => '<div class="%2$s">',
             'after_widget' => '</div>',
-            'before_sidebar' => '<div id="%1$s" class="%2$s">',
-            'after_sidebar' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="%2$s"><div class="nav-inner">',
+            'after_sidebar' => '</div></div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',
         )

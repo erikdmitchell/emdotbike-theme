@@ -36,14 +36,7 @@
         </div><!-- .site-branding -->
 
         <nav id="site-navigation" class="main-navigation">
-            <?php
-            wp_nav_menu(
-                array(
-                    'theme_location' => 'primary',
-                    'menu_id' => 'primary-menu',
-                )
-            );
-            ?>
+            <?php dynamic_sidebar( 'emdb-nav-sidebar' ); ?>
         </nav><!-- #site-navigation -->
         <a class="toggle-nav" href="#"><i class="fas fa-bars"></i></a>
     </header><!-- #masthead -->

@@ -70,6 +70,7 @@ function emdotbike_theme_setup() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'align-wide' );
+    add_theme_support( 'editor-styles' );
 
     /**
      * Add our image size(s).
@@ -83,9 +84,6 @@ function emdotbike_theme_setup() {
      * Allows users to hook and filter into the default meta tags in the header.
      */
     include_once( get_template_directory() . '/inc/theme-meta.php' );
-
-    // dashboard widgets.
-    include_once( get_template_directory() . '/widgets/class-em-social.php' );
 
     // register our navigation area.
     register_nav_menus(
@@ -112,8 +110,11 @@ function emdotbike_theme_widgets_init() {
         array(
             'name' => 'Footer 1',
             'id' => 'footer-1',
-            'before_widget' => '',
-            'after_widget' => '',
+            'class' => 'footer-widget-1',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
+            'after_sidebar' => '</div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',
         )
@@ -123,8 +124,11 @@ function emdotbike_theme_widgets_init() {
         array(
             'name' => 'Footer 2',
             'id' => 'footer-2',
-            'before_widget' => '',
-            'after_widget' => '',
+            'class' => 'footer-widget-2',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
+            'after_sidebar' => '</div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',
         )
@@ -134,8 +138,25 @@ function emdotbike_theme_widgets_init() {
         array(
             'name' => 'Footer 3',
             'id' => 'footer-3',
-            'before_widget' => '',
-            'after_widget' => '',
+            'class' => 'footer-widget-3',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
+            'after_sidebar' => '</div>',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' => 'Nav Section',
+            'id' => 'emdb-nav-sidebar',
+            'class' => 'emdb-nav',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="%2$s">',
+            'after_sidebar' => '</div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',
         )

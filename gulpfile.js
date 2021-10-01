@@ -16,7 +16,7 @@ var buildInclude = [
         
         // include specific files and folders
         //'screenshot.png',
-        'readme.txt',
+        //'readme.txt',
 
         // exclude files and folders
         '!./composer.json', 

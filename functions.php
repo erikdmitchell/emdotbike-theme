@@ -70,6 +70,7 @@ function emdotbike_theme_setup() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'align-wide' );
+    add_theme_support( 'editor-styles' );
 
     /**
      * Add our image size(s).
@@ -84,9 +85,6 @@ function emdotbike_theme_setup() {
      */
     include_once( get_template_directory() . '/inc/theme-meta.php' );
 
-    // dashboard widgets.
-    include_once( get_template_directory() . '/widgets/class-em-social.php' );
-
     // register our navigation area.
     register_nav_menus(
         array(
@@ -97,7 +95,7 @@ function emdotbike_theme_setup() {
     /**
      * This theme styles the visual editor to resemble the theme style
      */
-    add_editor_style( 'css/editor-style.css' );
+    add_editor_style( 'css/editor-style.min.css' );
 
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
@@ -112,8 +110,11 @@ function emdotbike_theme_widgets_init() {
         array(
             'name' => 'Footer 1',
             'id' => 'footer-1',
-            'before_widget' => '',
-            'after_widget' => '',
+            'class' => 'footer-widget-1',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
+            'after_sidebar' => '</div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',
         )
@@ -123,8 +124,11 @@ function emdotbike_theme_widgets_init() {
         array(
             'name' => 'Footer 2',
             'id' => 'footer-2',
-            'before_widget' => '',
-            'after_widget' => '',
+            'class' => 'footer-widget-2',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
+            'after_sidebar' => '</div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',
         )
@@ -134,8 +138,25 @@ function emdotbike_theme_widgets_init() {
         array(
             'name' => 'Footer 3',
             'id' => 'footer-3',
-            'before_widget' => '',
-            'after_widget' => '',
+            'class' => 'footer-widget-3',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
+            'after_sidebar' => '</div>',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' => 'Nav Section',
+            'id' => 'emdb-nav-sidebar',
+            'class' => 'emdb-nav',
+            'before_widget' => '<div class="%2$s">',
+            'after_widget' => '</div>',
+            'before_sidebar' => '<div id="%1$s" class="%2$s"><div class="nav-inner">',
+            'after_sidebar' => '</div></div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',
         )
@@ -169,8 +190,7 @@ function emdotbike_theme_scripts() {
     $wp_scripts->add_data( 'html5shiv-script', 'conditional', 'lt IE 9' );
     $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
 
-    // enqueue font awesome and our main stylesheet.
-    wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/fontawesome.min.css', array(), '5.15.1' );
+    wp_enqueue_style( 'dashicons' );
     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
@@ -708,7 +728,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
  * @return void
  */
 function emdotbike_login_scripts_styles() {
-    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.css', array(), EMDOTBIKE_VERSION );
+    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.min.css', array(), EMDOTBIKE_VERSION );
 }
 add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' );
 

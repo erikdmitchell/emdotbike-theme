@@ -190,6 +190,7 @@ function emdotbike_theme_scripts() {
     $wp_scripts->add_data( 'html5shiv-script', 'conditional', 'lt IE 9' );
     $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
 
+    wp_enqueue_style( 'dashicons' );
     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );

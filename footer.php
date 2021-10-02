@@ -9,11 +9,7 @@
 
 ?>
         <footer>
-            <div class="footer-widgets">
-                <?php dynamic_sidebar( 'footer-1' ); ?>                
-                <?php dynamic_sidebar( 'footer-2' ); ?>
-                <?php dynamic_sidebar( 'footer-3' ); ?>
-            </div>
+            <?php dynamic_sidebar( 'emdb-footer-sidebar' ); ?>
             <div class="copyright"><?php echo get_bloginfo( 'name' ); ?> &copy; <?php echo gmdate( 'Y' ); ?></div>
         </footer>
 

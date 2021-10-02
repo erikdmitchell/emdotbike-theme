@@ -35,6 +35,11 @@ footer {
      * Style our footer "sidebar"
      */    
     .emdb-footer-sidebar {
+        > .widget_block {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+/*
         width: 100%;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
@@ -45,6 +50,7 @@ footer {
             margin-right: 0px;
             margin-left: 0px;
         }
+*/
           
         h3 {
             font-size: 16px;

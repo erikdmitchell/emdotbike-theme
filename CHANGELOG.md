@@ -1,5 +1,11 @@
 # EMdotBike Theme Changelog
 
+## 0.1.31
+
+* Make footer 1 widget and use WP for cols
+* Fix single post header on mobile
+* Author link fixed
+
 ## 0.1.3
 
 * Primary navigation is now widget based

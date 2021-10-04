@@ -1,5 +1,5 @@
 .author {
-        .author-header {
+    .author-header {
         width: 100%;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
@@ -7,7 +7,8 @@
         margin-left: auto; 
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 3rem;        
+        margin-bottom: 3rem; 
+        flex-direction: column;       
     
         @include bp(mobile) {
             max-width: 96%;
@@ -15,6 +16,7 @@
         
         @include bp(tablet-s) {
             max-width: 570px;
+            flex-direction: row;
         }   
     
         @include bp(tablet) {
@@ -31,7 +33,7 @@
     
         @include bp(desktop-w2) {
             max-width: 1320px;
-        }         
+        }                
 
         .author-column {
             flex-basis: 0;
@@ -53,13 +55,24 @@
             line-height: 1;
         }
         
-        .author-image img {
-            border-radius: 15px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        .author-image {
+            text-align: center;          
+            @include bp(tablet-s) {
+                text-align: left;
+            }
+            
+            img {
+                border-radius: 15px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
         }
         
         .author-name {
-            margin-bottom: 1rem;
+            margin: 1rem 0;
+
+            @include bp(tablet-s) {
+                margin-top: 0rem;
+            } 
         }
     }
 }

@@ -108,40 +108,12 @@ add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 function emdotbike_theme_widgets_init() {
     register_sidebar(
         array(
-            'name' => 'Footer 1',
-            'id' => 'footer-1',
-            'class' => 'footer-widget-1',
+            'name' => 'Footer',
+            'id' => 'emdb-footer-sidebar',
+            'class' => 'emdb-footer-sidebar',
             'before_widget' => '<div class="%2$s">',
             'after_widget' => '</div>',
-            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
-            'after_sidebar' => '</div>',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        )
-    );
-
-    register_sidebar(
-        array(
-            'name' => 'Footer 2',
-            'id' => 'footer-2',
-            'class' => 'footer-widget-2',
-            'before_widget' => '<div class="%2$s">',
-            'after_widget' => '</div>',
-            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
-            'after_sidebar' => '</div>',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        )
-    );
-
-    register_sidebar(
-        array(
-            'name' => 'Footer 3',
-            'id' => 'footer-3',
-            'class' => 'footer-widget-3',
-            'before_widget' => '<div class="%2$s">',
-            'after_widget' => '</div>',
-            'before_sidebar' => '<div id="%1$s" class="footer-widget %2$s">',
+            'before_sidebar' => '<div id="%1$s" class="%2$s">',
             'after_sidebar' => '</div>',
             'before_title' => '<h3>',
             'after_title' => '</h3>',

@@ -31,64 +31,47 @@ footer {
         transform-origin: 100%;
     }    
 
-    .footer-widgets {
-        display: flex;
-        flex-wrap: wrap;
-        flex-flow: row wrap;
-        justify-content: space-between;    
-
-        .footer-widget {  
-            width: 32%;
-            margin: 0 0 25px;
-            position: relative;            
-                                  
-            h3 {
-                font-size: 16px;
-                margin-bottom: 10px;
-                padding: 10px 0px;
-                color: $color__text-footer;
-                text-transform: uppercase;            
-            }
-            
-            ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0; 
-            }
-            
-            a,
-            a:visited {
-                color: $color__link-footer;
-                text-decoration: none;        
-            }
-            
-            a:focus,
-            a:hover {
-                color: $color__link-footer-hover;
-                text-decoration: none;                
-            }
-            
-            .widget_block {
-                h3 {
-                    margin-top: 0;                    
-                }
-            }
+    /**
+     * Style our footer "sidebar"
+     */    
+    .emdb-footer-sidebar {
+        > .widget_block {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+    
+        h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding: 10px 0px;
+            color: $color__text-footer;
+            text-transform: uppercase;            
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; 
+        }
+        
+        a,
+        a:visited {
+            color: $color__link-footer;
+            text-decoration: none;        
+        }
+        
+        a:focus,
+        a:hover {
+            color: $color__link-footer-hover;
+            text-decoration: none;                
+        }
+        
+        .connect-social {
+            text-align: center;
             
             .wp-block-social-links {
                 justify-content: center;
-                
-                li {
-                    font-size: 30px;
-            
-                    a:hover {
-                        color: $color__link-footer-hover;
-                    }
-                }         
             }
-        }
-        
-        .footer-widget-3 {
-            text-align: center;
         }
     }
     

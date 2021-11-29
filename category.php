@@ -18,7 +18,7 @@
         <h1 class="archive-title"><?php echo single_cat_title( '', false ); ?></h1>
     </header><!-- .archive-header -->
 
-    <div class="archive-page-posts">
+    <div class="page-posts-grid">
         <?php
         while ( have_posts() ) :
             the_post();

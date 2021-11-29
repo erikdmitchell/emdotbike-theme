@@ -1,51 +1,14 @@
 /**
  * Basic layout
  */
-/*
-.page-content,
-.footer-widgets,
-.page-header,
-.archive-header,
-.archive > article,
-.posts-navigation,
-.paging-navigation ,
-.error404 article {
-    width: 100%;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-    margin-right: auto;
-    margin-left: auto; 
-
-    @include bp(mobile) {
-        max-width: 96%;
-    } 
-    
-    @include bp(tablet-s) {
-        max-width: 570px;
-    }   
-
-    @include bp(tablet) {
-        max-width: 720px;
-    }
-    
-    @include bp(desktop) {
-        max-width: 960px;
-    }
-    
-    @include bp(desktop-m) {
-        max-width: 1140px;
-    }        
-
-    @include bp(desktop-w2) {
-        max-width: 1320px;
-    } 
-}
-*/
-
 .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
 .post-navigation,
 .comments-area,
-.page-posts-grid {    
+.page-posts-grid,
+.archive-header,
+.page-header,
+.error404 article,
+.entry-header {    
     width: 100%;
     padding-right: 1.5rem;
     padding-left: 1.5rem;

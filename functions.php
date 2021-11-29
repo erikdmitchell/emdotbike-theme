@@ -185,7 +185,7 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
         return;
     }
 
-    if (has_post_thumbnail( $post )) {
+    if ( has_post_thumbnail( $post ) ) {
         $thumb_id = get_post_thumbnail_id( $post->ID );
         $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
         // $thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
@@ -194,7 +194,7 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
         $thumb_base = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
         $thumb = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
     } else {
-        $thumb = '<img src="' . get_template_directory_uri() . '/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';        
+        $thumb = '<img src="' . get_template_directory_uri() . '/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';
     }
 
     // for parallax images.

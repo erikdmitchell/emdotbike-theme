@@ -11,7 +11,6 @@
 
 ?>
 <?php get_header(); ?>
-
     <?php if ( have_posts() ) : ?>
         <header class="archive-header">
             <h1 class="archive-title"><?php printf( __( 'Tag Archives: %s', 'emdotbike' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1>
@@ -21,7 +20,7 @@
             <?php endif; ?>
         </header><!-- .archive-header -->
 
-        <div class="archive-page-posts">
+        <div class="page-posts-grid">
             <?php
             while ( have_posts() ) :
                 the_post();

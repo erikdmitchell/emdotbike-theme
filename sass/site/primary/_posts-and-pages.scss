@@ -165,9 +165,9 @@
 }
 
 /**
- * content-grid.php
+ * Used on various pages including archive and search.
  */
-.archive-page-posts {
+.page-posts-grid {
     display: flex;
     flex-wrap: wrap;
     flex-flow: row wrap;

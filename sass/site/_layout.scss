@@ -4,16 +4,12 @@
 /*
 .page-content,
 .footer-widgets,
-.blog-page-posts,
-.post-navigation,
 .page-header,
 .archive-header,
 .archive > article,
 .posts-navigation,
 .paging-navigation ,
-.error404 article,
-.search-results-posts,
-.archive-page-posts {
+.error404 article {
     width: 100%;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
@@ -46,16 +42,10 @@
 }
 */
 
-/*
-.site-main > article > *:first-child
-
-.site-main > article > *
-*/
-
-//.entry-content > * {
 .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
 .post-navigation,
-.comments-area {    
+.comments-area,
+.page-posts-grid {    
     width: 100%;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
@@ -86,14 +76,3 @@
         max-width: 1320px;
     } 
 }
-
-
-/*
-.post-thumbnail, .entry-content .wp-audio-shortcode, 
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)
-, *[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .default-max-width {
-    max-width: var(--responsive--aligndefault-width);
-    margin-left: auto;
-    margin-right: auto;
-}
-*/

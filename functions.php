@@ -118,20 +118,7 @@ function emdb_gutenberg_colors() {
     add_theme_support( 'disable-custom-gradients' );
 
     // Add support for custom color palettes in Gutenberg.
-	add_theme_support(
-		'editor-color-palette', array(
-			array(
-				'name'  => esc_html__( 'Sky Blue', 'emdotbike' ),
-				'slug' => 'sky-blue',
-				'color' => '#5CC3FF',
-			),
-			array(
-				'name'  => esc_html__( 'White', 'emdotbike' ),
-				'slug' => 'white',
-				'color' => '#ffffff',
-			)
-		)
-	);        
+    // moved to theme.json      
 }
 
 /**

@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "name": "Sky Blue",
+                    "slug": "sky-blue",
+                    "color": "#5CC3FF"
+                },
+                {
+                    "name": "White",
+                    "slug": "white",
+                    "color": "#ffffff"
+                }
+            ]
+        }
+    }
+}

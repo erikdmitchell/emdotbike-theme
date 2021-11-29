@@ -186,23 +186,4 @@
             width: 100%;
         }
     }
-} 
-
-// Gutenberg color options
-// -- see editor-color-palette in functions.php
-$colors: ( sky-blue, #5CC3FF ),
-	( white, #ffffff );
-
-/* Color Options
---------------------------------------------- */
-
-@each $name, $color in $colors {
-
-	.has-#{$name}-color {
-		color: $color;
-	}
-
-	.has-#{$name}-background-color {
-		background-color: $color;
-	}
 }

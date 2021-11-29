@@ -96,9 +96,43 @@ function emdotbike_theme_setup() {
      * This theme styles the visual editor to resemble the theme style
      */
     add_editor_style( 'css/editor-style.min.css' );
-
+    
+    /**
+     * Setup our custom Gutenberg colors.
+     */
+    emdb_gutenberg_colors();
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
+
+/**
+ * Setup colors for Gutenberg.
+ * 
+ * @access public
+ * @return void
+ */
+function emdb_gutenberg_colors() {
+    // Disable Gutenberg Custom Colors.
+    add_theme_support( 'disable-custom-colors' );
+
+    // Disable Gutenberg Custom Gradients.
+    add_theme_support( 'disable-custom-gradients' );
+
+    // Add support for custom color palettes in Gutenberg.
+	add_theme_support(
+		'editor-color-palette', array(
+			array(
+				'name'  => esc_html__( 'Sky Blue', 'emdotbike' ),
+				'slug' => 'sky-blue',
+				'color' => '#5CC3FF',
+			),
+			array(
+				'name'  => esc_html__( 'White', 'emdotbike' ),
+				'slug' => 'white',
+				'color' => '#ffffff',
+			)
+		)
+	);        
+}
 
 /**
  * Register widget area.

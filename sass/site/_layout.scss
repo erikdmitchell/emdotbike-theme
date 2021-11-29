@@ -1,12 +1,11 @@
 /**
  * Basic layout
  */
+/*
 .page-content,
-// .entry-content > *,
 .footer-widgets,
 .blog-page-posts,
 .post-navigation,
-.comments-area,
 .page-header,
 .archive-header,
 .archive > article,
@@ -45,6 +44,7 @@
         max-width: 1320px;
     } 
 }
+*/
 
 /*
 .site-main > article > *:first-child
@@ -53,7 +53,9 @@
 */
 
 //.entry-content > * {
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator) {    
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
+.post-navigation,
+.comments-area {    
     width: 100%;
     padding-right: 1.5rem;
     padding-left: 1.5rem;

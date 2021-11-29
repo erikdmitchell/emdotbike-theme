@@ -2,6 +2,8 @@
     "version": 1,
     "settings": {
         "color": {
+            "custom": false,
+            "customGradient": false,
             "palette": [
                 {
                     "name": "Sky Blue",
@@ -12,8 +14,17 @@
                     "name": "White",
                     "slug": "white",
                     "color": "#ffffff"
-                }
+                }                
             ]
+        },
+        "blocks": {
+            "core/paragraph": {
+                "color": {},
+                "custom": {},
+                "layout": {},
+                "spacing": {},
+                "typography": {}
+            }
         }
     }
 }

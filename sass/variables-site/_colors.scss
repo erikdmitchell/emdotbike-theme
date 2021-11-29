@@ -66,9 +66,11 @@ $color__navigation-sub-menu-border: $blue-jeans;
 $color__navigation-menu-item-border: $white;
 
 // Gutenberg color options
-// -- see editor-color-palette in functions.php
-$colors: ( sky-blue, #5CC3FF ),
-	( white, #ffffff );
+// -- see theme.json
+$colors: ( 
+    'sky-blue': #5CC3FF,
+    'white': #ffffff
+);
 
 /* Color Options
 --------------------------------------------- */
@@ -83,4 +85,3 @@ $colors: ( sky-blue, #5CC3FF ),
 		background-color: $color;
 	}
 }
-

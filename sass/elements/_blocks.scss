@@ -26,3 +26,16 @@
 .wp-block-dwb-post-header {
     margin-bottom: 3rem;
 }
+
+/* 
+ * DigiWatts Post Header block
+ */
+.wp-block-dwb-post-header {
+    margin-bottom: 3rem;
+
+	//&:not(.has-text-color) {
+		color: $white;
+		background: #5CC3FF;
+	//}
+
+}

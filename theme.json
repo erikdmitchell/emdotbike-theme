@@ -16,15 +16,6 @@
                     "color": "#ffffff"
                 }                
             ]
-        },
-        "blocks": {
-            "core/paragraph": {
-                "color": {},
-                "custom": {},
-                "layout": {},
-                "spacing": {},
-                "typography": {}
-            }
         }
     }
 }

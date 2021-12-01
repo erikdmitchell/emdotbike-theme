@@ -185,5 +185,20 @@
         img {
             width: 100%;
         }
+        
+        .entry-header {
+            @include bp(mobile) {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .entry-title {
+                @include bp(mobile) {
+                    padding: 0;
+                    max-width: 100%;
+                }            
+            }
+        }
     }
 }

@@ -96,6 +96,10 @@
          */
         .connect-social {
             text-align: right;
+     
+            @include rbp(tablet) {
+                text-align: center;
+            }
             
             h3 {
                 margin-top: 0;
@@ -105,6 +109,10 @@
             .wp-block-social-links {
                 justify-content: right;
                 margin-bottom: 0;
+                
+                @include rbp(tablet) {
+                    justify-content: center;
+                }                
             }
         }        
         
@@ -130,6 +138,13 @@
                 margin: 0 auto;
             }
         }
+        
+        // overrides a wp col style so that it aligns in the center.
+        .wp-block-column:nth-child(3) {
+            @media (min-width: 600px) and (max-width: 781px) {
+                flex-basis: calc(100% - 1em) !important;
+            }
+        }        
     }   
 }
 

@@ -23,19 +23,16 @@
     margin-bottom: 3rem;
 }
 
-.wp-block-dwb-post-header {
-    margin-bottom: 3rem;
-}
-
 /* 
  * DigiWatts Post Header block
  */
 .wp-block-dwb-post-header {
     margin-bottom: 3rem;
+    
+	color: $white;
+	background: #5CC3FF;
+}
 
-	//&:not(.has-text-color) {
-		color: $white;
-		background: #5CC3FF;
-	//}
-
+.home .wp-block-dwb-tagline-block {
+    padding-top: 135px;
 }

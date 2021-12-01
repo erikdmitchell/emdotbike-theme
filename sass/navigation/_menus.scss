@@ -95,12 +95,15 @@
          * social widget
          */
         .connect-social {
+            text-align: right;
+            
             h3 {
                 margin-top: 0;
                 margin-bottom: 0;
             }
             
             .wp-block-social-links {
+                justify-content: right;
                 margin-bottom: 0;
             }
         }        

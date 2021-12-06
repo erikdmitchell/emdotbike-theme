@@ -1,5 +1,7 @@
 # EMdotBike Theme Changelog
 
+## 0.1.4
+
 ## 0.1.31
 
 * Make footer 1 widget and use WP for cols

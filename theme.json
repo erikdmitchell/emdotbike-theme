@@ -3,6 +3,9 @@
     "version":2,
 	"settings": {
 		"color": {
+            "custom": false,
+            "customGradient": false,
+            "link": true,
 			"palette": [
 				{
 					"slug": "black",
@@ -97,9 +100,24 @@
                     "gradient": "radial-gradient(var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)",
                     "name": "Gradient Radial"
     	        }   	        
-            ]		    	
+            ],
+            "duotone": [
+                {
+                    "colors": [ "#1d1f35", "#6cace4" ],
+                    "slug": "dark-blue-and-light-blue",
+                    "name": "Dark blue and light blue"
+                },
+                {
+                    "colors": [ "#1d1f35", "#c7c0af" ],
+                    "slug": "dark-blue-and-beige",
+                    "name": "Dark blue and beige"
+                }                
+            ],
         },
         "typography": {
+            "lineHeight": true,
+            "customFontSize": false,
+            "dropCap": false,
 			"fontFamilies": [
 				{
 					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
@@ -158,11 +176,17 @@
             "padding": true,
             "margin": true,
             "units": [ "px", "em", "rem", "vh", "vw" ]
-        }
+        },
         "layout": {
         	"contentSize": "840px",
         	"wideSize": "1100px"
-        }        
+        },
+        "border": {
+        	"color": true,
+        	"radius": true,
+        	"style": true,
+        	"width": true
+        }               
 	},
     "styles": {
 		"color": {

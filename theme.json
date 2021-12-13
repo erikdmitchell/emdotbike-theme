@@ -1,21 +1,194 @@
 {
-    "version": 1,
-    "settings": {
-        "color": {
-            "custom": false,
-            "customGradient": false,
-            "palette": [
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version":2,
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "black",
+					"color": "#000000",
+					"name": "Black"
+				},
+				{
+					"slug": "white",
+					"color": "#FFFFFF",
+					"name": "White"
+				},
+				{
+					"slug": "blue-jeans",
+					"color": "#37b6ff",
+					"name": "Blue Jeans"
+				},
+				{
+					"slug": "lavender-blush",
+					"color": "#f9e7e7",
+					"name": "Lavender Blush"
+				},
+				{
+					"slug": "black-shadows",
+					"color": "#ada0a6",
+					"name": "Black Shadows"
+				},
+				{
+					"slug": "davys-grey",
+					"color": "#494947",
+					"name": "Davys Grey"
+				},
+				{
+					"slug": "indigo-dye",
+					"color": "#00487c",
+					"name": "Indigo Dye"
+				},
+				{
+					"slug": "text-main",
+					"color": "#404040",
+					"name": "Main Text"
+				},
+				{
+					"slug": "gray",
+					"color": "#777777",
+					"name": "Gray"
+				}	
+																	
+			],
+            "gradients": [
                 {
-                    "name": "Sky Blue",
-                    "slug": "sky-blue",
-                    "color": "#5CC3FF"
-                },
+                    "slug": "gradient-top",
+                    "gradient": "linear-gradient(0deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)", 
+                    "name": "Gradient Top"
+    	        },
                 {
-                    "name": "White",
-                    "slug": "white",
-                    "color": "#ffffff"
-                }                
-            ]
+                    "slug": "gradient-right",
+                    "gradient": "linear-gradient(90deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)", 
+                    "name": "Gradient Right"
+    	        },
+                {
+                    "slug": "gradient-bottom",
+                    "gradient": "linear-gradient(180deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)", 
+                    "name": "Gradient Bottom"
+    	        },
+                {
+                    "slug": "gradient-left",
+                    "gradient": "linear-gradient(270deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)", 
+                    "name": "Gradient Left"
+    	        },
+                {
+                    "slug": "gradient-top-right",
+                    "gradient": "linear-gradient(45deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)", 
+                    "name": "Gradient Right"
+    	        },
+                {
+                    "slug": "gradient-bottom-right",
+                    "gradient": "linear-gradient(135deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)", 
+                    "name": "Gradient Bottom Right"
+    	        },
+                {
+                    "slug": "gradient-top-left",
+                    "gradient": "linear-gradient(225deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)",
+                    "name": "Gradient Top Left"
+    	        },
+                {
+                    "slug": "gradient-bottom-left",
+                    "gradient": "linear-gradient(315deg, var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)",
+                    "name": "Gradient Bottom Left"
+    	        },
+                {
+                    "slug": "gradient-radial",
+                    "gradient": "radial-gradient(var(--wp--preset--color--blue-jeans), #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff)",
+                    "name": "Gradient Radial"
+    	        }   	        
+            ]		    	
+        },
+        "typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+					"name": "Main Font",
+					"slug": "font-main"
+				},
+				{
+					"fontFamily": "monaco,consolas,\"Andale Mono\",\"DejaVu Sans Mono\",monospace",
+					"name": "Code Font",
+					"slug": "font-code"
+				},
+				{
+					"fontFamily": "\"Courier 10 Pitch\",courier,monospace",
+					"name": "Pre Font",
+					"slug": "font-pre"
+				}
+			],
+            "fontSizes": [
+            	{
+            		"slug": "extra-small",
+            		"size": "16px",
+            		"name": "Extra small"
+            	},
+            	{
+            		"slug": "small",
+            		"size": "18px",
+            		"name": "Small"
+            	},
+            	{
+            		"slug": "normal",
+            		"size": "1rem",
+            		"name": "Normal"
+            	},
+            	{
+            		"slug": "large",
+            		"size": "24px",
+            		"name": "Large"
+            	},
+            	{
+            		"slug": "extra-large",
+            		"size": "40px",
+            		"name": "Extra large"
+            	},
+            	{
+            		"slug": "huge",
+            		"size": "96px",
+            		"name": "Huge"
+            	}
+            ],
+			"line-height": {
+				"body": 1.5,
+				"pre": 1.6,
+			}           		
+		},
+		"spacing": {
+            "padding": true,
+            "margin": true,
+            "units": [ "px", "em", "rem", "vh", "vw" ]
         }
-    }
+        "layout": {
+        	"contentSize": "840px",
+        	"wideSize": "1100px"
+        }        
+	},
+    "styles": {
+		"color": {
+			"background": "var(--wp--preset--color--white)",
+			"text": "var(--wp--preset--color--text-main)",
+		},
+        "elements": {
+            "link": {
+        		"color": {
+ 			    "text": "var(--wp--preset--color--gray)",
+		    }
+        },
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--font-main)",
+			"lineHeight": "var(--wp--custom--typography--line-height--body)",
+			"fontSize": "var(--wp--preset--font-size--normal)"
+		},
+        "templateParts": [
+        	{
+        		"name": "header",
+        		"area": "header"
+        	},
+        	{
+        		"name": "footer",
+        		"area": "footer"
+        	}
+        ]		        	        
+	}
 }

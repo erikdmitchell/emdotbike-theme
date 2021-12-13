@@ -214,5 +214,36 @@
         		"area": "footer"
         	}
         ]		        	        
-	}
+	},
+	"customTemplates": [
+		{
+			"name": "blank",
+			"title": "Blank",
+			"postTypes": [
+				"page",
+				"post"
+			]
+		},
+		{
+			"name": "page-large-header",
+			"title": "Page (Large Header)",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "single-no-separators",
+			"title": "Single Post (No Separators)",
+			"postTypes": [
+				"post"
+			]
+		},
+		{
+			"name": "page-no-separators",
+			"title": "Page (No Separators)",
+			"postTypes": [
+				"page"
+			]
+		}
+	],	
 }

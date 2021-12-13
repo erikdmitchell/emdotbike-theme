@@ -70,7 +70,7 @@ function emdotbike_theme_setup() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'align-wide' );
-    add_theme_support( 'editor-styles' );
+    //add_theme_support( 'editor-styles' );
 
     /**
      * Add our image size(s).
@@ -95,7 +95,7 @@ function emdotbike_theme_setup() {
     /**
      * This theme styles the visual editor to resemble the theme style
      */
-    add_editor_style( 'css/editor-style.min.css' );
+    //add_editor_style( 'css/editor-style.min.css' );
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 

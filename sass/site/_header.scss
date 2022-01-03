@@ -6,11 +6,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-//     background: $color__background-header;
+    background: var(--wp--preset--color--white);
      
     .site-branding {
         .navbar-brand {
-            color: $color__text-navbar-brand;
+//             color: $color__text-navbar-brand;
             font-size: 18px;
             line-height: 20px;
             text-decoration: none;

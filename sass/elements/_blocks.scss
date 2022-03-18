@@ -28,9 +28,18 @@
  */
 .wp-block-dwb-post-header {
     margin-bottom: 3rem;
-    
-	color: $white;
-	background: #5CC3FF;
+}
+
+// the !important should be handled by a theme.json file in the future.
+.wp-block-dwb-post-header .header-content {
+	color: $white !important;
+	background-color: #5CC3FF !important;    
+	
+	.meta {
+    	a {
+        	color: $white;
+    	}
+	}
 }
 
 .home .wp-block-dwb-tagline-block {

@@ -13,7 +13,7 @@
 <?php get_header(); ?>
     <?php if ( have_posts() ) : ?>
         <header class="archive-header">
-            <h1 class="archive-title"><?php printf( __( 'Tag Archives: %s', 'emdotbike' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1>
+            <h1 class="archive-title"><?php single_tag_title( __( 'Articles related to: ', 'emdotbike' ) ); ?></h1>
 
             <?php if ( tag_description() ) : // Show an optional tag description. ?>
                 <div class="archive-meta"><?php echo tag_description(); ?></div>

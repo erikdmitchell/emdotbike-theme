@@ -2,7 +2,7 @@
 
 ## 0.1.4
 
-* Removed custom post header
+* Removed custom post header, but support legacy if no block
 * Updated styles to support Gutenberg blocks better
 * Added theme.json file
 

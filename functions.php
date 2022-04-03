@@ -734,3 +734,17 @@ function emdb_author_header() {
 
     echo wp_kses_post( $html );
 }
+
+/**
+ * Check for dwb post header block..
+ *
+ * @access public
+ * @return bool
+ */
+function emdb_has_header_block() {
+    if ( has_block( 'dwb/post-header' ) ) {
+        return true;
+    }
+
+    return false;
+}

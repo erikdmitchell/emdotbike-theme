@@ -18,12 +18,18 @@
     }
 }
 
-.main-content,
-.blog .blog-page-posts,
-.author-header,
 .archive-header,
-.error404 article,
-.search .page-header,
-.single .post {
-    padding-top: 135px;
+.single .post,
+.page-posts-grid,
+.author-header,
+.page-header,
+.error404 article {
+    padding-top: 135px;    
+}
+
+.archive.author .page-posts-grid,
+.archive.category .page-posts-grid,
+.archive.tag .page-posts-grid,
+.search-results .page-posts-grid {
+    padding-top: 0;
 }

@@ -16,7 +16,7 @@
 </div>
 
 <?php if ( have_posts() ) : ?>
-    <div class="blog-page-posts">
+    <div class="page-posts-grid">
         <?php
         while ( have_posts() ) :
             the_post();

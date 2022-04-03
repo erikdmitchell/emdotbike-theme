@@ -73,128 +73,7 @@
 /**
  * Single post
  */
-.single-post { 
-    
-    /**
-     * post header - image and title
-     */
-    .entry-header {    
-        margin-bottom: 2rem;
-        
-        .featured-columns {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            width: 100%;  
-            
-            @include rbp(tablet-s) {
-                flex-direction: column-reverse;
-            }                   
-        }
-        
-        .featured-column {
-            flex-basis: 0;
-            flex-grow: 1;
-            min-width: 0;
-            overflow-wrap: break-word;
-        
-            &:last-child {
-                flex-basis: 55%;              
-            }
-        
-            &:first-child {
-                flex-basis: 45%;                              
-            }
-            
-            &.no-thumb {
-                background: $color__background-post-header;
-            }
-                
-        }
-    
-        .header-content {
-            background: $color__background-post-header;
-            color: $color__text-post-header;
-            padding: 2rem 2rem 0 4rem;        
-            height: 100%; 
-            
-            @include rbp(tablet-s) {
-                padding: 1rem 1.5rem;
-            }                        
-            
-            h1 {
-                margin: 0;
-                
-                @include rbp(tablet-s) {
-                    font-size: 1.75rem;
-                }                
-            }  
-            
-            a,
-            a:hover,
-            a:visited {
-                text-decoration: none;
-                color: $color__text-post-header;
-            } 
-            
-            .title {
-                margin: 2rem 0 1rem 0;
-                    
-                @include rbp(tablet-s) {
-                    margin: 0 0 1rem 0;
-                }                 
-            }                    
-        }
-                
-        .post-thumbnail {
-            height: 400px;
-            max-height: 400px;
-            
-            @include rbp(tablet-s) {
-                height: 200px;
-            }            
-            
-            img {
-                max-width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-        
-/*
-    //rbp
-    width: 100%;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-    margin-right: auto;
-    margin-left: auto; 
-
-    @include bp(mobile) {
-        max-width: 96%;
-    } 
-    
-    @include bp(tablet-s) {
-        max-width: 570px;
-    }   
-
-    @include bp(tablet) {
-        max-width: 720px;
-    }
-    
-    @include bp(desktop) {
-        max-width: 960px;
-    }
-    
-    @include bp(desktop-m) {
-        max-width: 1140px;
-    }        
-
-    @include bp(desktop-w2) {
-        max-width: 1320px;
-    } 
-*/        
-    }
-        
+.single-post {         
     /**
      * content after main article
      */
@@ -286,9 +165,9 @@
 }
 
 /**
- * content-grid.php
+ * Used on various pages including archive and search.
  */
-.archive-page-posts {
+.page-posts-grid {
     display: flex;
     flex-wrap: wrap;
     flex-flow: row wrap;
@@ -306,5 +185,129 @@
         img {
             width: 100%;
         }
+        
+        .entry-header {
+            @include bp(mobile) {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .entry-title {
+                @include bp(mobile) {
+                    padding: 0;
+                    max-width: 100%;
+                }            
+            }
+        }
     }
-} 
+}
+
+/**
+ * Legacy: if Gutenberg Header Block is not used
+ */
+$color__background-post-header: #5CC3FF;
+$color__text-post-header: #fff;
+
+/*
+.legacy-entry-header {
+    color: #000;
+  
+    a,
+    a:hover,
+    a:visited {
+        text-decoration: none;
+        color: #777;
+    }
+}
+*/
+
+.single-post { 
+    
+    /**
+     * post header - image and title
+     */
+    .legacy-entry-header {    
+        margin-bottom: 2rem;
+        
+        .featured-columns {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 100%;  
+            
+            @include rbp(tablet-s) {
+                flex-direction: column-reverse;
+            }                   
+        }
+        
+        .featured-column {
+            flex-basis: 0;
+            flex-grow: 1;
+            min-width: 0;
+            overflow-wrap: break-word;
+        
+            &:last-child {
+                flex-basis: 55%;              
+            }
+        
+            &:first-child {
+                flex-basis: 45%;                              
+            }
+            
+            &.no-thumb {
+                background: $color__background-post-header;
+            }
+                
+        }
+    
+        .header-content {
+            background: $color__background-post-header;
+            color: $color__text-post-header;
+            padding: 2rem 2rem 0 4rem;        
+            height: 100%; 
+            
+            @include rbp(tablet-s) {
+                padding: 1rem 1.5rem;
+            }                        
+            
+            h1 {
+                margin: 0;
+                
+                @include rbp(tablet-s) {
+                    font-size: 1.75rem;
+                }                
+            }  
+            
+            a,
+            a:hover,
+            a:visited {
+                text-decoration: none;
+                color: $color__text-post-header;
+            } 
+            
+            .title {
+                margin: 2rem 0 1rem 0;
+                    
+                @include rbp(tablet-s) {
+                    margin: 0 0 1rem 0;
+                }                 
+            }                    
+        }
+                
+        .post-thumbnail {
+            height: 400px;
+            max-height: 400px;
+            
+            @include rbp(tablet-s) {
+                height: 200px;
+            }            
+            
+            img {
+                max-width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

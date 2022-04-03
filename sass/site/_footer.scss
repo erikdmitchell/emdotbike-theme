@@ -38,6 +38,18 @@ footer {
         > .widget_block {
             margin-left: 2rem;
             margin-right: 2rem;
+            
+            @include bp(mobile) {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            // overrides a wp col style so that it aligns in the center.
+            .wp-block-column:nth-child(3) {
+                @media (min-width: 600px) and (max-width: 781px) {
+                    flex-basis: calc(100% - 1em) !important;
+                }
+            }
         }
     
         h3 {
@@ -67,12 +79,20 @@ footer {
         }
         
         .connect-social {
-            text-align: center;
+            text-align: right;
+            
+            @include bp(mobile) {
+                text-align: center;
+            }
             
             .wp-block-social-links {
-                justify-content: center;
+                justify-content: right;
+                
+                @include bp(mobile) {
+                    justify-content: center;
+                }
             }
-        }
+        }        
     }
     
     .copyright {

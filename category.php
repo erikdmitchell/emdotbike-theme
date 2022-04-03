@@ -15,10 +15,10 @@
 
 <?php if ( have_posts() ) : ?>
     <header class="archive-header">
-        <h1 class="archive-title"><?php echo single_cat_title( '', false ); ?></h1>
+        <h1 class="archive-title"><?php single_cat_title( __( 'Articles related to: ', 'emdotbike' ) ); ?></h1>
     </header><!-- .archive-header -->
 
-    <div class="archive-page-posts">
+    <div class="page-posts-grid">
         <?php
         while ( have_posts() ) :
             the_post();

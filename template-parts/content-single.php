@@ -9,48 +9,17 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    
-    <header class="entry-header">  
-        <div class="featured-columns">
-            <div class="featured-column"> 
-                <div class="header-content"> 
-                    <div class="title">
-                        <?php
-                        if ( is_single() ) :
-                            the_title( '<h1 class="entry-title">', '</h1>' );
-                        else :
-                            the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
-                        endif;
-                        ?>
-                            
-                    </div>
-                    <div class="meta">
-                        <?php
-                        if ( 'post' == get_post_type() ) {
-                            emdotbike_theme_posted_on();
-                        }
-                        ?>
-                    </div>
-                </div>              
-            </div>
-            <?php if (has_post_thumbnail()) : ?>
-                <div class="featured-column">
-                    <?php emdotbike_theme_post_thumbnail( 'single' ); ?>
-            <?php else : ?>
-                <div class="featured-column no-thumb">
-            <?php endif; ?>
-                
-            </div>
-        </div>
-    </header>
-        
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>  
+    <?php if ( ! emdb_has_header_block() ) : ?>
+        <?php get_template_part( 'template-parts/legacy', 'content-post-header' ); ?>
+    <?php endif; ?>
+         
     <div class="entry-content">
         <?php
             the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'emdotbike' ) );
             wp_link_pages(
                 array(
-                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'emdotbike' ) . '</span>',
+                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Posts:', 'emdotbike' ) . '</span>',
                     'after'       => '</div>',
                     'link_before' => '<span>',
                     'link_after'  => '</span>',

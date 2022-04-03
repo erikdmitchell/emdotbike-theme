@@ -15,7 +15,7 @@
             <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'emdotbike' ), get_search_query() ); ?></h1>
         </header><!-- .page-header -->
 
-        <div class="search-results-posts">
+        <div class="page-posts-grid">
             <?php
             while ( have_posts() ) :
                 the_post();

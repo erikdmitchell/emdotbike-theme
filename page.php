@@ -12,7 +12,7 @@
 <?php get_header(); ?>
 
 <div class="page-header">
-    <?php emdotbike_theme_post_thumbnail(); ?>
+    <?php //emdotbike_theme_post_thumbnail(); ?>
 
     <header class="entry-header">
         <?php

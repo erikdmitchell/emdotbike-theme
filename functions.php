@@ -654,11 +654,7 @@ function emdotbike_has_categories( $excl = '' ) {
  * @return string
  */
 function emdotbike_custom_excerpt_more( $more ) {
-    return sprintf(
-        '... <a href="%1$s" class="more-link">%2$s</a>',
-        esc_url( get_permalink( get_the_ID() ) ),
-        sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
-    );
+    return sprintf('...');
 }
 add_filter( 'excerpt_more', 'emdotbike_custom_excerpt_more' );
 

@@ -18,11 +18,6 @@
 	}
 }
 
-.wp-block-dwb-home-grid-block {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
 /* 
  * DigiWatts Post Header block
  */
@@ -42,10 +37,6 @@
 	}
 }
 
-.home .wp-block-dwb-tagline-block {
-    padding-top: 135px;
-}
-
 .wp-block-query .wp-block-post-template.is-flex-container .wp-block-post-featured-image img {
     object-fit: cover;
     object-position: top center;
@@ -54,4 +45,18 @@
 
 .wp-block-post-template, .wp-block-query-loop {
     margin: 0;
+}
+
+/**
+ * Custom button block on home page
+ */
+.dwb-home-more-articles {
+    a {
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding: 7px 15px;
+        border-radius: 5px;
+        border: none;         
+    }
 }

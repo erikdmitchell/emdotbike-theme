@@ -65,5 +65,6 @@ $post_ids = get_posts( array(
             <?php endif; ?>
         <?php endif; ?>
     <?php endforeach; ?>
+    <div class="more-articles"><a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">More Articles</a></div>
 </div>
 

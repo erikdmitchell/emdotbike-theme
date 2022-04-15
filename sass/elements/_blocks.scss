@@ -66,6 +66,23 @@
         object-position: top center;
         aspect-ratio: 16/9;        
     }
+    
+    .more-articles {
+        width: 100%;
+        text-align: center;
+      
+        a {
+            background-color: #eee;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            padding: 7px 15px;
+            border-radius: 5px;
+            border: none;          
+        }
+    }    
 }
 
 // the !important should be handled by a theme.json file in the future.
@@ -78,18 +95,4 @@
         	color: $white;
     	}
 	}
-}
-
-/**
- * Custom button block on home page
- */
-.dwb-home-more-articles {
-    a {
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 1px;
-        padding: 7px 15px;
-        border-radius: 5px;
-        border: none;         
-    }
 }

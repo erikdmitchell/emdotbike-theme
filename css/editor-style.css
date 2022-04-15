@@ -23,6 +23,15 @@
   letter-spacing: 0em;
   text-transform: uppercase;
 }
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVkaXRvci1zdHlsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUdBO0VBQ0k7RUFDQTtFQUNBOztBQUVBO0VBQ0k7O0FBR0o7RUFDSTs7QUFFQTtFQUNJOztBQUlSO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBIiwiZmlsZSI6ImVkaXRvci1zdHlsZS5jc3MifQ== */
+
+/**
+ * ACF Home Featured Block
+ */
+.emdb-block-home-featured .image-wrap {
+  background-size: cover !important;
+  width: 100%;
+  height: 400px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVkaXRvci1zdHlsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUdBO0VBQ0k7RUFDQTtFQUNBOztBQUVBO0VBQ0k7O0FBR0o7RUFDSTs7QUFFQTtFQUNJOztBQUlSO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFJUjtBQUFBO0FBQUE7QUFHQTtFQUNJO0VBQ0E7RUFDQSIsImZpbGUiOiJlZGl0b3Itc3R5bGUuY3NzIn0= */
 
 /*# sourceMappingURL=editor-style.css.map */

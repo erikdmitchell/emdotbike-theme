@@ -27,3 +27,12 @@
         text-transform: uppercase; 
     }
 }
+
+/**
+ * ACF Home Featured Block
+ */
+.emdb-block-home-featured .image-wrap {
+    background-size: cover !important;
+    width: 100%;
+    height: 400px; 
+}

@@ -751,3 +751,20 @@ function emdb_has_header_block() {
 
     return false;
 }
+
+function emdb_init_block_types() {
+    if( !function_exists('acf_register_block_type') )
+        return;
+
+    // register a tagline block.
+    acf_register_block_type(array(
+        'name'              => 'tagline',
+        'title'             => __('Tagline'),
+        'description'       => __('A custom tagline block.'),
+        'render_template'   => 'template-parts/blocks/tagline.php',
+        'category'          => 'formatting',
+        'icon'              => 'format-status',
+        'keywords'          => array( 'tagline', 'quote' ),
+    ));
+}
+add_action('acf/init', 'emdb_init_block_types');

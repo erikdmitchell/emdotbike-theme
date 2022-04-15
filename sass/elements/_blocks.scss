@@ -52,12 +52,20 @@
 }
 
 /**
- * ACF Home Featured Block
+ * ACF Home Grid Block
  */
-.emdb-block-home-featured .image-wrap {
-    background-size: cover !important;
-    width: 100%;
-    height: 400px; 
+.emdb-block-home-grid {
+    .image-wrap {
+        background-size: cover !important;
+        width: 100%;
+        height: 400px; 
+    }
+    
+    figure img {
+        object-fit: cover;
+        object-position: top center;
+        aspect-ratio: 16/9;        
+    }
 }
 
 // the !important should be handled by a theme.json file in the future.

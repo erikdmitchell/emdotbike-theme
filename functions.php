@@ -768,10 +768,10 @@ function emdb_init_block_types() {
     
     // register home featured block.
     acf_register_block_type(array(
-        'name'              => 'home-featured',
-        'title'             => __('Home Featured'),
-        'description'       => __('A home featured block.'),
-        'render_template'   => 'template-parts/blocks/home-featured.php',
+        'name'              => 'home-grid',
+        'title'             => __('Home Grid'),
+        'description'       => __('A home grid block.'),
+        'render_template'   => 'template-parts/blocks/home-grid.php',
         'category'          => 'formatting',
         'icon'              => 'editor-table',
         'keywords'          => array( 'home', 'featured' ),

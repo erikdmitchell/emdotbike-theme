@@ -1,6 +1,28 @@
 /**
  * ACF Tagline Block
  */
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVkaXRvci1zdHlsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQSIsImZpbGUiOiJlZGl0b3Itc3R5bGUuY3NzIn0= */
+.emdb-block-tagline {
+  margin-bottom: 3rem;
+  color: #fff;
+  text-align: center;
+}
+.emdb-block-tagline .tagline-wrapper {
+  padding: 1.5rem;
+}
+.emdb-block-tagline .image-wrapper {
+  margin-bottom: 1rem;
+}
+.emdb-block-tagline .image-wrapper img {
+  width: 150px;
+}
+.emdb-block-tagline .title-wrap {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVkaXRvci1zdHlsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUdBO0VBQ0k7RUFDQTtFQUNBOztBQUVBO0VBQ0k7O0FBR0o7RUFDSTs7QUFFQTtFQUNJOztBQUlSO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBIiwiZmlsZSI6ImVkaXRvci1zdHlsZS5jc3MifQ== */
 
 /*# sourceMappingURL=editor-style.css.map */

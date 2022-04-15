@@ -95,7 +95,7 @@ function emdotbike_theme_setup() {
     /**
      * This theme styles the visual editor to resemble the theme style
      */
-    add_editor_style( 'css/editor-style.min.css' );
+    add_editor_style( 'css/editor-style.css' );
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 

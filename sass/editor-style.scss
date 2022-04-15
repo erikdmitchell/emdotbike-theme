@@ -1,3 +1,29 @@
 /**
  * ACF Tagline Block
  */
+.emdb-block-tagline {
+    margin-bottom: 3rem;
+    color: #fff;
+    text-align: center;     
+
+    .tagline-wrapper {
+        padding: 1.5rem;
+    }
+
+    .image-wrapper {
+        margin-bottom: 1rem;
+
+        img {
+            width: 150px;
+        }
+    }
+
+    .title-wrap {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 300;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-transform: uppercase; 
+    }
+}

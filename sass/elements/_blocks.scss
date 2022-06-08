@@ -55,14 +55,23 @@
 .wp-block-table tfoot {
     border-top: 3px solid;
 }
+.wp-block-table th {
+    text-align: inherit;
+}
 .wp-block-table td,
 .wp-block-table th {
     padding: 0.5em;
     border: 1px solid;
     word-break: normal;
 }
+.wp-block-table td p {
+    margin: 0;
+}
 .wp-block-table figcaption {
     color: #555;
     font-size: 13px;
     text-align: center;
 } 
+.wp-block-table.is-style-stripes {
+    border-bottom: none;
+}

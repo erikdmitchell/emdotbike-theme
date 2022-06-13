@@ -57,6 +57,15 @@
 .emdb-block-home-grid {
     margin-bottom: 3rem;
     
+    .wp-block-columns {
+        
+        &.columns-2 {
+            .wp-block-column:first-child {
+                margin-right: 1.75rem;
+            }
+        }
+    }
+    
     .image-wrap {
         background-size: cover !important;
         width: 100%;

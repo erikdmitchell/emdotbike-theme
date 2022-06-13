@@ -6,7 +6,6 @@ $lavender-blush: #f9e7e7; // light gray
 $black-shadows: #ada0a6; // medium gray
 $davys-grey: #494947; // dark gray
 $indigo-dye: #00487c; // dark blue - inner part of logo
-
 $white: #fff;
 $black: #000;
 
@@ -21,8 +20,8 @@ $gradient-top-left: linear-gradient(225deg, #37b6ffff, #f9e7e7ff, #ada0a6ff, #49
 $gradient-bottom-left: linear-gradient(315deg, #37b6ffff, #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff);
 $gradient-radial: radial-gradient(#37b6ffff, #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff);
 
-$color__background-body: #fff;
-$color__background-header: #fff;
+$color__background-body: $white;
+$color__background-header: $white;
 $color__background-navigation: $white;
 $color__background-navigation-sub-menu: $blue-jeans;
 $color__background-navigation-mobile: $indigo-dye;
@@ -42,9 +41,9 @@ $color__link: #777;
 $color__link-visited: #777;
 $color__link-hover: #777;
 $color__text-main: #404040;
-$color__text-footer: #fff;
-$color__link-footer: #fff;
-$color__link-footer-visited: #fff;
+$color__text-footer: $white;
+$color__link-footer: $white;
+$color__link-footer-visited: $white;
 $color__link-footer-hover: #ccc;
 $color__text-header: #000;
 $color__text-header-link: #000;

@@ -60,7 +60,13 @@ var jsInclude = [
         '!**/gulpfile.js',
         '!inc/js/html5shiv.js',
         '!inc/js/respond.js',             
-    ];    
+    ]; 
+    
+var jsonInclude = [
+        '**/*.json', // Include all files    
+        '!node_modules/**/*', // Exclude node_modules
+        '!vendor/**' // Exclude vendor   
+    ];   
 
 // Load plugins
 const gulp = require('gulp'),
@@ -73,6 +79,7 @@ const gulp = require('gulp'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     runSequence = require('run-sequence'),
+//     gulpsass = require('gulp-sass'),
     gulpsass = require('gulp-sass')(require('sass')),
     plugins = require('gulp-load-plugins')({
         camelize: true
@@ -91,6 +98,8 @@ const gulp = require('gulp'),
     beautify = require('gulp-jsbeautifier'),
     cssbeautify = require('gulp-cssbeautify'),
     merge = require('merge-stream');
+ 
+
 
 /**
  * Styles
@@ -252,7 +261,9 @@ function phpcbf(done) {
   done();
 }
 
-/**/
+/*
+ * Misc
+*/
 
 // Watch files
 function watchFiles() {
@@ -260,12 +271,22 @@ function watchFiles() {
   gulp.watch('./js/**/*.js', js);
 }
 
-// gulp zip
+// Zip files
 function zip(done) {
   return (
     gulp.src(buildInclude)
         .pipe(gzip('emdotbike.zip'))
         .pipe(gulp.dest('./../'))
+  );
+  done();
+}
+
+// Validate JSON
+function lintjson(done) {
+  return (
+    gulp.src(jsonInclude)
+        .pipe(jsonlint())
+        .pipe(jsonlint.reporter())
   );
   done();
 }
@@ -290,3 +311,4 @@ exports.phpcbf = phpcbf;
 exports.zip = zip;
 exports.build = build;
 exports.watch = watch;
+exports.lintjson = lintjson;

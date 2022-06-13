@@ -57,6 +57,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   background-color: #ffffff;
 }
 
+/*
+// stylelint-disable value-keyword-case
+$font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+// stylelint-enable value-keyword-case
+$font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+*/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -376,18 +385,19 @@ template {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+/*
 body,
 button,
 input,
 select,
 optgroup,
 textarea {
-  color: #404040;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
+	color: $color__text-main;
+	font-family: $font__main;
+	font-size: 1rem;
+	line-height: $font__line-height-body;
 }
-
+*/
 h1,
 h2,
 h3,
@@ -417,10 +427,7 @@ address {
 }
 
 pre {
-  background: #eee;
-  font-family: "Courier 10 Pitch", courier, monospace;
   font-size: 0.9375rem;
-  line-height: 1.6;
   margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
@@ -431,7 +438,6 @@ code,
 kbd,
 tt,
 var {
-  font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   font-size: 0.9375rem;
 }
 
@@ -492,10 +498,6 @@ How to use:
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-body {
-  background: #fff;
 }
 
 hr {
@@ -704,6 +706,7 @@ table {
 }
 .wp-block-dwb-post-header .header-content .meta a {
   color: #fff;
+  background: #5CC3FF;
 }
 
 .wp-block-query .wp-block-post-template.is-flex-container .wp-block-post-featured-image img {
@@ -1311,10 +1314,9 @@ a:hover, a:active {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: #fff;
+  background: var(--wp--preset--color--white);
 }
 .site-header .site-branding .navbar-brand {
-  color: #777;
   font-size: 18px;
   line-height: 20px;
   text-decoration: none;
@@ -1676,7 +1678,6 @@ a:hover, a:active {
 .comments-area a:hover,
 .comments-area a:visited {
   text-decoration: none;
-  color: #777;
 }
 .comments-area .comments-title,
 .comments-area .comment-body {
@@ -1794,8 +1795,6 @@ footer {
   position: relative;
   z-index: 1;
   border-top: none;
-  background: #00487c;
-  color: #fff;
   margin-top: 8rem;
   /**
    * Style our footer "sidebar"

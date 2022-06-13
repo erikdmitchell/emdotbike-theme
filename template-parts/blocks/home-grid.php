@@ -42,7 +42,7 @@ $post_ids = get_posts( array(
     <?php foreach($post_ids as $key => $post_id) : ?>
         <?php if (0 === $key) : ?>
             <article id="post-<?php echo esc_attr($post_id); ?>" class="post post-<?php echo esc_attr($post_id); ?>">
-                <div class="image-wrap" style="background:url(<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>) no-repeat center center fixed"></div>
+                <div class="image-wrap" style="background:url(<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>) no-repeat center center fixed"><a href="<?php echo get_permalink( $post_id ); ?>"></a></div>
                 <h2 class="post-title"><?php echo get_the_title( $post_id ); ?></h2>
                 <p><?php emdotbike_post_excerpt( $post_id, 85, '', '... <a href="'.get_permalink( $post_id ).'">read more</a>' ); ?></p>
             </article>

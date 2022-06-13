@@ -74,13 +74,14 @@ const gulp = require('gulp'),
     minifycss = require('gulp-uglifycss'),
     filter = require('gulp-filter'),
     uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
+//     imagemin = require('gulp-imagemin'),
     newer = require('gulp-newer'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     runSequence = require('run-sequence'),
-    gulpsass = require('gulp-sass'),
+//     gulpsass = require('gulp-sass'),
+    gulpsass = require('gulp-sass')(require('sass')),
     plugins = require('gulp-load-plugins')({
         camelize: true
     }),
@@ -96,8 +97,8 @@ const gulp = require('gulp'),
     gutil = require('gulp-util'), // gulp util
     gzip = require('gulp-zip'), // gulp zip
     beautify = require('gulp-jsbeautifier'),
-    cssbeautify = require('gulp-cssbeautify'),
-    jsonlint = require("gulp-jsonlint");
+    cssbeautify = require('gulp-cssbeautify');
+//     jsonlint = require("gulp-jsonlint");
  
 
 

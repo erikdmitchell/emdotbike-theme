@@ -43,20 +43,38 @@
     aspect-ratio: 16/9;
 }
 
-.wp-block-post-template, .wp-block-query-loop {
+/**
+ * Table Block
+ */
+.wp-block-table thead {
+    border-bottom: 3px solid;
+}
+.wp-block-table tfoot {
+    border-top: 3px solid;
+}
+.wp-block-table th {
+    text-align: inherit;
+}
+.wp-block-table td,
+.wp-block-table th {
+    padding: 0.5em;
+    border: 1px solid;
+    word-break: normal;
+}
+.wp-block-table td p {
     margin: 0;
 }
 
 /**
  * Custom button block on home page
  */
-.dwb-home-more-articles {
-    a {
+.wp-block-table figcaption {
+    color: #555;
         text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 1px;
-        padding: 7px 15px;
-        border-radius: 5px;
-        border: none;         
+    font-size: 13px;
+    text-align: center;
+} 
+.wp-block-table.is-style-stripes {
+    border-bottom: none;
     }
 }

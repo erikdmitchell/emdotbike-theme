@@ -77,7 +77,6 @@ function emdotbike_theme_setup() {
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'home-grid-large', 650, 375, true ); // in dwb plugin as home-grid. EM: can this be removed?
     add_image_size( 'home-latest-posts-large', 9999, 680, true );
     /**
      * Include theme meta page.
@@ -95,7 +94,7 @@ function emdotbike_theme_setup() {
     /**
      * This theme styles the visual editor to resemble the theme style
      */
-    add_editor_style( 'css/editor-style.min.css' );
+    add_editor_style( 'css/editor-style.css' );
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 
@@ -751,3 +750,31 @@ function emdb_has_header_block() {
 
     return false;
 }
+
+function emdb_init_block_types() {
+    if( !function_exists('acf_register_block_type') )
+        return;
+
+    // register tagline block.
+    acf_register_block_type(array(
+        'name'              => 'tagline',
+        'title'             => __('Tagline'),
+        'description'       => __('A tagline block.'),
+        'render_template'   => 'template-parts/blocks/tagline.php',
+        'category'          => 'formatting',
+        'icon'              => 'format-status',
+        'keywords'          => array( 'tagline', 'quote' ),
+    ));
+    
+    // register home featured block.
+    acf_register_block_type(array(
+        'name'              => 'home-grid',
+        'title'             => __('Home Grid'),
+        'description'       => __('A home grid block.'),
+        'render_template'   => 'template-parts/blocks/home-grid.php',
+        'category'          => 'formatting',
+        'icon'              => 'editor-table',
+        'keywords'          => array( 'home', 'featured' ),
+    ));    
+}
+add_action('acf/init', 'emdb_init_block_types');

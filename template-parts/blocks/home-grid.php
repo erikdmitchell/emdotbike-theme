@@ -48,7 +48,7 @@ $post_ids = get_posts( array(
             </article>
         <?php else: ?>
             <?php if (1 === $key % $columns) : ?>
-                <div class="wp-block-columns">
+                <div class="wp-block-columns columns-<?php echo $columns; ?>">
             <?php endif; ?>
             
             <div class="wp-block-column">

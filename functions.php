@@ -22,12 +22,52 @@
  * @return void
  */
 function emdb_support() {
+    
+    add_theme_support( 'block-templates' );
 
 	// Add support for block styles.
 	add_theme_support( 'wp-block-styles' );
 
 	// Enqueue editor styles.
 	add_editor_style( 'style.css' );
+	
+	// Support title tag.
+    add_theme_support( 'title-tag' );
+
+    /**
+     * Add our image size(s).
+     */
+    add_image_size( 'navbar-logo', 163, 100, true );
+    add_image_size( 'single', 9999, 480, true );
+    add_image_size( 'home-latest-posts-large', 9999, 680, true );
+    
+    /**
+     * Include theme meta page.
+     * Allows users to hook and filter into the default meta tags in the header.
+     */
+    include_once( get_template_directory() . '/inc/theme-meta.php' );
+
+    // register our navigation area.
+    register_nav_menus(
+        array(
+            'primary' => __( 'Primary Menu', 'emdotbike' ),
+        )
+    );	
+	
+	/*
+	 * Load additional block styles.
+	 */
+/*
+	$styled_blocks = ['latest-comments'];
+	foreach ( $styled_blocks as $block_name ) {
+		$args = array(
+			'handle' => "myfirsttheme-$block_name",
+			'src'    => get_theme_file_uri( "assets/css/blocks/$block_name.css" ),
+			$args['path'] = get_theme_file_path( "assets/css/blocks/$block_name.css" ),
+		);
+		wp_enqueue_block_style( "core/$block_name", $args );
+	}
+*/	
 
 }
 add_action( 'after_setup_theme', 'emdb_support' );
@@ -93,63 +133,6 @@ define( 'EMDOTBIKE_VERSION', $theme->version );
 if ( ! isset( $content_width ) ) {
     $content_width = 1200;
 }
-
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- *
- * @since emdotbike 0.1.0
- */
-function emdotbike_theme_setup() {
-    /**
-     * Add our theme support options
-     */
-    $custom_header_args = array(
-        'width' => 163,
-        'height' => 76,
-    );
-
-    $custom_background_args = array(
-        'deafult-color' => 'ffffff',
-    );
-
-    add_theme_support( 'automatic-feed-links' );
-    add_theme_support( 'custom-header', $custom_header_args );
-    add_theme_support( 'custom-background', $custom_background_args );
-    add_theme_support( 'menus' );
-    add_theme_support( 'post-thumbnails' );
-    add_theme_support( 'title-tag' );
-    //add_theme_support( 'align-wide' );
-    //add_theme_support( 'editor-styles' );
-
-    /**
-     * Add our image size(s).
-     */
-    add_image_size( 'navbar-logo', 163, 100, true );
-    add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'home-latest-posts-large', 9999, 680, true );
-    /**
-     * Include theme meta page.
-     * Allows users to hook and filter into the default meta tags in the header.
-     */
-    include_once( get_template_directory() . '/inc/theme-meta.php' );
-
-    // register our navigation area.
-    register_nav_menus(
-        array(
-            'primary' => __( 'Primary Menu', 'emdotbike' ),
-        )
-    );
-
-    /**
-     * This theme styles the visual editor to resemble the theme style
-     */
-    add_editor_style( 'css/editor-style.css' );
-}
-add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 
 function emdb_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(

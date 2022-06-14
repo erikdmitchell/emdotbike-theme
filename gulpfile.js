@@ -79,7 +79,6 @@ const gulp = require('gulp'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     runSequence = require('run-sequence'),
-//     gulpsass = require('gulp-sass'),
     gulpsass = require('gulp-sass')(require('sass')),
     plugins = require('gulp-load-plugins')({
         camelize: true
@@ -110,7 +109,7 @@ function sass(done) {
     var mainFiles = ['style'];
 
     runSASS('style', './');
-//     runSASS('editor-style', './css/');
+    runSASS('editor-style', './assets/css/');
     
     done();
 }

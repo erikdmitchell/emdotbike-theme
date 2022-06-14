@@ -94,7 +94,7 @@ function emdb_styles() {
 add_action( 'wp_enqueue_scripts', 'emdb_styles' );
 
 // Add block patterns
-//require get_template_directory() . '/inc/block-patterns.php';
+require get_template_directory() . '/inc/block-patterns.php';
 
 
 /** Original **/

@@ -6,8 +6,7 @@ return array(
 	'title'      => __( 'Default header', 'emdotbike' ),
 	'categories' => array( 'header' ),
 	'blockTypes' => array( 'core/template-part/header' ),
-	'content'    => '<!-- wp:group {"align":"full","layout":{"inherit":true}} -->
-				    <div class="site-branding">
+	'content'    => '<div class="site-branding">
                         <div class="wp-block-image">
                             <a href="' . home_url() . '">
                                 <figure class="aligncenter size-full is-resized"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/em-bike-logo.png" alt="logo" width="100"/></figure>

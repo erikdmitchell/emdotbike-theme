@@ -107,10 +107,10 @@ const gulp = require('gulp'),
  
 // compile sass
 function sass(done) {
-    var mainFiles = ['style', 'editor-style'];
+    var mainFiles = ['style'];
 
     runSASS('style', './');
-    runSASS('editor-style', './css/');
+//     runSASS('editor-style', './css/');
     
     done();
 }

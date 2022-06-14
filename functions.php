@@ -10,13 +10,7 @@
  * @subpackage emdotbike
  * @since emdotbike 0.1.0
  */
- 
-// define some vars.
-define( 'EMDOTBIKE_VERSION', wp_get_theme()->get( 'Version' ) ); 
 
-/**
- * FSE
- */
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -75,11 +69,20 @@ add_action( 'after_setup_theme', 'emdb_support' );
  *
  * @return void
  */
-function emdb_styles() {
-	// Register theme stylesheet.
+function emdb_scripts_styles() {
 	$theme_version = wp_get_theme()->get( 'Version' );
-
 	$version_string = is_string( $theme_version ) ? $theme_version : false;
+
+    global $wp_scripts;
+
+    wp_enqueue_script( 'emdb-script', get_template_directory_uri() . '/js/emdotbike.min.js', array( 'jquery' ), $version_string, true );
+
+    if ( is_singular() ) :
+        wp_enqueue_script( 'comment-reply' );
+    endif;
+
+    wp_enqueue_style( 'dashicons' );
+
 	wp_register_style(
 		'emdb-style',
 		get_template_directory_uri() . '/style.css',
@@ -91,7 +94,7 @@ function emdb_styles() {
 	wp_enqueue_style( 'emdb-style' );
 
 }
-add_action( 'wp_enqueue_scripts', 'emdb_styles' );
+add_action( 'wp_enqueue_scripts', 'emdb_scripts_styles' );
 
 // Add block patterns
 require get_template_directory() . '/inc/block-patterns.php';
@@ -141,37 +144,6 @@ function emdotbike_theme_widgets_init() {
     );
 }
 add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- *
- * @since emdotbike 0.1.0
- */
-function emdotbike_theme_scripts() {
-    global $wp_scripts;
-
-    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/js/emdotbike.min.js', array( 'jquery' ), EMDOTBIKE_VERSION, true );
-
-    if ( is_singular() ) :
-        wp_enqueue_script( 'comment-reply' );
-    endif;
-
-    /**
-     * Load our IE specific scripts for a range of older versions:
-     * <!--[if lt IE 9]> ... <![endif]-->
-     * <!--[if lte IE 8]> ... <![endif]-->
-     */
-    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries.
-    wp_register_script( 'html5shiv-script', get_template_directory_uri() . '/inc/js/html5shiv.min.js', array(), '3.7.3-pre' );
-    wp_register_script( 'respond-script', get_template_directory_uri() . '/inc/js/respond.min.js', array(), '1.4.2' );
-
-    $wp_scripts->add_data( 'html5shiv-script', 'conditional', 'lt IE 9' );
-    $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
-
-    wp_enqueue_style( 'dashicons' );
-//     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );
-}
-add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
 
 
 /**

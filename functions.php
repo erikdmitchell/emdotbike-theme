@@ -49,13 +49,6 @@ function emdb_support() {
      * Allows users to hook and filter into the default meta tags in the header.
      */
     include_once( get_template_directory() . '/inc/theme-meta.php' );
-
-    // register our navigation area.
-    register_nav_menus(
-        array(
-            'primary' => __( 'Primary Menu', 'emdotbike' ),
-        )
-    );	
 	
 	/*
 	 * Load additional block styles.

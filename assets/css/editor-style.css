@@ -1,21 +1,21 @@
 /**
  * ACF Tagline Block
  */
-.wp-block-tagline {
+.emdb-block-tagline {
   margin-bottom: 3rem;
   color: #fff;
   text-align: center;
 }
-.wp-block-tagline .tagline-wrapper {
+.emdb-block-tagline .tagline-wrapper {
   padding: 1.5rem;
 }
-.wp-block-tagline .image-wrapper {
+.emdb-block-tagline .image-wrapper {
   margin-bottom: 1rem;
 }
-.wp-block-tagline .image-wrapper img {
+.emdb-block-tagline .image-wrapper img {
   width: 150px;
 }
-.wp-block-tagline .title-wrap {
+.emdb-block-tagline .title-wrap {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 300;

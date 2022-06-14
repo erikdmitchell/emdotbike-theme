@@ -21,13 +21,18 @@
 	}
 }
 
+.wp-site-blocks > * + * {
+    margin-block-start: 0;
+}
+
 /**
  * ACF Tagline Block
  */
 .entry-content .emdb-block-tagline {
     margin-bottom: 3rem;
     color: #fff;
-    text-align: center;     
+    text-align: center;
+    margin-top: 135px;     
 
     .tagline-wrapper {
         padding: 1.5rem;

@@ -75,7 +75,7 @@ function emdb_scripts_styles() {
 
     global $wp_scripts;
 
-    wp_enqueue_script( 'emdb-script', get_template_directory_uri() . '/js/emdotbike.min.js', array( 'jquery' ), $version_string, true );
+    wp_enqueue_script( 'emdb-script', get_template_directory_uri() . '/assets/js/emdotbike.min.js', array( 'jquery' ), $version_string, true );
 
     if ( is_singular() ) :
         wp_enqueue_script( 'comment-reply' );

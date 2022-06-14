@@ -7,7 +7,7 @@
  */
 jQuery(document).ready(function() {
     jQuery('.toggle-nav').click(function(e) {      
-        jQuery('.main-navigation .emdb-nav').toggle(500);
+        jQuery('.main-navigation ').toggle(500);
 
         jQuery('i', this).toggleClass('dashicons-no-alt');
 

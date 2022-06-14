@@ -12,6 +12,59 @@
  */
 
 /**
+ * FSE
+ */
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * @since 0.2.0
+ *
+ * @return void
+ */
+function emdb_support() {
+
+	// Add support for block styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Enqueue editor styles.
+	add_editor_style( 'style.css' );
+
+}
+add_action( 'after_setup_theme', 'emdb_support' );
+
+/**
+ * Enqueue styles.
+ *
+ * @since 0.2.0
+ *
+ * @return void
+ */
+function emdb_styles() {
+	// Register theme stylesheet.
+	$theme_version = wp_get_theme()->get( 'Version' );
+
+	$version_string = is_string( $theme_version ) ? $theme_version : false;
+	wp_register_style(
+		'emdb-style',
+		get_template_directory_uri() . '/style.css',
+		array(),
+		$version_string
+	);
+
+	// Enqueue theme stylesheet.
+	wp_enqueue_style( 'emdb-style' );
+
+}
+add_action( 'wp_enqueue_scripts', 'emdb_styles' );
+
+// Add block patterns
+//require get_template_directory() . '/inc/block-patterns.php';
+
+
+/** Original **/
+
+
+/**
  * Set our global variables for theme options.
  *
  * @since emdotbike 0.1.0
@@ -168,7 +221,7 @@ function emdotbike_theme_scripts() {
     $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
 
     wp_enqueue_style( 'dashicons' );
-    wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );
+//     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
 

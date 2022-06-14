@@ -46,8 +46,6 @@ function emdb_register_block_patterns() {
 
 	$block_patterns = array(
 		'footer-default',
-		'footer-navigation',
-		'footer-title-tagline-social',
 /*
 		'general-subscribe',
 		'general-featured-posts',

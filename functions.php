@@ -10,6 +10,9 @@
  * @subpackage emdotbike
  * @since emdotbike 0.1.0
  */
+ 
+// define some vars.
+define( 'EMDOTBIKE_VERSION', wp_get_theme()->get( 'Version' ) ); 
 
 /**
  * FSE
@@ -102,37 +105,6 @@ add_action( 'wp_enqueue_scripts', 'emdb_styles' );
 
 
 /** Original **/
-
-
-/**
- * Set our global variables for theme options.
- *
- * @since emdotbike 0.1.0
- */
-if ( ! isset( $emdotbike_theme_options ) ) {
-    $emdotbike_theme_options = array( 'option_name' => 'emdotbike_theme_options' );
-}
-
-if ( ! isset( $emdotbike_theme_options_tabs ) ) {
-    $emdotbike_theme_options_tabs = array();
-}
-
-if ( ! isset( $emdotbike_theme_options_hooks ) ) {
-    $emdotbike_theme_options_hooks = array();
-}
-
-// define some vars.
-$theme = wp_get_theme();
-define( 'EMDOTBIKE_VERSION', $theme->version );
-
-/**
- * Set the content width based on the theme's design and stylesheet.
- *
- * @since emdotbike 0.1.0
- */
-if ( ! isset( $content_width ) ) {
-    $content_width = 1200;
-}
 
 function emdb_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(

@@ -6,7 +6,8 @@ return array(
 	'title'      => __( 'Default header', 'emdotbike' ),
 	'categories' => array( 'header' ),
 	'blockTypes' => array( 'core/template-part/header' ),
-	'content'    => '<div class="site-branding">
+	'content'    => '<div class="site-header">
+	                <div class="site-branding">
                         <div class="wp-block-image">
                             <a href="' . home_url() . '">
                                 <figure class="aligncenter size-full is-resized"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/em-bike-logo.png" alt="logo" width="100"/></figure>
@@ -54,5 +55,6 @@ return array(
                         <!-- /wp:columns -->     
                         </div><!-- .nav-inner -->                   
                     </nav><!-- #site-navigation -->
-                    <a class="toggle-nav" href="#"><i class="dashicons dashicons-menu-alt"></i></a>',
+                    <a class="toggle-nav" href="#"><i class="dashicons dashicons-menu-alt"></i></a>
+                    </div><!-- .site-header -->',
 );

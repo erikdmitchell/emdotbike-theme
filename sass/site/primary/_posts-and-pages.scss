@@ -11,6 +11,34 @@
 	display: none;
 }
 
+/**
+ * Theme Patterns
+ *
+ * inc/patterns/query-grid.php
+ *
+ */
+ 
+.emdb-query-grid {
+    padding-top: 135px;    
+    
+    .wp-block-post-title {
+        color: $color__text-header;
+    
+        a,
+        a:hover,
+        a:visited {
+            text-decoration: none;
+            color: $color__link;
+        }
+    } 
+}
+
+
+ 
+/**
+ * Older/General
+ */
+
 .page-content,
 .entry-content,
 .entry-summary,
@@ -162,45 +190,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;        
-}
-
-/**
- * Used on various pages including archive and search.
- */
-.page-posts-grid {
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    justify-content: space-between;     
-
-    .post {  
-        width: 100%;
-        margin: 0 0 25px;
-        position: relative; 
-        
-        @include bp(tablet) {
-            width: 48%;
-        }        
-        
-        img {
-            width: 100%;
-        }
-        
-        .entry-header {
-            @include bp(mobile) {
-                padding: 0;
-                margin: 0;
-                max-width: 100%;
-            }
-            
-            .entry-title {
-                @include bp(mobile) {
-                    padding: 0;
-                    max-width: 100%;
-                }            
-            }
-        }
-    }
 }
 
 /**

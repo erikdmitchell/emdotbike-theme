@@ -44,22 +44,10 @@ function emdb_register_block_patterns() {
 	}
 
 	$block_patterns = array(
-/*
-		'general-subscribe',
-		'general-featured-posts',
-*/
+//         'content',
 		'header-default',
-/*		
-		'hidden-404',
-		'hidden-bird',
-		'hidden-heading-and-bird',
-		'page-about-media-left',
-		'page-layout-two-columns',
-		'page-sidebar-grid-posts',
-		'query-default',
-		'query-simple-blog',
+// 		'hidden-404',	
 		'query-grid',
-*/
 	);
 
 	/**

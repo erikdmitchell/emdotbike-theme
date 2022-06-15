@@ -619,7 +619,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
  * @return void
  */
 function emdotbike_login_scripts_styles() {
-    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.min.css', array(), EMDOTBIKE_VERSION );
+    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.min.css', array(), '0.1.0' );
 }
 add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' );
 

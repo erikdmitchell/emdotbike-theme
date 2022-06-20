@@ -76,19 +76,21 @@ $posts = get_posts( array(
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <?php foreach ($posts as $key => $post) : ?>
         <?php emdb_begin_column($key, $columns); ?>
-        <article id="post-<?php echo $post->ID; ?>" class="<?php echo esc_attr( implode( ' ', get_post_class( '', $post ) ) ); ?>">
-            <div class="entry-thumb">
-                <?php emdb_theme_post_thumbnail( 'home-grid-large', $post ); ?>
-            </div>
-            
-            <header class="entry-header">
-                <h2 class="entry-title"><a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php echo get_the_title( $post ); ?></a></h2>
-            </header><!-- .entry-header -->
-            
-            <div class="entry-excerpt">
-                <div class="excerpt"><?php emdotbike_post_excerpt( $post, 55, '', ' <a href="' . get_permalink() . '">read more...</a>' ); ?></div>
-            </div>
-        </article>
+        <div class="wp-block-column">
+            <article id="post-<?php echo $post->ID; ?>" class="<?php echo esc_attr( implode( ' ', get_post_class( '', $post ) ) ); ?>">
+                <div class="entry-thumb">
+                    <a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php emdb_theme_post_thumbnail( 'home-grid-large', $post ); ?></a>
+                </div>
+                
+                <header>
+                    <h2 class="entry-title"><a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php echo get_the_title( $post ); ?></a></h2>
+                </header>
+                
+                <div class="entry-excerpt">
+                    <div class="excerpt"><?php emdotbike_post_excerpt( $post, 55, '', ' <a href="' . get_permalink() . '">read more...</a>' ); ?></div>
+                </div>
+            </article>
+        </div>
         <?php emdb_end_column($key, $columns, count($posts)); ?>
     <?php endforeach; ?>
 </div>

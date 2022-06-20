@@ -10,30 +10,6 @@
 .updated:not(.published) {
 	display: none;
 }
-
-/**
- * Theme Patterns
- *
- * inc/patterns/query-grid.php
- *
- */
- 
-.emdb-query-grid {
-    padding-top: 135px;    
-    
-    .wp-block-post-title {
-        color: $color__text-header;
-    
-        a,
-        a:hover,
-        a:visited {
-            text-decoration: none;
-            color: $color__link;
-        }
-    } 
-}
-
-
  
 /**
  * Older/General

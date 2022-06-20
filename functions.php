@@ -96,11 +96,14 @@ add_filter( 'image_size_names_choose','emdb_custom_image_sizes' );
  *
  * @access public
  * @param string $size (default: 'full').
+ * @param array $size (default: null).
  * @param bool   $parallax (default: false).
  * @return void
  */
-function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
-    global $post;
+function emdb_theme_post_thumbnail( $size = 'full', $post = null, $parallax = false ) {
+    if (!$post) {
+        global $post;        
+    }
 
     $html = null;
 
@@ -669,6 +672,35 @@ function emdb_has_header_block() {
     return false;
 }
 
+function emdb_parse_grid_order($string = '') {
+    if (empty($string)) {
+        $order_arr = array('date', 'desc');
+    } else {
+        $order_arr = explode('/', $string);
+    }
+    
+    return $order_arr;
+}
+
+function emdb_begin_column($key = 0, $columns = 0) {
+    if ((0 === $key % $columns) || 0 === $key) {
+        echo '<div class="wp-block-columns columns-'. $columns .'">';
+    }   
+}
+
+function emdb_end_column($key = 0, $columns = 0, $max = 0) {   
+    if ((1 === $key % $columns) || ($key + 1 === $max)) {
+        echo '</div><!-- .wp-block-columns -->';
+    } 
+}
+
+// acf
+
+function emdb_acf_register_fields() {
+    include_once( 'inc/acf-post-type-selector/post-type-selector-v5.php' );
+}
+add_action( 'acf/include_fields', 'emdb_acf_register_fields' );    
+
 function emdb_init_block_types() {
     if( !function_exists('acf_register_block_type') )
         return;
@@ -694,5 +726,16 @@ function emdb_init_block_types() {
         'icon'              => 'editor-table',
         'keywords'          => array( 'home', 'featured' ),
     ));    
+
+    // register posts grid block.
+    acf_register_block_type(array(
+        'name'              => 'posts-grid',
+        'title'             => __('Posts Grid'),
+        'description'       => __('A posts grid block.'),
+        'render_template'   => 'templates/blocks/posts-grid.php',
+        'category'          => 'query',
+        'icon'              => 'grid-view',
+        'keywords'          => array( 'query', 'grid', 'posts' ),
+    ));  
 }
 add_action('acf/init', 'emdb_init_block_types');

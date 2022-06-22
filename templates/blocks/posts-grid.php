@@ -38,6 +38,16 @@ $offset = get_field('offset') ? : 0; // really not needed ?
 // get order arr.
 $order_by_arr = emdb_parse_grid_order($order_by);
 
+
+$author_login = get_field('authors') ? get_field('authors') : '';
+
+if ($author_login) {
+    $author_data = get_user_by('login', $author_login);
+    $author_id = $author_data->ID;
+} else {
+    $author_id = '';
+}
+
 /*
 6
 Filters
@@ -69,6 +79,7 @@ $posts = get_posts( array(
     'orderby' => $order_by_arr[0],
     'order' => $order_by_arr[1],
     'offset' => $offset,
+    'author' => $author_id,
     // $sticky_posts = get_field('sticky_posts') ? : false;   
 ) );
 ?>

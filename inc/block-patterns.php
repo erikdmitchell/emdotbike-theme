@@ -46,8 +46,6 @@ function emdb_register_block_patterns() {
 	$block_patterns = array(
 //         'content',
 		'header-default',
-// 		'hidden-404',	
-		'query-grid',
 	);
 
 	/**

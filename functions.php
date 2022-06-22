@@ -638,27 +638,6 @@ function emdotbike_login_headerurl() {
 add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
 
 /**
- * Author information on author page.
- *
- * @access public
- * @return void
- */
-function emdb_author_header() {
-    $html = '';
-    $name = get_the_author_meta( 'display_name' );
-    $image = get_avatar( get_the_author_meta( 'ID' ), 200 );
-    $bio = get_the_author_meta( 'description' );
-
-    $html .= '<div class="author-column"><div class="author-image">' . $image . '</div></div>';
-    $html .= '<div class="author-column">';
-        $html .= '<div class="author-name"><h1>' . $name . '</h1></div>';
-        $html .= '<div class="author-bio">' . $bio . '</div>';
-    $html .= '</div>';
-
-    echo wp_kses_post( $html );
-}
-
-/**
  * Check for dwb post header block..
  *
  * @access public
@@ -704,18 +683,18 @@ add_action( 'acf/include_fields', 'emdb_acf_register_fields' );
 function emdb_init_block_types() {
     if( !function_exists('acf_register_block_type') )
         return;
-
-    // register tagline block.
+        
+    // register author bio block.
     acf_register_block_type(array(
-        'name'              => 'tagline',
-        'title'             => __('Tagline'),
-        'description'       => __('A tagline block.'),
-        'render_template'   => 'templates/blocks/tagline.php',
-        'category'          => 'formatting',
-        'icon'              => 'format-status',
-        'keywords'          => array( 'tagline', 'quote' ),
+        'name'              => 'author-bio',
+        'title'             => __('Author Bio'),
+        'description'       => __('An author bio block.'),
+        'render_template'   => 'templates/blocks/author-bio.php',
+        'category'          => 'theme',
+        'icon'              => 'id',
+        'keywords'          => array( 'author', 'bio' ),
     ));
-    
+
     // register home featured block.
     acf_register_block_type(array(
         'name'              => 'home-grid',
@@ -737,5 +716,16 @@ function emdb_init_block_types() {
         'icon'              => 'grid-view',
         'keywords'          => array( 'query', 'grid', 'posts' ),
     ));  
+    
+    // register tagline block.
+    acf_register_block_type(array(
+        'name'              => 'tagline',
+        'title'             => __('Tagline'),
+        'description'       => __('A tagline block.'),
+        'render_template'   => 'templates/blocks/tagline.php',
+        'category'          => 'formatting',
+        'icon'              => 'format-status',
+        'keywords'          => array( 'tagline', 'quote' ),
+    ));    
 }
 add_action('acf/init', 'emdb_init_block_types');

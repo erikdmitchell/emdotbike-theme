@@ -14,10 +14,7 @@
  */
 function emdb_register_block_patterns() {
 	$block_pattern_categories = array(
-// 		'featured' => array( 'label' => __( 'Featured', 'emdotbike' ) ),
 		'header'   => array( 'label' => __( 'Headers', 'emdotbike' ) ),
-// 		'query'    => array( 'label' => __( 'Query', 'emdotbike' ) ),
-// 		'pages'    => array( 'label' => __( 'Pages', 'emdotbike' ) ),
 	);
 
 	/**
@@ -44,7 +41,6 @@ function emdb_register_block_patterns() {
 	}
 
 	$block_patterns = array(
-        'hidden-404',
 		'header-default',
 	);
 

@@ -90,15 +90,15 @@ $posts = get_posts( array(
         <div class="wp-block-column">
             <article id="post-<?php echo $post->ID; ?>" class="<?php echo esc_attr( implode( ' ', get_post_class( '', $post ) ) ); ?>">
                 <div class="entry-thumb">
-                    <a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php emdb_theme_post_thumbnail( 'home-grid-large', $post ); ?></a>
+                    <?php emdb_theme_post_thumbnail( 'home-grid-large', $post ); ?>
                 </div>
                 
                 <header>
-                    <h2 class="entry-title"><a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php echo get_the_title( $post ); ?></a></h2>
+                    <h2 class="entry-title"><a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $post ); ?></a></h2>
                 </header>
                 
                 <div class="entry-excerpt">
-                    <div class="excerpt"><?php emdotbike_post_excerpt( $post, 55, '', ' <a href="' . get_permalink() . '">read more...</a>' ); ?></div>
+                    <div class="excerpt"><?php emdotbike_post_excerpt( $post, 55, '', ' <a href="' . get_permalink( $post->ID ) . '">read more...</a>' ); ?></div>
                 </div>
             </article>
         </div>

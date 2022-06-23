@@ -326,39 +326,6 @@ function emdotbike_theme_paging_nav() {
 }
 
 /**
- * Display navigation to next/previous post when applicable.
- *
- * @since emdotbike 1.0.1
- * @based on twentyfourteen
- *
- * @return void
- */
-function emdotbike_theme_post_nav() {
-    // Don't print empty markup if there's nowhere to navigate.
-    $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-    $next     = get_adjacent_post( false, '', false );
-
-    if ( ! $next && ! $previous ) {
-        return;
-    }
-
-    ?>
-    <nav class="navigation post-navigation" role="navigation">
-        <div class="nav-links">
-            <?php
-            if ( is_attachment() ) :
-                previous_post_link( __( '<div class="published-in"><span class="meta-nav">Published In:</span> %link</div>', 'emdotbike' ), '%title' );
-            else :
-                previous_post_link( __( '<div class="prev-post"><span class="meta-nav">Previous Post:</span> %link</div>', 'emdotbike' ), '%title' );
-                next_post_link( __( '<div class="next-post"><span class="meta-nav">Next Post:</span> %link</div>', 'emdotbike' ), '%title' );
-            endif;
-            ?>
-        </div><!-- .nav-links -->
-    </nav><!-- .navigation -->
-    <?php
-}
-
-/**
  * Display meta description.
  *
  * A custom function to display a meta description for our site pages
@@ -716,6 +683,18 @@ function emdb_init_block_types() {
         'icon'              => 'grid-view',
         'keywords'          => array( 'query', 'grid', 'posts' ),
     ));  
+
+    // register posts nav block.
+    acf_register_block_type(array(
+        'name'              => 'post-nav',
+        'title'             => __('Post Nav'),
+        'description'       => __('A post navigation block.'),
+        'render_template'   => 'templates/blocks/post-nav.php',
+        'category'          => 'formatting',
+        'icon'              => 'ellipsis',
+        'keywords'          => array( 'navigation', 'post' ),
+        'align' => 'full',
+    ));
     
     // register tagline block.
     acf_register_block_type(array(

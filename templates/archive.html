@@ -2,9 +2,7 @@
 
 <!-- wp:group {"tagName":"main"} -->
 <main class="wp-block-group">
-    // can we filter the title?
-    <!-- wp:query-title {"type":"archive","align":"wide","style":{"typography":{"fontSize":"clamp(2.75rem, 6vw, 3.25rem)"},"spacing":{"margin":{"bottom":"6rem"}}}} /-->
-    // description
+    <!-- wp:acf/archive-title {"id":"block_62b4bb8b8a674","name":"acf/archive-title","data":{"field_62b4bb591eb63":"Articles related to:"},"align":"","mode":"preview"} /-->
     
     <!-- wp:acf/posts-grid {"id":"block_62b07fcf18db0","name":"acf/posts-grid",
         "data":{
@@ -32,25 +30,8 @@
             "_background_color":"field_62b0865f4293b"
         },"align":"","mode":"preview"} /-->
         
-        NAV    
+        emdotbike_theme_paging_nav();    
 </main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
-
-
-
-
-
-        <header class="archive-header">
-            <h1 class="archive-title"><?php single_tag_title( __( 'Articles related to: ', 'emdotbike' ) ); ?></h1>
-
-            <?php if ( tag_description() ) : // Show an optional tag description. ?>
-                <div class="archive-meta"><?php echo tag_description(); ?></div>
-            <?php endif; ?>
-        </header><!-- .archive-header -->
-
-
-        <?php emdotbike_theme_paging_nav(); // Previous/next post navigation. ?>
-
-

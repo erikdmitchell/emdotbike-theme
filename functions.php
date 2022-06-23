@@ -642,6 +642,7 @@ function emdb_init_block_types() {
     ));    
 
     // register posts grid block.
+/*
     acf_register_block_type(array(
         'name'              => 'posts-grid',
         'title'             => __('Posts Grid'),
@@ -650,7 +651,8 @@ function emdb_init_block_types() {
         'category'          => 'query',
         'icon'              => 'grid-view',
         'keywords'          => array( 'query', 'grid', 'posts' ),
-    ));  
+    )); 
+*/ 
 
     // register posts nav block.
     acf_register_block_type(array(

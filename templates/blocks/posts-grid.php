@@ -30,15 +30,13 @@ $number_of_posts = get_field('posts_per_page') ? : 1;
 $post_type = get_field('post_type') ? : 'post';
 $columns = get_field('columns') ? : 2;
 $order_by = get_field('order_by') ? : 'date/desc';
-
-$sticky_posts = get_field('sticky_posts') ? : false;
-
-$offset = get_field('offset') ? : 0; // really not needed ?
+$sticky_posts = get_field('sticky_posts') ? : false; // not used yest.
+$offset = get_field('offset') ? : 0; // really not needed ?.
 
 // get order arr.
 $order_by_arr = emdb_parse_grid_order($order_by);
 
-
+// check for specific authoer
 $author_login = get_field('authors') ? get_field('authors') : '';
 
 if ($author_login) {
@@ -48,29 +46,30 @@ if ($author_login) {
     $author_id = '';
 }
 
-/*
-6
-Filters
-filtersGroup
-7
-Color
-Accordion
-8
-Text Color
-text_colorColor Picker
-9
-Background Color
-background_colorColor Picker
-*/
+$category = ''; // not setup lol.
 
-/*
-        'category'         => 0,
-        'include'          => array(),
-        'exclude'          => array(),
-        'meta_key'         => '',
-        'meta_value'       => '',
-        'suppress_filters' => true,
-*/
+// check for tag.
+$tax_query = [];
+$tags = get_field('tags');
+
+if ('' !== $tags) {
+    $tax_query = array(
+        'taxonomy' => 'post_tag',
+        'fields' => 'slug',
+        'terms' => sanitize_title( $tags ),
+    );
+}
+
+// this is a tag page.
+if (is_tag()) {
+    $tag = get_queried_object();
+
+    $tax_query = array(
+        'taxonomy' => 'post_tag',
+        'fields' => 'slug',
+        'terms' => sanitize_title( $tag->slug ),
+    );   
+}
 
 // get posts.
 $posts = get_posts( array(
@@ -79,8 +78,9 @@ $posts = get_posts( array(
     'orderby' => $order_by_arr[0],
     'order' => $order_by_arr[1],
     'offset' => $offset,
-    'author' => $author_id,
-    // $sticky_posts = get_field('sticky_posts') ? : false;   
+    'author' => $author_id, 
+    'category' => $category,
+    'tax_query' => $tax_query,
 ) );
 ?>
 

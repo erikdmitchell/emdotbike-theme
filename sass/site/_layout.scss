@@ -2,7 +2,8 @@
  * Basic layout
  */
 .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
-.wp-block-group.post-meta {
+.wp-block-group.post-meta,
+.emdb-layout-wrap {
 // .post-navigation,
 // .comments-area,
 // .page-posts-grid,

@@ -2,15 +2,16 @@
  * Basic layout
  */
 .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
-.post-navigation,
-.comments-area,
+.wp-block-group.post-meta {
+// .post-navigation,
+// .comments-area,
 // .page-posts-grid,
-.emdb-block-posts-grid,
-.archive-header,
-.page-header,
-.error404 article,
-.entry-header,
-.emdb-footer-sidebar {    
+// .emdb-block-posts-grid,
+// .archive-header,
+// .page-header,
+// .error404 article,
+// .entry-header,
+// .emdb-footer-sidebar {    
     width: 100%;
     padding-right: 1.5rem;
     padding-left: 1.5rem;

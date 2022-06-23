@@ -272,60 +272,6 @@ function emdotbike_theme_posted_on( $show_author = false ) {
 }
 
 /**
- * Display navigation to next/previous set of posts when applicable.
- *
- * @since emdotbike 1.0
- * @based on twentyfourteen
- *
- * @return void
- */
-function emdotbike_theme_paging_nav() {
-    // Don't print empty markup if there's only one page.
-    if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-        return;
-    }
-
-    $paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-    $pagenum_link = html_entity_decode( get_pagenum_link() );
-    $query_args   = array();
-    $url_parts    = explode( '?', $pagenum_link );
-
-    if ( isset( $url_parts[1] ) ) {
-        wp_parse_str( $url_parts[1], $query_args );
-    }
-
-    $pagenum_link = remove_query_arg( array_keys( $query_args ), esc_url( $pagenum_link ) );
-    $pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-
-    $format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
-    $format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
-
-    // Set up paginated links.
-    $links = paginate_links(
-        array(
-            'base'     => $pagenum_link,
-            'format'   => $format,
-            'total'    => $GLOBALS['wp_query']->max_num_pages,
-            'current'  => $paged,
-            'mid_size' => 1,
-            'add_args' => array_map( 'urlencode', $query_args ),
-            'prev_text' => __( '&laquo; Previous', 'emdotbike' ),
-            'next_text' => __( 'Next &raquo;', 'emdotbike' ),
-        )
-    );
-
-    if ( $links ) :
-        ?>
-        <nav class="navigation paging-navigation" role="navigation">
-            <div class="pagination loop-pagination">
-                <?php echo wp_kses_post( $links ); ?>
-            </div><!-- .pagination -->
-        </nav><!-- .navigation -->
-        <?php
-    endif;
-}
-
-/**
  * Display meta description.
  *
  * A custom function to display a meta description for our site pages
@@ -651,6 +597,17 @@ function emdb_init_block_types() {
     if( !function_exists('acf_register_block_type') )
         return;
         
+    // register archive title block.
+    acf_register_block_type(array(
+        'name'              => 'archive-title',
+        'title'             => __('Archive Title'),
+        //'description'       => __('An author bio block.'),
+        'render_template'   => 'templates/blocks/archive-title.php',
+        'category'          => 'theme',
+        'icon'              => 'editor-textcolor',
+        'keywords'          => array( 'archive', 'title' ),
+    ));
+
     // register author bio block.
     acf_register_block_type(array(
         'name'              => 'author-bio',
@@ -671,6 +628,17 @@ function emdb_init_block_types() {
         'category'          => 'formatting',
         'icon'              => 'editor-table',
         'keywords'          => array( 'home', 'featured' ),
+    ));
+    
+    // register page nav block.
+    acf_register_block_type(array(
+        'name'              => 'page-nav',
+        'title'             => __('Page Nav'),
+        'description'       => __('A page navigation block.'),
+        'render_template'   => 'templates/blocks/page-nav.php',
+        'category'          => 'formatting',
+        'icon'              => 'ellipsis',
+        'keywords'          => array( 'navigation', 'page' ),
     ));    
 
     // register posts grid block.
@@ -693,7 +661,6 @@ function emdb_init_block_types() {
         'category'          => 'formatting',
         'icon'              => 'ellipsis',
         'keywords'          => array( 'navigation', 'post' ),
-        'align' => 'full',
     ));
     
     // register tagline block.

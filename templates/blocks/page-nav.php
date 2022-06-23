@@ -31,7 +31,6 @@ $block_class_name .= ' emdb-layout-wrap';
 // Load values and assign defaults.
 
 // Don't print empty markup if there's only one page.
-/*
 if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
     return;
 }
@@ -64,13 +63,12 @@ $links = paginate_links(
         'next_text' => __( 'Next &raquo;', 'emdotbike' ),
     )
 );
-*/
 ?>
 	
-<div id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr($block_class_name); ?>">  
+<div id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr($block_class_name); ?>"> 
     <nav class="navigation paging-navigation" role="navigation">
         <div class="pagination loop-pagination">
-            <?php //echo wp_kses_post( $links ); ?>
+            <?php echo wp_kses_post( $links ); ?>
         </div><!-- .pagination -->
     </nav><!-- .navigation -->
 </div>

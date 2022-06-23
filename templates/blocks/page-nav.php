@@ -11,17 +11,17 @@
 // Create id attribute allowing for custom "anchor" value.
 $block_id = 'emdb-page-nav-' . $block['id'];
 
-if( !empty($block['anchor']) ) {
+if ( ! empty( $block['anchor'] ) ) {
     $block_id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
 $block_class_name = 'emdb-block-page-nav';
 
-if( !empty($block['className']) ) {
+if ( ! empty( $block['className'] ) ) {
     $block_class_name .= ' ' . $block['className'];
 }
-if( !empty($block['align']) ) {
+if ( ! empty( $block['align'] ) ) {
     $block_class_name .= ' align' . $block['align'];
 }
 
@@ -53,19 +53,19 @@ $format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'p
 // Set up paginated links.
 $links = paginate_links(
     array(
-        'base'     => $pagenum_link,
-        'format'   => $format,
-        'total'    => $GLOBALS['wp_query']->max_num_pages,
-        'current'  => $paged,
-        'mid_size' => 1,
-        'add_args' => array_map( 'urlencode', $query_args ),
+        'base'      => $pagenum_link,
+        'format'    => $format,
+        'total'     => $GLOBALS['wp_query']->max_num_pages,
+        'current'   => $paged,
+        'mid_size'  => 1,
+        'add_args'  => array_map( 'urlencode', $query_args ),
         'prev_text' => __( '&laquo; Previous', 'emdotbike' ),
         'next_text' => __( 'Next &raquo;', 'emdotbike' ),
     )
 );
 ?>
-	
-<div id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr($block_class_name); ?>"> 
+    
+<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>"> 
     <nav class="navigation paging-navigation" role="navigation">
         <div class="pagination loop-pagination">
             <?php echo wp_kses_post( $links ); ?>

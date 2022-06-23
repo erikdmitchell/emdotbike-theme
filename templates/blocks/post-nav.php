@@ -11,17 +11,17 @@
 // Create id attribute allowing for custom "anchor" value.
 $block_id = 'emdb-post-nav-' . $block['id'];
 
-if( !empty($block['anchor']) ) {
+if ( ! empty( $block['anchor'] ) ) {
     $block_id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
 $block_class_name = 'emdb-block-post-nav';
 
-if( !empty($block['className']) ) {
+if ( ! empty( $block['className'] ) ) {
     $block_class_name .= ' ' . $block['className'];
 }
-if( !empty($block['align']) ) {
+if ( ! empty( $block['align'] ) ) {
     $block_class_name .= ' align' . $block['align'];
 }
 
@@ -38,8 +38,8 @@ if ( ! $next && ! $previous ) {
     return;
 }
 ?>
-	
-<div id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr($block_class_name); ?>">  
+    
+<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>">  
     <nav class="navigation post-navigation" role="navigation">
         <div class="nav-links">
             <?php

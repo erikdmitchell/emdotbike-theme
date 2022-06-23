@@ -3,10 +3,10 @@
  * Default header block pattern
  */
 return array(
-	'title'      => __( 'Default header', 'emdotbike' ),
-	'categories' => array( 'header' ),
-	'blockTypes' => array( 'core/template-part/header' ),
-	'content'    => '<div class="site-header">
+    'title'      => __( 'Default header', 'emdotbike' ),
+    'categories' => array( 'header' ),
+    'blockTypes' => array( 'core/template-part/header' ),
+    'content'    => '<div class="site-header">
 	                <div class="site-branding">
                         <div class="wp-block-image">
                             <a href="' . home_url() . '">

@@ -10,6 +10,14 @@
     background: var(--wp--preset--color--white);
      
     .site-branding {
+        .wp-block-image {
+            margin: 0;
+            
+            figure {
+                margin: 1em 0;
+            }
+        }
+        
         .navbar-brand {
             font-size: 18px;
             line-height: 20px;

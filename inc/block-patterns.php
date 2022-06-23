@@ -44,7 +44,7 @@ function emdb_register_block_patterns() {
 	}
 
 	$block_patterns = array(
-//         'content',
+        'hidden-404',
 		'header-default',
 	);
 

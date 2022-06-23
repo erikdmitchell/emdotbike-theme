@@ -31,7 +31,11 @@ $post_type = get_field('post_type') ? : 'post';
 $columns = get_field('columns') ? : 2;
 $order_by = get_field('order_by') ? : 'date/desc';
 $sticky_posts = get_field('sticky_posts') ? : false; // not used yest.
-$offset = get_field('offset') ? : 0; // really not needed ?.
+
+// sets up offset for pagination.
+$paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 0;
+$offset = $paged * $number_of_posts;
+echo "paged: $paged | offset: $offset | $number_of_posts";
 
 // get order arr.
 $order_by_arr = emdb_parse_grid_order($order_by);

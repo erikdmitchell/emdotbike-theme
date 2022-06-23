@@ -64,9 +64,9 @@ if ('' !== $tags) {
 if (is_tag()) {
     $tag = get_queried_object();
 
-    $tax_query = array(
+    $tax_query[] = array(
         'taxonomy' => 'post_tag',
-        'fields' => 'slug',
+        'field' => 'slug',
         'terms' => sanitize_title( $tag->slug ),
     );   
 }

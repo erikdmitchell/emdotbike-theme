@@ -83,7 +83,7 @@ $args  = array(
 );
 
 // check search.
-if (is_search()) {
+if ( is_search() ) {
     $args['s'] = $_GET['s'];
 }
 
@@ -122,7 +122,7 @@ $post_count = 0;
         <?php emdb_theme_paging_nav(); // Previous/next post navigation. ?>
 
         <?php wp_reset_postdata(); ?>
-    <?php elseif (is_search()) : ?>
+    <?php elseif ( is_search() ) : ?>
         <p><?php esc_html_e( 'Remember the days when your computer was fancy if it told you cadence?', 'emdotbike' ); ?></p> 
         <p><?php esc_html_e( 'Whether you made a wrong turn, got dropped, or bonked - you need a little help to find where you are going.', 'emdotbike' ); ?></p> 
         <p><?php esc_html_e( 'Like a wise old veteran racer, or that guy at the local gas station, try the search to get going again!', 'emdotbike' ); ?></p>

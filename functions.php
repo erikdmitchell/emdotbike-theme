@@ -252,77 +252,6 @@ function emdotbike_get_post_thumbnail( $post_id = 0, $classes = 'img-responsive'
 }
 
 /**
- * * Print HTML with meta information for the current post-date/time and author.
- *
- * @access public
- * @param bool $show_author (default: false).
- * @return void
- */
-function emdotbike_theme_posted_on( $show_author = false ) {
-    if ( is_sticky() && is_home() && ! is_paged() ) {
-        echo '<span class="featured-post">' . _e( 'Sticky', 'emdotbike' ) . '</span>';
-    }
-
-    // Set up and print post meta information. -- hide date if sticky.
-    if ( ! is_sticky() ) :
-        echo wp_kses_post( '<div class="entry-date"><a href="' . get_permalink() . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '">' . get_the_date() . '</time></a></div>' );
-    endif;
-
-    echo wp_kses_post( '<div class="byline"><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author">By ' . get_the_author() . '</a></div></span>' );
-}
-
-/**
- * Display meta description.
- *
- * A custom function to display a meta description for our site pages
- *
- * @access public
- * @return string/bool
- */
-function display_meta_description() {
-    global $post;
-
-    $title = null;
-
-    if ( isset( $post->post_title ) ) {
-        $title = $post->post_title;
-    }
-
-    if ( is_single() ) {
-        return single_post_title( '', false );
-    } else {
-        return $title . ' - ' . get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' );
-    }
-
-    return false;
-}
-
-/**
- * Navbar brand function.
- *
- * Adds our logo or text based on theme options
- *
- * @access public
- * @return void
- */
-function emdotbike_theme_navbar_brand() {
-    global $emdotbike_theme_options;
-
-    $text = get_bloginfo( 'name' );
-
-    if ( isset( $emdotbike_theme_options['default']['logo']['text'] ) && '' != $emdotbike_theme_options['default']['logo']['text'] ) {
-        $text = $emdotbike_theme_options['default']['logo']['text'];
-    }
-
-    // display header image or text.
-    if ( get_header_image() ) :
-        echo wp_kses_post( '<img src="' . get_header_image() . '" height="' . get_custom_header()->height . '" width="' . get_custom_header()->width . '" alt="" />' );
-    else :
-        echo wp_kses_post( '<a class="navbar-brand" href="' . home_url() . '">' . $text . '</a>' );
-    endif;
-}
-
-/**
  * Back to top function.
  *
  * @access public
@@ -549,20 +478,6 @@ function emdotbike_login_headerurl() {
     return home_url();
 }
 add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
-
-/**
- * Check for dwb post header block.
- *
- * @access public
- * @return bool
- */
-function emdb_has_header_block() {
-    if ( has_block( 'dwb/post-header' ) ) {
-        return true;
-    }
-
-    return false;
-}
 
 /**
  * Parse grid order string into array.

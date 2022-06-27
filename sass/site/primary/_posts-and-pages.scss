@@ -39,7 +39,6 @@
 	margin: 0 0 1.5em;
 }
 
-.page-header,
 .entry-header,
 .archive-header {
     color: $color__text-header;
@@ -52,6 +51,7 @@
     }
 }
 
+/*
 .page-header .entry-header {
     color: $color__text-header;
     
@@ -62,6 +62,7 @@
         color: $color__link;
     }
 }
+*/
 
 .entry-meta {
     color: $color__text-entry-meta;

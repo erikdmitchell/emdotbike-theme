@@ -355,7 +355,7 @@ function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em>
         $the_excerpt = $post->post_content;
     }
 
-    $the_excerpt   = strip_shortcodes( strip_tags( $the_excerpt ) );
+    $the_excerpt   = strip_shortcodes( wp_strip_all_tags( $the_excerpt ) );
     $the_excerpt   = preg_split( '/\b/', $the_excerpt, $length * 2 + 1 );
     $excerpt_waste = array_pop( $the_excerpt );
     $the_excerpt   = implode( $the_excerpt );
@@ -368,14 +368,14 @@ function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em>
  * Display post excerpt.
  *
  * @access public
- * @param mixed  $post.
+ * @param mixed  $post (post object).
  * @param int    $length (default: 10).
  * @param string $tags (default: '<a><em><strong>').
  * @param string $extra (default: ' . . .').
  * @return void
  */
 function emdotbike_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
-    echo emdotbike_get_post_excerpt_by_id( $post, $length, $tags, $extra );
+    echo emdotbike_get_post_excerpt_by_id( $post, $length, $tags, $extra ); // @codingStandardsIgnoreLine WordPress.Security.EscapeOutput.OutputNotEscaped.
 }
 
 /**
@@ -395,7 +395,7 @@ function emdotbike_has_categories( $excl = '' ) {
         $exclude = explode( ',', $exclude );
 
         foreach ( $categories as $key => $cat ) :
-            if ( in_array( $cat->name, $exclude ) ) :
+            if ( in_array( $cat->name, $exclude, true ) ) :
                 unset( $categories[ $key ] );
             endif;
         endforeach;
@@ -412,7 +412,7 @@ function emdotbike_has_categories( $excl = '' ) {
  * Custom read more excerpt.
  *
  * @access public
- * @param mixed $more.
+ * @param mixed $more string.
  * @return string
  */
 function emdotbike_custom_excerpt_more( $more ) {
@@ -441,7 +441,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
         foreach ( $categories as $cat ) :
             $html = '';
 
-            if ( ! in_array( $cat->cat_ID, $exclude ) ) {
+            if ( ! in_array( $cat->cat_ID, $exclude, true ) ) {
                 $html .= '<a href="' . get_category_link( $cat->cat_ID ) . '" ';
                 $html .= 'title="' . $cat->cat_name . '">' . $cat->cat_name . '</a>';
 
@@ -506,7 +506,7 @@ function emdb_parse_grid_order( $string = '' ) {
  */
 function emdb_begin_column( $key = 0, $columns = 0 ) {
     if ( ( 0 === $key % $columns ) || 0 === $key ) {
-        echo '<div class="wp-block-columns columns-' . $columns . '">';
+        echo '<div class="wp-block-columns columns-' . $columns . '">'; // @codingStandardsIgnoreLine WordPress.Security.EscapeOutput.OutputNotEscaped.
     }
 }
 
@@ -521,7 +521,7 @@ function emdb_begin_column( $key = 0, $columns = 0 ) {
  */
 function emdb_end_column( $key = 0, $columns = 0, $max = 0 ) {
     if ( ( 1 === $key % $columns ) || ( $key + 1 === $max ) ) {
-        echo '</div><!-- .wp-block-columns -->';
+        echo '</div><!-- .wp-block-columns -->'; // @codingStandardsIgnoreLine WordPress.Security.EscapeOutput.OutputNotEscaped.
     }
 }
 

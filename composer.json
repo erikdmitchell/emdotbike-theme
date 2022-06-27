@@ -22,5 +22,10 @@
     "scripts": {
         "phpcs": "phpcs -s -p --standard=./phpcs.ruleset.xml",
         "phpcbf": "phpcbf -p --standard=./phpcs.ruleset.xml"
-    }    
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }

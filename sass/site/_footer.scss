@@ -1,9 +1,9 @@
-footer {
+.site-footer {
     position: relative;
     z-index: 1;
-    border-top: none; 
-//     background: $color__background-footer;
-//     color: $color__text-footer;
+    border-top: none;
+    background: #00487c;
+    color: #fff;
     margin-top: 8rem;
     
     // the below 3 styles create our diagonal top
@@ -32,29 +32,12 @@ footer {
     }    
 
     /**
-     * Style our footer "sidebar"
+     * Style our footer "wrapper"
      */    
-    .emdb-footer-sidebar {
-        > .widget_block {
-            margin-left: 2rem;
-            margin-right: 2rem;
-            
-            @include bp(mobile) {
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            // overrides a wp col style so that it aligns in the center.
-            .wp-block-column:nth-child(3) {
-                @media (min-width: 600px) and (max-width: 781px) {
-                    flex-basis: calc(100% - 1em) !important;
-                }
-            }
-        }
-    
+    .emdb-footer-wrapper {
         h3 {
             font-size: 16px;
-            margin-bottom: 10px;
+            margin: 16px 0 10px 0;
             padding: 10px 0px;
             color: $color__text-footer;
             text-transform: uppercase;            

@@ -9,33 +9,28 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'emdb-posts-grid-' . $block['id'];
+$block_id = 'emdb-posts-grid-' . $block['id'];
 
 if ( ! empty( $block['anchor'] ) ) {
-    $id = $block['anchor'];
+    $block_id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'emdb-block-posts-grid';
+$block_class_name = 'emdb-block-posts-grid';
 
 if ( ! empty( $block['className'] ) ) {
-    $className .= ' ' . $block['className'];
+    $block_class_name .= ' ' . $block['className'];
 }
 if ( ! empty( $block['align'] ) ) {
-    $className .= ' align' . $block['align'];
+    $block_class_name .= ' align' . $block['align'];
 }
 
 // Load values and assign defaults.
-$number_of_posts = get_field( 'posts_per_page' ) ? : 1;
+// $number_of_posts = get_field( 'posts_per_page' ) ? : 1;
 $post_type       = get_field( 'post_type' ) ? : 'post';
 $columns         = get_field( 'columns' ) ? : 2;
 $order_by        = get_field( 'order_by' ) ? : 'date/desc';
 $sticky_posts    = get_field( 'sticky_posts' ) ? : false; // not used yest.
-
-// sets up offset for pagination.
-$paged  = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 0;
-$offset = $paged * $number_of_posts;
-echo "paged: $paged | offset: $offset | $number_of_posts";
 
 // get order arr.
 $order_by_arr = emdb_parse_grid_order( $order_by );
@@ -63,7 +58,7 @@ if ( '' !== $tags ) {
         'terms'    => sanitize_title( $tags ),
     );
 }
-
+// ^ combine? //
 // this is a tag page.
 if ( is_tag() ) {
     $tag = get_queried_object();
@@ -75,41 +70,62 @@ if ( is_tag() ) {
     );
 }
 
-// get posts.
-$posts = get_posts(
-    array(
-        'posts_per_page' => $number_of_posts,
-        'post_type'      => $post_type,
-        'orderby'        => $order_by_arr[0],
-        'order'          => $order_by_arr[1],
-        'offset'         => $offset,
-        'author'         => $author_id,
-        'category'       => $category,
-        'tax_query'      => $tax_query,
-    )
-);
+// for pagination.
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+// echo 'p: ' . $paged . '<br>';
+$args = array(
+//     'posts_per_page' => $number_of_posts,
+    'post_type'      => $post_type,
+    'orderby'        => $order_by_arr[0],
+    'order'          => $order_by_arr[1],
+    'paged'         => $paged,
+    'author'         => $author_id,
+    'category'       => $category,
+    'tax_query'      => $tax_query,
+);    
+// the query
+$the_query = new WP_Query( $args ); 
+$post_count = 0;
+/*
+echo "block ppp: $number_of_posts<br>";
+echo $the_query->max_num_pages;
+echo '<br>';
+echo $the_query->post_count; // this should be 10?
+echo '<br>';
+echo $the_query->found_posts;
+*/
+
 ?>
+<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>">
+ 
+    <?php if ( $the_query->have_posts() ) : ?>
+        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> 
+            <?php emdb_begin_column( $post_count, $columns ); ?>
+            <div class="wp-block-column">
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <div class="entry-thumb">
+                        <?php emdb_theme_post_thumbnail( 'home-grid-large' ); ?>
+                    </div>
+                    
+                    <header>
+                        <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_title( '<h2 class="entry-title">', '</h2>' ); ?></a>
+                    </header>
+                    
+                    <div class="entry-excerpt">
+                        <div class="excerpt"><?php emdotbike_post_excerpt( get_the_ID(), 55, '', ' <a href="' . get_permalink() . '">read more...</a>' ); ?></div>
+                    </div>
+                </article>
+            </div>
+            <?php emdb_end_column( $post_count, $columns, $number_of_posts ); ?>
+            <?php $post_count++; ?>
+        <?php endwhile; ?>
+     
+        <?php emdb_theme_paging_nav(); // Previous/next post navigation. ?>
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
-    <?php foreach ( $posts as $key => $post ) : ?>
-        <?php emdb_begin_column( $key, $columns ); ?>
-        <div class="wp-block-column">
-            <article id="post-<?php echo $post->ID; ?>" class="<?php echo esc_attr( implode( ' ', get_post_class( '', $post ) ) ); ?>">
-                <div class="entry-thumb">
-                    <?php emdb_theme_post_thumbnail( 'home-grid-large', $post ); ?>
-                </div>
-                
-                <header>
-                    <h2 class="entry-title"><a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $post ); ?></a></h2>
-                </header>
-                
-                <div class="entry-excerpt">
-                    <div class="excerpt"><?php emdotbike_post_excerpt( $post, 55, '', ' <a href="' . get_permalink( $post->ID ) . '">read more...</a>' ); ?></div>
-                </div>
-            </article>
-        </div>
-        <?php emdb_end_column( $key, $columns, count( $posts ) ); ?>
-    <?php endforeach; ?>
+        <?php wp_reset_postdata(); ?>
+     
+    <?php else : ?>
+        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    <?php endif; ?>
+
 </div>
-
-<?php emdotbike_theme_paging_nav(); // Previous/next post navigation. ?>

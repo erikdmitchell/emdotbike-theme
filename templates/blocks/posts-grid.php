@@ -27,10 +27,10 @@ if ( ! empty( $block['align'] ) ) {
 
 // Load values and assign defaults.
 // $number_of_posts = get_field( 'posts_per_page' ) ? : 1;
-$post_type       = get_field( 'post_type' ) ? : 'post';
-$columns         = get_field( 'columns' ) ? : 2;
-$order_by        = get_field( 'order_by' ) ? : 'date/desc';
-$sticky_posts    = get_field( 'sticky_posts' ) ? : false; // not used yest.
+$post_type    = get_field( 'post_type' ) ? : 'post';
+$columns      = get_field( 'columns' ) ? : 2;
+$order_by     = get_field( 'order_by' ) ? : 'date/desc';
+$sticky_posts = get_field( 'sticky_posts' ) ? : false; // not used yest.
 
 // get order arr.
 $order_by_arr = emdb_parse_grid_order( $order_by );
@@ -71,35 +71,28 @@ if ( is_tag() ) {
 }
 
 // for pagination.
-$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-// echo 'p: ' . $paged . '<br>';
-$args = array(
-//     'posts_per_page' => $number_of_posts,
-    'post_type'      => $post_type,
-    'orderby'        => $order_by_arr[0],
-    'order'          => $order_by_arr[1],
-    'paged'         => $paged,
-    'author'         => $author_id,
-    'category'       => $category,
-    'tax_query'      => $tax_query,
-);    
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$args  = array(
+    'post_type' => $post_type,
+    'orderby'   => $order_by_arr[0],
+    'order'     => $order_by_arr[1],
+    'paged'     => $paged,
+    'author'    => $author_id,
+    'category'  => $category,
+    'tax_query' => $tax_query,
+);
 // the query
-$the_query = new WP_Query( $args ); 
+$the_query  = new WP_Query( $args );
 $post_count = 0;
-/*
-echo "block ppp: $number_of_posts<br>";
-echo $the_query->max_num_pages;
-echo '<br>';
-echo $the_query->post_count; // this should be 10?
-echo '<br>';
-echo $the_query->found_posts;
-*/
-
 ?>
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>">
  
     <?php if ( $the_query->have_posts() ) : ?>
-        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> 
+        <?php
+        while ( $the_query->have_posts() ) :
+            $the_query->the_post();
+            ?>
+             
             <?php emdb_begin_column( $post_count, $columns ); ?>
             <div class="wp-block-column">
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -116,7 +109,7 @@ echo $the_query->found_posts;
                     </div>
                 </article>
             </div>
-            <?php emdb_end_column( $post_count, $columns, $number_of_posts ); ?>
+            <?php emdb_end_column( $post_count, $columns, $the_query->post_count ); ?>
             <?php $post_count++; ?>
         <?php endwhile; ?>
      

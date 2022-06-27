@@ -32,28 +32,9 @@
     }    
 
     /**
-     * Style our footer "sidebar"
+     * Style our footer "wrapper"
      */    
-    .emdb-footer-sidebar {
-/*
-        > .widget_block {
-            margin-left: 2rem;
-            margin-right: 2rem;
-            
-            @include bp(mobile) {
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            // overrides a wp col style so that it aligns in the center.
-            .wp-block-column:nth-child(3) {
-                @media (min-width: 600px) and (max-width: 781px) {
-                    flex-basis: calc(100% - 1em) !important;
-                }
-            }
-        }
-*/
-    
+    .emdb-footer-wrapper {
         h3 {
             font-size: 16px;
             margin: 16px 0 10px 0;

@@ -9,20 +9,20 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'emdb-author-bio-' . $block['id'];
+$block_id = 'emdb-author-bio-' . $block['id'];
 
 if ( ! empty( $block['anchor'] ) ) {
-    $id = $block['anchor'];
+    $block_id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'emdb-block-author-bio';
+$block_class_name = 'emdb-block-author-bio';
 
 if ( ! empty( $block['className'] ) ) {
-    $className .= ' ' . $block['className'];
+    $block_class_name .= ' ' . $block['className'];
 }
 if ( ! empty( $block['align'] ) ) {
-    $className .= ' align' . $block['align'];
+    $block_class_name .= ' align' . $block['align'];
 }
 
 // Load values and assign defaults.
@@ -32,7 +32,7 @@ $name      = get_the_author_meta( 'display_name' );
 $bio       = get_field( 'show_bio' ) ? '<div class="author-bio">' . get_the_author_meta( 'description' ) . '</div>' : '';
 ?>
     
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
+<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>">
     <div class="author-header">
         <div class="author-column"><div class="author-image"><?php echo $avatar; ?></div></div>
         <div class="author-column">

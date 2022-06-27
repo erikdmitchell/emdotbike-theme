@@ -6,9 +6,8 @@
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * @package WordPress
- * @subpackage emdotbike
- * @since emdotbike 0.1.0
+ * @package EMdotBike
+ * @since 0.1.0
  */
 
 /**
@@ -75,14 +74,21 @@ function emdb_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'emdb_scripts_styles' );
 
-// Add block patterns
+// Add block patterns.
 require get_template_directory() . '/inc/block-patterns.php';
 
+/**
+ * Display custom image sizes in media panel.
+ *
+ * @access public
+ * @param array $sizes (array of image sizes).
+ * @return array
+ */
 function emdb_custom_image_sizes( $sizes ) {
     return array_merge(
         $sizes,
         array(
-            'home-latest-posts-large' => __( 'Home Posts Large' ),
+            'home-latest-posts-large' => __( 'Home Posts Large', 'emdotbike' ),
         )
     );
 }
@@ -93,7 +99,7 @@ add_filter( 'image_size_names_choose', 'emdb_custom_image_sizes' );
  *
  * @access public
  * @param string $size (default: 'full').
- * @param array  $size (default: null).
+ * @param array  $post (default: null).
  * @param bool   $parallax (default: false).
  * @return void
  */
@@ -111,11 +117,9 @@ function emdb_theme_post_thumbnail( $size = 'full', $post = null, $parallax = fa
     if ( has_post_thumbnail( $post ) ) {
         $thumb_id      = get_post_thumbnail_id( $post->ID );
         $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
-        // $thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
-        $thumb_meta = wp_get_attachment_metadata( $thumb_id );
-        // $thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
-        $thumb_base = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
-        $thumb      = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
+        $thumb_meta    = wp_get_attachment_metadata( $thumb_id );
+        $thumb_base    = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
+        $thumb         = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
     } else {
         $thumb = '<img src="' . get_template_directory_uri() . '/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';
     }
@@ -157,7 +161,6 @@ function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
     }
 
     $default_styles = array(
-        // 'background' => 'url('.$image_url.') no-repeat center center fixed',
         'background-image' => 'url(' . $image_url . ')',
         'height'           => '400px',
     );
@@ -548,7 +551,7 @@ function emdotbike_login_headerurl() {
 add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
 
 /**
- * Check for dwb post header block..
+ * Check for dwb post header block.
  *
  * @access public
  * @return bool
@@ -561,6 +564,13 @@ function emdb_has_header_block() {
     return false;
 }
 
+/**
+ * Parse grid order string into array.
+ *
+ * @access public
+ * @param string $string (default: ' ').
+ * @return array
+ */
 function emdb_parse_grid_order( $string = '' ) {
     if ( empty( $string ) ) {
         $order_arr = array( 'date', 'desc' );
@@ -571,25 +581,56 @@ function emdb_parse_grid_order( $string = '' ) {
     return $order_arr;
 }
 
+/**
+ * Parse grid order string into array.
+ *
+ * @access public
+ * @param int $key (default: 0).
+ * @param int $columns (default: 0).
+ * @return void
+ */
 function emdb_begin_column( $key = 0, $columns = 0 ) {
     if ( ( 0 === $key % $columns ) || 0 === $key ) {
         echo '<div class="wp-block-columns columns-' . $columns . '">';
     }
 }
 
+/**
+ * Parse grid order string into array.
+ *
+ * @access public
+ * @param int $key (default: 0).
+ * @param int $columns (default: 0).
+ * @param int $max (default: 0).
+ * @return void
+ */
 function emdb_end_column( $key = 0, $columns = 0, $max = 0 ) {
     if ( ( 1 === $key % $columns ) || ( $key + 1 === $max ) ) {
         echo '</div><!-- .wp-block-columns -->';
     }
 }
 
-// acf
+/**
+ * ACF Functions.
+ */
 
+/**
+ * Register custom ACF field: post type selector.
+ *
+ * @access public
+ * @return void
+ */
 function emdb_acf_register_fields() {
     include_once 'inc/acf-post-type-selector/post-type-selector-v5.php';
 }
 add_action( 'acf/include_fields', 'emdb_acf_register_fields' );
 
+/**
+ * Initialize custom ACF blocks.
+ *
+ * @access public
+ * @return bool
+ */
 function emdb_init_block_types() {
     if ( ! function_exists( 'acf_register_block_type' ) ) {
         return;
@@ -599,8 +640,7 @@ function emdb_init_block_types() {
     acf_register_block_type(
         array(
             'name'            => 'archive-title',
-            'title'           => __( 'Archive Title' ),
-            // 'description'       => __('An author bio block.'),
+            'title'           => __( 'Archive Title', 'emdotbike' ),
             'render_template' => 'templates/blocks/archive-title.php',
             'category'        => 'theme',
             'icon'            => 'editor-textcolor',
@@ -612,8 +652,8 @@ function emdb_init_block_types() {
     acf_register_block_type(
         array(
             'name'            => 'author-bio',
-            'title'           => __( 'Author Bio' ),
-            'description'     => __( 'An author bio block.' ),
+            'title'           => __( 'Author Bio', 'emdotbike' ),
+            'description'     => __( 'An author bio block.', 'emdotbike' ),
             'render_template' => 'templates/blocks/author-bio.php',
             'category'        => 'theme',
             'icon'            => 'id',
@@ -625,8 +665,8 @@ function emdb_init_block_types() {
     acf_register_block_type(
         array(
             'name'            => 'home-grid',
-            'title'           => __( 'Home Grid' ),
-            'description'     => __( 'A home grid block.' ),
+            'title'           => __( 'Home Grid', 'emdotbike' ),
+            'description'     => __( 'A home grid block.', 'emdotbike' ),
             'render_template' => 'templates/blocks/home-grid.php',
             'category'        => 'formatting',
             'icon'            => 'editor-table',
@@ -638,8 +678,8 @@ function emdb_init_block_types() {
     acf_register_block_type(
         array(
             'name'            => 'page-nav',
-            'title'           => __( 'Page Nav' ),
-            'description'     => __( 'A page navigation block.' ),
+            'title'           => __( 'Page Nav', 'emdotbike' ),
+            'description'     => __( 'A page navigation block.', 'emdotbike' ),
             'render_template' => 'templates/blocks/page-nav.php',
             'category'        => 'formatting',
             'icon'            => 'ellipsis',
@@ -651,8 +691,8 @@ function emdb_init_block_types() {
     acf_register_block_type(
         array(
             'name'            => 'posts-grid',
-            'title'           => __( 'Posts Grid' ),
-            'description'     => __( 'A posts grid block.' ),
+            'title'           => __( 'Posts Grid', 'emdotbike' ),
+            'description'     => __( 'A posts grid block.', 'emdotbike' ),
             'render_template' => 'templates/blocks/posts-grid.php',
             'category'        => 'query',
             'icon'            => 'grid-view',
@@ -664,8 +704,8 @@ function emdb_init_block_types() {
     acf_register_block_type(
         array(
             'name'            => 'post-nav',
-            'title'           => __( 'Post Nav' ),
-            'description'     => __( 'A post navigation block.' ),
+            'title'           => __( 'Post Nav', 'emdotbike' ),
+            'description'     => __( 'A post navigation block.', 'emdotbike' ),
             'render_template' => 'templates/blocks/post-nav.php',
             'category'        => 'formatting',
             'icon'            => 'ellipsis',
@@ -677,8 +717,8 @@ function emdb_init_block_types() {
     acf_register_block_type(
         array(
             'name'            => 'tagline',
-            'title'           => __( 'Tagline' ),
-            'description'     => __( 'A tagline block.' ),
+            'title'           => __( 'Tagline', 'emdotbike' ),
+            'description'     => __( 'A tagline block.', 'emdotbike' ),
             'render_template' => 'templates/blocks/tagline.php',
             'category'        => 'formatting',
             'icon'            => 'format-status',
@@ -744,9 +784,11 @@ function emdb_theme_paging_nav() {
     endif;
 }
 
-
 /**
- * Block template for posts
+ * Block template for posts.
+ *
+ * @access public
+ * @return void
  */
 function emdb_post_block_template() {
     $post_type_object           = get_post_type_object( 'post' );

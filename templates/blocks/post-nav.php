@@ -46,10 +46,10 @@ if ( ! $next && ! $previous ) {
         <div class="nav-links">
             <?php
             if ( is_attachment() ) :
-                previous_post_link( __( '<div class="published-in"><span class="meta-nav">Published In:</span> %link</div>', 'emdotbike' ), '%title' );
+                previous_post_link( __( '<div class="published-in"><span class="meta-nav">Published In:</span> %link</div>', 'emdotbike' ), '%title' ); // @codingStandardsIgnoreLine WordPress.WP.I18n.NoHtmlWrappedStrings.
             else :
-                previous_post_link( __( '<div class="prev-post"><span class="meta-nav">Previous Post:</span> %link</div>', 'emdotbike' ), '%title' );
-                next_post_link( __( '<div class="next-post"><span class="meta-nav">Next Post:</span> %link</div>', 'emdotbike' ), '%title' );
+                previous_post_link( __( '<div class="prev-post"><span class="meta-nav">Previous Post:</span> %link</div>', 'emdotbike' ), '%title' ); // @codingStandardsIgnoreLine WordPress.WP.I18n.NoHtmlWrappedStrings.
+                next_post_link( __( '<div class="next-post"><span class="meta-nav">Next Post:</span> %link</div>', 'emdotbike' ), '%title' ); // @codingStandardsIgnoreLine WordPress.WP.I18n.NoHtmlWrappedStrings.
             endif;
             ?>
         </div><!-- .nav-links -->

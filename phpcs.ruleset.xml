@@ -12,7 +12,8 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/*.js</exclude-pattern>
-	<exclude-pattern>*/*.css</exclude-pattern>  
+	<exclude-pattern>*/*.css</exclude-pattern> 
+    <exclude-pattern>*/inc/acf-post-type-selector/*</exclude-pattern>  
 
 	<!-- Show progress, show the error codes for each message (source). -->
 	<arg value="ps" />

@@ -10,20 +10,20 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'emdb-tagline-' . $block['id'];
+$block_id = 'emdb-tagline-' . $block['id'];
 
 if ( ! empty( $block['anchor'] ) ) {
-    $id = $block['anchor'];
+    $block_id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'emdb-block-tagline';
+$block_class_name = 'emdb-block-tagline';
 
 if ( ! empty( $block['className'] ) ) {
-    $className .= ' ' . $block['className'];
+    $block_class_name .= ' ' . $block['className'];
 }
 if ( ! empty( $block['align'] ) ) {
-    $className .= ' align' . $block['align'];
+    $block_class_name .= ' align' . $block['align'];
 }
 
 // Load values and assign defaults.
@@ -32,7 +32,7 @@ $image            = get_field( 'image' ) ?: '';
 $background_color = get_field( 'background_color' );
 ?>
     
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
+<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>">
     <div class="tagline-wrapper">
         <div class="image-wrapper">
             <?php echo wp_get_attachment_image( $image, 'full' ); ?>
@@ -43,7 +43,7 @@ $background_color = get_field( 'background_color' );
     </div>
     
     <style type="text/css">
-        #<?php echo $id; ?> {
+        #<?php echo $block_id; ?> {
             background: <?php echo $background_color; ?>;
         }
     </style>

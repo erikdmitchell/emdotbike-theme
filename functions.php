@@ -38,12 +38,6 @@ function emdb_support() {
     add_image_size( 'single', 9999, 480, true );
     add_image_size( 'home-latest-posts-large', 9999, 680, true );
 
-    /**
-     * Include theme meta page.
-     * Allows users to hook and filter into the default meta tags in the header.
-     */
-    include_once get_template_directory() . '/inc/theme-meta.php';
-
 }
 add_action( 'after_setup_theme', 'emdb_support' );
 

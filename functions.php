@@ -749,3 +749,18 @@ function emdb_theme_paging_nav() {
         <?php
     endif;
 }
+
+
+/**
+ * Block template for posts
+ *
+ */
+function emdb_post_block_template() {    
+    $post_type_object = get_post_type_object( 'post' );
+    $post_type_object->template = array(
+        array( 'dwb/post-header' ),
+        array( 'dwb/read-time' ),
+        array( 'core/paragraph' ),
+    );  
+}
+add_action( 'init', 'emdb_post_block_template' );

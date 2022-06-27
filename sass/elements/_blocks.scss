@@ -121,6 +121,7 @@
 }
 
 // the !important should be handled by a theme.json file in the future.
+/*
 .wp-block-dwb-post-header .header-content {
 	color: $white !important;
 	background-color: #5CC3FF !important;    
@@ -131,6 +132,7 @@
     	}
 	}
 }
+*/
 
 .wp-block-query .wp-block-post-template.is-flex-container .wp-block-post-featured-image img {
     object-fit: cover;
@@ -159,10 +161,6 @@
 .wp-block-table td p {
     margin: 0;
 }
-
-/**
- * Custom button block on home page
- */
 .wp-block-table figcaption {
     color: #555;
     text-transform: uppercase;

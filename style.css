@@ -652,21 +652,21 @@ table {
 /**
  * ACF Tagline Block
  */
-.entry-content .emdb-block-tagline {
+.emdb-block-tagline {
   margin-bottom: 3rem;
   color: #fff;
   text-align: center;
 }
-.entry-content .emdb-block-tagline .tagline-wrapper {
+.emdb-block-tagline .tagline-wrapper {
   padding: 1.5rem;
 }
-.entry-content .emdb-block-tagline .image-wrapper {
+.emdb-block-tagline .image-wrapper {
   margin-bottom: 1rem;
 }
-.entry-content .emdb-block-tagline .image-wrapper img {
+.emdb-block-tagline .image-wrapper img {
   width: 150px;
 }
-.entry-content .emdb-block-tagline .title-wrap {
+.emdb-block-tagline .title-wrap {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 300;

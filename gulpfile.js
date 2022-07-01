@@ -109,7 +109,6 @@ function sass(done) {
     var mainFiles = ['style'];
 
     runSASS('style', './');
-    runSASS('editor-style', './assets/css/');
     
     done();
 }

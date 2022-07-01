@@ -10,18 +10,14 @@ html {
 	box-sizing: border-box;
 }
 
-body {
-// 	background: $color__background-body; // Fallback for when there is no custom background color defined.
-}
-
+/*
 hr {
 	background-color: $color__background-hr;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
 }
-
-@import "lists";
+*/
 
 img {
 	height: auto; // Make sure images are scaled correctly.
@@ -40,8 +36,6 @@ hr {
     margin-left: auto;
     margin-right: auto;
 }
-
-@import "tables";
 
 @import "back-to-top";
 

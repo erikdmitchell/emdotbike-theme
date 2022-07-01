@@ -1,7 +1,10 @@
 <?php
 /**
  * Default header block pattern
+ *
+ * @package EMdotBike
  */
+
 return array(
     'title'      => __( 'Default header', 'emdotbike' ),
     'categories' => array( 'header' ),

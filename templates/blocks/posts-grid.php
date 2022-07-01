@@ -6,6 +6,7 @@
  * @param   string $content The block inner HTML (empty).
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
+ * @package EMdotBike
  */
 
 // Create id attribute allowing for custom "anchor" value.
@@ -26,7 +27,6 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // Load values and assign defaults.
-// $number_of_posts = get_field( 'posts_per_page' ) ? : 1;
 $post_type    = get_field( 'post_type' ) ? : 'post';
 $columns      = get_field( 'columns' ) ? : 2;
 $order_by     = get_field( 'order_by' ) ? : 'date/desc';

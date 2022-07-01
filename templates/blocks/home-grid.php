@@ -46,12 +46,12 @@ $postids = get_posts(
         <?php if ( 0 === $key ) : ?>
             <article id="post-<?php echo esc_attr( $postid ); ?>" class="post post-<?php echo esc_attr( $postid ); ?>">
                 <div class="image-wrap" style="background:url(<?php echo esc_url( get_the_post_thumbnail_url( $postid, 'full' ) ); ?>) no-repeat center center fixed"><a href="<?php echo esc_url( get_permalink( $postid ) ); ?>"></a></div>
-                <h2 class="post-title"><?php echo get_the_title( $postid ); ?></h2>
+                <h2 class="post-title"><?php echo esc_attr( get_the_title( $postid ) ); ?></h2>
                 <p><?php emdotbike_post_excerpt( $postid, 85, '', '... <a href="' . get_permalink( $postid ) . '">read more</a>' ); ?></p>
             </article>
         <?php else : ?>
             <?php if ( 1 === $key % $columns ) : ?>
-                <div class="wp-block-columns columns-<?php echo $columns; ?>">
+                <div class="wp-block-columns columns-<?php echo esc_attr( $columns ); ?>">
             <?php endif; ?>
             
             <div class="wp-block-column">
@@ -59,15 +59,15 @@ $postids = get_posts(
                     <figure class="post-featured-image">
                         <?php emdotbike_theme_post_thumbnail_custom( $postid, 'home-latest-posts-large', true ); ?>
                     </figure>
-                    <h2 class="post-title"><?php echo get_the_title( $postid ); ?></h2>
+                    <h2 class="post-title"><?php echo esc_attr( get_the_title( $postid ) ); ?></h2>
                     <?php emdotbike_post_excerpt( $postid, 35, '', '... <a href="' . get_permalink( $postid ) . '">read more</a>' ); ?>
                 </article>
             </div>
-            <?php if ( ( $key % $columns === 0 ) || ( $key + 1 === count( $postids ) ) ) : ?>
+            <?php if ( ( 0 === $key % $columns ) || ( count( $postids ) === $key + 1 ) ) : ?>
                 </div><!-- .wp-block-columns -->
             <?php endif; ?>
         <?php endif; ?>
     <?php endforeach; ?>
-    <div class="more-articles"><a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">More Articles</a></div>
+    <div class="more-articles"><a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>">More Articles</a></div>
 </div>
 

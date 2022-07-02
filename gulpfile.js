@@ -46,7 +46,8 @@ var cssInclude = [
         '!node_modules/**/*',
         '!style.css',
         '!inc/css/*',
-        '!vendor/**'
+        '!vendor/**',
+         '!./inc/acf-post-type-selector/**/*.css'
     ];
     
 var jsInclude = [
@@ -57,9 +58,8 @@ var jsInclude = [
         '!**/*.min.js',
         '!node_modules/**/*',
         '!vendor/**',
-        '!**/gulpfile.js',
-        '!inc/js/html5shiv.js',
-        '!inc/js/respond.js',             
+        '!./inc/acf-post-type-selector/**/*.js',
+        '!**/gulpfile.js'                    
     ]; 
     
 var jsonInclude = [

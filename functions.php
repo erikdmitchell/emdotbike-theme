@@ -234,24 +234,6 @@ function emdotbike_theme_get_post_thumbnail_custom( $post = '', $size = 'full', 
 }
 
 /**
- * Get post thumbnail.
- *
- * @access public
- * @param int    $post_id (default: 0).
- * @param string $classes (default: 'img-responsive').
- * @return image
- */
-function emdotbike_get_post_thumbnail( $post_id = 0, $classes = 'img-responsive' ) {
-    $image_id   = get_post_thumbnail_id( $post_id );
-    $image_src  = wp_get_attachment_image_url( $image_id, 'full' );
-    $image_meta = wp_get_attachment_metadata( $image_id );
-    $image_base = '<img src="' . $image_src . '" class="' . $classes . '" />';
-    $image      = wp_image_add_srcset_and_sizes( $image_base, $image_meta, $image_id );
-
-    return $image;
-}
-
-/**
  * Back to top function.
  *
  * @access public
@@ -288,46 +270,6 @@ function emdotbike_wp_parse_args( &$a, $b ) {
         }
     }
     return $result;
-}
-
-/**
- * Get terms list.
- *
- * @access public
- * @param bool $term (default: false).
- * @return string/bool
- */
-function get_terms_list( $term = false ) {
-    if ( ! $term ) {
-        return false;
-    }
-
-    $args  = array(
-        'orderby'    => 'name',
-        'order'      => 'ASC',
-        'hide_empty' => false,
-    );
-    $terms = get_terms( $term, $args );
-    $html  = null;
-
-    if ( ! count( $terms ) ) {
-        return false;
-    }
-
-    $html     .= '<div class="term-wrapper term-' . $term . '">';
-        $html .= '<h3 class="title">' . ucwords( $term ) . '</h3>';
-        $html .= '<ul class="term-list term-list-' . $term . '">';
-    foreach ( $terms as $t ) :
-        if ( $t->count ) :
-            $html .= '<li id="term-' . $t->term_id . '"><a href="/portfolio#' . $t->slug . '">' . $t->name . '</a></li>';
-        else :
-            $html .= '<li id="term-' . $t->term_id . '">' . $t->name . '</li>';
-        endif;
-            endforeach;
-        $html .= '</ul>';
-    $html     .= '</div>';
-
-    return $html;
 }
 
 /**
@@ -379,36 +321,6 @@ function emdotbike_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>',
 }
 
 /**
- * Has categories.
- *
- * @access public
- * @param string $excl (default: '').
- * @return bool
- */
-function emdotbike_has_categories( $excl = '' ) {
-    global $post;
-
-    $categories = get_the_category( $post->ID );
-
-    if ( ! empty( $categories ) ) :
-        $exclude = $excl;
-        $exclude = explode( ',', $exclude );
-
-        foreach ( $categories as $key => $cat ) :
-            if ( in_array( $cat->name, $exclude, true ) ) :
-                unset( $categories[ $key ] );
-            endif;
-        endforeach;
-
-        if ( count( $categories ) >= 1 ) :
-            return true;
-        endif;
-    endif;
-
-    return false;
-}
-
-/**
  * Custom read more excerpt.
  *
  * @access public
@@ -419,43 +331,6 @@ function emdotbike_custom_excerpt_more( $more ) {
     return sprintf( '...' );
 }
 add_filter( 'excerpt_more', 'emdotbike_custom_excerpt_more' );
-
-/**
- * Post categories.
- *
- * @access public
- * @param string $spacer (default: ' ').
- * @param string $excl (default: '').
- * @return void
- */
-function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
-    global $post;
-
-    $categories = get_the_category( $post->ID );
-
-    if ( ! empty( $categories ) ) :
-        $exclude  = $excl;
-        $exclude  = explode( ',', $exclude );
-        $thecount = count( get_the_category() ) - count( $exclude );
-
-        foreach ( $categories as $cat ) :
-            $html = '';
-
-            if ( ! in_array( $cat->cat_ID, $exclude, true ) ) {
-                $html .= '<a href="' . get_category_link( $cat->cat_ID ) . '" ';
-                $html .= 'title="' . $cat->cat_name . '">' . $cat->cat_name . '</a>';
-
-                if ( $thecount > 0 ) {
-                    $html .= $spacer;
-                }
-
-                $thecount--;
-
-                echo wp_kses_post( $html );
-            }
-        endforeach;
-    endif;
-}
 
 /**
  * Login page scripts and styles.

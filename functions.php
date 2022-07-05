@@ -77,8 +77,8 @@ function emdotbike_theme_setup() {
      */
     add_image_size( 'navbar-logo', 163, 100, true );
     add_image_size( 'single', 9999, 480, true );
-    add_image_size( 'home-grid-large', 650, 375, true ); // in dwb plugin as home-grid.
-
+    add_image_size( 'home-grid-large', 650, 375, true ); // in dwb plugin as home-grid. EM: can this be removed?
+    add_image_size( 'home-latest-posts-large', 9999, 680, true );
     /**
      * Include theme meta page.
      * Allows users to hook and filter into the default meta tags in the header.
@@ -98,6 +98,13 @@ function emdotbike_theme_setup() {
     add_editor_style( 'css/editor-style.min.css' );
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
+
+function emdb_custom_image_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'home-latest-posts-large' => __( 'Home Posts Large' ),
+    ) );
+}
+add_filter( 'image_size_names_choose','emdb_custom_image_sizes' );
 
 /**
  * Register widget area.
@@ -647,11 +654,7 @@ function emdotbike_has_categories( $excl = '' ) {
  * @return string
  */
 function emdotbike_custom_excerpt_more( $more ) {
-    return sprintf(
-        '... <a href="%1$s" class="more-link">%2$s</a>',
-        esc_url( get_permalink( get_the_ID() ) ),
-        sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
-    );
+    return sprintf('...');
 }
 add_filter( 'excerpt_more', 'emdotbike_custom_excerpt_more' );
 

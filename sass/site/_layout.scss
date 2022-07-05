@@ -2,14 +2,12 @@
  * Basic layout
  */
 .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
-.post-navigation,
-.comments-area,
-.page-posts-grid,
-.archive-header,
-.page-header,
-.error404 article,
-.entry-header,
-.emdb-footer-sidebar {    
+.wp-block-group.post-meta,
+.wp-block-post-title,
+.emdb-layout-wrap,
+.emdb-block-archive-title,
+.emdb-block-posts-grid,
+.emdb-footer-wrapper {     
     width: 100%;
     padding-right: 1.5rem;
     padding-left: 1.5rem;

@@ -1,0 +1,225 @@
+.sticky {
+	display: block;
+}
+
+.post {
+	margin: 0 0 1.5em;
+	word-wrap: break-word;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+ 
+/**
+ * Older/General
+ */
+
+.page-content,
+.entry-content,
+.entry-summary,
+.entry-meta,
+.footer-content {
+    a,
+    a:hover,
+    a:visited {
+        text-decoration: none;
+        color: $color__link;
+    }	
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+    margin-bottom: 30px;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.entry-header,
+.archive-header {
+    color: $color__text-header;
+
+    a,
+    a:hover,
+    a:visited {
+        text-decoration: none;
+        color: $color__link;
+    }
+}
+
+/*
+.page-header .entry-header {
+    color: $color__text-header;
+    
+    a,
+    a:hover,
+    a:visited {
+        text-decoration: none;
+        color: $color__link;
+    }
+}
+*/
+
+.entry-meta {
+    color: $color__text-entry-meta;
+    
+    a,
+    a:hover,
+    a:visited {
+        text-decoration: none;
+        color: $color__link;
+    }
+}
+
+/**
+ * Single post
+ */
+
+    .post-meta {
+        color: $black;    
+        
+        a,
+        a:visited {
+            color: $black;
+        }
+                
+        .tags-title,
+        .categories-title {
+            font-size: 0.9rem;
+        }
+        
+        .tag-links a,
+        .categories-link a {
+            display: inline-block;
+            margin-right: 0.25rem;
+            margin-top: 0.5rem;
+        	border: 1px solid;
+        	border-color: $color__border-button;
+        	border-radius: 3px;
+        	background: $color__background-button;
+        	color: rgba(0, 0, 0, 0.8);
+        	font-size: 0.75rem;
+        	line-height: 1;
+        	padding: 5px 10px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 5px;	                
+        }
+    
+        .categories-list {
+            margin-top: 1.5rem;
+            
+            .categories-title {}
+        
+            .categories-link {}
+        }
+    } 
+
+.parallax-image {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;        
+}
+
+/**
+ * Legacy: if Gutenberg Header Block is not used
+ */
+$color__background-post-header: #5CC3FF;
+$color__text-post-header: #fff;
+
+.single-post { 
+    
+    /**
+     * post header - image and title
+     */
+    .legacy-entry-header {    
+        margin-bottom: 2rem;
+        
+        .featured-columns {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 100%;  
+            
+            @include rbp(tablet-s) {
+                flex-direction: column-reverse;
+            }                   
+        }
+        
+        .featured-column {
+            flex-basis: 0;
+            flex-grow: 1;
+            min-width: 0;
+            overflow-wrap: break-word;
+        
+            &:last-child {
+                flex-basis: 55%;              
+            }
+        
+            &:first-child {
+                flex-basis: 45%;                              
+            }
+            
+            &.no-thumb {
+                background: $color__background-post-header;
+            }
+                
+        }
+    
+        .header-content {
+            background: $color__background-post-header;
+            color: $color__text-post-header;
+            padding: 2rem 2rem 0 4rem;        
+            height: 100%; 
+            
+            @include rbp(tablet-s) {
+                padding: 1rem 1.5rem;
+            }                        
+            
+            h1 {
+                margin: 0;
+                
+                @include rbp(tablet-s) {
+                    font-size: 1.75rem;
+                }                
+            }  
+            
+            a,
+            a:hover,
+            a:visited {
+                text-decoration: none;
+                color: $color__text-post-header;
+            } 
+            
+            .title {
+                margin: 2rem 0 1rem 0;
+                    
+                @include rbp(tablet-s) {
+                    margin: 0 0 1rem 0;
+                }                 
+            }                    
+        }
+                
+        .post-thumbnail {
+            height: 400px;
+            max-height: 400px;
+            
+            @include rbp(tablet-s) {
+                height: 200px;
+            }            
+            
+            img {
+                max-width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

@@ -1,3 +1,6 @@
+/**
+ * General block classes
+ */
 .alignfull {
 	margin: 0 calc(50% - 50vw);
 	max-width: 100vw;
@@ -18,11 +21,103 @@
 	}
 }
 
-/* 
- * DigiWatts Post Header block
+.wp-site-blocks > * + * {
+    margin-block-start: 0;
+}
+
+/**
+ * ACF Tagline Block
  */
-.wp-block-dwb-post-header {
+.emdb-block-tagline {
     margin-bottom: 3rem;
+    color: #fff;
+    text-align: center;    
+
+    .tagline-wrapper {
+        padding: 1.5rem;
+    }
+
+    .image-wrapper {
+        margin-bottom: 1rem;
+
+        img {
+            width: 150px;
+        }
+    }
+
+    .title-wrap {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 300;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-transform: uppercase; 
+    }
+}
+
+/**
+ * ACF Home Grid Block
+ */
+.emdb-block-home-grid {
+    margin-bottom: 3rem;
+    
+    .wp-block-columns {
+        &.columns-2 {
+            .wp-block-column:first-child {
+                margin-right: 1.75rem;
+            }
+        }
+    }
+    
+    .image-wrap {
+        background-size: cover !important;
+        width: 100%;
+        height: 400px; 
+        
+        a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    figure img {
+        object-fit: cover;
+        object-position: top center;
+        aspect-ratio: 16/9;        
+    }
+    
+    .more-articles {
+        width: 100%;
+        text-align: center;
+      
+        a {
+            background-color: #eee;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            padding: 7px 15px;
+            border-radius: 5px;
+            border: none;          
+        }
+    }    
+}
+
+/**
+ * ACF Posts Grid Block
+ */
+.emdb-block-posts-grid {
+    margin-bottom: 3rem;
+    
+    .wp-block-columns {
+        &.columns-2 {
+            .wp-block-column:first-child {
+                margin-right: 1.75rem;
+            }
+        }
+    }    
 }
 
 // the !important should be handled by a theme.json file in the future.
@@ -64,16 +159,105 @@
 .wp-block-table td p {
     margin: 0;
 }
-
-/**
- * Custom button block on home page
- */
 .wp-block-table figcaption {
     color: #555;
-        text-transform: uppercase;
+    text-transform: uppercase;
     font-size: 13px;
     text-align: center;
 } 
 .wp-block-table.is-style-stripes {
     border-bottom: none;
 }
+
+/**
+ * ACF Author Bio Block
+ */
+.emdb-block-author-bio {
+    .author-header {
+        width: 100%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        margin-right: auto;
+        margin-left: auto; 
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3rem; 
+        flex-direction: column;       
+    
+        @include bp(mobile) {
+            max-width: 96%;
+        } 
+        
+        @include bp(tablet-s) {
+            max-width: 570px;
+            flex-direction: row;
+        }   
+    
+        @include bp(tablet) {
+            max-width: 720px;
+        }
+        
+        @include bp(desktop) {
+            max-width: 960px;
+        }
+        
+        @include bp(desktop-m) {
+            max-width: 1140px;
+        }        
+    
+        @include bp(desktop-w2) {
+            max-width: 1320px;
+        }                
+
+        .author-column {
+            flex-basis: 0;
+            flex-grow: 1;
+            min-width: 0;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            
+            &:first-child {
+                flex: 0 1 auto;
+                margin-right: 1.25rem;
+            }
+            
+            &:last-child {}
+        }
+        
+        h1 {
+            margin: 0;
+            line-height: 1;
+        }
+        
+        .author-image {
+            text-align: center;          
+            @include bp(tablet-s) {
+                text-align: left;
+            }
+            
+            img {
+                border-radius: 15px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+        }
+        
+        .author-name {
+            margin: 1rem 0;
+
+            @include bp(tablet-s) {
+                margin-top: 0rem;
+            } 
+        }
+    }
+}
+
+/**
+ * ACF Block: Post Nav
+ *
+ * Other styles: navigation/_page-navigation.scss .
+ *
+ */
+
+/**
+ * Post Comments Form
+ */

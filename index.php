@@ -1,28 +1,9 @@
 <?php
 /**
- * The default file to dislpay posts, pages, etc.
+ * There is nothing output here because block themes do not use php templates.
+ * There is a core ticket discussing removing this requirement for block themes:
+ * https://core.trac.wordpress.org/ticket/54272.
  *
- * @package WordPress
- * @subpackage emwptheme
- * @since emwptheme 0.1.0
+ * @package EMdotBike
+ *
  */
-
-?>
-<?php get_header(); ?>
-
-    <?php
-    while ( have_posts() ) :
-        the_post();
-        ?>
-        <?php get_template_part( 'template-parts/content' ); ?>
-        <?php
-        // If comments are open or we have at least one comment, load up the comment template.
-        if ( comments_open() || get_comments_number() ) {
-            comments_template();
-        }
-        ?>
-    <?php endwhile; ?>
-    <?php emdotbike_theme_paging_nav(); // Previous/next post navigation. ?>
-
-<?php
-get_footer();

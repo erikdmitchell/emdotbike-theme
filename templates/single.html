@@ -1,0 +1,27 @@
+
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main"} -->
+<main class="wp-block-group">
+    <!-- wp:post-content {"layout":{"inherit":true}} /-->
+
+	<!-- wp:group {"layout":{"inherit":true}} -->
+	<div class="wp-block-group post-meta">
+        <div class="tags-list alignfull">
+            <div class="tags-title">Tags</div>
+            <div class="tag-links"><!-- wp:post-terms {"term":"category","separator":""} /--></div>
+        </div>
+        <div class="categories-list alignfull">
+            <div class="categories-title">Categories</div>
+            <div class="categories-link"><!-- wp:post-terms {"term":"post_tag","textAlign":"left","separator":""} /--></div>
+        </div>
+	</div>
+    <!-- /wp:group -->    
+
+    <!-- wp:acf/post-nav {"id":"block_62b463ad3f6cf","name":"acf/post-nav","data":{"field_62b4637d017a2":""},"align":"","mode":"preview"} /-->   
+
+    <!-- wp:post-comments-form {"className":"emdb-layout-wrap"} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

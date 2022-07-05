@@ -46,7 +46,8 @@ var cssInclude = [
         '!node_modules/**/*',
         '!style.css',
         '!inc/css/*',
-        '!vendor/**'
+        '!vendor/**',
+         '!./inc/acf-post-type-selector/**/*.css'
     ];
     
 var jsInclude = [
@@ -57,10 +58,15 @@ var jsInclude = [
         '!**/*.min.js',
         '!node_modules/**/*',
         '!vendor/**',
-        '!**/gulpfile.js',
-        '!inc/js/html5shiv.js',
-        '!inc/js/respond.js',             
-    ];    
+        '!./inc/acf-post-type-selector/**/*.js',
+        '!**/gulpfile.js'                    
+    ]; 
+    
+var jsonInclude = [
+        '**/*.json', // Include all files    
+        '!node_modules/**/*', // Exclude node_modules
+        '!vendor/**' // Exclude vendor   
+    ];   
 
 // Load plugins
 const gulp = require('gulp'),
@@ -89,7 +95,10 @@ const gulp = require('gulp'),
     gutil = require('gulp-util'), // gulp util
     gzip = require('gulp-zip'), // gulp zip
     beautify = require('gulp-jsbeautifier'),
-    cssbeautify = require('gulp-cssbeautify');
+    cssbeautify = require('gulp-cssbeautify'),
+    merge = require('merge-stream');
+ 
+
 
 /**
  * Styles
@@ -97,27 +106,35 @@ const gulp = require('gulp'),
  
 // compile sass
 function sass(done) {
-  return (
-    gulp.src('./sass/*.scss')
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        .pipe(gulpsass({
-            errLogToConsole: true,
-            outputStyle: 'expanded',
-        }))
-        .pipe(sourcemaps.write({
-            includeContent: false
-        }))
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(autoprefixer('last 2 version', '> 1%', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(sourcemaps.write('.'))
-        .pipe(plumber.stop())
-        .pipe(gulp.dest('./'))
-        
-  );
-  done();
+    var mainFiles = ['style'];
+
+    runSASS('style', './');
+    
+    done();
+}
+
+function runSASS(file, dest, done) {
+    return (
+        gulp.src('./sass/'+file+'.scss')
+            .pipe(plumber())
+            .pipe(sourcemaps.init())
+            .pipe(gulpsass({
+                errLogToConsole: true,
+                outputStyle: 'expanded',
+            }))
+            .pipe(sourcemaps.write({
+                includeContent: false
+            }))
+            .pipe(sourcemaps.init({
+                loadMaps: true
+            }))
+            .pipe(autoprefixer('last 2 version', '> 1%', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+            .pipe(sourcemaps.write('.'))
+            .pipe(plumber.stop())
+            .pipe(gulp.dest(dest))        
+    );    
+      
+    done();  
 }
 
 // minify all css
@@ -242,7 +259,9 @@ function phpcbf(done) {
   done();
 }
 
-/**/
+/*
+ * Misc
+*/
 
 // Watch files
 function watchFiles() {
@@ -250,12 +269,22 @@ function watchFiles() {
   gulp.watch('./js/**/*.js', js);
 }
 
-// gulp zip
+// Zip files
 function zip(done) {
   return (
     gulp.src(buildInclude)
         .pipe(gzip('emdotbike.zip'))
         .pipe(gulp.dest('./../'))
+  );
+  done();
+}
+
+// Validate JSON
+function lintjson(done) {
+  return (
+    gulp.src(jsonInclude)
+        .pipe(jsonlint())
+        .pipe(jsonlint.reporter())
   );
   done();
 }
@@ -280,3 +309,4 @@ exports.phpcbf = phpcbf;
 exports.zip = zip;
 exports.build = build;
 exports.watch = watch;
+exports.lintjson = lintjson;

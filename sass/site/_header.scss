@@ -1,16 +1,24 @@
 .site-header {
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 99;
     padding: 30px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: $color__background-header;
+    background: var(--wp--preset--color--white);
      
     .site-branding {
+        .wp-block-image {
+            margin: 0;
+            
+            figure {
+                margin: 1em 0;
+            }
+        }
+        
         .navbar-brand {
-            color: $color__text-navbar-brand;
             font-size: 18px;
             line-height: 20px;
             text-decoration: none;
@@ -18,19 +26,10 @@
     }
 }
 
-.archive-header,
-.single .post,
-.page article.page,
-.page-posts-grid,
-.author-header,
-.page-header,
-.error404 article {
-    padding-top: 135px;    
+main.wp-block-group {
+    padding-top: 161px;
 }
 
-.archive.author .page-posts-grid,
-.archive.category .page-posts-grid,
-.archive.tag .page-posts-grid,
-.search-results .page-posts-grid {
-    padding-top: 0;
+.logged-in admin-bar main.wp-block-group {
+    padding-top: 135px;
 }

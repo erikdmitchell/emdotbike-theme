@@ -1,5 +1,9 @@
 # EMdotBike Theme Changelog
 
+## 0.2.0
+
+* Entire theme rewritten to support FSE!
+
 ## 0.1.4
 
 * Removed custom post header, but support legacy if no block

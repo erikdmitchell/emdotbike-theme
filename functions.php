@@ -95,7 +95,7 @@ function emdotbike_theme_setup() {
     /**
      * This theme styles the visual editor to resemble the theme style
      */
-    add_editor_style( 'css/editor-style.min.css' );
+    add_editor_style( 'assets/css/editor-style.min.css' );
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 
@@ -143,7 +143,7 @@ add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
 function emdotbike_theme_scripts() {
     global $wp_scripts;
 
-    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/js/emdotbike.min.js', array( 'jquery' ), EMDOTBIKE_VERSION, true );
+    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/assets/js/emdotbike.min.js', array( 'jquery' ), EMDOTBIKE_VERSION, true );
 
     if ( is_singular() ) :
         wp_enqueue_script( 'comment-reply' );
@@ -155,8 +155,8 @@ function emdotbike_theme_scripts() {
      * <!--[if lte IE 8]> ... <![endif]-->
      */
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries.
-    wp_register_script( 'html5shiv-script', get_template_directory_uri() . '/inc/js/html5shiv.min.js', array(), '3.7.3-pre' );
-    wp_register_script( 'respond-script', get_template_directory_uri() . '/inc/js/respond.min.js', array(), '1.4.2' );
+    wp_register_script( 'html5shiv-script', get_template_directory_uri() . '/assets/js/html5shiv.min.js', array(), '3.7.3-pre' );
+    wp_register_script( 'respond-script', get_template_directory_uri() . '/assets/js/respond.min.js', array(), '1.4.2' );
 
     $wp_scripts->add_data( 'html5shiv-script', 'conditional', 'lt IE 9' );
     $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
@@ -193,7 +193,7 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
         $thumb_base = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
         $thumb = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
     } else {
-        $thumb = '<img src="' . get_template_directory_uri() . '/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';
+        $thumb = '<img src="' . get_template_directory_uri() . '/assets/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';
     }
 
     // for parallax images.

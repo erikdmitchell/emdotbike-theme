@@ -32,7 +32,7 @@
 
     <header id="masthead" class="site-header clearfix">
         <div class="site-branding">
-            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/em-bike-logo.png" width="100" alt="logo" /></a>
+            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/em-bike-logo.png" width="100" alt="logo" /></a>
         </div><!-- .site-branding -->
 
         <nav id="site-navigation" class="main-navigation">

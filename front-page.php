@@ -16,7 +16,9 @@
         </div>
     </div>
     
-    <?php get_template_part( 'template-parts/content', 'magazine-grid' ); ?>
+    <div class="entry-content">
+        <?php get_template_part( 'template-parts/content', 'magazine-grid' ); ?>
+    </div>
     
     <div class="front-page-about">
         <div class="image-wrap" style="background: url(<?php the_field( 'about_image' ); ?>) no-repeat center center fixed;"></div>

@@ -13,17 +13,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'main-content' ); ?>>
 
     <div class="entry-content">
-        <?php
-            the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'emdotbike' ) );
-            wp_link_pages(
-                array(
-                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'emdotbike' ) . '</span>',
-                    'after'       => '</div>',
-                    'link_before' => '<span>',
-                    'link_after'  => '</span>',
-                )
-            );
-            ?>
+        <?php get_template_part('template-parts/content', 'front-page') ?>
     </div><!-- .entry-content -->
 
 </article>

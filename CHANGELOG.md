@@ -1,5 +1,9 @@
 # EMdotBike Theme Changelog
 
+## 0.3.0
+
+
+
 ## 0.1.4
 
 * Removed custom post header, but support legacy if no block

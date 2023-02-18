@@ -1,6 +1,6 @@
 {
   "name": "emdotbike",
-  "version": "0.1.4",
+  "version": "0.3.0",
   "description": "EM Bike Theme.",
   "main": "gulpfile.js",
   "scripts": {

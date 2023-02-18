@@ -79,7 +79,8 @@ function emdotbike_theme_setup() {
     add_image_size( 'single', 9999, 480, true );
     add_image_size( 'home-grid', 650, 300, true );
     add_image_size( 'home-grid-featured', 9999, 550, true );
-    add_image_size( 'home-grid-tall', 650, 760, true );    
+    add_image_size( 'home-grid-tall', 650, 760, true );  
+    add_image_size( 'posts-grid', 650, 375, true );
 
     /**
      * Include theme meta page.

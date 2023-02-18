@@ -11,7 +11,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/em-bike-logo-small-white.png" alt="emdotbike logo white" />
             </div>
             <div class="title-wrap">
-                <h1>TRAINING TIPS, INSIGHTS AND GENERAL MUSINGS ABOUT THE WORLD OF CYCLING</h1>
+                <h1><?php echo get_bloginfo( 'description' ); ?></h1>
             </div>
         </div>
     </div>

@@ -2,9 +2,9 @@
 /**
  * Blog posts page
  *
- * @package WordPress
- * @subpackage emdotbike
- * @since emdotbike 0.1.0
+ * @package emdotbike
+ * @since 0.1.0
+ * @version 0.2.0
  */
 
 ?>
@@ -20,7 +20,7 @@
                         
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="entry-thumb">
-                <?php emdotbike_theme_post_thumbnail( 'home-grid-large' ); ?>
+                <?php emdotbike_theme_post_thumbnail( 'posts-grid' ); ?>
                 </div>
                 
                 <header class="entry-header">

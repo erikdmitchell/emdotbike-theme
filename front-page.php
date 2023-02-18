@@ -1,22 +1,27 @@
 <?php
 /**
  * Template Name: Front Page
- *
- * @package WordPress
- * @subpackage emdotbike
- * @since emdotbike 0.1.0
- */
-
+ **/
 ?>
 <?php get_header(); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'main-content' ); ?>>
-
-    <div class="entry-content">
-        <?php get_template_part('template-parts/content', 'front-page') ?>
-    </div><!-- .entry-content -->
-
-</article>
+    <div class="front-page-tagline">
+        <div class="wrapper">
+            <div class="image-wrap">
+                <img src="<?php the_field( 'tagline_image' ); ?>" alt="emdotbike logo white" />
+            </div>
+            <div class="title-wrap">
+                <h1><?php the_field( 'tagline_text' ); ?></h1>
+            </div>
+        </div>
+    </div>
+    
+    <?php get_template_part( 'template-parts/content', 'home-grid' ); ?>
+    
+    <div class="front-page-about">
+        <div class="image-wrap" style="background: url(<?php the_field( 'about_image' ); ?>) no-repeat center center fixed;"></div>
+        <div class="about-text-wrap"><div class="text-inner"><?php the_field( 'about_text' ); ?></div></div>
+    </div>
 
 <?php
 get_footer();

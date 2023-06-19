@@ -56,6 +56,12 @@ var jsInclude = [
         '!inc/js/respond.js',
     ];
 
+// const sassFolder = './src/sass/**/*.scss';
+const cssFolder = './assets/css/';
+const jsSrcFolder = './src/js/*.js';
+// const jsSrcFolderWatch = './assets/src/js/**/*.js';
+const jsFolder = './assets/js/';   
+
 // Load plugins
 const gulp     = require( 'gulp' ),
   autoprefixer = require( 'gulp-autoprefixer' ), // Autoprefixing magic
@@ -171,27 +177,22 @@ function scripts() {
     );
 }
 
-// js linting with JSHint.
-// function lintjs(done) {
-// return (
-// gulp.src(jsInclude)
-// .pipe(jshint())
-// .pipe(jshint.reporter(stylish))
-// );
-// done();
-// }
+// compile all single js files in src folder.
+function jsSrcCompile() {
+  return (
+    gulp.src(jsSrcFolder)
+      .pipe(gulp.dest(jsFolder))
+      .pipe(rename({
+        suffix: '.min'
+      }))
+      .pipe(uglify())
+      .pipe(gulp.dest(jsFolder))      
+  );
+}
 
-// make pretty
-// function beautifyjs(done) {
-// return (
-// gulp.src(jsInclude)
-// .pipe(beautify())
-// .pipe(gulp.dest('./'))
-// );
-// done();
-// }
-
-/**/
+/**
+ * General
+ */
 
 // Watch files
 function watchFiles() {
@@ -211,17 +212,16 @@ function zip(done) {
 
 // define complex tasks
 const styles = gulp.series( sass, mincss ); // Styles task
-const js     = gulp.series( scripts ); // compile and minimize js
+const js     = gulp.series( scripts, jsSrcCompile ); // compile and minimize js
 const build  = gulp.series( styles, scripts, zip ); // Package Distributable
 const watch  = gulp.parallel( styles, scripts, watchFiles ); // Watch Task
 
 // export tasks
-exports.sass   = sass;
-exports.mincss = mincss;
-exports.styles = styles;
-exports.js     = js;
-// exports.lintjs = lintjs;
-// exports.beautifyjs = beautifyjs;
-exports.zip   = zip;
 exports.build = build;
+exports.js     = js;
+exports.jsSrcCompile = jsSrcCompile;
+exports.mincss = mincss;
+exports.sass   = sass;
+exports.styles = styles;
 exports.watch = watch;
+exports.zip   = zip;

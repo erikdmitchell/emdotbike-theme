@@ -2,7 +2,7 @@
 
 ## 0.3.0
 
-
+* Basically a complete overhaul. See git repo.
 
 ## 0.1.4
 

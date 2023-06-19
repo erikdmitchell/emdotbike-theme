@@ -49,6 +49,7 @@ var jsInclude = [
 
         // exclude files and folders
         '!**/*.min.js',
+        '!src/js/**/*.js',
         '!node_modules/**/*',
         '!vendor/**',
         '!**/gulpfile.js',

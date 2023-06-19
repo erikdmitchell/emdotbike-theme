@@ -26,6 +26,7 @@ var buildInclude = [
         '!./package.json',
         '!./phpcs.ruleset.xml',
         '!./{sass,sass/**/*}',
+        '!./src/**/*',
         '!./.stylelintrc',
         '!./{vendor,vendor/**/*}',
         '!svn/**'

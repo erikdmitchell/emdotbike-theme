@@ -7,27 +7,30 @@
  * @version 0.1.0
  */
 
-$posts = get_posts( array(
-    'posts_per_page' => 4,
-) );
+$posts = get_posts(
+    array(
+        'posts_per_page' => 4,
+    )
+);
 ?>
 
 <div class="mag-grid">
-    <?php foreach ($posts as $key => $post) : ?>
+    <?php foreach ( $posts as $key => $post ) : ?>
         <?php
-            $classes = 'mag-post-image';
-            $image_size = 'home-grid';
+            $classes        = 'mag-post-image';
+            $image_size     = 'home-grid';
             $excerpt_length = 50;
 
-            if (0 === $key ) {
-                $image_size = 'home-grid-featured';
-                $excerpt_length = 110;
-            } else if ( 1 === $key ) {
-                $classes .= ' tall';
-                $image_size = 'home-grid-tall';
-                $excerpt_length = 120;
-            }
-        ?>  
+        if ( 0 === $key ) {
+            $image_size     = 'home-grid-featured';
+            $excerpt_length = 110;
+        } elseif ( 1 === $key ) {
+            $classes       .= ' tall';
+            $image_size     = 'home-grid-tall';
+            $excerpt_length = 120;
+        }
+        ?>
+          
 
         <div class="mag-grid-post mag-post-<?php echo $key; ?>">
             <div class="<?php echo $classes; ?>"><?php emdotbike_theme_post_thumbnail_custom( $post, $image_size ); ?></div>

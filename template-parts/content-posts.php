@@ -7,15 +7,15 @@
  * @since 0.1.0
  */
 
-$query_page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+$query_page    = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 $os_multiplyer = ( 2 === $query_page ) ? 7 : 10;
-$os_diff = ( 2 === $query_page ) ? 0 : 3;
-$offset = ( ( $query_page - 1 ) * $os_multiplyer ) - $os_diff;
-$blog_query = new WP_Query(
+$os_diff       = ( 2 === $query_page ) ? 0 : 3;
+$offset        = ( ( $query_page - 1 ) * $os_multiplyer ) - $os_diff;
+$blog_query    = new WP_Query(
     array(
         'posts_per_page' => 10,
-        'offset' => $offset,
-        'page' => $query_page,
+        'offset'         => $offset,
+        'page'           => $query_page,
     )
 );
 ?>

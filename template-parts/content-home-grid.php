@@ -1,8 +1,8 @@
 <?php
-$has_first_post = true;
+$has_first_post       = true;
 $has_second_posts_set = true;
-$has_third_posts_set = true;
-$total_cols = 0;
+$has_third_posts_set  = true;
+$total_cols           = 0;
 
 $first_post = get_posts(
     array(
@@ -20,14 +20,14 @@ if ( empty( $first_post ) ) {
 $second_set_posts = get_posts(
     array(
         'posts_per_page' => 2,
-        'offset' => 1,
+        'offset'         => 1,
     )
 );
 
 $third_set_posts = get_posts(
     array(
         'posts_per_page' => 2,
-        'offset' => 3,
+        'offset'         => 3,
     )
 );
 
@@ -63,10 +63,10 @@ if ( ! $has_first_post ) {
             <?php foreach ( $second_set_posts as $post ) : ?>
                 <?php
                 if ( $post_counter % 2 == 0 ) {
-                    $classes = ' tall';
+                    $classes    = ' tall';
                     $image_size = 'home-grid-tall';
                 } else {
-                    $classes = '';
+                    $classes    = '';
                     $image_size = 'home-grid';
                 }
                 ?>
@@ -87,10 +87,10 @@ if ( ! $has_first_post ) {
             <?php foreach ( $third_set_posts as $post ) : ?>
                 <?php
                 if ( $post_counter % 2 == 0 ) {
-                    $classes = '';
+                    $classes    = '';
                     $image_size = 'home-grid';
                 } else {
-                    $classes = ' tall';
+                    $classes    = ' tall';
                     $image_size = 'home-grid-tall';
                 }
                 ?>
@@ -107,5 +107,3 @@ if ( ! $has_first_post ) {
 </div>
 
 <?php wp_reset_postdata(); ?>
-
-

@@ -821,6 +821,9 @@ a:hover, a:active {
 .main-navigation .emdb-nav .widget_search .wp-block-search__input::-moz-placeholder {
   color: #fff;
 }
+.main-navigation .emdb-nav .widget_search .wp-block-search__input:-ms-input-placeholder {
+  color: #fff;
+}
 .main-navigation .emdb-nav .widget_search .wp-block-search__input::-ms-input-placeholder {
   color: #fff;
 }

@@ -1,25 +1,54 @@
 /*
 Theme Name: EM Bike Theme
 Theme URI: 
+Description: Theme for erikmitchell.bike
 Author: Erik Mitchell
 Author URI: http://erikmitchell.bike
-Description: Theme for erikmitchell.bike
-Requires at least: 5.6
-Tested up to: 6.0
-Version: 0.2.0
-Tags: full-site-editing
+Version: 0.3.0
+Tags: 
 Text Domain: emdotbike
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-@import "colors/colors";
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Breakpoints
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Widgets
+# Content
+    ## Header
+    ## Front page
+	## Posts and pages
+	## Comments
+	## Projects
+	## Footer
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
 @import "normalize";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
 
 /*--------------------------------------------------------------
 # Breakpoints
@@ -52,6 +81,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import "modules/alignments";
 
 /*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";

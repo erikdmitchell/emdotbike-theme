@@ -1,8 +1,8 @@
 # EMdotBike Theme Changelog
 
-## 0.2.0
+## 0.3.0
 
-* Entire theme rewritten to support FSE!
+* Basically a complete overhaul. See git repo.
 
 ## 0.1.4
 

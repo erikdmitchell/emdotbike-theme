@@ -4,7 +4,7 @@ footer {
     border-top: none; 
     background: $color__background-footer;
     color: $color__text-footer;
-    margin-top: 3rem;
+    margin-top: 8rem;
     
     // the below 3 styles create our diagonal top
     &:before,
@@ -31,51 +31,68 @@ footer {
         transform-origin: 100%;
     }    
 
-    .footer-widgets {
-        padding: 10px 0 20px 0;
-        overflow: hidden;
-        
-        .footer-widget {                        
-            h3 {
-                font-size: 16px;
-                margin-bottom: 10px;
-                padding: 10px 0px;
-                color: $color__text-footer;
-                text-transform: uppercase;            
+    /**
+     * Style our footer "sidebar"
+     */    
+    .emdb-footer-sidebar {
+        > .widget_block {
+            margin-left: 2rem;
+            margin-right: 2rem;
+            
+            @include bp(mobile) {
+                margin-left: 0;
+                margin-right: 0;
             }
-            
-            ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0; 
-            }
-            
-            a,
-            a:visited {
-                color: $color__link-footer;
-                text-decoration: none;        
-            }
-            
-            a:focus,
-            a:hover {
-                color: $color__link-footer-hover;
-                text-decoration: none;                
-            }
-            
-            .social-media {
-                overflow: hidden;
-                
-                li {
-                    font-size: 30px;
-                    float: left;
-                    padding-right: 10px;
-            
-                    a:hover {
-                        color: $color__link-footer-hover;
-                    }
-                }         
+
+            // overrides a wp col style so that it aligns in the center.
+            .wp-block-column:nth-child(3) {
+                @media (min-width: 600px) and (max-width: 781px) {
+                    flex-basis: calc(100% - 1em) !important;
+                }
             }
         }
+    
+        h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding: 10px 0px;
+            color: $color__text-footer;
+            text-transform: uppercase;            
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; 
+        }
+        
+        a,
+        a:visited {
+            color: $color__link-footer;
+            text-decoration: none;        
+        }
+        
+        a:focus,
+        a:hover {
+            color: $color__link-footer-hover;
+            text-decoration: none;                
+        }
+        
+        .connect-social {
+            text-align: right;
+            
+            @include bp(mobile) {
+                text-align: center;
+            }
+            
+            .wp-block-social-links {
+                justify-content: right;
+                
+                @include bp(mobile) {
+                    justify-content: center;
+                }
+            }
+        }        
     }
     
     .copyright {
@@ -83,13 +100,5 @@ footer {
         text-align: center;
         margin: 20px 0 0 0;
         color: $color__text-footer; 
-    }
-    
-    @include rbp(tablet) {
-        .grid-col-4 {
-            flex: 0 0 auto;
-            width: 100%;
-            max-width: 100%;
-        }
-    }    
+    }   
 }

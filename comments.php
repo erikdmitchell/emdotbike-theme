@@ -34,7 +34,7 @@ if ( post_password_required() ) {
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
     <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-        <h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'emdotbike' ); ?></h1>
+        <h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'emdotbike' ); ?></h1>
         <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'emdotbike' ) ); ?></div>
         <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'emdotbike' ) ); ?></div>
     </nav><!-- #comment-nav-above -->
@@ -44,8 +44,8 @@ if ( post_password_required() ) {
         <?php
             wp_list_comments(
                 array(
-                    'style'      => 'ol',
-                    'short_ping' => true,
+                    'style'       => 'ol',
+                    'short_ping'  => true,
                     'avatar_size' => 34,
                 )
             );
@@ -54,7 +54,7 @@ if ( post_password_required() ) {
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
     <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-        <h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'emdotbike' ); ?></h1>
+        <h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'emdotbike' ); ?></h1>
         <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'emdotbike' ) ); ?></div>
         <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'emdotbike' ) ); ?></div>
     </nav><!-- #comment-nav-below -->
@@ -64,7 +64,7 @@ if ( post_password_required() ) {
     <p class="no-comments"><?php _e( 'Comments are closed.', 'emdotbike' ); ?></p>
     <?php endif; ?>
 
-    <?php endif; // have_comments() ?>
+    <?php endif; // have_comments(). ?>
 
     <?php comment_form(); ?>
 

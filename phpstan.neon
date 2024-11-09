@@ -1,0 +1,12 @@
+includes:
+parameters:
+    level: 6
+    paths:
+    excludePaths:
+        - vendor/
+    scanDirectories:
+        - ../advanced-custom-fields-pro
+    checkMissingIterableValueType: false
+    treatPhpDocTypesAsCertain: false
+    checkGenericClassInNonGenericObjectType: false 
+    ignoreErrors:                            

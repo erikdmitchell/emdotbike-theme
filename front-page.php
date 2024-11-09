@@ -8,22 +8,19 @@
     <div class="front-page-tagline">
         <div class="wrapper">
             <div class="image-wrap">
-                <img src="<?php the_field( 'tagline_image' ); ?>" alt="emdotbike logo white" />
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/em-bike-logo-small-white.png" alt="emdotbike logo white" />
             </div>
             <div class="title-wrap">
-                <h1><?php the_field( 'tagline_text' ); ?></h1>
+                <h1><?php echo get_bloginfo( 'description' ); ?></h1>
             </div>
         </div>
     </div>
-    
-    <?php get_template_part( 'template-parts/content', 'home-grid' ); ?>
-    
-    <?php // get_template_part( 'template-parts/content', 'front-page' ); ?>
-    
-    <div class="front-page-about">
-        <div class="image-wrap" style="background: url(<?php the_field( 'about_image' ); ?>) no-repeat center center fixed;"></div>
-        <div class="about-text-wrap"><div class="text-inner"><?php the_field( 'about_text' ); ?></div></div>
+
+    <div class="entry-content">
+        <?php get_template_part( 'template-parts/content', 'magazine-grid' ); ?>
     </div>
+    
+    <?php the_content(); ?>
 
 <?php
 get_footer();

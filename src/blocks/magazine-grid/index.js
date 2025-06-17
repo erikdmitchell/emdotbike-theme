@@ -1,15 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
+import Edit from './edit';
 
 registerBlockType('emdotbike/magazine-grid', {
-	edit() {
-		return (
-			<div {...useBlockProps()}>
-				<p>Preview: Magazine Grid (dynamic block)</p>
-			</div>
-		);
-	},
-	save() {
-		return null; // dynamic block
-	},
+	edit: Edit,
+	save: () => null, // dynamic block
 });

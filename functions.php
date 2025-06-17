@@ -747,7 +747,5 @@ function emdb_has_header_block() {
 }
 
 add_action( 'init', function () {
-    echo "hello<br>";
-    echo get_template_directory();
-    register_block_type( get_template_directory() . '/blocks/home-grid' );
+    register_block_type( get_template_directory() . '/blocks/magazine-grid' );
 } );

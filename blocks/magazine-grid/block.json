@@ -1,10 +1,10 @@
 {
     "apiVersion": 2,
-    "name": "emdotbike/home-grid",
-    "title": "Home Grid",
+    "name": "emdotbike/magazine-grid",
+    "title": "Magazine Grid",
     "category": "widgets",
     "icon": "grid-view",
-    "description": "Displays the home page post grid.",
+    "description": "Displays the magazine post grid.",
     "editorScript": "file:../../build/index.js",
     "render": "file:./render.php"
 }

@@ -1,11 +1,11 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps } from '@wordpress/block-editor';
 
-registerBlockType('emdotbike/home-grid', {
+registerBlockType('emdotbike/magazine-grid', {
 	edit() {
 		return (
 			<div {...useBlockProps()}>
-				<p>Preview: Home Grid (dynamic block)</p>
+				<p>Preview: Magazine Grid (dynamic block)</p>
 			</div>
 		);
 	},

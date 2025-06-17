@@ -82,12 +82,6 @@ function emdotbike_theme_setup() {
     add_image_size( 'home-grid-tall', 650, 760, true );
     add_image_size( 'posts-grid', 650, 375, true );
 
-    /**
-     * Include theme meta page.
-     * Allows users to hook and filter into the default meta tags in the header.
-     */
-    include_once get_template_directory() . '/inc/theme-meta.php';
-
     // register our navigation area.
     register_nav_menus(
         array(

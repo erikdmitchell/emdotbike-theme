@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"customTemplates": [
 		{
 			"name": "blank",
@@ -202,11 +202,7 @@
             		"size": "96px",
             		"name": "Huge"
             	}
-			],
-            "line-height": {
-				"body": 1.5,
-				"pre": 1.6
-			} 
+			]
 		},
 		"layout": {
         	"contentSize": "840px",
@@ -217,7 +213,13 @@
         	"radius": true,
         	"style": true,
         	"width": true
-        }		
+        },
+		"custom": {
+			"line-height": {
+				"body": 1.5,
+				"pre": 1.6
+			} 
+		}		
 	},
 	"styles": {
 		"color": {

@@ -745,3 +745,9 @@ function emdb_has_header_block() {
 
     return false;
 }
+
+add_action( 'init', function () {
+    echo "hello<br>";
+    echo get_template_directory();
+    register_block_type( get_template_directory() . '/blocks/home-grid' );
+} );

@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.element,o=window.wp.blocks,i=window.wp.blockEditor;(0,o.registerBlockType)("emdotbike/home-grid",{edit:()=>(0,e.createElement)("div",(0,i.useBlockProps)(),(0,e.createElement)("p",null,"Preview: Home Grid (dynamic block)")),save:()=>null})})();

@@ -5,11 +5,11 @@ registerBlockType('emdotbike/home-grid', {
 	edit() {
 		return (
 			<div {...useBlockProps()}>
-				<p>Preview: Home Grid (dynamic)</p>
+				<p>Preview: Home Grid (dynamic block)</p>
 			</div>
 		);
 	},
 	save() {
-		return null;
+		return null; // dynamic block
 	},
 });

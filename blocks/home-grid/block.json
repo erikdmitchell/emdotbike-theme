@@ -1,13 +1,10 @@
 {
     "apiVersion": 2,
     "name": "emdotbike/home-grid",
-    "title": "Home GridX",
+    "title": "Home Grid",
     "category": "widgets",
     "icon": "grid-view",
     "description": "Displays the home page post grid.",
-    "supports": {
-        "html": false
-    },
-    "editorScript": "file:./build/index.js",
+    "editorScript": "file:../../build/index.js",
     "render": "file:./render.php"
 }

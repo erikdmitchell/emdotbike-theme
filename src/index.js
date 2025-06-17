@@ -1,0 +1,1 @@
+import './blocks/home-grid'; // This loads blocks/home-grid/index.js

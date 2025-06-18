@@ -27,5 +27,16 @@
             grid-row: 3;
             grid-column: 2;
         }
+
+        .mag-post-title {
+            h2 {
+                line-height: 1.15;
+            }
+
+            a {
+                // color: $color__text-main;
+                text-decoration: none;
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        color: $color__link;
+        // color: $color__link;
     }	
 }
 
@@ -38,35 +38,35 @@
 .page-header,
 .entry-header,
 .archive-header {
-    color: $color__text-header;
+    // color: $color__text-header;
 
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        color: $color__link;
+        // color: $color__link;
     }
 }
 
 .page-header .entry-header {
-    color: $color__text-header;
+    // color: $color__text-header;
     
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        color: $color__link;
+        // color: $color__link;
     }
 }
 
 .entry-meta {
-    color: $color__text-entry-meta;
+    // color: $color__text-entry-meta;
     
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        color: $color__link;
+        // color: $color__link;
     }
 }
 
@@ -78,7 +78,7 @@
      * content after main article
      */
     .entry-meta {
-        color: $black;
+        // color: $black;
         width: 100%;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
@@ -111,7 +111,7 @@
         
         a,
         a:visited {
-            color: $black;
+            // color: $black;
         }
         
         .entry-date {
@@ -133,9 +133,9 @@
             margin-right: 0.25rem;
             margin-top: 0.5rem;
         	border: 1px solid;
-        	border-color: $color__border-button;
+        	// border-color: $color__border-button;
         	border-radius: 3px;
-        	background: $color__background-button;
+        	// background: $color__background-button;
         	color: rgba(0, 0, 0, 0.8);
         	font-size: 0.75rem;
         	line-height: 1;

@@ -122,12 +122,12 @@
 
 // the !important should be handled by a theme.json file in the future.
 .wp-block-dwb-post-header .header-content {
-	color: $white !important;
+	// color: $white !important;
 	background-color: #5CC3FF !important;    
 	
 	.meta {
     	a {
-        	color: $white;
+        	// color: $white;
     	}
 	}
 }

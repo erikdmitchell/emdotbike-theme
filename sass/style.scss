@@ -37,7 +37,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-@import "variables-site/variables-site";
+// @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
@@ -48,7 +48,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-@import "typography/typography";
+// @import "typography/typography";
 
 /*--------------------------------------------------------------
 # Breakpoints
@@ -83,7 +83,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-@import "site/secondary/widgets";
+// @import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Content
@@ -93,9 +93,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
-@import "modules/infinite-scroll";
+// @import "modules/infinite-scroll";
 
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-@import "media/media";
+// @import "media/media";

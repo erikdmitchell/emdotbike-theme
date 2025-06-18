@@ -58,6 +58,7 @@ const jsInclude = [
 	'!**/gulpfile.js',
 	'!inc/js/html5shiv.js',
 	'!inc/js/respond.js',
+	'!./webpack.config.js',
 ];
 
 // const sassFolder = './src/sass/**/*.scss';
@@ -85,7 +86,7 @@ const gulp = require('gulp'),
 // Compile SASS.
 function compileSass() {
 	return gulp
-		.src(['./sass/style.scss'])
+		.src(['./src/sass/style.scss'])
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(
@@ -115,7 +116,7 @@ function compileSass() {
 
 function compileEditorSass() {
 	return gulp
-		.src(['./sass/editor.scss'])
+		.src(['./src/sass/editor.scss'])
 		.pipe(
 			gulpsass({
 				outputStyle: 'expanded',

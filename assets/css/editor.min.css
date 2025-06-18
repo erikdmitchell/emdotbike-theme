@@ -1,2 +1,6 @@
-.wp-block-emdotbike-magazine-grid .mag-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);height:100%;margin:2rem 0}.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-0{grid-column:1/3;grid-row:1}.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-1{grid-column:1;grid-row:2/4}.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-2{grid-column:2;grid-row:2}.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-3{grid-column:2;grid-row:3}.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-title h2{line-height:1.15}.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-title a{text-decoration:none}
-/*# sourceMappingURL=editor.min.css.map*/
+.wp-block-emdotbike-magazine-grid .mag-grid{display:grid;grid-template-rows:repeat(3,1fr);grid-template-columns:repeat(2,1fr);gap:1.5rem;height:100%;margin:2rem 0}
+.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-0{grid-row:1;grid-column:1/3}
+.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-1{grid-row:2/4;grid-column:1}
+.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-2{grid-row:2;grid-column:2}
+.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-3{grid-row:3;grid-column:2}
+.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-title h2{line-height:1.15}.wp-block-emdotbike-magazine-grid .mag-grid .mag-post-title a{text-decoration:none}

@@ -1,3 +1,5 @@
+import { decodeEntities } from '@wordpress/html-entities';
+
 // featured image
 const getFeaturedImage = (post, size = 'full') => {
 	const media = post._embedded?.['wp:featuredmedia']?.[0];
@@ -64,12 +66,14 @@ const PostList = ({ posts }) => {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									{post.title?.rendered || '(No title)'}
+									{decodeEntities(
+										post.title.rendered || '(No title)'
+									)}
 								</a>
 							</h2>
 						</div>
 						<div className="mag-post-excerpt">
-							<p>{excerpt}</p>
+							<p>{decodeEntities(excerpt) || '(No excerpt)'}</p>
 						</div>
 					</div>
 				);

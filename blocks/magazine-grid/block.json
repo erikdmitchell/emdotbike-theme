@@ -6,25 +6,13 @@
     "icon": "screenoptions",
     "description": "A dynamic magazine-style post grid.",
     "attributes": {
-        "firstPostCount": {
+        "postCount": {
             "type": "number",
-            "default": 1
+            "default": 4
         },
-        "secondSetCount": {
-            "type": "number",
-            "default": 2
-        },
-        "thirdSetCount": {
-            "type": "number",
-            "default": 2
-        },
-        "showSecondSet": {
-            "type": "boolean",
-            "default": true
-        },
-        "showThirdSet": {
-            "type": "boolean",
-            "default": true
+        "postType": {
+            "type": "string",
+            "default": "post"
         }
     },
     "editorScript": "file:../../build/index.js"

@@ -5,11 +5,8 @@ import { store as coreStore } from '@wordpress/core-data';
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
-		firstPostCount,
-		secondSetCount,
-		thirdSetCount,
-		showSecondSet,
-		showThirdSet,
+		postCount,
+		postType,
 	} = attributes;
 
 	return (

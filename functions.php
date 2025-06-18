@@ -753,17 +753,6 @@ function emdb_has_header_block() {
  * @return void
  */
 function emdotbike_register_blocks() {
-    register_block_type( __DIR__ . '/blocks/magazine-grid' );
-}
-// add_action( 'init', 'emdotbike_register_blocks' );
-
-add_action( 'after_setup_theme', function() {
-	add_theme_support( 'editor-styles' );
-	add_editor_style( 'editor-style.css' ); // make sure it's in your theme root or adjust path
-});
-
-
-add_action( 'init', function() {
 	register_block_type(
 		get_template_directory() . '/blocks/magazine-grid',
 		[
@@ -773,4 +762,10 @@ add_action( 'init', function() {
 			}
 		]
 	);
-} );
+}
+add_action( 'init', 'emdotbike_register_blocks' );
+
+add_action( 'after_setup_theme', function() {
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'editor-style.css' ); // make sure it's in your theme root or adjust path
+});

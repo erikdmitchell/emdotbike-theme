@@ -5,3 +5,5 @@ registerBlockType('emdotbike/magazine-grid', {
 	edit: Edit,
 	save: () => null, // dynamic block
 });
+
+console.log('magazine-grid');

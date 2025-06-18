@@ -218,7 +218,8 @@
 			"line-height": {
 				"body": 1.5,
 				"pre": 1.6
-			} 
+			},
+			"useThemeStyles": true
 		}		
 	},
 	"styles": {

@@ -1,5 +1,7 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, RangeControl } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import { store as coreStore } from '@wordpress/core-data';
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -52,6 +54,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<div {...useBlockProps()}>
 				<p>Preview: Magazine Grid</p>
+                <PostList count={firstPostCount} />
 				<ul>
 					<li><strong>First Posts:</strong> {firstPostCount}</li>
 					{showSecondSet && <li><strong>Second Set:</strong> {secondSetCount}</li>}
@@ -61,3 +64,28 @@ export default function Edit({ attributes, setAttributes }) {
 		</>
 	);
 }
+
+const PostList = ({ count = 3 }) => {
+	const posts = useSelect(
+		(select) =>
+			select(coreStore).getEntityRecords('postType', 'post', {
+				per_page: count,
+			}),
+		[count]
+	);
+
+	if (!posts) return <p>Loading posts…</p>;
+	if (posts.length === 0) return <p>No posts found.</p>;
+
+	return (
+		<ul>
+			{posts.map((post) => (
+				<li key={post.id}>
+					<a href={post.link}>{post.title.rendered}</a>
+				</li>
+			))}
+		</ul>
+	);
+};
+
+// export PostList;

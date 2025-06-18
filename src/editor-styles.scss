@@ -1,0 +1,11 @@
+/* editor-style.scss */
+@import './variables.scss';
+@import './layout.scss';
+
+body.block-editor-page {
+    .emdotbike-home-grid {
+        display: grid;
+        gap: 1rem;
+        background: #f9f9f9;
+    }
+}

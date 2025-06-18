@@ -765,7 +765,21 @@ function emdotbike_register_blocks() {
 }
 add_action( 'init', 'emdotbike_register_blocks' );
 
-add_action( 'after_setup_theme', function() {
-	add_theme_support( 'editor-styles' );
-	add_editor_style( 'editor-style.css' ); // make sure it's in your theme root or adjust path
-});
+add_action( 'enqueue_block_editor_assets', function () {
+	wp_enqueue_style(
+		'emdotbike-editor-style',
+		get_theme_file_uri( 'editor.css' ),
+		[],
+		filemtime( get_theme_file_path( 'editor.css' ) )
+	);
+} );
+/*
+add_action( 'wp_enqueue_scripts', function () {
+	wp_enqueue_style(
+		'emdotbike-style',
+		get_theme_file_uri( 'assets/css/style.css' ),
+		[],
+		filemtime( get_theme_file_path( 'assets/css/style.css' ) )
+	);
+} );
+*/

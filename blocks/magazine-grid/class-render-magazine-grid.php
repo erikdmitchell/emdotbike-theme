@@ -24,7 +24,7 @@ class Renderer {
 		$first_post = get_posts([
 			'posts_per_page' => $first_count,
 		]);
-
+print_r($first_post);
 		$second_set_posts = $show_second
 			? get_posts([ 'posts_per_page' => $second_count, 'offset' => $first_count ])
 			: [];

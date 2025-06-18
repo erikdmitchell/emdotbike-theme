@@ -7,10 +7,8 @@ export default function Edit({ attributes, setAttributes }) {
 		secondSetCount,
 		thirdSetCount,
 		showSecondSet,
-		showThirdSet
+		showThirdSet,
 	} = attributes;
-
-	const blockProps = useBlockProps();
 
 	return (
 		<>
@@ -28,34 +26,37 @@ export default function Edit({ attributes, setAttributes }) {
 						checked={showSecondSet}
 						onChange={(value) => setAttributes({ showSecondSet: value })}
 					/>
-					{showSecondSet && (
-						<RangeControl
-							label="Second Set Count"
-							value={secondSetCount}
-							onChange={(value) => setAttributes({ secondSetCount: value })}
-							min={0}
-							max={4}
-						/>
-					)}
+					<RangeControl
+						label="Second Set Count"
+						value={secondSetCount}
+						onChange={(value) => setAttributes({ secondSetCount: value })}
+						min={0}
+						max={4}
+						disabled={!showSecondSet}
+					/>
 					<ToggleControl
 						label="Show Third Set"
 						checked={showThirdSet}
 						onChange={(value) => setAttributes({ showThirdSet: value })}
 					/>
-					{showThirdSet && (
-						<RangeControl
-							label="Third Set Count"
-							value={thirdSetCount}
-							onChange={(value) => setAttributes({ thirdSetCount: value })}
-							min={0}
-							max={4}
-						/>
-					)}
+					<RangeControl
+						label="Third Set Count"
+						value={thirdSetCount}
+						onChange={(value) => setAttributes({ thirdSetCount: value })}
+						min={0}
+						max={4}
+						disabled={!showThirdSet}
+					/>
 				</PanelBody>
 			</InspectorControls>
 
-			<div {...blockProps}>
-				<p><strong>Magazine Grid</strong> – configured preview</p>
+			<div {...useBlockProps()}>
+				<p>Preview: Magazine Grid</p>
+				<ul>
+					<li><strong>First Posts:</strong> {firstPostCount}</li>
+					{showSecondSet && <li><strong>Second Set:</strong> {secondSetCount}</li>}
+					{showThirdSet && <li><strong>Third Set:</strong> {thirdSetCount}</li>}
+				</ul>
 			</div>
 		</>
 	);

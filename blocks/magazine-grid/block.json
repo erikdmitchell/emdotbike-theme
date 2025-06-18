@@ -27,6 +27,6 @@
             "default": true
         }
     },
-    "editorScript": "file:./index.js",
+    "editorScript": "file:../../build/index.js",
     "render": "file:./render.php"
 }

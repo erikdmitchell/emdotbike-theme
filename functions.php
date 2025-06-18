@@ -746,6 +746,13 @@ function emdb_has_header_block() {
     return false;
 }
 
-add_action( 'init', function () {
-    register_block_type( get_template_directory() . '/blocks/magazine-grid' );
-} );
+/**
+ * Register blocks.
+ *
+ * @access public
+ * @return void
+ */
+function emdotbike_register_blocks() {
+    register_block_type( __DIR__ . '/blocks/magazine-grid' );
+}
+add_action( 'init', 'emdotbike_register_blocks' );

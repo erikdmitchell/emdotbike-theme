@@ -82,48 +82,65 @@ const gulp = require('gulp'),
  * Styles
  */
 
-// compile sass
-function sass(done) {
+// Compile SASS.
+function compileSass() {
 	return gulp
-		.src('./sass/*.scss')
+		.src(['./sass/style.scss'])
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(
 			gulpsass({
-				errLogToConsole: true,
 				outputStyle: 'expanded',
 			})
 		)
 		.pipe(
-			sourcemaps.write({
-				includeContent: false,
+			autoprefixer({
+				overrideBrowserslist: [
+					'last 2 versions',
+					'> 1%',
+					'safari 5',
+					'ie 8',
+					'ie 9',
+					'opera 12.1',
+					'ios 6',
+					'android 4',
+				],
+				cascade: false,
 			})
-		)
-		.pipe(
-			sourcemaps.init({
-				loadMaps: true,
-			})
-		)
-		.pipe(
-			autoprefixer(
-				'last 2 version',
-				'> 1%',
-				'safari 5',
-				'ie 8',
-				'ie 9',
-				'opera 12.1',
-				'ios 6',
-				'android 4'
-			)
 		)
 		.pipe(sourcemaps.write('.'))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest('./'));
-	done();
+}
+
+function compileEditorSass() {
+	return gulp
+		.src(['./sass/editor.scss'])
+		.pipe(
+			gulpsass({
+				outputStyle: 'expanded',
+			})
+		)
+		.pipe(
+			autoprefixer({
+				overrideBrowserslist: [
+					'last 2 versions',
+					'> 1%',
+					'safari 5',
+					'ie 8',
+					'ie 9',
+					'opera 12.1',
+					'ios 6',
+					'android 4',
+				],
+				cascade: false,
+			})
+		)
+		.pipe(gulp.dest('./assets/css'));
 }
 
 // minify all css
-function mincss(done) {
+function mincss() {
 	return gulp
 		.src(cssInclude)
 		.pipe(plumber())
@@ -151,7 +168,6 @@ function mincss(done) {
 			})
 		)
 		.pipe(gulp.dest('./'));
-	done();
 }
 
 /**
@@ -191,31 +207,28 @@ function jsSrcCompile() {
 
 // Watch files
 function watchFiles() {
-	gulp.watch('./sass/**/*', sass);
+	gulp.watch('./sass/**/*', gulp.series(compileSass, compileEditorSass));
 	gulp.watch('./js/**/*.js', js);
 }
 
 // gulp zip
-function zip(done) {
+function zip() {
 	return gulp
 		.src(buildInclude)
 		.pipe(gzip('emdotbike.zip'))
 		.pipe(gulp.dest('./../'));
-	done();
 }
 
 // define complex tasks
-const styles = gulp.series(sass, mincss); // Styles task
+const styles = gulp.series(compileSass, compileEditorSass, mincss); // Styles task
 const js = gulp.series(scripts, jsSrcCompile); // compile and minimize js
 const build = gulp.series(styles, scripts, zip); // Package Distributable
 const watch = gulp.parallel(styles, scripts, watchFiles); // Watch Task
 
 // export tasks
-exports.build = build;
-exports.js = js;
-exports.jsSrcCompile = jsSrcCompile;
-exports.mincss = mincss;
-exports.sass = sass;
-exports.styles = styles;
-exports.watch = watch;
-exports.zip = zip;
+exports.sass = compileSass;
+exports.editor = compileEditorSass;
+exports.styles = gulp.series(compileSass, compileEditorSass, mincss);
+exports.js = gulp.series(scripts, jsSrcCompile);
+exports.build = gulp.series(exports.styles, exports.js, zip);
+exports.watch = gulp.parallel(exports.styles, exports.js, watchFiles);

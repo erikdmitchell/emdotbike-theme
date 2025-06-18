@@ -8,19 +8,31 @@ import {
 	Spinner,
 } from '@wordpress/components';
 import PostList from './PostList';
+import { useEffect, useState } from '@wordpress/element';
 
 export default function Edit({ attributes, setAttributes }) {
 	const { postCount, postType } = attributes;
 
-	const postTypes = useSelect(
+	const [posts, setPosts] = useState([]);
+
+	const postTypes = useSelect((select) => {
+		const types = select(coreStore).getPostTypes({ per_page: -1 });
+		return types ? types.filter((type) => type.viewable) : [];
+	}, []);
+
+	const fetchedPosts = useSelect(
 		(select) =>
-			select(coreStore)
-				.getPostTypes({ per_page: -1 })
-				?.filter((type) => type.viewable),
-		[]
+			select(coreStore).getEntityRecords('postType', postType, {
+				per_page: postCount,
+				_embed: true,
+			}) || [],
+		[postCount, postType]
 	);
 
-	const isLoading = !postTypes;
+	// Sync local state to re-render on changes
+	useEffect(() => {
+		setPosts(Array.isArray(fetchedPosts) ? fetchedPosts : []);
+	}, [fetchedPosts]);
 
 	return (
 		<>
@@ -36,7 +48,7 @@ export default function Edit({ attributes, setAttributes }) {
 						max={6}
 					/>
 
-					{isLoading ? (
+					{postTypes.length === 0 ? (
 						<Spinner />
 					) : (
 						<SelectControl
@@ -55,12 +67,8 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			<div {...useBlockProps()}>
-				<PostList count={postCount} postType={postType} />
+				<PostList posts={posts} />
 			</div>
 		</>
 	);
 }
-
-// export function save() {
-//     return <PostList count={3} />;
-// }

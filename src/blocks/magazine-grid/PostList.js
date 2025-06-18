@@ -1,6 +1,3 @@
-import { useSelect } from '@wordpress/data';
-import { store as coreStore } from '@wordpress/core-data';
-
 // featured image
 const getFeaturedImage = (post, size = 'full') => {
 	const media = post._embedded?.['wp:featuredmedia']?.[0];
@@ -22,18 +19,14 @@ const getExcerpt = (post, length = 55) => {
 	return text.split(/\s+/).slice(0, length).join(' ') + '…';
 };
 
-const PostList = ({ count = 3, postType = 'post' }) => {
-	const posts = useSelect(
-		(select) =>
-			select(coreStore).getEntityRecords('postType', postType, {
-				per_page: count,
-				_embed: true, // 👈 THIS is critical for featured images
-			}),
-		[count, postType]
-	);
+const PostList = ({ posts }) => {
+	if (!Array.isArray(posts)) {
+		return <p>Loading posts…</p>;
+	}
 
-	if (!posts) return <p>Loading {postType}…</p>;
-	if (posts.length === 0) return <p>No {postType}s found.</p>;
+	if (posts.length === 0) {
+		return <p>No posts found.</p>;
+	}
 
 	return (
 		<div className="mag-grid">

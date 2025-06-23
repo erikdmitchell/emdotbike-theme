@@ -32,17 +32,17 @@ const buildInclude = [
 	'!svn/**',
 ];
 
-const cssInclude = [
-	// include css
-	'**/*.css',
+// const cssInclude = [
+// 	// include css
+// 	'**/*.css',
 
-	// exclude files and folders
-	'!**/*.min.css',
-	'!node_modules/**/*',
-	'!style.css',
-	'!inc/css/*',
-	'!vendor/**',
-];
+// 	// exclude files and folders
+// 	'!**/*.min.css',
+// 	'!node_modules/**/*',
+// 	'!style.css',
+// 	'!inc/css/*',
+// 	'!vendor/**',
+// ];
 
 const jsInclude = [
 	// include js
@@ -62,7 +62,7 @@ const jsInclude = [
 ];
 
 // const sassFolder = './src/sass/**/*.scss';
-const cssFolder = './assets/css/';
+// const cssFolder = './assets/css/';
 const jsSrcFolder = './src/js/*.js';
 // const jsSrcFolderWatch = './assets/src/js/**/*.js';
 const jsFolder = './assets/js/';
@@ -71,9 +71,9 @@ const jsFolder = './assets/js/';
 const gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'), // Autoprefixing magic
 	concat = require('gulp-concat'),
-	gulpsass = require('gulp-sass')(require('sass')),
+	// gulpsass = require('gulp-sass')(require('sass')),
 	gzip = require('gulp-zip'),
-	minifycss = require('gulp-uglifycss'),
+	// minifycss = require('gulp-uglifycss'),
 	plumber = require('gulp-plumber'), // Helps prevent stream crashing on errors
 	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps'),
@@ -84,92 +84,92 @@ const gulp = require('gulp'),
  */
 
 // Compile SASS.
-function compileSass() {
-	return gulp
-		.src(['./src/sass/style.scss'])
-		.pipe(plumber())
-		.pipe(sourcemaps.init())
-		.pipe(
-			gulpsass({
-				outputStyle: 'expanded',
-			})
-		)
-		.pipe(
-			autoprefixer({
-				overrideBrowserslist: [
-					'last 2 versions',
-					'> 1%',
-					'safari 5',
-					'ie 8',
-					'ie 9',
-					'opera 12.1',
-					'ios 6',
-					'android 4',
-				],
-				cascade: false,
-			})
-		)
-		.pipe(sourcemaps.write('.'))
-		.pipe(plumber.stop())
-		.pipe(gulp.dest('./'));
-}
+// function compileSass() {
+// 	return gulp
+// 		.src(['./src/sass/style.scss'])
+// 		.pipe(plumber())
+// 		.pipe(sourcemaps.init())
+// 		.pipe(
+// 			gulpsass({
+// 				outputStyle: 'expanded',
+// 			})
+// 		)
+// 		.pipe(
+// 			autoprefixer({
+// 				overrideBrowserslist: [
+// 					'last 2 versions',
+// 					'> 1%',
+// 					'safari 5',
+// 					'ie 8',
+// 					'ie 9',
+// 					'opera 12.1',
+// 					'ios 6',
+// 					'android 4',
+// 				],
+// 				cascade: false,
+// 			})
+// 		)
+// 		.pipe(sourcemaps.write('.'))
+// 		.pipe(plumber.stop())
+// 		.pipe(gulp.dest('./'));
+// }
 
-function compileEditorSass() {
-	return gulp
-		.src(['./src/sass/editor.scss'])
-		.pipe(
-			gulpsass({
-				outputStyle: 'expanded',
-			})
-		)
-		.pipe(
-			autoprefixer({
-				overrideBrowserslist: [
-					'last 2 versions',
-					'> 1%',
-					'safari 5',
-					'ie 8',
-					'ie 9',
-					'opera 12.1',
-					'ios 6',
-					'android 4',
-				],
-				cascade: false,
-			})
-		)
-		.pipe(gulp.dest('./assets/css'));
-}
+// function compileEditorSass() {
+// 	return gulp
+// 		.src(['./src/sass/editor.scss'])
+// 		.pipe(
+// 			gulpsass({
+// 				outputStyle: 'expanded',
+// 			})
+// 		)
+// 		.pipe(
+// 			autoprefixer({
+// 				overrideBrowserslist: [
+// 					'last 2 versions',
+// 					'> 1%',
+// 					'safari 5',
+// 					'ie 8',
+// 					'ie 9',
+// 					'opera 12.1',
+// 					'ios 6',
+// 					'android 4',
+// 				],
+// 				cascade: false,
+// 			})
+// 		)
+// 		.pipe(gulp.dest('./assets/css'));
+// }
 
 // minify all css
-function mincss() {
-	return gulp
-		.src(cssInclude)
-		.pipe(plumber())
-		.pipe(sourcemaps.init())
-		.pipe(
-			sourcemaps.write({
-				includeContent: false,
-			})
-		)
-		.pipe(
-			sourcemaps.init({
-				loadMaps: true,
-			})
-		)
-		.pipe(sourcemaps.write('.'))
-		.pipe(plumber.stop())
-		.pipe(
-			rename({
-				suffix: '.min',
-			})
-		)
-		.pipe(
-			minifycss({
-				maxLineLen: 80,
-			})
-		)
-		.pipe(gulp.dest('./'));
-}
+// function mincss() {
+// 	return gulp
+// 		.src(cssInclude)
+// 		.pipe(plumber())
+// 		.pipe(sourcemaps.init())
+// 		.pipe(
+// 			sourcemaps.write({
+// 				includeContent: false,
+// 			})
+// 		)
+// 		.pipe(
+// 			sourcemaps.init({
+// 				loadMaps: true,
+// 			})
+// 		)
+// 		.pipe(sourcemaps.write('.'))
+// 		.pipe(plumber.stop())
+// 		.pipe(
+// 			rename({
+// 				suffix: '.min',
+// 			})
+// 		)
+// 		.pipe(
+// 			minifycss({
+// 				maxLineLen: 80,
+// 			})
+// 		)
+// 		.pipe(gulp.dest('./'));
+// }
 
 /**
  * Scripts
@@ -208,7 +208,7 @@ function jsSrcCompile() {
 
 // Watch files
 function watchFiles() {
-	gulp.watch('./sass/**/*', gulp.series(compileSass, compileEditorSass));
+	// gulp.watch('./sass/**/*', gulp.series(compileSass, compileEditorSass));
 	gulp.watch('./js/**/*.js', js);
 }
 
@@ -221,15 +221,15 @@ function zip() {
 }
 
 // define complex tasks
-const styles = gulp.series(compileSass, compileEditorSass, mincss); // Styles task
+// const styles = gulp.series(compileSass, compileEditorSass, mincss); // Styles task
 const js = gulp.series(scripts, jsSrcCompile); // compile and minimize js
 const build = gulp.series(styles, scripts, zip); // Package Distributable
 const watch = gulp.parallel(styles, scripts, watchFiles); // Watch Task
 
 // export tasks
-exports.sass = compileSass;
-exports.editor = compileEditorSass;
-exports.styles = gulp.series(compileSass, compileEditorSass, mincss);
-exports.js = gulp.series(scripts, jsSrcCompile);
-exports.build = gulp.series(exports.styles, exports.js, zip);
-exports.watch = gulp.parallel(exports.styles, exports.js, watchFiles);
+// exports.sass = compileSass;
+// exports.editor = compileEditorSass;
+// exports.styles = gulp.series(compileSass, compileEditorSass, mincss);
+// exports.js = gulp.series(scripts, jsSrcCompile);
+// exports.build = gulp.series(exports.styles, exports.js, zip);
+// exports.watch = gulp.parallel(exports.styles, exports.js, watchFiles);

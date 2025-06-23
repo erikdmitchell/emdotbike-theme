@@ -1,1 +1,5 @@
-import './blocks/magazine-grid'; 
+// Import your theme styles
+import './sass/style.scss';
+
+// Import your blocks
+import './blocks/magazine-grid';

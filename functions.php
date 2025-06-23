@@ -746,13 +746,8 @@ function emdb_has_header_block() {
     return false;
 }
 
-/**
- * Register blocks.
- *
- * @access public
- * @return void
- */
-function emdotbike_register_blocks() {
+
+function emdb_register_blocks() {
 	register_block_type(
 		get_template_directory() . '/blocks/magazine-grid',
 		[
@@ -763,7 +758,7 @@ function emdotbike_register_blocks() {
 		]
 	);
 }
-add_action( 'init', 'emdotbike_register_blocks' );
+add_action( 'init', 'emdb_register_blocks' );
 
 add_action( 'enqueue_block_editor_assets', function () {
 	wp_enqueue_style(
@@ -773,3 +768,24 @@ add_action( 'enqueue_block_editor_assets', function () {
 		filemtime( get_theme_file_path( 'assets/css/editor.css' ) )
 	);
 } );
+
+function emdb_enqueue_block_assets() {
+    $asset_file = include get_template_directory() . '/build/index.asset.php';
+    
+    // Enqueue block scripts
+    wp_enqueue_script(
+        'emdb-blocks',
+        get_template_directory_uri() . '/build/index.js',
+        $asset_file['dependencies'],
+        $asset_file['version']
+    );
+    
+    // Enqueue theme styles
+    wp_enqueue_style(
+        'emdb-styles',
+        get_template_directory_uri() . '/build/style-index.css',
+        array(),
+        $asset_file['version']
+    );
+}
+add_action('enqueue_block_assets', 'emdb_enqueue_block_assets');

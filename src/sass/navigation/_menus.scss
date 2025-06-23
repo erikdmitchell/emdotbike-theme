@@ -86,9 +86,9 @@
     .connect-social {
         text-align: right;
  
-        @include rbp(tablet) {
-            text-align: center;
-        }
+        // @include rbp(tablet) {
+        //     text-align: center;
+        // }
         
         h3 {
             margin-top: 0;
@@ -99,9 +99,9 @@
             justify-content: right;
             margin-bottom: 0;
             
-            @include rbp(tablet) {
-                justify-content: center;
-            }                
+            // @include rbp(tablet) {
+            //     justify-content: center;
+            // }                
         }
     }        
     

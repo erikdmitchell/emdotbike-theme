@@ -1,49 +1,23 @@
 /*
 Theme Name: EM Bike Theme
-Theme URI: 
+Theme URI: http://erikmitchell.bike
 Description: Theme for erikmitchell.bike
 Author: Erik Mitchell
-Author URI: http://erikmitchell.bike
-Version: 0.3.0
-Tags: 
+Author URI: http://erikdmitchell.net
+Version: 0.4.0
+Tags: FSE, blocks
 Text Domain: emdotbike
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Breakpoints
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Widgets
-# Content
-    ## Header
-    ## Front page
-	## Posts and pages
-	## Comments
-	## Projects
-	## Footer
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
 // @import "variables-site/variables-site";
-@import "mixins/mixins-master";
+@use "mixins/mixins-master";
 
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "normalize";
+@use "normalize";
 
 /*--------------------------------------------------------------
 # Typography
@@ -53,32 +27,32 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*--------------------------------------------------------------
 # Breakpoints
 --------------------------------------------------------------*/
-@import "breakpoints";
+@use "breakpoints";
 
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-@import "elements/elements";
+@use "elements/elements";
 
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-@import "forms/forms";
+@use "forms/forms";
 
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-@import "navigation/navigation";
+@use "navigation/navigation";
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-@import "modules/accessibility";
+@use "modules/accessibility";
 
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
-@import "modules/alignments";
+@use "modules/alignments";
 
 /*--------------------------------------------------------------
 # Widgets
@@ -88,9 +62,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-@import "site/site";
+@use "site/site";
 
-@import "blocks/magazine-grid";
+@use "blocks/magazine-grid";
 
 /*--------------------------------------------------------------
 # Infinite scroll

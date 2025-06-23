@@ -4,8 +4,8 @@
 /* Inherit box-sizing to more easily change it's value on a component level.
 @link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 *,
-*::before,
-*::after {
+*:before,
+*:after {
 	box-sizing: inherit;
 }
 
@@ -24,7 +24,7 @@ hr {
 
 img {
 	height: auto; // Make sure images are scaled correctly.
-	max-width: 100%; // Adhere to container width.
+	max-width: 100%;Makesureimagesarescaledcorrectly.max-width // Adhere to container width.
 }
 
 figure {
@@ -35,7 +35,7 @@ hr {
     width: 760px;
     max-width: 100%;
     border: none;
-    // border-bottom: 1px solid $davys-grey;
+    // border-bottom: 1px solid $davys-grey;border-bottom
     margin-left: auto;
     margin-right: auto;
 }

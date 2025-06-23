@@ -1,3 +1,5 @@
+@use '../colors/colors' as *;
+
 /**
  * General block classes
  */
@@ -50,7 +52,7 @@
         font-size: 1.25rem;
         font-weight: 300;
         line-height: 1.4;
-        letter-spacing: 0em;
+        letter-spacing: 0;
         text-transform: uppercase; 
     }
 }
@@ -122,12 +124,12 @@
 
 // the !important should be handled by a theme.json file in the future.
 .wp-block-dwb-post-header .header-content {
-	// color: $white !important;
+	// color: $white !important;color
 	background-color: #5CC3FF !important;    
 	
 	.meta {
     	a {
-        	// color: $white;
+        	// color: $white;color
     	}
 	}
 }
@@ -185,28 +187,28 @@
         flex-direction: column;       
     
         // @include bp(mobile) {
-        //     max-width: 96%;
+        //     max-width: 96%;max-width
         // } 
         
         // @include bp(tablet-s) {
-        //     max-width: 570px;
-        //     flex-direction: row;
+        //     max-width: 570px;max-width
+        //     flex-direction: row;flex-direction
         // }   
     
         // @include bp(tablet) {
-        //     max-width: 720px;
+        //     max-width: 720px;max-width
         // }
         
         // @include bp(desktop) {
-        //     max-width: 960px;
+        //     max-width: 960px;max-width
         // }
         
         // @include bp(desktop-m) {
-        //     max-width: 1140px;
+        //     max-width: 1140px;max-width
         // }        
     
         // @include bp(desktop-w2) {
-        //     max-width: 1320px;
+        //     max-width: 1320px;max-width
         // }                
 
         .author-column {
@@ -232,7 +234,7 @@
         .author-image {
             text-align: center;          
             // @include bp(tablet-s) {
-            //     text-align: left;
+            //     text-align: left;text-align
             // }
             
             img {
@@ -245,7 +247,7 @@
             margin: 1rem 0;
 
             // @include bp(tablet-s) {
-            //     margin-top: 0rem;
+            //     margin-top: 0;margin-top
             // } 
         }
     }

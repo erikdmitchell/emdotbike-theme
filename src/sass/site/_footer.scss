@@ -37,9 +37,9 @@
     .emdb-footer-wrapper {
         h3 {
             font-size: 16px;
-            margin: 16px 0 10px 0;
-            padding: 10px 0px;
-            // color: $color__text-footer;
+            margin: 16px 0 10px;
+            padding: 10px 0;
+            // color: $color__text-footer;color
             text-transform: uppercase;            
         }
         
@@ -51,13 +51,13 @@
         
         a,
         a:visited {
-            // color: $color__link-footer;
+            // color: $color__link-footer;color
             text-decoration: none;        
         }
         
         a:focus,
         a:hover {
-            // color: $color__link-footer-hover;
+            // color: $color__link-footer-hover;color
             text-decoration: none;                
         }
         
@@ -65,14 +65,14 @@
             text-align: right;
             
             // @include bp(mobile) {
-            //     text-align: center;
+            //     text-align: center;text-align
             // }
             
             .wp-block-social-links {
                 justify-content: right;
                 
                 // @include bp(mobile) {
-                //     justify-content: center;
+                //     justify-content: center;justify-content
                 // }
             }
         }        
@@ -81,7 +81,7 @@
     .copyright {
         padding: 10px 0;
         text-align: center;
-        margin: 20px 0 0 0;
-        // color: $color__text-footer; 
+        margin: 20px 0 0;
+        // color: $color__text-footer;color 
     }   
 }

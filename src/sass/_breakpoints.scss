@@ -17,7 +17,7 @@ $breakpoints: (
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    $breakpoint-value: map-get($breakpoints, $breakpoint);Getthebreakpointvalue.$breakpoint-value
 
     // Write the media query.
     @media (min-width: $breakpoint-value) {

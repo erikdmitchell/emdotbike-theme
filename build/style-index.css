@@ -56,6 +56,27 @@ picture {
     scroll-behavior: auto !important;
   }
 }
+/* Coolors Exported Palette - https://coolors.co/37b6ff-f9e7e7-ada0a6-494947-00487c */
+/* SCSS HEX */
+/* SCSS Gradient (not used) */
+/* Color Options
+--------------------------------------------- */
+.has-sky-blue-color {
+  color: #5CC3FF;
+}
+
+.has-sky-blue-background-color {
+  background-color: #5CC3FF;
+}
+
+.has-white-color {
+  color: #ffffff;
+}
+
+.has-white-background-color {
+  background-color: #ffffff;
+}
+
 button,
 input[type=button],
 input[type=reset],

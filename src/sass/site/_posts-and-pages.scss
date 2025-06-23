@@ -20,7 +20,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        // color: $color__link;color
     }	
 }
 
@@ -38,35 +38,35 @@
 .page-header,
 .entry-header,
 .archive-header {
-    // color: $color__text-header;
+    // color: $color__text-header;color
 
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        // color: $color__link;color
     }
 }
 
 .page-header .entry-header {
-    // color: $color__text-header;
+    // color: $color__text-header;color
     
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        // color: $color__link;color
     }
 }
 
 .entry-meta {
-    // color: $color__text-entry-meta;
+    // color: $color__text-entry-meta;color
     
     a,
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        // color: $color__link;color
     }
 }
 
@@ -78,7 +78,7 @@
      * content after main article
      */
     .entry-meta {
-        // color: $black;
+        // color: $black;color
         width: 100%;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
@@ -86,32 +86,32 @@
         margin-left: auto; 
     
         // @include bp(mobile) {
-        //     max-width: 96%;
+        //     max-width: 96%;max-width
         // } 
         
         // @include bp(tablet-s) {
-        //     max-width: 570px;
+        //     max-width: 570px;max-width
         // }   
     
         // @include bp(tablet) {
-        //     max-width: 720px;
+        //     max-width: 720px;max-width
         // }
         
         // @include bp(desktop) {
-        //     max-width: 960px;
+        //     max-width: 960px;max-width
         // }
         
         // @include bp(desktop-m) {
-        //     max-width: 1140px;
+        //     max-width: 1140px;max-width
         // }        
     
         // @include bp(desktop-w2) {
-        //     max-width: 1320px;
+        //     max-width: 1320px;max-width
         // }       
         
         a,
         a:visited {
-            // color: $black;
+            // color: $black;color
         }
         
         .entry-date {
@@ -133,9 +133,7 @@
             margin-right: 0.25rem;
             margin-top: 0.5rem;
         	border: 1px solid;
-        	// border-color: $color__border-button;
-        	border-radius: 3px;
-        	// background: $color__background-button;
+        	// background: $color__background-button;background
         	color: rgba(0, 0, 0, 0.8);
         	font-size: 0.75rem;
         	line-height: 1;
@@ -179,16 +177,15 @@
         }
         
         .entry-header {
-            // @include bp(mobile) {
-            //     padding: 0;
-            //     margin: 0;
-            //     max-width: 100%;
+            // @include bp(mobile) {padding
+            //     margin: 0;margin
+            //     max-width: 100%;max-width
             // }
             
             // .entry-title {
             //     @include bp(mobile) {
-            //         padding: 0;
-            //         max-width: 100%;
+            //         padding: 0;padding
+            //         max-width: 100%;max-width
             //     }            
             // }
         }
@@ -229,7 +226,7 @@ $color__text-post-header: #fff;
             width: 100%;  
             
             // @include rbp(tablet-s) {
-            //     flex-direction: column-reverse;
+            //     flex-direction: column-reverse;flex-direction
             // }                   
         }
         
@@ -260,14 +257,14 @@ $color__text-post-header: #fff;
             height: 100%; 
             
             // @include rbp(tablet-s) {
-            //     padding: 1rem 1.5rem;
+            //     padding: 1rem 1.5rem;padding
             // }                        
             
             h1 {
                 margin: 0;
                 
                 // @include rbp(tablet-s) {
-                //     font-size: 1.75rem;
+                //     font-size: 1.75rem;font-size
                 // }                
             }  
             
@@ -279,10 +276,10 @@ $color__text-post-header: #fff;
             } 
             
             .title {
-                margin: 2rem 0 1rem 0;
+                margin: 2rem 0 1rem;
                     
                 // @include rbp(tablet-s) {
-                //     margin: 0 0 1rem 0;
+                //     margin: 0 0 1rem 0;margin
                 // }                 
             }                    
         }
@@ -292,7 +289,7 @@ $color__text-post-header: #fff;
             max-height: 400px;
             
             // @include rbp(tablet-s) {
-            //     height: 200px;
+            //     height: 200px;height
             // }            
             
             img {

@@ -5,10 +5,10 @@
 .main-navigation {
     display: none;
     position: fixed;
-    right: 0px;
+    right: 0;
     top: 135px;
     z-index: 999;
-    // background: $color__background-navigation-mobile;
+    // background: $color__background-navigation-mobile;background
     padding: 20px;
     list-style-type: none; 
     width: 100%;
@@ -22,11 +22,11 @@
 
     a {
         text-decoration: none;
-        // color: $color__link-navigation-mobile;
+        // color: $color__link-navigation-mobile;color
         
         &:hover,
         &:active {
-            // color: $color__link-navigation-mobile-current-item;
+            // color: $color__link-navigation-mobile-current-item;color
         }
     }
       
@@ -62,14 +62,14 @@
             border: none;
             background: transparent;
             color: #fff;
-            padding: 0.5em 0.25em 0.125em 0.25em;
+            padding: 0.5em 0.25em 0.125em;
             
             &.has-icon {
                 svg {
                     display: none;
                 }
                 
-                &::after {
+                &:after {
                     font-family: "dashicons";
                     content: "\f179";
                     width: 1.5em;
@@ -87,7 +87,7 @@
         text-align: right;
  
         // @include rbp(tablet) {
-        //     text-align: center;
+        //     text-align: center;text-align
         // }
         
         h3 {
@@ -100,7 +100,7 @@
             margin-bottom: 0;
             
             // @include rbp(tablet) {
-            //     justify-content: center;
+            //     justify-content: center;justify-content
             // }                
         }
     }        
@@ -141,7 +141,7 @@
 .toggle-nav:visited,
 .toggle-nav:active {
     text-decoration: none;
-    // color: $color__text-toggle-nav;
+    // color: $color__text-toggle-nav;color
     display: inline-block;
     margin-right: 5px;
     

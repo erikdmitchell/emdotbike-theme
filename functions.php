@@ -746,7 +746,13 @@ function emdb_has_header_block() {
     return false;
 }
 
-
+/**
+ * Register blocks.
+ * 
+ * @access public
+ * @return void
+ * 
+ */
 function emdb_register_blocks() {
 	register_block_type(
 		get_template_directory() . '/blocks/magazine-grid',
@@ -769,6 +775,13 @@ add_action( 'enqueue_block_editor_assets', function () {
 	);
 } );
 
+/**
+ * Enqueue block assets.
+ * 
+ * @access public
+ * @return void
+ * 
+ */
 function emdb_enqueue_block_assets() {
     $asset_file = include get_template_directory() . '/build/index.asset.php';
     

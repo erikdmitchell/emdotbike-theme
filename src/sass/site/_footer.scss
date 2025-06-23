@@ -64,16 +64,16 @@
         .connect-social {
             text-align: right;
             
-            @include bp(mobile) {
-                text-align: center;
-            }
+            // @include bp(mobile) {
+            //     text-align: center;
+            // }
             
             .wp-block-social-links {
                 justify-content: right;
                 
-                @include bp(mobile) {
-                    justify-content: center;
-                }
+                // @include bp(mobile) {
+                //     justify-content: center;
+                // }
             }
         }        
     }

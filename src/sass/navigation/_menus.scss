@@ -5,7 +5,7 @@
 .main-navigation {
     display: none;
     position: fixed;
-    right: 0px;
+    right: 0;
     top: 135px;
     z-index: 999;
     background: $color__background-navigation-mobile;
@@ -62,15 +62,15 @@
             border: none;
             background: transparent;
             color: #fff;
-            padding: 0.5em 0.25em 0.125em 0.25em;
+            padding: 0.5em 0.25em 0.125em;
             
             &.has-icon {
                 svg {
                     display: none;
                 }
                 
-                &::after {
-                    font-family: "dashicons";
+                &:after {
+                    font-family: dashicons;
                     content: "\f179";
                     width: 1.5em;
                     height: 1.5em;
@@ -121,7 +121,7 @@
         }            
     }         
                  
-	@media only screen and (min-width: 580px) {
+	@media only screen and (width >= 580px) {
     	.nav-inner {
             width: 80%;
             margin: 0 auto;
@@ -130,7 +130,7 @@
     
     /* overrides a wp col style so that it aligns in the center. */
     .wp-block-column:nth-child(3) {
-        @media (min-width: 600px) and (max-width: 781px) {
+        @media (width >= 600px) and (width <= 781px) {
             flex-basis: calc(100% - 1em) !important;
         }
     }  

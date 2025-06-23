@@ -19,7 +19,6 @@ $gradient-bottom-right: linear-gradient(135deg, #37b6ffff, #f9e7e7ff, #ada0a6ff,
 $gradient-top-left: linear-gradient(225deg, #37b6ffff, #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff);
 $gradient-bottom-left: linear-gradient(315deg, #37b6ffff, #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff);
 $gradient-radial: radial-gradient(#37b6ffff, #f9e7e7ff, #ada0a6ff, #494947ff, #00487cff);
-
 $color__background-body: $white;
 $color__background-header: $white;
 $color__background-navigation: $white;
@@ -33,7 +32,6 @@ $color__background-ins: #fff9c0;
 $color__background-back-to-top: #ccc;
 $color__background-footer: $indigo-dye;
 $color__background-article-list: #f1f1f1;
-
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
@@ -55,7 +53,6 @@ $color__link-navigation-mobile: #fff;
 $color__link-navigation-mobile-current-item: $blue-jeans;
 $color__link-navigation-sub-menu: $white;
 $color__text-toggle-nav: #000;
-
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
@@ -67,7 +64,7 @@ $color__navigation-menu-item-border: $white;
 /* Gutenberg color options - see theme.json */
 $colors: ( 
     'sky-blue': #5CC3FF,
-    'white': #ffffff
+    'white': #fff
 );
 
 /* Color Options */

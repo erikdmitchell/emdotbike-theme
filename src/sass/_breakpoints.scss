@@ -13,7 +13,6 @@ $breakpoints: (
 );
 
 @mixin bp($breakpoint) {
-
   /* If the breakpoint exists in the map. */
   @if map-has-key($breakpoints, $breakpoint) {
     /* Get the breakpoint value. */
@@ -25,9 +24,7 @@ $breakpoints: (
     }
 
     /* If the breakpoint doesn't exist in the map. */
-  }
-
-  @else {
+  } @else {
     /* Log a warning. */
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
@@ -35,7 +32,6 @@ $breakpoints: (
 
 /* reverse Breakpoints with max width */
 @mixin rbp($breakpoint) {
-
   /* If the breakpoint exists in the map. */
   @if map-has-key($breakpoints, $breakpoint) {
     /* Get the breakpoint value. */
@@ -47,9 +43,7 @@ $breakpoints: (
     }
 
     /* If the breakpoint doesn't exist in the map. */
-  }
-
-  @else {
+  } @else {
     /* Log a warning. */
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }

@@ -6,7 +6,7 @@
     color: #fff;
     margin-top: 8rem;
     
-    /*the below 3 styles create our diagonal top */
+    /* the below 3 styles create our diagonal top */
     &:before,
     &:after {
         background: inherit;
@@ -37,8 +37,8 @@
     .emdb-footer-wrapper {
         h3 {
             font-size: 16px;
-            margin: 16px 0 10px 0;
-            padding: 10px 0px;
+            margin: 16px 0 10px;
+            padding: 10px 0;
             color: $color__text-footer;
             text-transform: uppercase;            
         }
@@ -81,7 +81,7 @@
     .copyright {
         padding: 10px 0;
         text-align: center;
-        margin: 20px 0 0 0;
+        margin: 20px 0 0;
         color: $color__text-footer;
     }   
 }

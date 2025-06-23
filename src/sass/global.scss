@@ -1,0 +1,7 @@
+/* global.scss */
+
+// Normalize and base resets
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/media';
+@use 'forms/forms';

@@ -774,7 +774,7 @@ add_action( 'enqueue_block_editor_assets', function () {
     
     // Enqueue block scripts
     wp_enqueue_script(
-        'my-theme-blocks',
+        'emdb-blocks',
         get_template_directory_uri() . '/build/index.js',
         $asset_file['dependencies'],
         $asset_file['version']
@@ -782,7 +782,7 @@ add_action( 'enqueue_block_editor_assets', function () {
     
     // Enqueue theme styles
     wp_enqueue_style(
-        'my-theme-styles',
+        'emdb-styles',
         get_template_directory_uri() . '/build/style.css',
         array(),
         $asset_file['version']

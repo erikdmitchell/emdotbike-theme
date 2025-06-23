@@ -122,12 +122,12 @@
 
 // the !important should be handled by a theme.json file in the future.
 .wp-block-dwb-post-header .header-content {
-	// color: $white !important;
+	color: $white !important;
 	background-color: #5CC3FF !important;    
 	
 	.meta {
     	a {
-        	// color: $white;
+        	color: $white;
     	}
 	}
 }
@@ -184,30 +184,30 @@
         margin-bottom: 3rem; 
         flex-direction: column;       
     
-        /*@include bp(mobile) { */
-        //     max-width: 96%;
-        // } 
+        @include bp(mobile) {
+            max-width: 96%;
+        } 
         
-        // @include bp(tablet-s) {
-        //     max-width: 570px;
-        //     flex-direction: row;
-        // }   
+        @include bp(tablet-s) {
+            max-width: 570px;
+            flex-direction: row;
+        }   
     
-        // @include bp(tablet) {
-        //     max-width: 720px;
-        // }
+        @include bp(tablet) {
+            max-width: 720px;
+        }
         
-        // @include bp(desktop) {
-        //     max-width: 960px;
-        // }
+        @include bp(desktop) {
+            max-width: 960px;
+        }
         
-        // @include bp(desktop-m) {
-        //     max-width: 1140px;
-        // }        
+        @include bp(desktop-m) {
+            max-width: 1140px;
+        }        
     
-        // @include bp(desktop-w2) {
-        //     max-width: 1320px;
-        // }                
+        @include bp(desktop-w2) {
+            max-width: 1320px;
+        }                
 
         .author-column {
             flex-basis: 0;
@@ -231,9 +231,9 @@
         
         .author-image {
             text-align: center;          
-            /*@include bp(tablet-s) { */
-            //     text-align: left;
-            // }
+            @include bp(tablet-s) {
+                text-align: left;
+            }
             
             img {
                 border-radius: 15px;
@@ -244,9 +244,9 @@
         .author-name {
             margin: 1rem 0;
 
-            /*@include bp(tablet-s) { */
-            //     margin-top: 0rem;
-            // } 
+            @include bp(tablet-s) {
+                margin-top: 0rem;
+            } 
         }
     }
 }

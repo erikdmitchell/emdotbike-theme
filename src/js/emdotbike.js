@@ -1,7 +1,7 @@
 /**
  * supporter functions for our theme
  */
-console.log('emdotbike.js');
+
 /**
  * toggles the mobile nav
  */

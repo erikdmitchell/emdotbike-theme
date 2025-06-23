@@ -1,6 +1,8 @@
+@use '../colors/colors' as *;
+@use '../breakpoints' as *;
+
 /**
  * Primary Navigation
- *
  */
 .main-navigation {
     display: none;

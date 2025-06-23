@@ -1,15 +1,17 @@
+@use '../colors/colors' as *;
+
 a {
-	color: $color__link;color
+	color: $color__link;
 	text-decoration: none;
 
 	&:visited {
-		color: $color__link-visited;color
+		color: $color__link-visited;
 	}
 
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color__link-hover;color
+		color: $color__link-hover;
 	}
 
 	&:focus {

@@ -1,3 +1,5 @@
+@use '../mixins/mixins-master' as *;
+
 .alignleft {
 	float: left;
 	margin-right: 1.5em;

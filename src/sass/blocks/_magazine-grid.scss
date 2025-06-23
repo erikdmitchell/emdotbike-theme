@@ -1,4 +1,7 @@
 /* blocks/_magazine-grid.scss */
+
+@use '../colors/colors' as *;
+
 .wp-block-emdotbike-magazine-grid {
     .mag-grid {
         display: grid; 

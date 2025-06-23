@@ -122,14 +122,14 @@
     }    
 }
 
-// the !important should be handled by a theme.json file in the future.
+/* the !important should be handled by a theme.json file in the future. */
 .wp-block-dwb-post-header .header-content {
-	// color: $white !important;color
+	color: $white !important;
 	background-color: #5CC3FF !important;    
 	
 	.meta {
     	a {
-        	// color: $white;color
+        	color: $white;
     	}
 	}
 }
@@ -186,30 +186,30 @@
         margin-bottom: 3rem; 
         flex-direction: column;       
     
-        // @include bp(mobile) {
-        //     max-width: 96%;max-width
-        // } 
+        @include bp(mobile) {
+            max-width: 96%;max-width
+        } 
         
-        // @include bp(tablet-s) {
-        //     max-width: 570px;max-width
-        //     flex-direction: row;flex-direction
-        // }   
+        @include bp(tablet-s) {
+            max-width: 570px;max-width
+            flex-direction: row;flex-direction
+        }   
     
-        // @include bp(tablet) {
-        //     max-width: 720px;max-width
-        // }
+        @include bp(tablet) {
+            max-width: 720px;max-width
+        }
         
-        // @include bp(desktop) {
-        //     max-width: 960px;max-width
-        // }
+        @include bp(desktop) {
+            max-width: 960px;max-width
+        }
         
-        // @include bp(desktop-m) {
-        //     max-width: 1140px;max-width
-        // }        
+        @include bp(desktop-m) {
+            max-width: 1140px;max-width
+        }        
     
-        // @include bp(desktop-w2) {
-        //     max-width: 1320px;max-width
-        // }                
+        @include bp(desktop-w2) {
+            max-width: 1320px;max-width
+        }                
 
         .author-column {
             flex-basis: 0;
@@ -233,9 +233,9 @@
         
         .author-image {
             text-align: center;          
-            // @include bp(tablet-s) {
-            //     text-align: left;text-align
-            // }
+            @include bp(tablet-s) {
+                text-align: left;text-align
+            }
             
             img {
                 border-radius: 15px;
@@ -246,20 +246,9 @@
         .author-name {
             margin: 1rem 0;
 
-            // @include bp(tablet-s) {
-            //     margin-top: 0;margin-top
-            // } 
+            @include bp(tablet-s) {
+                margin-top: 0;margin-top
+            } 
         }
     }
 }
-
-/**
- * ACF Block: Post Nav
- *
- * Other styles: navigation/_page-navigation.scss .
- *
- */
-
-/**
- * Post Comments Form
- */

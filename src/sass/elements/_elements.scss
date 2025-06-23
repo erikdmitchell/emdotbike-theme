@@ -37,6 +37,6 @@ hr {
     margin-right: auto;
 }
 
-@import "back-to-top";
+@use "back-to-top";
 
-@import "blocks";
+@use "blocks";

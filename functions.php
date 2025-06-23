@@ -746,8 +746,8 @@ function emdb_has_header_block() {
     return false;
 }
 
-/*
-function emdotbike_register_blocks() {
+
+function emdb_register_blocks() {
 	register_block_type(
 		get_template_directory() . '/blocks/magazine-grid',
 		[
@@ -758,7 +758,7 @@ function emdotbike_register_blocks() {
 		]
 	);
 }
-add_action( 'init', 'emdotbike_register_blocks' );
+add_action( 'init', 'emdb_register_blocks' );
 
 add_action( 'enqueue_block_editor_assets', function () {
 	wp_enqueue_style(
@@ -768,9 +768,8 @@ add_action( 'enqueue_block_editor_assets', function () {
 		filemtime( get_theme_file_path( 'assets/css/editor.css' ) )
 	);
 } );
- */
 
- function emdotbike_enqueue_block_assets() {
+ function emdb_enqueue_block_assets() {
     $asset_file = include get_template_directory() . '/build/index.asset.php';
     
     // Enqueue block scripts
@@ -789,4 +788,4 @@ add_action( 'enqueue_block_editor_assets', function () {
         $asset_file['version']
     );
 }
-add_action('enqueue_block_assets', 'emdotbike_enqueue_block_assets');
+add_action('enqueue_block_assets', 'emdb_enqueue_block_assets');

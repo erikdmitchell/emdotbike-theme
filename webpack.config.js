@@ -5,13 +5,25 @@ module.exports = {
 	...defaultConfig,
 
 	entry: {
+		index: path.resolve(__dirname, 'src/index.js'),
 		emdotbike: path.resolve(__dirname, 'src/js/emdotbike.js'),
 	},
 
 	output: {
-		// 👇 This puts the output in your actual assets/js/ folder
-		path: path.resolve(__dirname, 'assets/js'),
-		filename: '[name].js',
-		clean: false, // prevent deleting everything else in assets/js/
+		// Set a base path — required
+		path: path.resolve(__dirname, 'build'),
+
+		// Dynamically assign output filenames and subfolders
+		filename: (pathData) => {
+			switch (pathData.chunk.name) {
+				case 'emdotbike':
+					return '../assets/js/emdotbike.js'; // ✅ outside build folder
+				case 'index':
+					return 'index.js'; // ✅ inside build
+				default:
+					return '[name].js'; // fallback
+			}
+		},
+		clean: false, // Don't wipe folders
 	},
 };

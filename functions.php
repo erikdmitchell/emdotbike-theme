@@ -769,7 +769,7 @@ add_action( 'enqueue_block_editor_assets', function () {
 	);
 } );
 
- function emdb_enqueue_block_assets() {
+function emdb_enqueue_block_assets() {
     $asset_file = include get_template_directory() . '/build/index.asset.php';
     
     // Enqueue block scripts
@@ -783,7 +783,7 @@ add_action( 'enqueue_block_editor_assets', function () {
     // Enqueue theme styles
     wp_enqueue_style(
         'emdb-styles',
-        get_template_directory_uri() . '/build/style.css',
+        get_template_directory_uri() . '/build/style-index.css',
         array(),
         $asset_file['version']
     );

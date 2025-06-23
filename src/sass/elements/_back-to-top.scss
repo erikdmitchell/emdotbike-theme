@@ -7,12 +7,12 @@
   right: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   z-index: 99;
-
+  /* image replacement properties */
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: $color__background-back-to-top url("assets/images/cd-top-arrow.svg") no-repeat center 50%;
-  /* `background-visibility: hidden; */
+  /*background: $color__background-back-to-top url(assets/images/cd-top-arrow.svg) no-repeat center 50%; */
+  visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
   -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
@@ -35,7 +35,7 @@
   opacity: .5; }
 
 .no-touch .emdotbike-back-to-top:hover {
-  background-color: $color__background-back-to-top;
+  // background-color: $color__background-back-to-top;
   opacity: 1; }
 
 @media only screen and (min-width: 768px) {

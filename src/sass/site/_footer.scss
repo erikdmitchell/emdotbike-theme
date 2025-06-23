@@ -6,7 +6,7 @@
     color: #fff;
     margin-top: 8rem;
     
-    // the below 3 styles create our diagonal top
+    /*the below 3 styles create our diagonal top */
     &:before,
     &:after {
         background: inherit;
@@ -37,9 +37,9 @@
     .emdb-footer-wrapper {
         h3 {
             font-size: 16px;
-            margin: 16px 0 10px;
-            padding: 10px 0;
-            // color: $color__text-footer;color
+            margin: 16px 0 10px 0;
+            padding: 10px 0px;
+            /*color: $color__text-footer; */
             text-transform: uppercase;            
         }
         
@@ -51,28 +51,28 @@
         
         a,
         a:visited {
-            // color: $color__link-footer;color
+            // color: $color__link-footer;
             text-decoration: none;        
         }
         
         a:focus,
         a:hover {
-            // color: $color__link-footer-hover;color
+            // color: $color__link-footer-hover;
             text-decoration: none;                
         }
         
         .connect-social {
             text-align: right;
             
-            // @include bp(mobile) {
-            //     text-align: center;text-align
+            /*@include bp(mobile) { */
+            //     text-align: center;
             // }
             
             .wp-block-social-links {
                 justify-content: right;
                 
-                // @include bp(mobile) {
-                //     justify-content: center;justify-content
+                /*@include bp(mobile) { */
+                //     justify-content: center;
                 // }
             }
         }        
@@ -81,7 +81,7 @@
     .copyright {
         padding: 10px 0;
         text-align: center;
-        margin: 20px 0 0;
-        // color: $color__text-footer;color 
+        margin: 20px 0 0 0;
+        /*color: $color__text-footer; */
     }   
 }

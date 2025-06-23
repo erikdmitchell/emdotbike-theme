@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "build": "wp-scripts build",
+    "fix:scss-comments": "node scripts/fix-inline-comments.js",
     "format": "wp-scripts format",
     "format:src": "wp-scripts format ./assets",
     "lint:style": "wp-scripts lint-style",

@@ -5,10 +5,10 @@
 .main-navigation {
     display: none;
     position: fixed;
-    right: 0;
+    right: 0px;
     top: 135px;
     z-index: 999;
-    // background: $color__background-navigation-mobile;background
+    /*background: $color__background-navigation-mobile; */
     padding: 20px;
     list-style-type: none; 
     width: 100%;
@@ -22,11 +22,11 @@
 
     a {
         text-decoration: none;
-        // color: $color__link-navigation-mobile;color
+        /*color: $color__link-navigation-mobile; */
         
         &:hover,
         &:active {
-            // color: $color__link-navigation-mobile-current-item;color
+            // color: $color__link-navigation-mobile-current-item;
         }
     }
       
@@ -62,14 +62,14 @@
             border: none;
             background: transparent;
             color: #fff;
-            padding: 0.5em 0.25em 0.125em;
+            padding: 0.5em 0.25em 0.125em 0.25em;
             
             &.has-icon {
                 svg {
                     display: none;
                 }
                 
-                &:after {
+                &::after {
                     font-family: "dashicons";
                     content: "\f179";
                     width: 1.5em;
@@ -86,8 +86,8 @@
     .connect-social {
         text-align: right;
  
-        // @include rbp(tablet) {
-        //     text-align: center;text-align
+        /*@include rbp(tablet) { */
+        //     text-align: center;
         // }
         
         h3 {
@@ -99,8 +99,8 @@
             justify-content: right;
             margin-bottom: 0;
             
-            // @include rbp(tablet) {
-            //     justify-content: center;justify-content
+            /*@include rbp(tablet) { */
+            //     justify-content: center;
             // }                
         }
     }        
@@ -141,7 +141,7 @@
 .toggle-nav:visited,
 .toggle-nav:active {
     text-decoration: none;
-    // color: $color__text-toggle-nav;color
+    /*color: $color__text-toggle-nav; */
     display: inline-block;
     margin-right: 5px;
     

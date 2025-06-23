@@ -19,7 +19,7 @@ $breakpoints: (
     // Get the breakpoint value.
     $breakpoint-value: map-get($breakpoints, $breakpoint);Getthebreakpointvalue.$breakpoint-value
 
-    // Write the media query.
+    /*Write the media query. */
     @media (min-width: $breakpoint-value) {
       @content;
     }
@@ -41,7 +41,7 @@ $breakpoints: (
     // Get the breakpoint value.
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-    // Write the media query.
+    /*Write the media query. */
     @media (max-width: $breakpoint-value) {
       @content;
     }

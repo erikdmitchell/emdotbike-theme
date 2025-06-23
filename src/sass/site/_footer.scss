@@ -6,7 +6,7 @@
     color: #fff;
     margin-top: 8rem;
     
-    // the below 3 styles create our diagonal top
+    /*the below 3 styles create our diagonal top */
     &:before,
     &:after {
         background: inherit;
@@ -39,7 +39,7 @@
             font-size: 16px;
             margin: 16px 0 10px 0;
             padding: 10px 0px;
-            // color: $color__text-footer;
+            /*color: $color__text-footer; */
             text-transform: uppercase;            
         }
         
@@ -64,14 +64,14 @@
         .connect-social {
             text-align: right;
             
-            // @include bp(mobile) {
+            /*@include bp(mobile) { */
             //     text-align: center;
             // }
             
             .wp-block-social-links {
                 justify-content: right;
                 
-                // @include bp(mobile) {
+                /*@include bp(mobile) { */
                 //     justify-content: center;
                 // }
             }
@@ -82,6 +82,6 @@
         padding: 10px 0;
         text-align: center;
         margin: 20px 0 0 0;
-        // color: $color__text-footer; 
+        /*color: $color__text-footer; */
     }   
 }

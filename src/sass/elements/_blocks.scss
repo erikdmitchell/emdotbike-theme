@@ -184,7 +184,7 @@
         margin-bottom: 3rem; 
         flex-direction: column;       
     
-        // @include bp(mobile) {
+        /*@include bp(mobile) { */
         //     max-width: 96%;
         // } 
         
@@ -231,7 +231,7 @@
         
         .author-image {
             text-align: center;          
-            // @include bp(tablet-s) {
+            /*@include bp(tablet-s) { */
             //     text-align: left;
             // }
             
@@ -244,7 +244,7 @@
         .author-name {
             margin: 1rem 0;
 
-            // @include bp(tablet-s) {
+            /*@include bp(tablet-s) { */
             //     margin-top: 0rem;
             // } 
         }

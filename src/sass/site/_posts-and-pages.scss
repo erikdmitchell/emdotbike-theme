@@ -20,7 +20,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        /*color: $color__link; */
     }	
 }
 
@@ -44,7 +44,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        /*color: $color__link; */
     }
 }
 
@@ -55,7 +55,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        /*color: $color__link; */
     }
 }
 
@@ -66,7 +66,7 @@
     a:hover,
     a:visited {
         text-decoration: none;
-        // color: $color__link;
+        /*color: $color__link; */
     }
 }
 
@@ -85,7 +85,7 @@
         margin-right: auto;
         margin-left: auto; 
     
-        // @include bp(mobile) {
+        /*@include bp(mobile) { */
         //     max-width: 96%;
         // } 
         
@@ -133,9 +133,9 @@
             margin-right: 0.25rem;
             margin-top: 0.5rem;
         	border: 1px solid;
-        	// border-color: $color__border-button;
+        	/*border-color: $color__border-button; */
         	border-radius: 3px;
-        	// background: $color__background-button;
+        	/*background: $color__background-button; */
         	color: rgba(0, 0, 0, 0.8);
         	font-size: 0.75rem;
         	line-height: 1;
@@ -228,7 +228,7 @@ $color__text-post-header: #fff;
             flex-wrap: nowrap;
             width: 100%;  
             
-            // @include rbp(tablet-s) {
+            /*@include rbp(tablet-s) { */
             //     flex-direction: column-reverse;
             // }                   
         }
@@ -259,14 +259,14 @@ $color__text-post-header: #fff;
             padding: 2rem 2rem 0 4rem;        
             height: 100%; 
             
-            // @include rbp(tablet-s) {
+            /*@include rbp(tablet-s) { */
             //     padding: 1rem 1.5rem;
             // }                        
             
             h1 {
                 margin: 0;
                 
-                // @include rbp(tablet-s) {
+                /*@include rbp(tablet-s) { */
                 //     font-size: 1.75rem;
                 // }                
             }  
@@ -281,7 +281,7 @@ $color__text-post-header: #fff;
             .title {
                 margin: 2rem 0 1rem 0;
                     
-                // @include rbp(tablet-s) {
+                /*@include rbp(tablet-s) { */
                 //     margin: 0 0 1rem 0;
                 // }                 
             }                    
@@ -291,7 +291,7 @@ $color__text-post-header: #fff;
             height: 400px;
             max-height: 400px;
             
-            // @include rbp(tablet-s) {
+            /*@include rbp(tablet-s) { */
             //     height: 200px;
             // }            
             

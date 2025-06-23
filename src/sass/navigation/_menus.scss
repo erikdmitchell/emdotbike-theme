@@ -8,7 +8,7 @@
     right: 0px;
     top: 135px;
     z-index: 999;
-    // background: $color__background-navigation-mobile;
+    /*background: $color__background-navigation-mobile; */
     padding: 20px;
     list-style-type: none; 
     width: 100%;
@@ -22,7 +22,7 @@
 
     a {
         text-decoration: none;
-        // color: $color__link-navigation-mobile;
+        /*color: $color__link-navigation-mobile; */
         
         &:hover,
         &:active {
@@ -86,7 +86,7 @@
     .connect-social {
         text-align: right;
  
-        // @include rbp(tablet) {
+        /*@include rbp(tablet) { */
         //     text-align: center;
         // }
         
@@ -99,7 +99,7 @@
             justify-content: right;
             margin-bottom: 0;
             
-            // @include rbp(tablet) {
+            /*@include rbp(tablet) { */
             //     justify-content: center;
             // }                
         }
@@ -141,7 +141,7 @@
 .toggle-nav:visited,
 .toggle-nav:active {
     text-decoration: none;
-    // color: $color__text-toggle-nav;
+    /*color: $color__text-toggle-nav; */
     display: inline-block;
     margin-right: 5px;
     

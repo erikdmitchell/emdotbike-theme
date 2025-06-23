@@ -1,0 +1,16 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-pattern": "^[a-z0-9-]+$",
+    "scss/at-import-no-partial-leading-underscore": true,
+    "scss/at-import-partial-extension-blacklist": ["scss"],
+    "scss/comment-no-loud": true,
+    "no-invalid-position-at-import-rule": null,
+    "scss/no-global-function-names": true,
+    "scss/at-use-no-unnamespaced": true,
+    "comment-no-empty": null,   
+    "no-invalid-double-slash-comments": null    
+  }
+}

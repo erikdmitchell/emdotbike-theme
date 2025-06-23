@@ -83,4 +83,3 @@ const PostList = ({ posts }) => {
 };
 
 export default PostList;
-console.log('posts list');

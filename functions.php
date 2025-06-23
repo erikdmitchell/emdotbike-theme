@@ -746,12 +746,7 @@ function emdb_has_header_block() {
     return false;
 }
 
-/**
- * Register blocks.
- *
- * @access public
- * @return void
- */
+/*
 function emdotbike_register_blocks() {
 	register_block_type(
 		get_template_directory() . '/blocks/magazine-grid',
@@ -773,3 +768,25 @@ add_action( 'enqueue_block_editor_assets', function () {
 		filemtime( get_theme_file_path( 'assets/css/editor.css' ) )
 	);
 } );
+ */
+
+ function emdotbike_enqueue_block_assets() {
+    $asset_file = include get_template_directory() . '/build/index.asset.php';
+    
+    // Enqueue block scripts
+    wp_enqueue_script(
+        'my-theme-blocks',
+        get_template_directory_uri() . '/build/index.js',
+        $asset_file['dependencies'],
+        $asset_file['version']
+    );
+    
+    // Enqueue theme styles
+    wp_enqueue_style(
+        'my-theme-styles',
+        get_template_directory_uri() . '/build/style.css',
+        array(),
+        $asset_file['version']
+    );
+}
+add_action('enqueue_block_assets', 'emdotbike_enqueue_block_assets');

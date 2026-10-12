@@ -22,19 +22,9 @@
                 display: block;
             }
         }
-        
-        .navbar-brand {
-            font-size: 18px;
-            line-height: 20px;
-            text-decoration: none;
-        }
     }
 }
 
 main.wp-block-group {
     padding-top: 161px;
-}
-
-.logged-in admin-bar main.wp-block-group {
-    padding-top: 135px;
 }

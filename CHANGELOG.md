@@ -1,5 +1,13 @@
 # EMdotBike Theme Changelog
 
+## [0.5.0](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.5...0.5.0) (2026-10-12)
+
+
+### Features
+
+* replace ACF blocks with core blocks ([231d21c](https://github.com/erikdmitchell/emdotbike-theme/commit/231d21c6202af1fa5a2fa36f2fd746a0cad86ebd))
+* use core blocks for post grids, archive title, author bio and post nav ([348a49c](https://github.com/erikdmitchell/emdotbike-theme/commit/348a49cec99b9ef10aacae5d86b2f30b3b585c9c))
+
 ## [0.4.5](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.4...0.4.5) (2026-10-12)
 
 

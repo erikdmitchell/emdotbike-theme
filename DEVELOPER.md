@@ -2,26 +2,31 @@
 
 This is a guide to the various scripts and functionality that can be used to compile and build out the theme.
 
-## Styles
+## Build
 
-Compile SASS `gulp sass`
+Styles and scripts are compiled with `@wordpress/scripts` (webpack, see `webpack.config.js`).
 
-Minify CSS `gulp mincss`
+Watch and compile (development) `npm start`
 
-## Scripts
+Compile (production, minified) `npm run build`
 
-Minify JS `gulp scripts`
+Entry points:
 
-JS linting with JSHint `gulp lintjs`
+* `src/index.js` imports `src/sass/style.scss` and the blocks in `src/blocks/`, and outputs `build/index.js` and `build/style-index.css`
+* `src/js/emdotbike.js` outputs `assets/js/emdotbike.js`
 
-Make JS pretty `gulp beautifyjs`
+## Linting
 
-## PHP
+JS (ESLint, WordPress config) `npm run lint:js:src`
 
-PHP Code Sniffer `gulp phpcs`
+SCSS (stylelint) `npm run lint:scss`, auto-fix `npm run lint:scss:fix`
 
-PHP Code Beautifier `gulp phpcbf`
+PHP Code Sniffer `composer phpcs`
+
+PHP Code Beautifier `composer phpcbf`
+
+PHPStan `composer phpstan`
 
 ## Other
 
-Create ZIP file for distribution `gulp zip`
+The gulp tasks, including `gulp zip` for distribution, are currently disabled in `gulpfile.js`.

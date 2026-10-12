@@ -5,7 +5,7 @@ parameters:
     excludePaths:
         - vendor/
     scanDirectories:
-        - ../advanced-custom-fields-pro
+        - ../../plugins/advanced-custom-fields-pro
     checkMissingIterableValueType: false
     treatPhpDocTypesAsCertain: false
     checkGenericClassInNonGenericObjectType: false 

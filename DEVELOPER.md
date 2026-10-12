@@ -17,7 +17,7 @@ Entry points:
 
 ## Linting
 
-JS (ESLint, WordPress config) `npm run lint:js:src`
+JS (ESLint, WordPress config) `npm run lint:js`
 
 SCSS (stylelint) `npm run lint:scss`, auto-fix `npm run lint:scss:fix`
 

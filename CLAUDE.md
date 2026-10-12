@@ -12,11 +12,11 @@ The WordPress block theme for ErikMitchell.bike (text domain `emdotbike`, functi
 ## Commands
 
 ```sh
-npm start              # wp-scripts watch build (unminified; this is what's committed in build/)
-npm run build          # wp-scripts production build (minified, no source maps)
+npm start              # wp-scripts watch build (unminified, with source maps)
+npm run build          # wp-scripts production build (minified); commit this output, not npm start's
 npm run zip            # emdotbike.zip from the package.json "files" list (run build first)
-npm run lint:js:src    # eslint --fix on src/
-npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix)
+npm run lint:js        # eslint on src/ (add -- --fix to auto-fix)
+npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); has ~160 known findings
 
 composer phpcs         # WPCS via phpcs.ruleset.xml (phpcbf to auto-fix)
 composer phpstan       # level 6, scans ../../plugins/advanced-custom-fields-pro
@@ -44,8 +44,8 @@ The theme uses three kinds of blocks and patterns, each registered differently:
 
 1. **`emdotbike/magazine-grid`**: a native dynamic block.
    - Editor code is in `src/blocks/magazine-grid/`, and metadata is in `blocks/magazine-grid/block.json`.
-   - `emdb_register_blocks()` in `functions.php` renders it through `class-render-magazine-grid.php` (namespace `Emdotbike\Blocks\MagazineGrid`). That `render_callback` takes precedence over the `render.php` named in block.json.
-   - `emdb_enqueue_block_assets()` loads `build/index.js` and `build/style-index.css` on `enqueue_block_assets`, so they load in both the editor and the front end.
+   - `emdb_register_blocks()` registers it from block.json, and block.json's `render.php` echoes the output of `class-render-magazine-grid.php` (namespace `Emdotbike\Blocks\MagazineGrid`).
+   - `build/style-index.css` loads on `enqueue_block_assets` (front end and editor). `build/index.js`, the editor bundle, loads only on `enqueue_block_editor_assets`. Don't move it back, because it pulls in React and the block-editor packages.
 2. **`acf/*` blocks** (`archive-title`, `author-bio`, `page-nav`, `post-nav`, `posts-grid`, `tagline`).
    - `emdb_init_block_types()` registers them on `acf/init`, with render templates in `templates/blocks/<name>.php`.
    - Their field groups live in the ACF database (the field keys appear in the block markup in `templates/*.html`), not in this repo.

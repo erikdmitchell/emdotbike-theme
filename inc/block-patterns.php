@@ -44,6 +44,8 @@ function emdb_register_block_patterns() {
     $block_patterns = array(
         'header-default',
         'front-page-tagline',
+        'posts-grid',
+        'posts-grid-search',
     );
 
     /**
@@ -65,3 +67,40 @@ function emdb_register_block_patterns() {
     }
 }
 add_action( 'init', 'emdb_register_block_patterns', 9 );
+
+/**
+ * Block markup for the posts grid patterns.
+ *
+ * A two-column Query Loop that inherits the page's query (featured image,
+ * title, excerpt), with pagination and a "no results" message.
+ *
+ * @param string[] $no_results Paragraphs shown when the query is empty.
+ * @return string
+ */
+function emdb_posts_grid_markup( $no_results ) {
+    $no_results_markup = '';
+
+    foreach ( $no_results as $paragraph ) {
+        $no_results_markup .= '<!-- wp:paragraph --><p>' . esc_html( $paragraph ) . '</p><!-- /wp:paragraph -->';
+    }
+
+    return '<!-- wp:query {"queryId":10,"query":{"inherit":true},"className":"emdb-block-posts-grid"} -->
+<div class="wp-block-query emdb-block-posts-grid">
+    <!-- wp:post-template {"style":{"spacing":{"blockGap":"1.75rem"}},"layout":{"type":"grid","columnCount":2}} -->
+        <!-- wp:post-featured-image {"isLink":true} /-->
+        <!-- wp:post-title {"level":2,"isLink":true,"className":"entry-title"} /-->
+        <!-- wp:post-excerpt {"moreText":"' . esc_attr__( 'read more...', 'emdotbike' ) . '","showMoreOnNewLine":false,"excerptLength":55} /-->
+    <!-- /wp:post-template -->
+
+    <!-- wp:query-pagination {"paginationArrow":"none","layout":{"type":"flex","justifyContent":"center"}} -->
+        <!-- wp:query-pagination-previous {"label":"' . esc_attr__( '« Previous', 'emdotbike' ) . '"} /-->
+        <!-- wp:query-pagination-numbers {"midSize":1} /-->
+        <!-- wp:query-pagination-next {"label":"' . esc_attr__( 'Next »', 'emdotbike' ) . '"} /-->
+    <!-- /wp:query-pagination -->
+
+    <!-- wp:query-no-results -->
+        ' . $no_results_markup . '
+    <!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->';
+}

@@ -88,49 +88,6 @@ function emdotbike_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
 
-
-/**
- * Display an optional post thumbnail.
- *
- * @access public
- * @param string $size (default: 'full').
- * @return void
- */
-function emdotbike_theme_post_thumbnail( $size = 'full' ) {
-    global $post;
-
-    $html = null;
-
-    if ( post_password_required() ) {
-        return;
-    }
-
-    if ( has_post_thumbnail( $post ) ) {
-        $thumb_id      = get_post_thumbnail_id( $post->ID );
-        $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
-        $thumb_meta    = wp_get_attachment_metadata( $thumb_id );
-        $thumb_meta    = is_array( $thumb_meta ) ? $thumb_meta : array();
-        $thumb_base    = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
-        $thumb         = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
-    } else {
-        $thumb = '<img src="' . get_template_directory_uri() . '/assets/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';
-    }
-
-    if ( is_singular() ) :
-        $html     .= '<div class="post-thumbnail">';
-            $html .= $thumb;
-        $html     .= '</div>';
-    else :
-        $html     .= '<a class="post-thumbnail" href="' . get_permalink( $post->ID ) . '">';
-            $html .= $thumb;
-        $html     .= '</a>';
-    endif;
-
-    $image = apply_filters( 'emdotbike_theme_post_thumbnail', $html, $size );
-
-    echo wp_kses_post( $image );
-}
-
 /**
  * Custom post thumbnail.
  *
@@ -188,60 +145,6 @@ function emdotbike_theme_get_post_thumbnail_custom( $post = '', $size = 'full', 
     $image = apply_filters( 'emdotbike_theme_post_thumbnail_custom', $html, $size, $image );
 
     return $image;
-}
-
-/**
- * Display navigation to next/previous set of posts when applicable.
- *
- * @since emdotbike 1.0
- * @based on twentyfourteen
- *
- * @return void
- */
-function emdotbike_theme_paging_nav() {
-    // Don't print empty markup if there's only one page.
-    if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-        return;
-    }
-
-    $paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-    $pagenum_link = html_entity_decode( get_pagenum_link() );
-    $query_args   = array();
-    $url_parts    = explode( '?', $pagenum_link );
-
-    if ( isset( $url_parts[1] ) ) {
-        wp_parse_str( $url_parts[1], $query_args );
-    }
-
-    $pagenum_link = remove_query_arg( array_keys( $query_args ), esc_url( $pagenum_link ) );
-    $pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-
-    $format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
-    $format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
-
-    // Set up paginated links.
-    $links = paginate_links(
-        array(
-            'base'      => $pagenum_link,
-            'format'    => $format,
-            'total'     => $GLOBALS['wp_query']->max_num_pages,
-            'current'   => $paged,
-            'mid_size'  => 1,
-            'add_args'  => array_map( 'urlencode', $query_args ),
-            'prev_text' => __( '&laquo; Previous', 'emdotbike' ),
-            'next_text' => __( 'Next &raquo;', 'emdotbike' ),
-        )
-    );
-
-    if ( $links ) :
-        ?>
-        <nav class="navigation paging-navigation" role="navigation">
-            <div class="pagination loop-pagination">
-                <?php echo wp_kses_post( $links ); ?>
-            </div><!-- .pagination -->
-        </nav><!-- .navigation -->
-        <?php
-    endif;
 }
 
 /**
@@ -348,157 +251,6 @@ function emdotbike_login_headerurl() {
 }
 add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
 
-/**
- * Parse grid order string into array.
- *
- * @access public
- * @param string $order Order string, e.g. 'date/desc' (default: '').
- * @return array
- */
-function emdb_parse_grid_order( $order = '' ) {
-    if ( empty( $order ) ) {
-        $order_arr = array( 'date', 'desc' );
-    } else {
-        $order_arr = explode( '/', $order );
-    }
-
-    return $order_arr;
-}
-
-/**
- * Open a columns wrapper at the start of each grid row.
- *
- * @access public
- * @param int $key (default: 0).
- * @param int $columns (default: 0).
- * @return void
- */
-function emdb_begin_column( $key = 0, $columns = 0 ) {
-    if ( ( 0 === $key % $columns ) || 0 === $key ) {
-        echo '<div class="wp-block-columns columns-' . $columns . '">'; // @codingStandardsIgnoreLine WordPress.Security.EscapeOutput.OutputNotEscaped.
-    }
-}
-
-/**
- * Close the columns wrapper at the end of each grid row.
- *
- * @access public
- * @param int $key (default: 0).
- * @param int $columns (default: 0).
- * @param int $max (default: 0).
- * @return void
- */
-function emdb_end_column( $key = 0, $columns = 0, $max = 0 ) {
-    if ( ( 1 === $key % $columns ) || ( $key + 1 === $max ) ) {
-        echo '</div><!-- .wp-block-columns -->'; // @codingStandardsIgnoreLine WordPress.Security.EscapeOutput.OutputNotEscaped.
-    }
-}
-
-/**
- * ACF Functions.
- */
-
-/**
- * Register custom ACF field: post type selector.
- *
- * @access public
- * @return void
- */
-function emdb_acf_register_fields() {
-    include_once get_template_directory() . '/inc/acf-post-type-selector/post-type-selector-v5.php';
-}
-add_action( 'acf/include_fields', 'emdb_acf_register_fields' );
-
-/**
- * Initialize custom ACF blocks.
- *
- * @access public
- * @return void
- */
-function emdb_init_block_types() {
-    if ( ! function_exists( 'acf_register_block_type' ) ) {
-        return;
-    }
-
-    // register archive title block.
-    acf_register_block_type(
-        array(
-            'name'            => 'archive-title',
-            'title'           => __( 'Archive Title', 'emdotbike' ),
-            'render_template' => 'templates/blocks/archive-title.php',
-            'category'        => 'theme',
-            'icon'            => 'editor-textcolor',
-            'keywords'        => array( 'archive', 'title' ),
-        )
-    );
-
-    // register author bio block.
-    acf_register_block_type(
-        array(
-            'name'            => 'author-bio',
-            'title'           => __( 'Author Bio', 'emdotbike' ),
-            'description'     => __( 'An author bio block.', 'emdotbike' ),
-            'render_template' => 'templates/blocks/author-bio.php',
-            'category'        => 'theme',
-            'icon'            => 'id',
-            'keywords'        => array( 'author', 'bio' ),
-        )
-    );
-
-    // register page nav block.
-    acf_register_block_type(
-        array(
-            'name'            => 'page-nav',
-            'title'           => __( 'Page Nav', 'emdotbike' ),
-            'description'     => __( 'A page navigation block.', 'emdotbike' ),
-            'render_template' => 'templates/blocks/page-nav.php',
-            'category'        => 'formatting',
-            'icon'            => 'ellipsis',
-            'keywords'        => array( 'navigation', 'page' ),
-        )
-    );
-
-    // register posts grid block.
-    acf_register_block_type(
-        array(
-            'name'            => 'posts-grid',
-            'title'           => __( 'Posts Grid', 'emdotbike' ),
-            'description'     => __( 'A posts grid block.', 'emdotbike' ),
-            'render_template' => 'templates/blocks/posts-grid.php',
-            'category'        => 'query',
-            'icon'            => 'grid-view',
-            'keywords'        => array( 'query', 'grid', 'posts' ),
-        )
-    );
-
-    // register posts nav block.
-    acf_register_block_type(
-        array(
-            'name'            => 'post-nav',
-            'title'           => __( 'Post Nav', 'emdotbike' ),
-            'description'     => __( 'A post navigation block.', 'emdotbike' ),
-            'render_template' => 'templates/blocks/post-nav.php',
-            'category'        => 'formatting',
-            'icon'            => 'ellipsis',
-            'keywords'        => array( 'navigation', 'post' ),
-        )
-    );
-
-    // register tagline block.
-    acf_register_block_type(
-        array(
-            'name'            => 'tagline',
-            'title'           => __( 'Tagline', 'emdotbike' ),
-            'description'     => __( 'A tagline block.', 'emdotbike' ),
-            'render_template' => 'templates/blocks/tagline.php',
-            'category'        => 'formatting',
-            'icon'            => 'format-status',
-            'keywords'        => array( 'tagline', 'quote' ),
-        )
-    );
-}
-add_action( 'acf/init', 'emdb_init_block_types' );
-
 require get_template_directory() . '/inc/block-patterns.php';
 
 /**
@@ -530,6 +282,47 @@ function emdb_enqueue_block_assets() {
     );
 }
 add_action( 'enqueue_block_assets', 'emdb_enqueue_block_assets' );
+
+/**
+ * Archive title prefix for category and tag pages.
+ *
+ * Shown by the core/query-title block in templates/archive.html, e.g.
+ * "Articles related to: Racing".
+ *
+ * @access public
+ * @param string $prefix Default prefix ("Category:", "Tag:", ...).
+ * @return string
+ */
+function emdb_archive_title_prefix( $prefix ) {
+    if ( is_category() || is_tag() ) {
+        return __( 'Articles related to:', 'emdotbike' );
+    }
+
+    return $prefix;
+}
+add_filter( 'get_the_archive_title_prefix', 'emdb_archive_title_prefix' );
+
+/**
+ * Search results: posts only, newest first.
+ *
+ * The search template's Query Loop inherits the main query; keep it to
+ * blog posts sorted by date, as the old posts grid did, instead of
+ * WordPress's default of all post types sorted by relevance.
+ *
+ * @access public
+ * @param WP_Query $query The query being set up.
+ * @return void
+ */
+function emdb_search_posts_only( $query ) {
+    if ( is_admin() || ! $query->is_main_query() || ! $query->is_search() ) {
+        return;
+    }
+
+    $query->set( 'post_type', 'post' );
+    $query->set( 'orderby', 'date' );
+    $query->set( 'order', 'DESC' );
+}
+add_action( 'pre_get_posts', 'emdb_search_posts_only' );
 
 /**
  * Hide dwb/post-header blocks left in post content.

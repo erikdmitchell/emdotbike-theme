@@ -36,7 +36,20 @@
 	</div>
     <!-- /wp:group -->
 
-    <!-- wp:acf/post-nav {"id":"block_62b463ad3f6cf","name":"acf/post-nav","data":{"field_62b4637d017a2":""},"align":"","mode":"preview"} /-->
+    <!-- wp:group {"className":"emdb-block-post-nav emdb-layout-wrap"} -->
+    <div class="wp-block-group emdb-block-post-nav emdb-layout-wrap">
+        <!-- wp:group {"tagName":"nav","className":"navigation post-navigation"} -->
+        <nav class="wp-block-group navigation post-navigation">
+            <!-- wp:group {"className":"nav-links"} -->
+            <div class="wp-block-group nav-links">
+                <!-- wp:post-navigation-link {"type":"previous","label":"Previous Post:","showTitle":true,"className":"prev-post"} /-->
+                <!-- wp:post-navigation-link {"label":"Next Post:","showTitle":true,"className":"next-post"} /-->
+            </div>
+            <!-- /wp:group -->
+        </nav>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
 
     <!-- wp:comments {"className":"emdb-layout-wrap"} -->
     <div class="wp-block-comments emdb-layout-wrap">

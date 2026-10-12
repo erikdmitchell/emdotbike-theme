@@ -114,8 +114,28 @@
 .emdb-block-posts-grid {
     margin-bottom: 3rem;
 
+    /* Undo the page-title container sizing from _layout.scss. */
     .entry-title {
+        width: auto;
+        max-width: none;
+        padding: 0;
         margin: 1.33rem 0;
+    }
+
+    .wp-block-post-featured-image,
+    .wp-block-post-excerpt {
+        margin-block: 0;
+    }
+
+    .wp-block-query-pagination {
+        gap: 10px;
+        margin-top: 3rem;
+    }
+
+    @media (width < 782px) {
+        .wp-block-post-template.is-layout-grid {
+            grid-template-columns: 1fr;
+        }
     }
     
     .wp-block-columns {
@@ -186,6 +206,11 @@
  * ACF Author Bio Block
  */
 .emdb-block-author-bio {
+    /* .wp-block-group outranks core's flow-layout margin reset; .author-header's margin is dropped as the group's last child. */
+    &.wp-block-group {
+        margin-bottom: 3rem;
+    }
+
     .author-header {
         width: 100%;
         padding-right: 1.5rem;
@@ -225,6 +250,11 @@
             flex-basis: 0;
             flex-grow: 1;
             min-width: 0;
+            margin-block-start: 0;
+
+            .author-bio {
+                margin-block-start: 0;
+            }
             word-break: break-word;
             overflow-wrap: break-word;
             

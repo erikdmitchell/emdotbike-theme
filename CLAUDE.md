@@ -4,10 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-The WordPress block theme for ErikMitchell.bike (text domain `emdotbike`, function prefixes `emdotbike_` and `emdb_`). It runs inside a Local by Flywheel site (`~/LocalSites/bike`), and this directory is the theme the local site loads. The theme depends on two plugins in `../../plugins/`:
-
-- `advanced-custom-fields-pro` registers the `acf/*` blocks.
-- `digiwatt-blocks` provides the `dwb/*` blocks, such as `dwb/post-header`, and has its own CLAUDE.md.
+The WordPress block theme for ErikMitchell.bike (text domain `emdotbike`, function prefixes `emdotbike_` and `emdb_`). It runs inside a Local by Flywheel site (`~/LocalSites/bike`), and this directory is the theme the local site loads. The templates use only core blocks and the theme's own blocks and patterns; no plugin is required. The `digiwatt-blocks` plugin in `../../plugins/` provides `dwb/*` blocks (such as `dwb/about-block`) that some post and page content uses, and has its own CLAUDE.md. Old posts may still contain `dwb/post-header`; the theme hides it on single posts because `single.html` renders the header.
 
 ## Commands
 
@@ -18,10 +15,10 @@ npm run lint:js        # eslint on src/ (add -- --fix to auto-fix)
 npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); has ~160 known findings
 
 composer phpcs         # WPCS 3 + PHPCompatibilityWP via phpcs.ruleset.xml (phpcbf to auto-fix); runs clean
-composer phpstan       # phpstan 2, level 6, ACF via php-stubs/acf-pro-stubs; ~33 known errors
+composer phpstan       # phpstan 2, level 6; runs clean
 ```
 
-There are no tests. Both PHP linters skip `vendor/`, `build/`, and the vendored `inc/acf-post-type-selector/`. phpstan and stylelint have existing findings, so compare their counts before and after a change rather than expecting a clean run.
+There are no tests. Both PHP linters skip `vendor/` and `build/` and should stay clean. stylelint has existing findings, so compare its count before and after a change rather than expecting a clean run.
 
 ## Build layout
 
@@ -51,21 +48,18 @@ The theme uses three kinds of blocks and patterns, each registered differently:
    - Editor code is in `src/blocks/magazine-grid/`, and metadata is in `blocks/magazine-grid/block.json`.
    - `emdb_register_blocks()` registers it from block.json, and block.json's `render.php` echoes the output of `class-renderer.php` (namespace `Emdotbike\Blocks\MagazineGrid`).
    - `build/style-index.css` loads on `enqueue_block_assets` (front end and editor). `build/index.js`, the editor bundle, loads only on `enqueue_block_editor_assets`. Don't move it back, because it pulls in React and the block-editor packages.
-2. **`acf/*` blocks** (`archive-title`, `author-bio`, `page-nav`, `post-nav`, `posts-grid`, `tagline`).
-   - `emdb_init_block_types()` registers them on `acf/init`, with render templates in `templates/blocks/<name>.php`.
-   - Their field groups live in the ACF database (the field keys appear in the block markup in `templates/*.html`), not in this repo.
-   - `posts-grid.php` depends on the grid helpers `emdb_parse_grid_order()`, `emdb_begin_column()`, and `emdb_end_column()`.
-   - `inc/acf-post-type-selector/` is a vendored ACF field type used by these blocks' fields.
+2. **Core blocks in the templates.** Archive, author, home and search pages list posts with a Query Loop that inherits the page's query, from the `emdb/posts-grid` pattern (`emdb/posts-grid-search` on search, which only changes the no-results text). Both are built by `emdb_posts_grid_markup()` in `inc/block-patterns.php`. Related filters in `functions.php`: `emdb_archive_title_prefix()` ("Articles related to:" on category/tag titles) and `emdb_search_posts_only()` (search lists posts only, newest first).
 3. **`emdb/*` block patterns**.
-   - `inc/block-patterns.php` registers each pattern from `inc/patterns/<name>.php`, which returns a pattern array. The list is filterable via `emdb_block_patterns` and `emdb_block_pattern_categories`.
+   - `inc/block-patterns.php` registers each pattern from `inc/patterns/<name>.php`, which returns a pattern array. Patterns are built once on `init`, so they can't depend on the request (`is_search()` etc.); make a variant instead. The list is filterable via `emdb_block_patterns` and `emdb_block_pattern_categories`.
    - `parts/header.html` is just the `emdb/header-default` pattern.
+   - When core blocks replace hand-built markup, WordPress's flow-layout rules (`:where(.is-layout-flow) > *` block gap, first/last-child margin resets) apply to every group's children and load after the theme CSS. Expect to reset margins, and use a more specific selector (e.g. `.x.wp-block-group`) where a theme margin has to win.
 
 Everything else lives in `functions.php`:
 
 - theme supports (no menus, sidebars, custom header or custom background: block themes don't render them)
 - custom image sizes (`home-grid*`, `posts-grid`, `single`), which templates and blocks reference by name
 - login page customization and the back-to-top button
-- the helpers the ACF and magazine-grid render templates call (`emdotbike_theme_post_thumbnail`, `emdotbike_theme_paging_nav`, `emdotbike_post_excerpt`, …)
+- the helpers the magazine-grid renderer calls (`emdotbike_theme_post_thumbnail_custom()`, `emdotbike_post_excerpt()`)
 
 ## History worth knowing
 

@@ -4,7 +4,7 @@ parameters:
         - .
     excludePaths:
         - vendor/
-        - node_modules/
+        - node_modules/ (?)
         - build/
         - inc/acf-post-type-selector/
     scanFiles:

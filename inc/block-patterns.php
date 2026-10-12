@@ -3,6 +3,7 @@
  * EMdotBike: Block Patterns
  *
  * @since 0.2.0
+ * @package EMdotBike
  */
 
 /**

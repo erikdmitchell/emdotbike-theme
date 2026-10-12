@@ -16,7 +16,7 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWPQXY8T2F"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWPQXY8T2F"></script><?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- legacy template; inline Google tag snippet. ?>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -32,7 +32,7 @@
 
     <header id="masthead" class="site-header clearfix">
         <div class="site-branding">
-            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/em-bike-logo.png" width="100" alt="logo" /></a>
+            <a href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/em-bike-logo.png" width="100" alt="logo" /></a>
         </div><!-- .site-branding -->
 
         <nav id="site-navigation" class="main-navigation">

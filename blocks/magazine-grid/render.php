@@ -5,6 +5,8 @@
  * @package EMdotBike
  */
 
-require_once __DIR__ . '/class-render-magazine-grid.php';
+defined( 'ABSPATH' ) || exit;
+
+require_once __DIR__ . '/class-renderer.php';
 
 echo ( new \Emdotbike\Blocks\MagazineGrid\Renderer( $attributes ) )->render(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block markup from the renderer.

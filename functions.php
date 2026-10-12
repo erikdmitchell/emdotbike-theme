@@ -532,6 +532,47 @@ function emdb_enqueue_block_assets() {
 add_action( 'enqueue_block_assets', 'emdb_enqueue_block_assets' );
 
 /**
+ * Archive title prefix for category and tag pages.
+ *
+ * Shown by the core/query-title block in templates/archive.html, e.g.
+ * "Articles related to: Racing".
+ *
+ * @access public
+ * @param string $prefix Default prefix ("Category:", "Tag:", ...).
+ * @return string
+ */
+function emdb_archive_title_prefix( $prefix ) {
+    if ( is_category() || is_tag() ) {
+        return __( 'Articles related to:', 'emdotbike' );
+    }
+
+    return $prefix;
+}
+add_filter( 'get_the_archive_title_prefix', 'emdb_archive_title_prefix' );
+
+/**
+ * Search results: posts only, newest first.
+ *
+ * The search template's Query Loop inherits the main query; keep it to
+ * blog posts sorted by date, as the old posts grid did, instead of
+ * WordPress's default of all post types sorted by relevance.
+ *
+ * @access public
+ * @param WP_Query $query The query being set up.
+ * @return void
+ */
+function emdb_search_posts_only( $query ) {
+    if ( is_admin() || ! $query->is_main_query() || ! $query->is_search() ) {
+        return;
+    }
+
+    $query->set( 'post_type', 'post' );
+    $query->set( 'orderby', 'date' );
+    $query->set( 'order', 'DESC' );
+}
+add_action( 'pre_get_posts', 'emdb_search_posts_only' );
+
+/**
  * Hide dwb/post-header blocks left in post content.
  *
  * Single posts get their header from templates/single.html, so a

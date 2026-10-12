@@ -1,5 +1,13 @@
 # EMdotBike Theme Changelog
 
+## [0.4.2](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.1...0.4.2) (2026-10-12)
+
+
+### Bug Fixes
+
+* restore front page tagline and magazine grid ([aa5ceac](https://github.com/erikdmitchell/emdotbike-theme/commit/aa5ceac5b2576163b859d530267880481effc7ae))
+* restore front page tagline and magazine grid ([fc4f091](https://github.com/erikdmitchell/emdotbike-theme/commit/fc4f091e791d6f3dbe01d1a9169807c54eba8be0))
+
 ## [0.4.1](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.0...0.4.1) (2026-10-12)
 
 

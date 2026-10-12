@@ -17,15 +17,11 @@
   background: $color__background-back-to-top url("../../assets/images/cd-top-arrow.svg") no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s 0s, visibility 0s 0.3s;
-  transition: opacity 0.3s 0s, visibility 0s 0.3s;
   transition: opacity 0.3s 0s, visibility 0s 0.3s; }
 
 .emdotbike-back-to-top.btt-is-visible,
 .emdotbike-back-to-top.btt-fade-out,
 .no-touch .emdotbike-back-to-top:hover {
-  transition: opacity 0.3s 0s, visibility 0s 0s;
-  transition: opacity 0.3s 0s, visibility 0s 0s;
   transition: opacity 0.3s 0s, visibility 0s 0s; }
 
 .emdotbike-back-to-top.btt-is-visible {

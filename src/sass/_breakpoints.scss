@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /* _breakpoints.scss */
 
 $breakpoints: (
@@ -16,9 +18,9 @@ $breakpoints: (
 
 @mixin bp($breakpoint) {
   /* If the breakpoint exists in the map. */
-  @if map-has-key($breakpoints, $breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
     /* Get the breakpoint value. */
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
 
     /* Write the media query. */
     @media (min-width: $breakpoint-value) {
@@ -35,9 +37,9 @@ $breakpoints: (
 /* reverse Breakpoints with max width */
 @mixin rbp($breakpoint) {
   /* If the breakpoint exists in the map. */
-  @if map-has-key($breakpoints, $breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
     /* Get the breakpoint value. */
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
 
     /* Write the media query. */
     @media (max-width: $breakpoint-value) {

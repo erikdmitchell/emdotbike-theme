@@ -22,7 +22,8 @@
       "s",
       "ex",
       "pt",
-      "cm"
+      "cm",
+      "fr"
     ],
     "shorthand-property-no-redundant-values": true,
     "declaration-block-no-duplicate-properties": [
@@ -40,8 +41,11 @@
     "selector-pseudo-element-no-unknown": true,
     "selector-type-case": "lower",
     "no-invalid-double-slash-comments": null,
-    "scss/at-use-no-unnamespaced": true,
-    "scss/dollar-variable-pattern": "^[a-z0-9-]+$",
-    "scss/comment-no-loud": true
+    "scss/at-use-no-unnamespaced": null,
+    "scss/dollar-variable-pattern": "^[a-z0-9]+(?:[-_]{1,2}[a-z0-9]+)*$",
+    "scss/comment-no-loud": null,
+    "custom-property-pattern": "^[a-z0-9]+(?:-{1,2}[a-z0-9]+)*$",
+    "selector-class-pattern": "^[a-z0-9]+(?:(?:-{1,2}|_{2})[a-z0-9]+)*$",
+    "no-descending-specificity": null
   }
 }

@@ -31,6 +31,17 @@
             grid-column: 2;
         }
 
+        /* Stack the posts on small screens instead of squeezing two columns. */
+        @media (width < 782px) {
+            grid-template-rows: none;
+            grid-template-columns: 1fr;
+
+            .mag-grid-post {
+                grid-row: auto;
+                grid-column: auto;
+            }
+        }
+
         .mag-post-title {
             h2 {
                 margin: 1.25rem 0;

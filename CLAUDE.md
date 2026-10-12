@@ -43,7 +43,7 @@ Releases are automated by release-please (`.github/workflows/release.yml`), the 
 
 ## Architecture
 
-The front end renders through the block templates (`templates/*.html`, `parts/*.html`) styled by `theme.json`. The classic PHP templates (`front-page.php`, `home.php`, `index.php`, `template-parts/`) are legacy.
+The front end renders only through the block templates (`templates/*.html`, `parts/*.html`) styled by `theme.json`. There are no classic PHP templates: WordPress 5.9+ only needs `templates/index.html`. Don't add PHP templates (`front-page.php`, `home.php`, …) — a PHP template at the same hierarchy level can take over from the block template, which is how 0.4.0 broke the production home page.
 
 The theme uses three kinds of blocks and patterns, each registered differently:
 
@@ -62,13 +62,10 @@ The theme uses three kinds of blocks and patterns, each registered differently:
 
 Everything else lives in `functions.php`:
 
-- theme supports and the `primary` nav menu
-- custom image sizes (`home-grid*`, `posts-grid`, `single`, `navbar-logo`), which templates and blocks reference by name
-- two sidebars (`emdb-footer-sidebar`, `emdb-nav-sidebar`)
-- login page customization
-- template-tag helpers (`emdotbike_theme_post_thumbnail`, `emdotbike_theme_paging_nav`, `emdotbike_post_excerpt`, …)
-
-`emdb_has_header_block()` checks for `dwb/post-header`. The single-post header falls back to the theme's own version only when that block is absent.
+- theme supports (no menus, sidebars, custom header or custom background: block themes don't render them)
+- custom image sizes (`home-grid*`, `posts-grid`, `single`), which templates and blocks reference by name
+- login page customization and the back-to-top button
+- the helpers the ACF and magazine-grid render templates call (`emdotbike_theme_post_thumbnail`, `emdotbike_theme_paging_nav`, `emdotbike_post_excerpt`, …)
 
 ## History worth knowing
 

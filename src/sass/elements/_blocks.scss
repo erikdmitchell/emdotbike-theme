@@ -113,6 +113,10 @@
  */
 .emdb-block-posts-grid {
     margin-bottom: 3rem;
+
+    .entry-title {
+        margin: 1.33rem 0;
+    }
     
     .wp-block-columns {
         &.columns-2 {

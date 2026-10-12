@@ -17,6 +17,7 @@
     
     img {
         width: 150px;
+        margin: 0 auto;
     }
     
     h1 {
@@ -27,6 +28,11 @@
         letter-spacing: 0;
         text-transform: uppercase;       
     }
+}
+
+/* The tagline sits above <main> and its padding clears the fixed header. */
+main.wp-block-group.front-page-main {
+    padding-top: 0;
 }
 
 /**

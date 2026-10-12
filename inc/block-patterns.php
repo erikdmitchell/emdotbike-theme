@@ -42,6 +42,7 @@ function emdb_register_block_patterns() {
 
     $block_patterns = array(
         'header-default',
+        'front-page-tagline',
     );
 
     /**

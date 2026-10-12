@@ -34,5 +34,8 @@
         "phpcs": "phpcs -s -p --standard=./phpcs.ruleset.xml",
         "phpcbf": "phpcbf -p --standard=./phpcs.ruleset.xml",
         "phpstan": "vendor/bin/phpstan analyse --memory-limit 1G"
-    }    
+    },
+    "require": {
+        "yahnis-elsts/plugin-update-checker": "^5.6"
+    }
 }

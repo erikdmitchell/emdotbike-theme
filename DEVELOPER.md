@@ -27,6 +27,8 @@ PHP Code Beautifier `composer phpcbf`
 
 PHPStan `composer phpstan`
 
-## Distribution
+## Releases
 
-Create `emdotbike.zip` (contents set by `files` in `package.json`) `npm run build && npm run zip`
+Releases are automated with release-please (`.github/workflows/release.yml`). Use [Conventional Commits](https://www.conventionalcommits.org/) for PR titles (`feat:`, `fix:`, `chore:`, ...); PRs are squash-merged, so the title becomes the commit on `main`. Each `feat`/`fix` merged to `main` cuts a release, tags it (e.g. `0.4.0`), and attaches `emdotbike.zip`. Sites running the theme pick up the update through plugin-update-checker.
+
+Files left out of the zip are listed as `export-ignore` in `.gitattributes`.

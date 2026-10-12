@@ -14,7 +14,6 @@ The WordPress block theme for ErikMitchell.bike (text domain `emdotbike`, functi
 ```sh
 npm start              # wp-scripts watch build (unminified, with source maps)
 npm run build          # wp-scripts production build (minified); commit this output, not npm start's
-npm run zip            # emdotbike.zip from the package.json "files" list (run build first)
 npm run lint:js        # eslint on src/ (add -- --fix to auto-fix)
 npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); has ~160 known findings
 
@@ -30,11 +29,17 @@ There are no tests. Both PHP linters skip `vendor/`, `build/`, and the vendored 
   - `src/index.js` imports `src/sass/style.scss` and `src/blocks/*`, and outputs `build/index.js` and `build/style-index.css`.
   - `src/js/emdotbike.js` outputs `assets/js/emdotbike.js` through a filename override.
 - Compiled output in `build/` and `assets/js/` is committed. Rebuild after editing `src/`, and commit the output with the change.
-- The root `style.css` is only the theme header (Theme Name, Version, …); the actual front-end CSS is `build/style-index.css`. Keep the version in sync across `style.css`, `package.json`, `README.md`, and `CHANGELOG.md`. At runtime, `EMDOTBIKE_VERSION` is read from the theme header and used to cache-bust enqueued assets.
+- The root `style.css` is only the theme header (Theme Name, Version, …); the actual front-end CSS is `build/style-index.css`. Don't bump the version by hand (see Releases). At runtime, `EMDOTBIKE_VERSION` is read from the theme header and used to cache-bust enqueued assets.
 - There is no separate editor stylesheet. `build/style-index.css` is enqueued on `enqueue_block_assets`, so it styles both the front end and the editor. `assets/css/login.css` is hand-written (no source in `src/`).
-- When adding a top-level file or folder the theme needs at runtime, add it to `files` in `package.json` too, or it won't be in the zip.
+- Anything tracked in git ships in the release zip unless it's marked `export-ignore` in `.gitattributes`. Add dev-only top-level files there.
 - SCSS uses `@use` (not `@import`). Shared partials go through `src/sass/global.scss`.
 - PHP style: 4-space indentation, no tabs (this overrides the WPCS default), PHP 7.1+ compatibility.
+
+## Releases
+
+Commits and PR titles use [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, ...). PRs are squash-merged, so the PR title becomes the commit on `main`; `.github/workflows/pr-title.yml` checks it.
+
+Releases are automated by release-please (`.github/workflows/release.yml`), the same setup as digiwatt-blocks. Each push to `main` opens a release PR, the workflow merges it straight away, then tags the release (no `v` prefix, e.g. `0.4.0`) and attaches `emdotbike.zip`. Only `feat`, `fix`, and breaking changes trigger a release; while below 1.0, `feat` and breaking changes bump the minor version. Don't bump versions or edit `CHANGELOG.md` by hand: release-please updates `package.json`/`package-lock.json` and the lines marked `x-release-please-version` in `style.css` and `README.md`. The zip is `git archive` of the tag (top-level folder `emdotbike/`) plus a `composer install --no-dev` `vendor/`. It needs that `vendor/` for plugin-update-checker, which `functions.php` loads to update installed sites from the release zip.
 
 ## Architecture
 

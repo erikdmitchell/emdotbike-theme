@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Opens (or updates) the release PR from the conventional commits since the last release.
+      # If a release PR was just merged, this creates the tag and GitHub release instead.
+      - name: Release Please
+        id: release
+        uses: googleapis/release-please-action@v4
+
+      # Merge the release PR right away. Pushes made with GITHUB_TOKEN don't trigger
+      # new workflow runs, so release-please is run a second time below to cut the release.
+      - name: Merge release PR
+        if: ${{ steps.release.outputs.prs_created == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          # Step env is evaluated even when the step is skipped, so parse the PR JSON in the shell.
+          PR_JSON: ${{ steps.release.outputs.pr }}
+        run: gh pr merge "$(jq -r '.number' <<< "$PR_JSON")" --squash --repo "$GITHUB_REPOSITORY"
+
+      - name: Release Please (create release)
+        id: release_merged
+        if: ${{ steps.release.outputs.prs_created == 'true' }}
+        uses: googleapis/release-please-action@v4
+
+      - name: Get release tag
+        id: tag
+        if: ${{ steps.release.outputs.release_created || steps.release_merged.outputs.release_created }}
+        run: echo "name=${{ steps.release.outputs.tag_name || steps.release_merged.outputs.tag_name }}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout
+        if: ${{ steps.tag.outputs.name }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.tag.outputs.name }}
+
+      # The build output is committed, so the zip is the tracked files (minus anything
+      # marked export-ignore in .gitattributes) plus the production composer dependencies.
+      - name: Build theme zip
+        if: ${{ steps.tag.outputs.name }}
+        run: |
+          mkdir dist
+          git archive --prefix=emdotbike/ HEAD | tar -x -C dist
+          composer install --no-dev --optimize-autoloader --no-interaction
+          cp -R vendor dist/emdotbike/
+          (cd dist && zip -rq ../emdotbike.zip emdotbike)
+
+      - name: Upload zip to release
+        if: ${{ steps.tag.outputs.name }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ steps.tag.outputs.name }}" emdotbike.zip --clobber

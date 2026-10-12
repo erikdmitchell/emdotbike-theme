@@ -32,6 +32,21 @@ if ( ! isset( $emdotbike_theme_options_hooks ) ) {
 $theme = wp_get_theme();
 define( 'EMDOTBIKE_VERSION', $theme->version );
 
+// Check GitHub releases for theme updates.
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+    require_once __DIR__ . '/vendor/autoload.php';
+
+    $emdotbike_update_checker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
+        'https://github.com/erikdmitchell/emdotbike-theme/',
+        __FILE__,
+        'emdotbike'
+    );
+    // Install the emdotbike.zip attached to each release, not GitHub's source zipball.
+    // getVcsApi() is typed as the base Api, but for a GitHub repo it's the GitHubApi.
+    /* @phpstan-ignore method.notFound */
+    $emdotbike_update_checker->getVcsApi()->enableReleaseAssets();
+}
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  *

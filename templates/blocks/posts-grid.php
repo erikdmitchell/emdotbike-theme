@@ -103,7 +103,7 @@ $post_count = 0;
             <div class="wp-block-column">
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <div class="entry-thumb">
-                        <?php emdb_theme_post_thumbnail( 'home-grid-large' ); ?>
+                        <?php emdotbike_theme_post_thumbnail( 'home-grid-large' ); ?>
                     </div>
                     
                     <header>
@@ -119,7 +119,7 @@ $post_count = 0;
             <?php $post_count++; ?>
         <?php endwhile; ?>
      
-        <?php emdb_theme_paging_nav(); // Previous/next post navigation. ?>
+        <?php emdotbike_theme_paging_nav(); // Previous/next post navigation. ?>
 
         <?php wp_reset_postdata(); ?>
     <?php elseif ( is_search() ) : ?>

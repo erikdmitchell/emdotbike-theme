@@ -17,6 +17,10 @@
     height: 101%;
     color: #fff;
     font-size: 1.15rem;
+
+    &.is-open {
+        display: block;
+    }
     
     h3 {
         font-size: 1.25rem;
@@ -32,8 +36,9 @@
         }
     }
       
-    .wp-block-search,
-    .wp-block-columns {
+    /* .nav-inner.wp-block-group outranks core's flow-layout first-child reset. */
+    .nav-inner.wp-block-group > .wp-block-search,
+    .nav-inner.wp-block-group > .wp-block-columns {
         margin-top: 20px;
     }    
     
@@ -142,6 +147,13 @@
 .toggle-nav:hover,
 .toggle-nav:visited,
 .toggle-nav:active {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem; /* not the global button size */
+    line-height: 1;
     text-decoration: none;
     color: $color__text-toggle-nav;
     display: inline-block;

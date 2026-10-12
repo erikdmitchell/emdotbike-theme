@@ -8,13 +8,18 @@
     align-items: center;
     justify-content: space-between;
     background: var(--wp--preset--color--white);
+
+    /* .wp-block-group outranks core's flow-layout block gap, which would push the toggle and the fixed menu panel down. */
+    &.wp-block-group > * {
+        margin-block: 0;
+    }
      
     .site-branding {
         .wp-block-image {
-            margin: 0;
-            
-            figure {
-                margin: 1em 0;
+            margin: 1em 0;
+
+            a {
+                display: block;
             }
         }
         

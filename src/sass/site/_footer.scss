@@ -38,6 +38,11 @@
      * Style our footer "wrapper"
      */    
     .emdb-footer-wrapper {
+        /* Keep the columns' default bottom margin; core's flow layout resets it. */
+        &.wp-block-group > .wp-block-columns {
+            margin-bottom: 1.75em;
+        }
+
         h3 {
             font-size: 16px;
             margin: 16px 0 10px;

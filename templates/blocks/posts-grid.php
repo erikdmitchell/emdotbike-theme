@@ -51,10 +51,10 @@ $category = ''; // not setup lol.
 $tax_query = array();
 $tags      = get_field( 'tags' );
 
-if ( '' !== $tags ) {
-    $tax_query = array(
+if ( ! empty( $tags ) ) {
+    $tax_query[] = array(
         'taxonomy' => 'post_tag',
-        'fields'   => 'slug',
+        'field'    => 'slug',
         'terms'    => sanitize_title( $tags ),
     );
 }

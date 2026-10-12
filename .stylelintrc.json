@@ -1,0 +1,47 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "rules": {
+    "color-no-invalid-hex": true,
+    "function-calc-no-unspaced-operator": true,
+    "function-name-case": "lower",
+    "function-url-quotes": "always",
+    "length-zero-no-unit": true,
+    "string-no-newline": true,
+    "unit-no-unknown": true,
+    "unit-allowed-list": [
+      "px",
+      "%",
+      "deg",
+      "ms",
+      "em",
+      "vh",
+      "vw",
+      "rem",
+      "s",
+      "ex",
+      "pt",
+      "cm"
+    ],
+    "shorthand-property-no-redundant-values": true,
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "severity": "warning",
+        "ignore": [
+          "consecutive-duplicates-with-different-values"
+        ]
+      }
+    ],
+    "declaration-block-single-line-max-declarations": 0,
+    "block-no-empty": true,
+    "selector-pseudo-element-colon-notation": "single",
+    "selector-pseudo-element-no-unknown": true,
+    "selector-type-case": "lower",
+    "no-invalid-double-slash-comments": null,
+    "scss/at-use-no-unnamespaced": true,
+    "scss/dollar-variable-pattern": "^[a-z0-9-]+$",
+    "scss/comment-no-loud": true
+  }
+}

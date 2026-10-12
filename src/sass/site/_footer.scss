@@ -1,0 +1,90 @@
+@use '../colors/colors' as *;
+@use '../breakpoints' as *;
+
+.site-footer {
+    position: relative;
+    z-index: 1;
+    border-top: none;
+    background: #00487c;
+    color: #fff;
+    margin-top: 8rem;
+    
+    /* the below 3 styles create our diagonal top */
+    &:before,
+    &:after {
+        background: inherit;
+        content: '';
+        display: block;
+        height: 75%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+    }
+    
+    &:before {
+        top: 0;
+        transform: skewY(-4deg);
+        transform-origin: 0% 0;
+    }
+    
+    &:after {
+        bottom: 0;
+        transform: skewY(0deg);
+        transform-origin: 100%;
+    }    
+
+    /**
+     * Style our footer "wrapper"
+     */    
+    .emdb-footer-wrapper {
+        h3 {
+            font-size: 16px;
+            margin: 16px 0 10px;
+            padding: 10px 0;
+            color: $color__text-footer;
+            text-transform: uppercase;            
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; 
+        }
+        
+        a,
+        a:visited {
+            color: $color__link-footer;
+            text-decoration: none;        
+        }
+        
+        a:focus,
+        a:hover {
+            color: $color__link-footer-hover;
+            text-decoration: none;                
+        }
+        
+        .connect-social {
+            text-align: right;
+            
+            @include bp(mobile) {
+                text-align: center;
+            }
+            
+            .wp-block-social-links {
+                justify-content: right;
+                
+                @include bp(mobile) {
+                    justify-content: center;
+                }
+            }
+        }        
+    }
+    
+    .copyright {
+        padding: 10px 0;
+        text-align: center;
+        margin: 20px 0 0;
+        color: $color__text-footer;
+    }   
+}

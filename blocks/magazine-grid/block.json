@@ -1,0 +1,19 @@
+{
+    "apiVersion": 2,
+    "name": "emdotbike/magazine-grid",
+    "title": "Magazine Grid",
+    "category": "widgets",
+    "icon": "screenoptions",
+    "description": "A dynamic magazine-style post grid.",
+    "attributes": {
+        "postCount": {
+            "type": "number",
+            "default": 4
+        },
+        "postType": {
+            "type": "string",
+            "default": "post"
+        }
+    },
+    "render": "file:./render.php"
+}

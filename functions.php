@@ -917,17 +917,18 @@ add_action( 'init', 'emdb_register_blocks' );
 /**
  * Enqueue theme styles on the front end and in the editor.
  *
+ * Versioned by the theme version, not index.asset.php: that hash only
+ * covers the editor JS, so CSS-only releases kept the same URL.
+ *
  * @access public
  * @return void
  */
 function emdb_enqueue_block_assets() {
-    $asset_file = include get_template_directory() . '/build/index.asset.php';
-
     wp_enqueue_style(
         'emdb-styles',
         get_template_directory_uri() . '/build/style-index.css',
         array(),
-        $asset_file['version']
+        EMDOTBIKE_VERSION
     );
 }
 add_action( 'enqueue_block_assets', 'emdb_enqueue_block_assets' );

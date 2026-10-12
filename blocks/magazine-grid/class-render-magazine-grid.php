@@ -2,8 +2,18 @@
 namespace Emdotbike\Blocks\MagazineGrid;
 
 class Renderer {
+    /**
+     * Block attributes.
+     *
+     * @var array<string, mixed>
+     */
 	protected $attributes;
 
+    /**
+     * Set up the renderer.
+     *
+     * @param array<string, mixed> $attributes Block attributes.
+     */
 	public function __construct( $attributes = [] ) {
 		$this->attributes = wp_parse_args( $attributes, [
 			'postCount'  => 4,
@@ -11,6 +21,11 @@ class Renderer {
 		] );
 	}
 
+    /**
+     * Render the block.
+     *
+     * @return string Block markup.
+     */
     public function render() {
         $wrapper_attributes = get_block_wrapper_attributes();        
         $post_count  = isset( $this->attributes['postCount'] ) ? (int) $this->attributes['postCount'] : 4;

@@ -6,16 +6,12 @@ parameters:
         - vendor/
         - node_modules/ (?)
         - build/
-        - inc/acf-post-type-selector/
-    scanFiles:
-        - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
     treatPhpDocTypesAsCertain: false
     ignoreErrors:
         - identifier: missingType.iterableValue
-        # $block (ACF) and $attributes (block.json render) are set by the caller that includes these templates.
+        # $attributes is set by the caller that includes block.json render templates.
         -
             identifier: variable.undefined
-            message: '#^Variable \$(block|attributes) might not be defined\.$#'
+            message: '#^Variable \$attributes might not be defined\.$#'
             paths:
-                - templates/blocks/*
                 - blocks/*/render.php

@@ -1,6 +1,6 @@
 {
   "name": "emdotbike",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "EM Bike Theme.",
   "scripts": {
     "build": "wp-scripts build",

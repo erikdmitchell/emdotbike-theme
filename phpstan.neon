@@ -1,12 +1,21 @@
-includes:
 parameters:
     level: 6
     paths:
+        - .
     excludePaths:
         - vendor/
-    scanDirectories:
-        - ../../plugins/advanced-custom-fields-pro
-    checkMissingIterableValueType: false
+        - node_modules/
+        - build/
+        - inc/acf-post-type-selector/
+    scanFiles:
+        - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
     treatPhpDocTypesAsCertain: false
-    checkGenericClassInNonGenericObjectType: false 
-    ignoreErrors:                            
+    ignoreErrors:
+        - identifier: missingType.iterableValue
+        # $block (ACF) and $attributes (block.json render) are set by the caller that includes these templates.
+        -
+            identifier: variable.undefined
+            message: '#^Variable \$(block|attributes) might not be defined\.$#'
+            paths:
+                - templates/blocks/*
+                - blocks/*/render.php

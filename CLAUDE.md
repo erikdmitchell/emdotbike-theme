@@ -18,11 +18,11 @@ npm run zip            # emdotbike.zip from the package.json "files" list (run b
 npm run lint:js        # eslint on src/ (add -- --fix to auto-fix)
 npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); has ~160 known findings
 
-composer phpcs         # WPCS via phpcs.ruleset.xml (phpcbf to auto-fix)
-composer phpstan       # level 6, scans ../../plugins/advanced-custom-fields-pro
+composer phpcs         # WPCS 3 + PHPCompatibilityWP via phpcs.ruleset.xml (phpcbf to auto-fix); ~85 known errors
+composer phpstan       # phpstan 2, level 6, ACF via php-stubs/acf-pro-stubs; ~37 known errors
 ```
 
-There are no tests. `php -l <file>` is the only PHP check that currently works. On PHP 8.4, phpcs (WPCS 2) aborts and phpstan 1.x hits a fatal error, so those tools need upgrading before they're useful.
+There are no tests. Both PHP linters skip `vendor/`, `build/`, and the vendored `inc/acf-post-type-selector/`. The linters have existing findings, so compare counts before and after a change rather than expecting a clean run.
 
 ## Build layout
 

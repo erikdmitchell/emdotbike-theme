@@ -138,25 +138,11 @@ add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
  * @since emdotbike 0.1.0
  */
 function emdotbike_theme_scripts() {
-    global $wp_scripts;
-
     wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/assets/js/emdotbike.js', array( 'jquery' ), EMDOTBIKE_VERSION, true );
 
     if ( is_singular() ) :
         wp_enqueue_script( 'comment-reply' );
     endif;
-
-    /**
-     * Load our IE specific scripts for a range of older versions:
-     * <!--[if lt IE 9]> ... <![endif]-->
-     * <!--[if lte IE 8]> ... <![endif]-->
-     */
-    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries.
-    wp_register_script( 'html5shiv-script', get_template_directory_uri() . '/assets/js/html5shiv.min.js', array(), '3.7.3-pre' );
-    wp_register_script( 'respond-script', get_template_directory_uri() . '/assets/js/respond.min.js', array(), '1.4.2' );
-
-    $wp_scripts->add_data( 'html5shiv-script', 'conditional', 'lt IE 9' );
-    $wp_scripts->add_data( 'respond-script', 'conditional', 'lt IE 9' );
 
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );

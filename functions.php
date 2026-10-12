@@ -934,6 +934,21 @@ function emdb_enqueue_block_assets() {
 add_action( 'enqueue_block_assets', 'emdb_enqueue_block_assets' );
 
 /**
+ * Hide dwb/post-header blocks left in post content.
+ *
+ * Single posts get their header from templates/single.html, so a
+ * dwb/post-header saved in a post's content would render a second one.
+ *
+ * @access public
+ * @param string $block_content Rendered block markup.
+ * @return string
+ */
+function emdb_hide_content_post_header( $block_content ) {
+    return is_singular( 'post' ) ? '' : $block_content;
+}
+add_filter( 'render_block_dwb/post-header', 'emdb_hide_content_post_header' );
+
+/**
  * Enqueue block editor scripts (editor only).
  *
  * @access public

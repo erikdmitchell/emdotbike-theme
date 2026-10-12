@@ -6,6 +6,7 @@
  * @param   string $content The block inner HTML (empty).
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
+ * @package EMdotBike
  */
 
 // Create id attribute allowing for custom "anchor" value.
@@ -34,10 +35,10 @@ $bio       = get_field( 'show_bio' ) ? '<div class="author-bio">' . get_the_auth
     
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>">
     <div class="author-header">
-        <div class="author-column"><div class="author-image"><?php echo $avatar; ?></div></div>
+        <div class="author-column"><div class="author-image"><?php echo $avatar; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_avatar() returns escaped markup. ?></div></div>
         <div class="author-column">
-            <div class="author-name"><h1><?php echo $name; ?></h1></div>
-            <?php echo $bio; ?>
+            <div class="author-name"><h1><?php echo esc_html( $name ); ?></h1></div>
+            <?php echo wp_kses_post( $bio ); ?>
         </div>
     </div>
 </div>

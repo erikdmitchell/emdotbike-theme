@@ -27,15 +27,15 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // Load values and assign defaults.
-$post_type    = get_field( 'post_type' ) ? : 'post';
-$columns      = get_field( 'columns' ) ? : 2;
-$order_by     = get_field( 'order_by' ) ? : 'date/desc';
-$sticky_posts = get_field( 'sticky_posts' ) ? : false; // not used yest.
+$grid_post_type = get_field( 'post_type' ) ? get_field( 'post_type' ) : 'post';
+$columns        = get_field( 'columns' ) ? get_field( 'columns' ) : 2;
+$order_by       = get_field( 'order_by' ) ? get_field( 'order_by' ) : 'date/desc';
+$sticky_posts   = get_field( 'sticky_posts' ) ? get_field( 'sticky_posts' ) : false; // not used yest.
 
 // get order arr.
 $order_by_arr = emdb_parse_grid_order( $order_by );
 
-// check for specific authoer
+// check for specific author.
 $author_login = get_field( 'authors' ) ? get_field( 'authors' ) : '';
 
 if ( $author_login ) {
@@ -61,30 +61,30 @@ if ( ! empty( $tags ) ) {
 // ^ combine? //
 // this is a tag page.
 if ( is_tag() ) {
-    $tag = get_queried_object();
+    $queried_tag = get_queried_object();
 
     $tax_query[] = array(
         'taxonomy' => 'post_tag',
         'field'    => 'slug',
-        'terms'    => sanitize_title( $tag->slug ),
+        'terms'    => sanitize_title( $queried_tag->slug ),
     );
 }
 
 // for pagination.
-$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-$args  = array(
-    'post_type' => $post_type,
+$current_page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$args         = array(
+    'post_type' => $grid_post_type,
     'orderby'   => $order_by_arr[0],
     'order'     => $order_by_arr[1],
-    'paged'     => $paged,
+    'paged'     => $current_page,
     'author'    => $author_id,
     'category'  => $category,
-    'tax_query' => $tax_query,
+    'tax_query' => $tax_query, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- tag filtering needs a tax query.
 );
 
 // check search.
 if ( is_search() ) {
-    $args['s'] = $_GET['s'];
+    $args['s'] = get_search_query( false );
 }
 
 // the query.
@@ -111,12 +111,12 @@ $post_count = 0;
                     </header>
                     
                     <div class="entry-excerpt">
-                        <div class="excerpt"><?php emdotbike_post_excerpt( get_the_ID(), 55, '', ' <a href="' . get_permalink() . '">read more...</a>' ); ?></div>
+                        <div class="excerpt"><?php emdotbike_post_excerpt( get_the_ID(), 55, '', ' <a href="' . esc_url( get_permalink() ) . '">read more...</a>' ); ?></div>
                     </div>
                 </article>
             </div>
             <?php emdb_end_column( $post_count, $columns, $the_query->post_count ); ?>
-            <?php $post_count++; ?>
+            <?php ++$post_count; ?>
         <?php endwhile; ?>
      
         <?php emdotbike_theme_paging_nav(); // Previous/next post navigation. ?>
@@ -127,7 +127,7 @@ $post_count = 0;
         <p><?php esc_html_e( 'Whether you made a wrong turn, got dropped, or bonked - you need a little help to find where you are going.', 'emdotbike' ); ?></p> 
         <p><?php esc_html_e( 'Like a wise old veteran racer, or that guy at the local gas station, try the search to get going again!', 'emdotbike' ); ?></p>
     <?php else : ?>
-        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+        <p><?php esc_html_e( 'Sorry, no posts matched your criteria.', 'emdotbike' ); ?></p>
     <?php endif; ?>
 
 </div>

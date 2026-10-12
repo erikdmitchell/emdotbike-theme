@@ -32,7 +32,7 @@ $before_text = get_field( 'before_text' ) ? get_field( 'before_text' ) . ' ' : '
     
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $block_class_name ); ?>">
     <header class="archive-header">
-        <h1 class="archive-title"><?php single_tag_title( __( $before_text, 'emdotbike' ) ); ?></h1>
+        <h1 class="archive-title"><?php single_tag_title( esc_html( $before_text ) ); ?></h1>
         <?php if ( tag_description() ) : // Show an optional tag description. ?>
             <div class="archive-meta"><?php echo tag_description(); ?></div>
         <?php endif; ?>

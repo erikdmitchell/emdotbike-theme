@@ -17,11 +17,11 @@ npm run build          # wp-scripts production build (minified); commit this out
 npm run lint:js        # eslint on src/ (add -- --fix to auto-fix)
 npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); has ~160 known findings
 
-composer phpcs         # WPCS 3 + PHPCompatibilityWP via phpcs.ruleset.xml (phpcbf to auto-fix); ~85 known errors
-composer phpstan       # phpstan 2, level 6, ACF via php-stubs/acf-pro-stubs; ~37 known errors
+composer phpcs         # WPCS 3 + PHPCompatibilityWP via phpcs.ruleset.xml (phpcbf to auto-fix); runs clean
+composer phpstan       # phpstan 2, level 6, ACF via php-stubs/acf-pro-stubs; ~33 known errors
 ```
 
-There are no tests. Both PHP linters skip `vendor/`, `build/`, and the vendored `inc/acf-post-type-selector/`. The linters have existing findings, so compare counts before and after a change rather than expecting a clean run.
+There are no tests. Both PHP linters skip `vendor/`, `build/`, and the vendored `inc/acf-post-type-selector/`. phpstan and stylelint have existing findings, so compare their counts before and after a change rather than expecting a clean run.
 
 ## Build layout
 
@@ -49,7 +49,7 @@ The theme uses three kinds of blocks and patterns, each registered differently:
 
 1. **`emdotbike/magazine-grid`**: a native dynamic block.
    - Editor code is in `src/blocks/magazine-grid/`, and metadata is in `blocks/magazine-grid/block.json`.
-   - `emdb_register_blocks()` registers it from block.json, and block.json's `render.php` echoes the output of `class-render-magazine-grid.php` (namespace `Emdotbike\Blocks\MagazineGrid`).
+   - `emdb_register_blocks()` registers it from block.json, and block.json's `render.php` echoes the output of `class-renderer.php` (namespace `Emdotbike\Blocks\MagazineGrid`).
    - `build/style-index.css` loads on `enqueue_block_assets` (front end and editor). `build/index.js`, the editor bundle, loads only on `enqueue_block_editor_assets`. Don't move it back, because it pulls in React and the block-editor packages.
 2. **`acf/*` blocks** (`archive-title`, `author-bio`, `page-nav`, `post-nav`, `posts-grid`, `tagline`).
    - `emdb_init_block_types()` registers them on `acf/init`, with render templates in `templates/blocks/<name>.php`.

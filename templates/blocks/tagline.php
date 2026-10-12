@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Tagline Block Template.
  *
@@ -7,6 +6,7 @@
  * @param   string $content The block inner HTML (empty).
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
+ * @package EMdotBike
  */
 
 // Create id attribute allowing for custom "anchor" value.
@@ -27,8 +27,8 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // Load values and assign defaults.
-$text             = get_field( 'text' ) ?: get_bloginfo( 'tagline' );
-$image            = get_field( 'image' ) ?: '';
+$text             = get_field( 'text' ) ? get_field( 'text' ) : get_bloginfo( 'tagline' );
+$image            = get_field( 'image' ) ? get_field( 'image' ) : '';
 $background_color = get_field( 'background_color' );
 ?>
     
@@ -38,13 +38,13 @@ $background_color = get_field( 'background_color' );
             <?php echo wp_get_attachment_image( $image, 'full' ); ?>
         </div>
         <div class="title-wrap">
-            <?php echo $text; ?>
+            <?php echo wp_kses_post( $text ); ?>
         </div>
     </div>
     
     <style type="text/css">
-        #<?php echo $block_id; ?> {
-            background: <?php echo $background_color; ?>;
+        #<?php echo esc_attr( $block_id ); ?> {
+            background: <?php echo esc_attr( $background_color ); ?>;
         }
     </style>
 </div>

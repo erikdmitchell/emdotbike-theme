@@ -24,11 +24,20 @@ if ( post_password_required() ) {
 
     <h2 class="comments-title">
         <?php
+        if ( 1 === (int) get_comments_number() ) {
             printf(
-                _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'emdotbike' ),
-                number_format_i18n( get_comments_number() ),
-                get_the_title()
+                /* translators: %s: post title. */
+                esc_html__( 'One thought on &ldquo;%s&rdquo;', 'emdotbike' ),
+                esc_html( get_the_title() )
             );
+        } else {
+            printf(
+                /* translators: 1: number of comments, 2: post title. */
+                esc_html( _n( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'emdotbike' ) ),
+                esc_html( number_format_i18n( get_comments_number() ) ),
+                esc_html( get_the_title() )
+            );
+        }
         ?>
     </h2>
 
@@ -61,10 +70,10 @@ if ( post_password_required() ) {
     <?php endif; // Check for comment navigation. ?>
 
         <?php if ( ! comments_open() ) : ?>
-    <p class="no-comments"><?php _e( 'Comments are closed.', 'emdotbike' ); ?></p>
+    <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'emdotbike' ); ?></p>
     <?php endif; ?>
 
-    <?php endif; // have_comments(). ?>
+    <?php endif; // End have_comments check. ?>
 
     <?php comment_form(); ?>
 

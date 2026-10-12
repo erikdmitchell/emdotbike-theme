@@ -6,6 +6,7 @@
  * @param   string $content The block inner HTML (empty).
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
+ * @package EMdotBike
  */
 
 // Create id attribute allowing for custom "anchor" value.
@@ -35,7 +36,7 @@ if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
     return;
 }
 
-$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+$current_page = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 $pagenum_link = html_entity_decode( get_pagenum_link() );
 $query_args   = array();
 $url_parts    = explode( '?', $pagenum_link );
@@ -56,7 +57,7 @@ $links = paginate_links(
         'base'      => $pagenum_link,
         'format'    => $format,
         'total'     => $GLOBALS['wp_query']->max_num_pages,
-        'current'   => $paged,
+        'current'   => $current_page,
         'mid_size'  => 1,
         'add_args'  => array_map( 'urlencode', $query_args ),
         'prev_text' => __( '&laquo; Previous', 'emdotbike' ),

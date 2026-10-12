@@ -180,11 +180,9 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
     if ( has_post_thumbnail( $post ) ) {
         $thumb_id      = get_post_thumbnail_id( $post->ID );
         $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
-        // $thumb_url = get_the_post_thumbnail_url( $post->ID, $size );
-        $thumb_meta = wp_get_attachment_metadata( $thumb_id );
-        // $thumb = get_the_post_thumbnail( $post->ID, $size, $attr );
-        $thumb_base = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
-        $thumb      = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
+        $thumb_meta    = wp_get_attachment_metadata( $thumb_id );
+        $thumb_base    = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
+        $thumb         = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
     } else {
         $thumb = '<img src="' . get_template_directory_uri() . '/assets/images/em-bike-logo-gray-bg-650x375.png" class="img-responsive" />';
     }
@@ -226,7 +224,6 @@ function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
     }
 
     $default_styles = array(
-        // 'background' => 'url('.$image_url.') no-repeat center center fixed',
         'background-image' => 'url(' . $image_url . ')',
         'height'           => '400px',
     );
@@ -318,15 +315,14 @@ function emdotbike_get_post_thumbnail( $post_id = 0, $classes = 'img-responsive'
 }
 
 /**
- * * Print HTML with meta information for the current post-date/time and author.
+ * Print HTML with meta information for the current post-date/time and author.
  *
  * @access public
- * @param bool $show_author (default: false).
  * @return void
  */
-function emdotbike_theme_posted_on( $show_author = false ) {
+function emdotbike_theme_posted_on() {
     if ( is_sticky() && is_home() && ! is_paged() ) {
-        echo '<span class="featured-post">' . _e( 'Sticky', 'emdotbike' ) . '</span>';
+        echo '<span class="featured-post">' . esc_html__( 'Sticky', 'emdotbike' ) . '</span>';
     }
 
     // Set up and print post meta information. -- hide date if sticky.
@@ -413,10 +409,10 @@ function emdotbike_theme_post_nav() {
         <div class="nav-links">
             <?php
             if ( is_attachment() ) :
-                previous_post_link( __( '<div class="published-in"><span class="meta-nav">Published In:</span> %link</div>', 'emdotbike' ), '%title' );
+                previous_post_link( '<div class="published-in"><span class="meta-nav">' . esc_html__( 'Published In:', 'emdotbike' ) . '</span> %link</div>', '%title' );
             else :
-                previous_post_link( __( '<div class="prev-post"><span class="meta-nav">Previous Post:</span> %link</div>', 'emdotbike' ), '%title' );
-                next_post_link( __( '<div class="next-post"><span class="meta-nav">Next Post:</span> %link</div>', 'emdotbike' ), '%title' );
+                previous_post_link( '<div class="prev-post"><span class="meta-nav">' . esc_html__( 'Previous Post:', 'emdotbike' ) . '</span> %link</div>', '%title' );
+                next_post_link( '<div class="next-post"><span class="meta-nav">' . esc_html__( 'Next Post:', 'emdotbike' ) . '</span> %link</div>', '%title' );
             endif;
             ?>
         </div><!-- .nav-links -->
@@ -463,7 +459,7 @@ function emdotbike_theme_navbar_brand() {
 
     $text = get_bloginfo( 'name' );
 
-    if ( isset( $emdotbike_theme_options['default']['logo']['text'] ) && '' != $emdotbike_theme_options['default']['logo']['text'] ) {
+    if ( isset( $emdotbike_theme_options['default']['logo']['text'] ) && '' !== $emdotbike_theme_options['default']['logo']['text'] ) {
         $text = $emdotbike_theme_options['default']['logo']['text'];
     }
 
@@ -527,11 +523,12 @@ function get_terms_list( $term = false ) {
     }
 
     $args  = array(
+        'taxonomy'   => $term,
         'orderby'    => 'name',
         'order'      => 'ASC',
         'hide_empty' => false,
     );
-    $terms = get_terms( $term, $args );
+    $terms = get_terms( $args );
     $html  = null;
 
     if ( ! count( $terms ) ) {
@@ -579,7 +576,7 @@ function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em>
         $the_excerpt = $post->post_content;
     }
 
-    $the_excerpt   = strip_shortcodes( strip_tags( $the_excerpt ) );
+    $the_excerpt   = strip_shortcodes( wp_strip_all_tags( $the_excerpt ) );
     $the_excerpt   = preg_split( '/\b/', $the_excerpt, $length * 2 + 1 );
     $excerpt_waste = array_pop( $the_excerpt );
     $the_excerpt   = implode( $the_excerpt );
@@ -592,14 +589,14 @@ function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em>
  * Display post excerpt.
  *
  * @access public
- * @param mixed  $post.
+ * @param mixed  $post Post ID or object.
  * @param int    $length (default: 10).
  * @param string $tags (default: '<a><em><strong>').
  * @param string $extra (default: ' . . .').
  * @return void
  */
 function emdotbike_post_excerpt( $post, $length = 10, $tags = '<a><em><strong>', $extra = ' . . .' ) {
-    echo emdotbike_get_post_excerpt_by_id( $post, $length, $tags, $extra );
+    echo wp_kses_post( emdotbike_get_post_excerpt_by_id( $post, $length, $tags, $extra ) );
 }
 
 /**
@@ -619,7 +616,7 @@ function emdotbike_has_categories( $excl = '' ) {
         $exclude = explode( ',', $exclude );
 
         foreach ( $categories as $key => $cat ) :
-            if ( in_array( $cat->name, $exclude ) ) :
+            if ( in_array( $cat->name, $exclude, true ) ) :
                 unset( $categories[ $key ] );
             endif;
         endforeach;
@@ -636,14 +633,15 @@ function emdotbike_has_categories( $excl = '' ) {
  * Custom read more excerpt.
  *
  * @access public
- * @param mixed $more.
+ * @param string $more The default "more" string (unused).
  * @return string
  */
-function emdotbike_custom_excerpt_more( $more ) {
+function emdotbike_custom_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found -- excerpt_more filter signature.
     return sprintf(
         '... <a href="%1$s" class="more-link">%2$s</a>',
         esc_url( get_permalink( get_the_ID() ) ),
-        sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
+        /* translators: %s: post title, visible to screen readers only. */
+        sprintf( __( 'read more %s', 'emdotbike' ), '<span class="screen-reader-text">' . esc_html( get_the_title( get_the_ID() ) ) . '</span>' )
     );
 }
 add_filter( 'excerpt_more', 'emdotbike_custom_excerpt_more' );
@@ -662,14 +660,13 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
     $categories = get_the_category( $post->ID );
 
     if ( ! empty( $categories ) ) :
-        $exclude  = $excl;
-        $exclude  = explode( ',', $exclude );
+        $exclude  = array_map( 'trim', explode( ',', $excl ) );
         $thecount = count( get_the_category() ) - count( $exclude );
 
         foreach ( $categories as $cat ) :
             $html = '';
 
-            if ( ! in_array( $cat->cat_ID, $exclude ) ) {
+            if ( ! in_array( (string) $cat->cat_ID, $exclude, true ) ) {
                 $html .= '<a href="' . get_category_link( $cat->cat_ID ) . '" ';
                 $html .= 'title="' . $cat->cat_name . '">' . $cat->cat_name . '</a>';
 
@@ -677,7 +674,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
                     $html .= $spacer;
                 }
 
-                $thecount--;
+                --$thecount;
 
                 echo wp_kses_post( $html );
             }
@@ -711,14 +708,14 @@ add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
  * Parse grid order string into array.
  *
  * @access public
- * @param string $string (default: ' ').
+ * @param string $order Order string, e.g. 'date/desc' (default: '').
  * @return array
  */
-function emdb_parse_grid_order( $string = '' ) {
-    if ( empty( $string ) ) {
+function emdb_parse_grid_order( $order = '' ) {
+    if ( empty( $order ) ) {
         $order_arr = array( 'date', 'desc' );
     } else {
-        $order_arr = explode( '/', $string );
+        $order_arr = explode( '/', $order );
     }
 
     return $order_arr;
@@ -897,13 +894,12 @@ require get_template_directory() . '/inc/block-patterns.php';
 
 /**
  * Register blocks.
- * 
+ *
  * @access public
  * @return void
- * 
  */
 function emdb_register_blocks() {
-	register_block_type( get_template_directory() . '/blocks/magazine-grid' );
+    register_block_type( get_template_directory() . '/blocks/magazine-grid' );
 }
 add_action( 'init', 'emdb_register_blocks' );
 

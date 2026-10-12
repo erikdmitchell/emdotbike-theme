@@ -1,17 +1,20 @@
 <?php
 /**
  * Template Name: Front Page
- **/
+ *
+ * @package EMdotBike
+ */
+
+get_header();
 ?>
-<?php get_header(); ?>
 
     <div class="front-page-tagline">
         <div class="wrapper">
             <div class="image-wrap">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/em-bike-logo-small-white.png" alt="emdotbike logo white" />
+                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/em-bike-logo-small-white.png" alt="emdotbike logo white" />
             </div>
             <div class="title-wrap">
-                <h1><?php echo get_bloginfo( 'description' ); ?></h1>
+                <h1><?php echo esc_html( get_bloginfo( 'description' ) ); ?></h1>
             </div>
         </div>
     </div>

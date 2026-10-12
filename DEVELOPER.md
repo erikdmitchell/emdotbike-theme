@@ -27,6 +27,6 @@ PHP Code Beautifier `composer phpcbf`
 
 PHPStan `composer phpstan`
 
-## Other
+## Distribution
 
-The gulp tasks, including `gulp zip` for distribution, are currently disabled in `gulpfile.js`.
+Create `emdotbike.zip` (contents set by `files` in `package.json`) `npm run build && npm run zip`

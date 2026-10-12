@@ -14,6 +14,7 @@ The WordPress block theme for ErikMitchell.bike (text domain `emdotbike`, functi
 ```sh
 npm start              # wp-scripts watch build (unminified; this is what's committed in build/)
 npm run build          # wp-scripts production build (minified, no source maps)
+npm run zip            # emdotbike.zip from the package.json "files" list (run build first)
 npm run lint:js:src    # eslint --fix on src/
 npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix)
 
@@ -21,7 +22,7 @@ composer phpcs         # WPCS via phpcs.ruleset.xml (phpcbf to auto-fix)
 composer phpstan       # level 6, scans ../../plugins/advanced-custom-fields-pro
 ```
 
-There are no tests. `php -l <file>` is the only PHP check that currently works. On PHP 8.4, phpcs (WPCS 2) aborts and phpstan 1.x hits a fatal error, so those tools need upgrading before they're useful. The gulp tasks are all commented out in `gulpfile.js`, including `zip`, so `npx gulp` errors.
+There are no tests. `php -l <file>` is the only PHP check that currently works. On PHP 8.4, phpcs (WPCS 2) aborts and phpstan 1.x hits a fatal error, so those tools need upgrading before they're useful.
 
 ## Build layout
 
@@ -30,7 +31,8 @@ There are no tests. `php -l <file>` is the only PHP check that currently works. 
   - `src/js/emdotbike.js` outputs `assets/js/emdotbike.js` through a filename override.
 - Compiled output in `build/` and `assets/js/` is committed. Rebuild after editing `src/`, and commit the output with the change.
 - The root `style.css` is only the theme header (Theme Name, Version, …); the actual front-end CSS is `build/style-index.css`. Keep the version in sync across `style.css`, `package.json`, `README.md`, and `CHANGELOG.md`. At runtime, `EMDOTBIKE_VERSION` is read from the theme header and used to cache-bust enqueued assets.
-- `assets/css/editor.css` is enqueued in the editor, but no build step produces it anymore. `src/sass/editor.scss` was compiled by the now-disabled gulp task.
+- There is no separate editor stylesheet. `build/style-index.css` is enqueued on `enqueue_block_assets`, so it styles both the front end and the editor. `assets/css/login.css` is hand-written (no source in `src/`).
+- When adding a top-level file or folder the theme needs at runtime, add it to `files` in `package.json` too, or it won't be in the zip.
 - SCSS uses `@use` (not `@import`). Shared partials go through `src/sass/global.scss`.
 - PHP style: 4-space indentation, no tabs (this overrides the WPCS default), PHP 7.1+ compatibility.
 

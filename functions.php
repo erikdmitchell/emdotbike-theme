@@ -88,11 +88,6 @@ function emdotbike_theme_setup() {
             'primary' => __( 'Primary Menu', 'emdotbike' ),
         )
     );
-
-    /**
-     * This theme styles the visual editor to resemble the theme style
-     */
-    add_editor_style( 'assets/css/editor-style.min.css' );
 }
 add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
 
@@ -682,7 +677,7 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
  * @return void
  */
 function emdotbike_login_scripts_styles() {
-    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/css/login.min.css', array(), EMDOTBIKE_VERSION );
+    wp_enqueue_style( 'emdotbike-login-style', get_template_directory_uri() . '/assets/css/login.css', array(), EMDOTBIKE_VERSION );
 }
 add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' );
 
@@ -904,15 +899,6 @@ function emdb_register_blocks() {
 	);
 }
 add_action( 'init', 'emdb_register_blocks' );
-
-add_action( 'enqueue_block_editor_assets', function () {
-	wp_enqueue_style(
-		'emdotbike-editor-style',
-		get_theme_file_uri( 'assets/css/editor.css' ),
-		[],
-		filemtime( get_theme_file_path( 'assets/css/editor.css' ) )
-	);
-} );
 
 /**
  * Enqueue block assets.

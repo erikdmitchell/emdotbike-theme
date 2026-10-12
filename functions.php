@@ -718,6 +718,157 @@ function emdotbike_login_headerurl() {
 add_filter( 'login_headerurl', 'emdotbike_login_headerurl' );
 
 /**
+ * Parse grid order string into array.
+ *
+ * @access public
+ * @param string $string (default: ' ').
+ * @return array
+ */
+function emdb_parse_grid_order( $string = '' ) {
+    if ( empty( $string ) ) {
+        $order_arr = array( 'date', 'desc' );
+    } else {
+        $order_arr = explode( '/', $string );
+    }
+
+    return $order_arr;
+}
+
+/**
+ * Open a columns wrapper at the start of each grid row.
+ *
+ * @access public
+ * @param int $key (default: 0).
+ * @param int $columns (default: 0).
+ * @return void
+ */
+function emdb_begin_column( $key = 0, $columns = 0 ) {
+    if ( ( 0 === $key % $columns ) || 0 === $key ) {
+        echo '<div class="wp-block-columns columns-' . $columns . '">'; // @codingStandardsIgnoreLine WordPress.Security.EscapeOutput.OutputNotEscaped.
+    }
+}
+
+/**
+ * Close the columns wrapper at the end of each grid row.
+ *
+ * @access public
+ * @param int $key (default: 0).
+ * @param int $columns (default: 0).
+ * @param int $max (default: 0).
+ * @return void
+ */
+function emdb_end_column( $key = 0, $columns = 0, $max = 0 ) {
+    if ( ( 1 === $key % $columns ) || ( $key + 1 === $max ) ) {
+        echo '</div><!-- .wp-block-columns -->'; // @codingStandardsIgnoreLine WordPress.Security.EscapeOutput.OutputNotEscaped.
+    }
+}
+
+/**
+ * ACF Functions.
+ */
+
+/**
+ * Register custom ACF field: post type selector.
+ *
+ * @access public
+ * @return void
+ */
+function emdb_acf_register_fields() {
+    include_once get_template_directory() . '/inc/acf-post-type-selector/post-type-selector-v5.php';
+}
+add_action( 'acf/include_fields', 'emdb_acf_register_fields' );
+
+/**
+ * Initialize custom ACF blocks.
+ *
+ * @access public
+ * @return void
+ */
+function emdb_init_block_types() {
+    if ( ! function_exists( 'acf_register_block_type' ) ) {
+        return;
+    }
+
+    // register archive title block.
+    acf_register_block_type(
+        array(
+            'name'            => 'archive-title',
+            'title'           => __( 'Archive Title', 'emdotbike' ),
+            'render_template' => 'templates/blocks/archive-title.php',
+            'category'        => 'theme',
+            'icon'            => 'editor-textcolor',
+            'keywords'        => array( 'archive', 'title' ),
+        )
+    );
+
+    // register author bio block.
+    acf_register_block_type(
+        array(
+            'name'            => 'author-bio',
+            'title'           => __( 'Author Bio', 'emdotbike' ),
+            'description'     => __( 'An author bio block.', 'emdotbike' ),
+            'render_template' => 'templates/blocks/author-bio.php',
+            'category'        => 'theme',
+            'icon'            => 'id',
+            'keywords'        => array( 'author', 'bio' ),
+        )
+    );
+
+    // register page nav block.
+    acf_register_block_type(
+        array(
+            'name'            => 'page-nav',
+            'title'           => __( 'Page Nav', 'emdotbike' ),
+            'description'     => __( 'A page navigation block.', 'emdotbike' ),
+            'render_template' => 'templates/blocks/page-nav.php',
+            'category'        => 'formatting',
+            'icon'            => 'ellipsis',
+            'keywords'        => array( 'navigation', 'page' ),
+        )
+    );
+
+    // register posts grid block.
+    acf_register_block_type(
+        array(
+            'name'            => 'posts-grid',
+            'title'           => __( 'Posts Grid', 'emdotbike' ),
+            'description'     => __( 'A posts grid block.', 'emdotbike' ),
+            'render_template' => 'templates/blocks/posts-grid.php',
+            'category'        => 'query',
+            'icon'            => 'grid-view',
+            'keywords'        => array( 'query', 'grid', 'posts' ),
+        )
+    );
+
+    // register posts nav block.
+    acf_register_block_type(
+        array(
+            'name'            => 'post-nav',
+            'title'           => __( 'Post Nav', 'emdotbike' ),
+            'description'     => __( 'A post navigation block.', 'emdotbike' ),
+            'render_template' => 'templates/blocks/post-nav.php',
+            'category'        => 'formatting',
+            'icon'            => 'ellipsis',
+            'keywords'        => array( 'navigation', 'post' ),
+        )
+    );
+
+    // register tagline block.
+    acf_register_block_type(
+        array(
+            'name'            => 'tagline',
+            'title'           => __( 'Tagline', 'emdotbike' ),
+            'description'     => __( 'A tagline block.', 'emdotbike' ),
+            'render_template' => 'templates/blocks/tagline.php',
+            'category'        => 'formatting',
+            'icon'            => 'format-status',
+            'keywords'        => array( 'tagline', 'quote' ),
+        )
+    );
+}
+add_action( 'acf/init', 'emdb_init_block_types' );
+
+/**
  * Author information on author page.
  *
  * @access public

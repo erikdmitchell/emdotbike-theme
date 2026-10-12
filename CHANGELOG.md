@@ -1,5 +1,13 @@
 # EMdotBike Theme Changelog
 
+## [0.4.0](https://github.com/erikdmitchell/emdotbike-theme/compare/0.3.0...0.4.0) (2026-10-12)
+
+
+### Features
+
+* automate releases with release-please and update via PUC ([8bc6a03](https://github.com/erikdmitchell/emdotbike-theme/commit/8bc6a033f6967357ce4c6574483f99f927165e00))
+* automate releases with release-please and update via PUC ([95a9085](https://github.com/erikdmitchell/emdotbike-theme/commit/95a9085f1f1643d4781a84daddaa81fcf7eb036c))
+
 ## 0.3.0
 
 * Basically a complete overhaul. See git repo.

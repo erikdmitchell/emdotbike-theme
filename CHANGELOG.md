@@ -1,5 +1,13 @@
 # EMdotBike Theme Changelog
 
+## [0.4.1](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.0...0.4.1) (2026-10-12)
+
+
+### Bug Fixes
+
+* resolve all phpstan errors ([dfbd064](https://github.com/erikdmitchell/emdotbike-theme/commit/dfbd0645ee659935d868c1db85987a1cafc25e9b))
+* resolve all phpstan errors ([de3ed54](https://github.com/erikdmitchell/emdotbike-theme/commit/de3ed548e95a2eeb6d0053b5606d45ed9dd6a736))
+
 ## [0.4.0](https://github.com/erikdmitchell/emdotbike-theme/compare/0.3.0...0.4.0) (2026-10-12)
 
 

@@ -30,9 +30,11 @@ jQuery(document).ready(function ($) {
 
 	//hide or show the "back to top" link
 	$(window).on('scroll', function () {
-		$(this).scrollTop() > offset
-			? $back_to_top.addClass('btt-is-visible')
-			: $back_to_top.removeClass('btt-is-visible btt-fade-out');
+		if ($(this).scrollTop() > offset) {
+			$back_to_top.addClass('btt-is-visible');
+		} else {
+			$back_to_top.removeClass('btt-is-visible btt-fade-out');
+		}
 		if ($(this).scrollTop() > offset_opacity) {
 			$back_to_top.addClass('btt-fade-out');
 		}

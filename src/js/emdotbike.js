@@ -3,51 +3,86 @@
  */
 
 /**
- * toggles the mobile nav
+ * Menu toggle: opens and closes the header menu panel.
  */
-jQuery(document).ready(function () {
-	jQuery('.toggle-nav').click(function (e) {
-		jQuery('.main-navigation .emdb-nav').toggle(500);
+document.addEventListener('DOMContentLoaded', function () {
+	const toggle = document.querySelector('.toggle-nav');
+	const menu = toggle
+		? document.getElementById(toggle.getAttribute('aria-controls'))
+		: null;
 
-		jQuery('i', this).toggleClass('dashicons-no-alt');
+	if (!toggle || !menu) {
+		return;
+	}
 
-		e.preventDefault();
+	const icon = toggle.querySelector('.dashicons');
+
+	function setOpen(open) {
+		menu.classList.toggle('is-open', open);
+		toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+		toggle.setAttribute(
+			'aria-label',
+			open ? toggle.dataset.labelClose : toggle.dataset.labelOpen
+		);
+
+		if (icon) {
+			icon.classList.toggle('dashicons-menu-alt', !open);
+			icon.classList.toggle('dashicons-no-alt', open);
+		}
+	}
+
+	toggle.addEventListener('click', function () {
+		setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+	});
+
+	// Esc closes the menu and returns focus to the toggle.
+	document.addEventListener('keydown', function (event) {
+		if (
+			'Escape' === event.key &&
+			'true' === toggle.getAttribute('aria-expanded')
+		) {
+			setOpen(false);
+			toggle.focus();
+		}
 	});
 });
 
 /**
  * back to top button function
  */
-jQuery(document).ready(function ($) {
+document.addEventListener('DOMContentLoaded', function () {
 	// browser window scroll (in pixels) after which the "back to top" link is shown
 	const offset = 300,
 		//browser window scroll (in pixels) after which the "back to top" link opacity is reduced
-		offset_opacity = 1200,
-		//duration of the top scrolling animation (in ms)
-		scroll_top_duration = 700,
+		offsetOpacity = 1200,
 		//grab the "back to top" link
-		$back_to_top = $('.emdotbike-back-to-top');
+		backToTop = document.querySelector('.emdotbike-back-to-top');
+
+	if (!backToTop) {
+		return;
+	}
 
 	//hide or show the "back to top" link
-	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > offset) {
-			$back_to_top.addClass('btt-is-visible');
-		} else {
-			$back_to_top.removeClass('btt-is-visible btt-fade-out');
-		}
-		if ($(this).scrollTop() > offset_opacity) {
-			$back_to_top.addClass('btt-fade-out');
-		}
-	});
+	window.addEventListener(
+		'scroll',
+		function () {
+			const scrolled = window.scrollY;
+
+			if (scrolled > offset) {
+				backToTop.classList.add('btt-is-visible');
+			} else {
+				backToTop.classList.remove('btt-is-visible', 'btt-fade-out');
+			}
+			if (scrolled > offsetOpacity) {
+				backToTop.classList.add('btt-fade-out');
+			}
+		},
+		{ passive: true }
+	);
 
 	//smooth scroll to top
-	$back_to_top.on('click', function (event) {
+	backToTop.addEventListener('click', function (event) {
 		event.preventDefault();
-		$('body,html').animate(
-			{
-				scrollTop: 0,
-			},
-			scroll_top_duration
-		);
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	});
 });

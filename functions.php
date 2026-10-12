@@ -77,7 +77,7 @@ add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
  * @return void
  */
 function emdotbike_theme_scripts() {
-    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/assets/js/emdotbike.js', array( 'jquery' ), EMDOTBIKE_VERSION, true );
+    wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/assets/js/emdotbike.js', array(), EMDOTBIKE_VERSION, true );
 
     if ( is_singular() ) :
         wp_enqueue_script( 'comment-reply' );

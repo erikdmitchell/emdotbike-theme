@@ -16,6 +16,7 @@
 function emdb_register_block_patterns() {
     $block_pattern_categories = array(
         'header' => array( 'label' => __( 'Headers', 'emdotbike' ) ),
+        'footer' => array( 'label' => __( 'Footers', 'emdotbike' ) ),
     );
 
     /**
@@ -43,6 +44,7 @@ function emdb_register_block_patterns() {
 
     $block_patterns = array(
         'header-default',
+        'footer-default',
         'front-page-tagline',
         'posts-grid',
         'posts-grid-search',

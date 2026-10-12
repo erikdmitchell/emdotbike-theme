@@ -1,5 +1,13 @@
 # EMdotBike Theme Changelog
 
+## [0.4.5](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.4...0.4.5) (2026-10-12)
+
+
+### Bug Fixes
+
+* add post header and comments list to single template ([2c363fa](https://github.com/erikdmitchell/emdotbike-theme/commit/2c363fa0db1a697133d34985bb6c7ddf917f65ca))
+* add post header and comments list to single template ([dc1d0aa](https://github.com/erikdmitchell/emdotbike-theme/commit/dc1d0aa42fee0e46e6ce85c0bbd3a553bd6d98d8))
+
 ## [0.4.4](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.3...0.4.4) (2026-10-12)
 
 

@@ -14,14 +14,14 @@ class Renderer {
     /**
      * Block attributes, merged with defaults.
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $attributes;
 
     /**
      * Constructor.
      *
-     * @param array $attributes Block attributes.
+     * @param array<string, mixed> $attributes Block attributes.
      */
     public function __construct( $attributes = array() ) {
         $this->attributes = wp_parse_args(

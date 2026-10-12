@@ -18,10 +18,10 @@ npm run lint:js        # eslint on src/ (add -- --fix to auto-fix)
 npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); has ~160 known findings
 
 composer phpcs         # WPCS 3 + PHPCompatibilityWP via phpcs.ruleset.xml (phpcbf to auto-fix); runs clean
-composer phpstan       # phpstan 2, level 6, ACF via php-stubs/acf-pro-stubs; ~33 known errors
+composer phpstan       # phpstan 2, level 6, ACF via php-stubs/acf-pro-stubs; runs clean
 ```
 
-There are no tests. Both PHP linters skip `vendor/`, `build/`, and the vendored `inc/acf-post-type-selector/`. phpstan and stylelint have existing findings, so compare their counts before and after a change rather than expecting a clean run.
+There are no tests. Both PHP linters skip `vendor/`, `build/`, and the vendored `inc/acf-post-type-selector/`. stylelint has existing findings, so compare its count before and after a change rather than expecting a clean run.
 
 ## Build layout
 

@@ -28,7 +28,7 @@
                 </header><!-- .entry-header -->
                 
                 <div class="entry-excerpt">
-                    <div class="excerpt"><?php emdotbike_post_excerpt( $post, 55, '', ' <a href="' . get_permalink() . '">read more...</a>' ); ?></div>
+                    <div class="excerpt"><?php emdotbike_post_excerpt( get_the_ID(), 55, '', ' <a href="' . get_permalink() . '">read more...</a>' ); ?></div>
                 </div>
             </article>
         <?php endwhile; ?>

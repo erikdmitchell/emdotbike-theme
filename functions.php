@@ -64,6 +64,7 @@ if ( ! isset( $content_width ) ) {
  * as indicating support for post thumbnails.
  *
  * @since emdotbike 0.1.0
+ * @return void
  */
 function emdotbike_theme_setup() {
     /**
@@ -110,6 +111,7 @@ add_action( 'after_setup_theme', 'emdotbike_theme_setup' );
  * Register widget area.
  *
  * @since emdotbike 0.1.0
+ * @return void
  */
 function emdotbike_theme_widgets_init() {
     register_sidebar(
@@ -146,6 +148,7 @@ add_action( 'widgets_init', 'emdotbike_theme_widgets_init' );
  * Enqueue scripts and styles.
  *
  * @since emdotbike 0.1.0
+ * @return void
  */
 function emdotbike_theme_scripts() {
     wp_enqueue_script( 'emdotbike-theme-script', get_template_directory_uri() . '/assets/js/emdotbike.js', array( 'jquery' ), EMDOTBIKE_VERSION, true );
@@ -155,7 +158,7 @@ function emdotbike_theme_scripts() {
     endif;
 
     wp_enqueue_style( 'dashicons' );
-    wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), '', EMDOTBIKE_VERSION );
+    wp_enqueue_style( 'emdotbike-theme-style', get_stylesheet_uri(), array(), EMDOTBIKE_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
 
@@ -171,7 +174,9 @@ add_action( 'wp_enqueue_scripts', 'emdotbike_theme_scripts' );
 function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
     global $post;
 
-    $html = null;
+    $html          = null;
+    $thumb_src_url = '';
+    $thumb_meta    = array();
 
     if ( post_password_required() ) {
         return;
@@ -181,6 +186,7 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
         $thumb_id      = get_post_thumbnail_id( $post->ID );
         $thumb_src_url = wp_get_attachment_image_url( $thumb_id, $size );
         $thumb_meta    = wp_get_attachment_metadata( $thumb_id );
+        $thumb_meta    = is_array( $thumb_meta ) ? $thumb_meta : array();
         $thumb_base    = '<img src="' . $thumb_src_url . '" class="img-responsive" />';
         $thumb         = wp_image_add_srcset_and_sizes( $thumb_base, $thumb_meta, $thumb_id );
     } else {
@@ -189,10 +195,13 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
 
     // for parallax images.
     if ( $parallax ) {
-        $attr  = array(
-            'height' => $thumb_meta['sizes'][ $size ]['height'] . 'px',
-        );
-        $thumb = emdotbike_get_parallax_image( $thumb_url, $attr );
+        $attr = array();
+
+        if ( isset( $thumb_meta['sizes'][ $size ]['height'] ) ) {
+            $attr['height'] = $thumb_meta['sizes'][ $size ]['height'] . 'px';
+        }
+
+        $thumb = emdotbike_get_parallax_image( (string) $thumb_src_url, $attr );
     }
 
     if ( is_singular() ) :
@@ -216,11 +225,11 @@ function emdotbike_theme_post_thumbnail( $size = 'full', $parallax = false ) {
  * @access public
  * @param string $image_url (default: '').
  * @param array  $styles (default: array()).
- * @return image div
+ * @return string
  */
 function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
     if ( empty( $image_url ) ) {
-        return;
+        return '';
     }
 
     $default_styles = array(
@@ -243,9 +252,9 @@ function emdotbike_get_parallax_image( $image_url = '', $styles = array() ) {
  * Custom post thumbnail.
  *
  * @access public
- * @param string $post (default: '').
- * @param string $size (default: 'full').
- * @param bool   $link (default: true).
+ * @param WP_Post|int|string $post (default: '').
+ * @param string             $size (default: 'full').
+ * @param bool               $link (default: true).
  * @return void
  */
 function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
@@ -256,17 +265,19 @@ function emdotbike_theme_post_thumbnail_custom( $post = '', $size = 'full', $lin
  * Get custom post thumbnail.
  *
  * @access public
- * @param string $post (default: '').
- * @param string $size (default: 'full').
- * @param bool   $link (default: true).
- * @return image
+ * @param WP_Post|int|string $post (default: '').
+ * @param string             $size (default: 'full').
+ * @param bool               $link (default: true).
+ * @return string
  */
 function emdotbike_theme_get_post_thumbnail_custom( $post = '', $size = 'full', $link = true ) {
     if ( is_int( $post ) ) {
         // get the post object of the passed ID.
         $post = get_post( $post );
-    } elseif ( ! is_object( $post ) ) {
-        return false;
+    }
+
+    if ( ! $post instanceof WP_Post ) {
+        return '';
     }
 
     $html = null;
@@ -278,7 +289,7 @@ function emdotbike_theme_get_post_thumbnail_custom( $post = '', $size = 'full', 
     $image      = wp_image_add_srcset_and_sizes( $image_base, $image_meta, $image_id );
 
     if ( post_password_required( $post ) || ! has_post_thumbnail( $post ) ) {
-        return;
+        return '';
     }
 
     if ( $link ) :
@@ -302,7 +313,7 @@ function emdotbike_theme_get_post_thumbnail_custom( $post = '', $size = 'full', 
  * @access public
  * @param int    $post_id (default: 0).
  * @param string $classes (default: 'img-responsive').
- * @return image
+ * @return string
  */
 function emdotbike_get_post_thumbnail( $post_id = 0, $classes = 'img-responsive' ) {
     $image_id   = get_post_thumbnail_id( $post_id );
@@ -330,7 +341,7 @@ function emdotbike_theme_posted_on() {
         echo wp_kses_post( '<div class="entry-date"><a href="' . get_permalink() . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '">' . get_the_date() . '</time></a></div>' );
     endif;
 
-    echo wp_kses_post( '<div class="byline"><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author">By ' . get_the_author() . '</a></div></span>' );
+    echo wp_kses_post( '<div class="byline"><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( (int) get_the_author_meta( 'ID' ) ) . '" rel="author">By ' . get_the_author() . '</a></div></span>' );
 }
 
 /**
@@ -426,7 +437,7 @@ function emdotbike_theme_post_nav() {
  * A custom function to display a meta description for our site pages
  *
  * @access public
- * @return string/bool
+ * @return string
  */
 function display_meta_description() {
     global $post;
@@ -442,8 +453,6 @@ function display_meta_description() {
     } else {
         return $title . ' - ' . get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' );
     }
-
-    return false;
 }
 
 /**
@@ -514,8 +523,8 @@ function emdotbike_wp_parse_args( &$a, $b ) {
  * Get terms list.
  *
  * @access public
- * @param bool $term (default: false).
- * @return string/bool
+ * @param string|false $term Taxonomy name (default: false).
+ * @return string|false
  */
 function get_terms_list( $term = false ) {
     if ( ! $term ) {
@@ -531,7 +540,7 @@ function get_terms_list( $term = false ) {
     $terms = get_terms( $args );
     $html  = null;
 
-    if ( ! count( $terms ) ) {
+    if ( ! is_array( $terms ) || ! count( $terms ) ) {
         return false;
     }
 
@@ -565,8 +574,10 @@ function emdotbike_get_post_excerpt_by_id( $post, $length = 10, $tags = '<a><em>
     if ( is_int( $post ) ) {
         // get the post object of the passed ID.
         $post = get_post( $post );
-    } elseif ( ! is_object( $post ) ) {
-        return false;
+    }
+
+    if ( ! $post instanceof WP_Post ) {
+        return '';
     }
 
     if ( has_excerpt( $post->ID ) ) {
@@ -666,9 +677,9 @@ function emdotbike_post_categories( $spacer = ' ', $excl = '' ) {
         foreach ( $categories as $cat ) :
             $html = '';
 
-            if ( ! in_array( (string) $cat->cat_ID, $exclude, true ) ) {
-                $html .= '<a href="' . get_category_link( $cat->cat_ID ) . '" ';
-                $html .= 'title="' . $cat->cat_name . '">' . $cat->cat_name . '</a>';
+            if ( ! in_array( (string) $cat->term_id, $exclude, true ) ) {
+                $html .= '<a href="' . get_category_link( $cat->term_id ) . '" ';
+                $html .= 'title="' . $cat->name . '">' . $cat->name . '</a>';
 
                 if ( $thecount > 0 ) {
                     $html .= $spacer;
@@ -697,7 +708,7 @@ add_action( 'login_enqueue_scripts', 'emdotbike_login_scripts_styles' );
  * Login header URL.
  *
  * @access public
- * @return url
+ * @return string
  */
 function emdotbike_login_headerurl() {
     return home_url();

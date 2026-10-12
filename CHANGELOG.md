@@ -1,5 +1,13 @@
 # EMdotBike Theme Changelog
 
+## [0.4.4](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.3...0.4.4) (2026-10-12)
+
+
+### Bug Fixes
+
+* version theme stylesheet by theme version ([bc5c620](https://github.com/erikdmitchell/emdotbike-theme/commit/bc5c620f2829914e803518d9dc12af3d95916fca))
+* version theme stylesheet by theme version ([389a329](https://github.com/erikdmitchell/emdotbike-theme/commit/389a3295da0c6344d38f1693f968ca62d5a82b6b))
+
 ## [0.4.3](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.2...0.4.3) (2026-10-12)
 
 

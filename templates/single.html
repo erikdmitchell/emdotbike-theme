@@ -1,26 +1,67 @@
-
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
 <!-- wp:group {"tagName":"main"} -->
 <main class="wp-block-group">
+    <!-- wp:group {"tagName":"header","align":"full","className":"emdb-post-header"} -->
+    <header class="wp-block-group alignfull emdb-post-header">
+        <!-- wp:group {"className":"emdb-post-header-content"} -->
+        <div class="wp-block-group emdb-post-header-content">
+            <!-- wp:post-title {"level":1} /-->
+
+            <!-- wp:group {"className":"emdb-post-header-meta"} -->
+            <div class="wp-block-group emdb-post-header-meta">
+                <!-- wp:post-date /-->
+                <!-- wp:post-author-name {"isLink":true} /-->
+            </div>
+            <!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- wp:post-featured-image {"sizeSlug":"single","className":"emdb-post-header-image"} /-->
+    </header>
+    <!-- /wp:group -->
+
     <!-- wp:post-content {"layout":{"inherit":true}} /-->
 
 	<!-- wp:group {"layout":{"inherit":true}} -->
 	<div class="wp-block-group post-meta">
         <div class="tags-list alignfull">
             <div class="tags-title">Tags</div>
-            <div class="tag-links"><!-- wp:post-terms {"term":"category","separator":""} /--></div>
+            <div class="tag-links"><!-- wp:post-terms {"term":"post_tag","separator":""} /--></div>
         </div>
         <div class="categories-list alignfull">
             <div class="categories-title">Categories</div>
-            <div class="categories-link"><!-- wp:post-terms {"term":"post_tag","textAlign":"left","separator":""} /--></div>
+            <div class="categories-link"><!-- wp:post-terms {"term":"category","textAlign":"left","separator":""} /--></div>
         </div>
 	</div>
-    <!-- /wp:group -->    
+    <!-- /wp:group -->
 
-    <!-- wp:acf/post-nav {"id":"block_62b463ad3f6cf","name":"acf/post-nav","data":{"field_62b4637d017a2":""},"align":"","mode":"preview"} /-->   
+    <!-- wp:acf/post-nav {"id":"block_62b463ad3f6cf","name":"acf/post-nav","data":{"field_62b4637d017a2":""},"align":"","mode":"preview"} /-->
 
-    <!-- wp:post-comments-form {"className":"emdb-layout-wrap"} /-->
+    <!-- wp:comments {"className":"emdb-layout-wrap"} -->
+    <div class="wp-block-comments emdb-layout-wrap">
+        <!-- wp:comments-title /-->
+
+        <!-- wp:comment-template -->
+            <!-- wp:group {"className":"emdb-comment"} -->
+            <div class="wp-block-group emdb-comment">
+                <!-- wp:comment-author-name /-->
+                <!-- wp:comment-date /-->
+                <!-- wp:comment-content /-->
+                <!-- wp:comment-reply-link /-->
+            </div>
+            <!-- /wp:group -->
+        <!-- /wp:comment-template -->
+
+        <!-- wp:comments-pagination -->
+            <!-- wp:comments-pagination-previous /-->
+            <!-- wp:comments-pagination-numbers /-->
+            <!-- wp:comments-pagination-next /-->
+        <!-- /wp:comments-pagination -->
+
+        <!-- wp:post-comments-form /-->
+    </div>
+    <!-- /wp:comments -->
 </main>
 <!-- /wp:group -->
 

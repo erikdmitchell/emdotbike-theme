@@ -1,5 +1,12 @@
 # EMdotBike Theme Changelog
 
+## [0.4.3](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.2...0.4.3) (2026-10-12)
+
+
+### Bug Fixes
+
+* resolve all phpcs errors ([c566c16](https://github.com/erikdmitchell/emdotbike-theme/commit/c566c166a1276b87fef68c4d81f3038f0d9f0249))
+
 ## [0.4.2](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.1...0.4.2) (2026-10-12)
 
 

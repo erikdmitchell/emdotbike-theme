@@ -1,5 +1,12 @@
 # EMdotBike Theme Changelog
 
+## [0.5.2](https://github.com/erikdmitchell/emdotbike-theme/compare/0.5.1...0.5.2) (2026-10-12)
+
+
+### Bug Fixes
+
+* polish — dead CSS, mobile home grid, stylelint ([a70c929](https://github.com/erikdmitchell/emdotbike-theme/commit/a70c929d92910b82682db5811354a369ec1551df))
+
 ## [0.5.1](https://github.com/erikdmitchell/emdotbike-theme/compare/0.5.0...0.5.1) (2026-10-12)
 
 

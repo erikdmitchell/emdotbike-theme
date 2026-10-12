@@ -1,5 +1,13 @@
 # EMdotBike Theme Changelog
 
+## [0.5.1](https://github.com/erikdmitchell/emdotbike-theme/compare/0.5.0...0.5.1) (2026-10-12)
+
+
+### Bug Fixes
+
+* rebuild header and footer as blocks; make the menu button work ([9ac6b83](https://github.com/erikdmitchell/emdotbike-theme/commit/9ac6b839d6b4f92e0bf43b89ac772c84e5e36069))
+* rebuild header and footer as blocks; make the menu button work ([6acaa4f](https://github.com/erikdmitchell/emdotbike-theme/commit/6acaa4fe09855c1fe7a20ef74e2029e19f09f005))
+
 ## [0.5.0](https://github.com/erikdmitchell/emdotbike-theme/compare/0.4.5...0.5.0) (2026-10-12)
 
 

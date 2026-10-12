@@ -12,13 +12,13 @@ The WordPress block theme for ErikMitchell.bike (text domain `emdotbike`, functi
 npm start              # wp-scripts watch build (unminified, with source maps)
 npm run build          # wp-scripts production build (minified); commit this output, not npm start's
 npm run lint:js        # eslint on src/ (add -- --fix to auto-fix)
-npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); has ~160 known findings
+npm run lint:scss      # stylelint src/sass (lint:scss:fix to auto-fix); runs clean
 
 composer phpcs         # WPCS 3 + PHPCompatibilityWP via phpcs.ruleset.xml (phpcbf to auto-fix); runs clean
 composer phpstan       # phpstan 2, level 6; runs clean
 ```
 
-There are no tests. Both PHP linters skip `vendor/` and `build/` and should stay clean. stylelint has existing findings, so compare its count before and after a change rather than expecting a clean run.
+There are no tests. All four linters (phpcs, phpstan, ESLint, stylelint) run clean; keep them that way. `.stylelintrc.json` deliberately allows `/* */` comments (`npm run fix:scss-comments` converts `//` to them), `@use … as *`, `$color__…` variable names and WordPress's own BEM classes and `--wp--preset--…` properties.
 
 ## Build layout
 

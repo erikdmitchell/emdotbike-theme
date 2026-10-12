@@ -5,6 +5,9 @@
  * @package EMdotBike
  */
 
+$posts_page_id = (int) get_option( 'page_for_posts' );
+$blog_url      = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/' );
+
 return array(
     'title'      => __( 'Default header', 'emdotbike' ),
     'categories' => array( 'header' ),
@@ -32,7 +35,7 @@ return array(
                         <!-- /wp:group -->
                         
                         <!-- wp:paragraph -->
-                        <p><a href="http://bike.test/blog/" data-type="page" data-id="703">More Articles</a></p>
+                        <p><a href="' . esc_url( $blog_url ) . '">More Articles</a></p>
                         <!-- /wp:paragraph --></div>
                         <!-- /wp:column -->
                         

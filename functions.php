@@ -902,3 +902,5 @@ function emdb_has_header_block() {
 
     return false;
 }
+
+require get_template_directory() . '/inc/block-patterns.php';
